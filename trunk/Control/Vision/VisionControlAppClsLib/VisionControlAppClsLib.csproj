@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{711B610C-1195-4191-B240-E28A39F27A42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisionControlAppClsLib</RootNamespace>
+    <AssemblyName>VisionControlAppClsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="VisionControlclass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VisualControlApplications.cs" />
+    <Compile Include="VisualControlManager.cs" />
+    <Compile Include="VisualModuleClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Algorithm\Vision\VisionClsLib\VisionClsLib.csproj">
+      <Project>{13D295AA-B633-4622-8B1A-D5FC2D1523B3}</Project>
+      <Name>VisionClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{6CBE338A-1ABB-4397-BBA8-BC8477B1A21D}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{B0F0BD56-7EFF-414B-9D41-F4E7ACA2A8B2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\GUI\CommonPanelClsLib\CommonPanelClsLib.csproj">
+      <Project>{377C6C14-F0D1-4B37-AC89-1D3716369B00}</Project>
+      <Name>CommonPanelClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
+      <Project>{ee038ed1-7a96-4075-a51c-ea53a4d026df}</Project>
+      <Name>CameraControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\Camera\CameraControllerWrapperClsLib\CameraControllerWrapperClsLib.csproj">
+      <Project>{5B31A97B-763D-421B-8BAA-84A5EBD020A0}</Project>
+      <Name>CameraControllerWrapperClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\LightSource\LightControllerClsLib\LightControllerClsLib.csproj">
+      <Project>{232C07DB-1D49-46DC-8824-9ACCF2DC4A44}</Project>
+      <Name>LightControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\LightSource\LightControllerManagerClsLib\LightControllerManagerClsLib.csproj">
+      <Project>{7C3A5CFD-D90A-4317-A596-12261EAF2D10}</Project>
+      <Name>LightControllerManagerClsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

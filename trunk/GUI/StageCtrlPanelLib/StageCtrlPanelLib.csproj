@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0D61C4F-2BBC-4AF2-BC39-A79AD118758D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StageCtrlPanelLib</RootNamespace>
+    <AssemblyName>StageCtrlPanelLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Utils.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraEditors.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WestDragon.Framework.BaseLoggerClsLib">
+      <HintPath>..\..\Assembly\log\WestDragon.Framework.BaseLoggerClsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.UtilityHelper">
+      <HintPath>..\..\Assembly\Framework\WestDragon.Framework.UtilityHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmStageAxisMoveControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStageAxisMoveControl.Designer.cs">
+      <DependentUpon>FrmStageAxisMoveControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStageMaintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStageMaintain.Designer.cs">
+      <DependentUpon>FrmStageMaintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStageControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStageControl.Designer.cs">
+      <DependentUpon>FrmStageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StageAxisMoveControlPanelSimple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StageAxisMoveControlPanelSimple.Designer.cs">
+      <DependentUpon>StageAxisMoveControlPanelSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StageAxisMoveControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StageAxisMoveControlPanel.Designer.cs">
+      <DependentUpon>StageAxisMoveControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StageAxisParameterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StageAxisParameterPanel.Designer.cs">
+      <DependentUpon>StageAxisParameterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StageQuickMove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StageQuickMove.designer.cs">
+      <DependentUpon>StageQuickMove.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmStageAxisMoveControl.resx">
+      <DependentUpon>FrmStageAxisMoveControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStageMaintain.resx">
+      <DependentUpon>FrmStageMaintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStageControl.resx">
+      <DependentUpon>FrmStageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="StageAxisMoveControlPanelSimple.resx">
+      <DependentUpon>StageAxisMoveControlPanelSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageAxisMoveControlPanel.resx">
+      <DependentUpon>StageAxisMoveControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageAxisParameterPanel.resx">
+      <DependentUpon>StageAxisParameterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageQuickMove.resx">
+      <DependentUpon>StageQuickMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Control\Position\PositioningSystemClsLib\PositioningSystemClsLib.csproj">
+      <Project>{b80d9f07-da4d-437f-90f1-67722b0883fa}</Project>
+      <Name>PositioningSystemClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Process\JobClsLib\JobClsLib.csproj">
+      <Project>{51aff9bf-777e-4f50-8406-c4c334f3710f}</Project>
+      <Name>JobClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{6cbe338a-1abb-4397-bba8-bc8477b1a21d}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalToolClsLib\GlobalToolClsLib.csproj">
+      <Project>{a22451fa-03c2-45c7-b2ea-39e9c9792925}</Project>
+      <Name>GlobalToolClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\Stage\IStageControllerClsLib\StageControllerClsLib.csproj">
+      <Project>{1653a6d9-6ae3-4d6c-9a40-2b1b6730edb8}</Project>
+      <Name>StageControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\Stage\StageManagerClsLib\StageManagerClsLib.csproj">
+      <Project>{8f2593f4-ddd8-4790-8182-2ede2a7e21bd}</Project>
+      <Name>StageManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonPanelClsLib\CommonPanelClsLib.csproj">
+      <Project>{377c6c14-f0d1-4b37-ac89-1d3716369b00}</Project>
+      <Name>CommonPanelClsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ResumeStop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopcard %282%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

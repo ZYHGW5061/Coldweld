@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A415076-754D-4525-B9B6-808AF1B3E6FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisionGUI</RootNamespace>
+    <AssemblyName>VisionGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonPanelClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Pdf.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Pdf.v21.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Printing.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Sparkline.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.Utils.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\DevExpress.XtraEditors.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalToolClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="PositioningSystemClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WestDragon.Framework.BaseLoggerClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="WestDragon.Framework.UtilityHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\Framework\WestDragon.Framework.UtilityHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CameraParamBox.cs" />
+    <Compile Include="CameraParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CameraParamForm.Designer.cs">
+      <DependentUpon>CameraParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CameraWindowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CameraWindowForm.designer.cs">
+      <DependentUpon>CameraWindowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VisualCircleFindControlGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualCircleFindControlGUI.Designer.cs">
+      <DependentUpon>VisualCircleFindControlGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualControlForm.designer.cs">
+      <DependentUpon>VisualControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualControlGuiManger.cs" />
+    <Compile Include="VisualLineFindControlGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualLineFindControlGUI.designer.cs">
+      <DependentUpon>VisualLineFindControlGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualMatchControlGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisualMatchControlGUI.designer.cs">
+      <DependentUpon>VisualMatchControlGUI.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CameraParamForm.resx">
+      <DependentUpon>CameraParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CameraWindowForm.resx">
+      <DependentUpon>CameraWindowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualCircleFindControlGUI.resx">
+      <DependentUpon>VisualCircleFindControlGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualControlForm.resx">
+      <DependentUpon>VisualControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualLineFindControlGUI.resx">
+      <DependentUpon>VisualLineFindControlGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualMatchControlGUI.resx">
+      <DependentUpon>VisualMatchControlGUI.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Algorithm\Vision\VisionClsLib\VisionClsLib.csproj">
+      <Project>{13D295AA-B633-4622-8B1A-D5FC2D1523B3}</Project>
+      <Name>VisionClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Vision\VisionControlAppClsLib\VisionControlAppClsLib.csproj">
+      <Project>{711b610c-1195-4191-b240-e28a39f27a42}</Project>
+      <Name>VisionControlAppClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{6CBE338A-1ABB-4397-BBA8-BC8477B1A21D}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{B0F0BD56-7EFF-414B-9D41-F4E7ACA2A8B2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
+      <Project>{EE038ED1-7A96-4075-A51C-EA53A4D026DF}</Project>
+      <Name>CameraControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\LightSource\LightControllerManagerClsLib\LightControllerManagerClsLib.csproj">
+      <Project>{7C3A5CFD-D90A-4317-A596-12261EAF2D10}</Project>
+      <Name>LightControllerManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StageCtrlPanelLib\StageCtrlPanelLib.csproj">
+      <Project>{f0d61c4f-2bbc-4af2-bc39-a79ad118758d}</Project>
+      <Name>StageCtrlPanelLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

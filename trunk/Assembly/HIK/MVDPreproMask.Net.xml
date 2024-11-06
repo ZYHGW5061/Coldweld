@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDPreproMask.Net</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.PreproMask.CPreproMaskTool">
+            <summary>
+            掩膜算子
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.PreproMask.CPreproMaskTool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.PreproMask.CPreproMaskTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.PreproMask.CPreproMaskTool.Run">
+            <summary>
+            Runs the tool using the current parameter settings.
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.PreproMask.CPreproMaskTool.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.PreproMask.CPreproMaskTool.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.PreproMask.CPreproMaskTool.MaskImage">
+            <summary>
+            掩膜图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.PreproMask.CPreproMaskTool.RegionList">
+            <summary>
+            RegionList
+            </summary>
+            <remarks>T1, 图形信息;T2, 是否感兴趣区域</remarks>
+            <remarks>图形仅支持矩形(支持带角度),扇环,圆,多边形</remarks>
+        </member>
+        <member name="P:VisionDesigner.PreproMask.CPreproMaskTool.OutputImage">
+            <summary>
+            输出图像
+            </summary>
+        </member>
+    </members>
+</doc>

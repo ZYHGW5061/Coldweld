@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{233912CB-6628-496B-A996-82A242556D8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlPanelClsLib</RootNamespace>
+    <AssemblyName>ControlPanelClsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CameraControllerClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Charts.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.Utils.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraBars.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraCharts.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v21.2.UI, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraCharts.v21.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraEditors.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraGrid.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraLayout.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 21.2\Components\Bin\Framework\DevExpress.XtraTreeList.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="GWVision.HardwareManagerClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="LightControllerClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="LightSourceCtrlPanelLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\LightSourceCtrlPanelLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VisionClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="VisionControlAppClsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="VisionGUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Output\VisionGUI.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.BaseLoggerClsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\log\WestDragon.Framework.BaseLoggerClsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.Log4netLoggerClsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\log\WestDragon.Framework.Log4netLoggerClsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.LoggerManagerClsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\log\WestDragon.Framework.LoggerManagerClsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.UserOperationLogClsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\log\WestDragon.Framework.UserOperationLogClsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WestDragon.Framework.UtilityHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\Framework\WestDragon.Framework.UtilityHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Manual\FrmIOtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual\FrmIOtest.Designer.cs">
+      <DependentUpon>FrmIOtest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manual\FrmOvenBoxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual\FrmOvenBoxControl.Designer.cs">
+      <DependentUpon>FrmOvenBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manual\FrmTurboMolecularPumpControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual\FrmTurboMolecularPumpControl.Designer.cs">
+      <DependentUpon>FrmTurboMolecularPumpControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manual\FrmVacuumControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual\FrmVacuumControl.Designer.cs">
+      <DependentUpon>FrmVacuumControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manual\OvenBoxControlPanel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manual\OvenBoxControlPanel2.Designer.cs">
+      <DependentUpon>OvenBoxControlPanel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\AddNewRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\AddNewRecipeForm.Designer.cs">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\CopyHeatRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\CopyHeatRecipeForm.designer.cs">
+      <DependentUpon>CopyHeatRecipeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\CopyTransportRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\CopyTransportRecipeForm.designer.cs">
+      <DependentUpon>CopyTransportRecipeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmCreateMaterialMatrixEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmCreateMaterialMatrixEditor.Designer.cs">
+      <DependentUpon>FrmCreateMaterialMatrixEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmEditHeatRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmEditHeatRecipe.designer.cs">
+      <DependentUpon>FrmEditHeatRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmEditTransportRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmEditTransportRecipe.designer.cs">
+      <DependentUpon>FrmEditTransportRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmHeatRecipeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmHeatRecipeSelect.designer.cs">
+      <DependentUpon>FrmHeatRecipeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmMaterialBoxRecipeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmMaterialBoxRecipeEditor.designer.cs">
+      <DependentUpon>FrmMaterialBoxRecipeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmMaterialRecipeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmMaterialRecipeEditor.designer.cs">
+      <DependentUpon>FrmMaterialRecipeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe\FrmRecipeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmRecipeSelect.designer.cs">
+      <DependentUpon>FrmRecipeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manual\FrmTemperatureControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual\FrmTemperatureControlPanel.Designer.cs">
+      <DependentUpon>FrmTemperatureControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Algorithm\MathHelperClsLib\MathHelperClsLib.csproj">
+      <Project>{561e693a-7cab-4fb2-aec1-f4aea753d37f}</Project>
+      <Name>MathHelperClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Calibration\SystemCalibrationClsLib\SystemCalibrationClsLib.csproj">
+      <Project>{8A97DB83-A47B-4BD8-A22D-7D9CD3A2273B}</Project>
+      <Name>SystemCalibrationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Position\PositioningSystemClsLib\PositioningSystemClsLib.csproj">
+      <Project>{b80d9f07-da4d-437f-90f1-67722b0883fa}</Project>
+      <Name>PositioningSystemClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Power\PowerClsLib\PowerClsLib.csproj">
+      <Project>{16700d44-fa4d-4277-944c-e1a8962de346}</Project>
+      <Name>PowerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Process\JobClsLib\JobClsLib.csproj">
+      <Project>{51aff9bf-777e-4f50-8406-c4c334f3710f}</Project>
+      <Name>JobClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Process\RecipeClsLib\RecipeClsLib.csproj">
+      <Project>{633b7024-d607-496e-9800-84284c801d06}</Project>
+      <Name>RecipeClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Control\Process\TechnologicalClsLib\TechnologicalClsLib.csproj">
+      <Project>{ADF9B943-8025-4DB7-B99A-9AF12DC33997}</Project>
+      <Name>TechnologicalClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{6cbe338a-1abb-4397-bba8-bc8477b1a21d}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalToolClsLib\GlobalToolClsLib.csproj">
+      <Project>{a22451fa-03c2-45c7-b2ea-39e9c9792925}</Project>
+      <Name>GlobalToolClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\BoardCard\BoardCardControllerClsLib\BoardCardControllerClsLib.csproj">
+      <Project>{BEC297A8-3688-414C-92DE-60B7E3355E4A}</Project>
+      <Name>BoardCardControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\HardwareManagerClsLib\HardwareManagerClsLib.csproj">
+      <Project>{1a0094c5-5e09-4867-8757-62f308de62ac}</Project>
+      <Name>HardwareManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\IO\IOUtilityClsLib\IOUtilityClsLib.csproj">
+      <Project>{da64843c-df4e-45fd-940b-23aff39fc8e3}</Project>
+      <Name>IOUtilityClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\LaserSensor\LaserSensorControllerClsLib\LaserSensorControllerClsLib.csproj">
+      <Project>{ca11f95c-d9f8-4ba1-8971-2c0251d689ed}</Project>
+      <Name>LaserSensorControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\Stage\IStageControllerClsLib\StageControllerClsLib.csproj">
+      <Project>{1653a6d9-6ae3-4d6c-9a40-2b1b6730edb8}</Project>
+      <Name>StageControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\Stage\StageManagerClsLib\StageManagerClsLib.csproj">
+      <Project>{8F2593F4-DDD8-4790-8182-2EDE2A7E21BD}</Project>
+      <Name>StageManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\TemperatureControlMeter\TemperatureControllerClsLib\TemperatureControllerClsLib.csproj">
+      <Project>{9B720372-F8F4-4E86-A815-0FCE39F1F8E9}</Project>
+      <Name>TemperatureControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\TurboMolecularPump\TurboMolecularPumpControllerClsLib\TurboMolecularPumpControllerClsLib.csproj">
+      <Project>{ED19FF2C-57C8-4B19-AE7D-7420F70EB059}</Project>
+      <Name>TurboMolecularPumpControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hardware\VacuumGauge\VacuumGaugeControllerClsLib\VacuumGaugeControllerClsLib.csproj">
+      <Project>{1C846ADA-5C80-4CAB-ACA4-DC3E48337344}</Project>
+      <Name>VacuumGaugeControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonPanelClsLib\CommonPanelClsLib.csproj">
+      <Project>{377c6c14-f0d1-4b37-ac89-1d3716369b00}</Project>
+      <Name>CommonPanelClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StageCtrlPanelLib\StageCtrlPanelLib.csproj">
+      <Project>{f0d61c4f-2bbc-4af2-bc39-a79ad118758d}</Project>
+      <Name>StageCtrlPanelLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Manual\FrmIOtest.resx">
+      <DependentUpon>FrmIOtest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual\FrmOvenBoxControl.resx">
+      <DependentUpon>FrmOvenBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual\FrmTurboMolecularPumpControl.resx">
+      <DependentUpon>FrmTurboMolecularPumpControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual\FrmVacuumControl.resx">
+      <DependentUpon>FrmVacuumControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual\OvenBoxControlPanel2.resx">
+      <DependentUpon>OvenBoxControlPanel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\AddNewRecipeForm.resx">
+      <DependentUpon>AddNewRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\CopyHeatRecipeForm.resx">
+      <DependentUpon>CopyHeatRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\CopyTransportRecipeForm.resx">
+      <DependentUpon>CopyTransportRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmCreateMaterialMatrixEditor.resx">
+      <DependentUpon>FrmCreateMaterialMatrixEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmEditHeatRecipe.resx">
+      <DependentUpon>FrmEditHeatRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmEditTransportRecipe.resx">
+      <DependentUpon>FrmEditTransportRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmHeatRecipeSelect.resx">
+      <DependentUpon>FrmHeatRecipeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmMaterialBoxRecipeEditor.resx">
+      <DependentUpon>FrmMaterialBoxRecipeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmMaterialRecipeEditor.resx">
+      <DependentUpon>FrmMaterialRecipeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmRecipeSelect.resx">
+      <DependentUpon>FrmRecipeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual\FrmTemperatureControlPanel.resx">
+      <DependentUpon>FrmTemperatureControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

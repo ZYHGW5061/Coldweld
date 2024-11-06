@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA64843C-DF4E-45FD-940B-23AFF39FC8E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IOUtilityClsLib</RootNamespace>
+    <AssemblyName>IOUtilityClsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WestDragon.Framework.BaseLoggerClsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\log\WestDragon.Framework.BaseLoggerClsLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IOUtilityHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{6CBE338A-1ABB-4397-BBA8-BC8477B1A21D}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Global\GlobalToolClsLib\GlobalToolClsLib.csproj">
+      <Project>{a22451fa-03c2-45c7-b2ea-39e9c9792925}</Project>
+      <Name>GlobalToolClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BoardCard\BoardCardControllerClsLib\BoardCardControllerClsLib.csproj">
+      <Project>{bec297a8-3688-414c-92de-60b7e3355e4a}</Project>
+      <Name>BoardCardControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DewPointMeter\DewPointMeterControllerClsLib\DewPointMeterControllerClsLib.csproj">
+      <Project>{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}</Project>
+      <Name>DewPointMeterControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TemperatureControlMeter\TemperatureControllerClsLib\TemperatureControllerClsLib.csproj">
+      <Project>{9B720372-F8F4-4E86-A815-0FCE39F1F8E9}</Project>
+      <Name>TemperatureControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TurboMolecularPump\TurboMolecularPumpControllerClsLib\TurboMolecularPumpControllerClsLib.csproj">
+      <Project>{ED19FF2C-57C8-4B19-AE7D-7420F70EB059}</Project>
+      <Name>TurboMolecularPumpControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VacuumGauge\VacuumGaugeControllerClsLib\VacuumGaugeControllerClsLib.csproj">
+      <Project>{1C846ADA-5C80-4CAB-ACA4-DC3E48337344}</Project>
+      <Name>VacuumGaugeControllerClsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A0094C5-5E09-4867-8757-62F308DE62AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GWVision.HardwareManagerClsLib</RootNamespace>
+    <AssemblyName>GWVision.HardwareManagerClsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HardwareManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{2c9db70d-ae7f-4908-b6e7-c00701b9b6bc}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BoardCard\BoardCardControllerClsLib\BoardCardControllerClsLib.csproj">
+      <Project>{bec297a8-3688-414c-92de-60b7e3355e4a}</Project>
+      <Name>BoardCardControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
+      <Project>{0bbd2b51-74d3-44e3-a73b-eb5b6c711cc7}</Project>
+      <Name>CameraControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DewPointMeter\DewPointMeterControllerClsLib\DewPointMeterControllerClsLib.csproj">
+      <Project>{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}</Project>
+      <Name>DewPointMeterControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dynamometer\DynamometerManagerClsLib\DynamometerManagerClsLib.csproj">
+      <Project>{7201f770-650a-45e8-93df-c7fbee592ce6}</Project>
+      <Name>DynamometerManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IO\IOUtilityClsLib\IOUtilityClsLib.csproj">
+      <Project>{DA64843C-DF4E-45FD-940B-23AFF39FC8E3}</Project>
+      <Name>IOUtilityClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JoyStick\IJoyStickControllerClsLib\IJoyStickControllerClsLib.csproj">
+      <Project>{9A902937-1C28-42CD-8B55-0701A2CB1393}</Project>
+      <Name>IJoyStickControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JoyStick\JoyStickControllerClsLib\JoyStickControllerClsLib.csproj">
+      <Project>{90b14aed-aa21-4a76-8571-0a27eaa64855}</Project>
+      <Name>JoyStickControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JoyStick\JoyStickManagerClsLib\JoyStickManagerClsLib.csproj">
+      <Project>{BD35BB0F-B77A-4AB9-97E4-ED9C47DEE470}</Project>
+      <Name>JoyStickManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserSensor\LaserSensorControllerClsLib\LaserSensorControllerClsLib.csproj">
+      <Project>{CA11F95C-D9F8-4BA1-8971-2C0251D689ED}</Project>
+      <Name>LaserSensorControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserSensor\LaserSensorManagerClsLib\LaserSensorManagerClsLib.csproj">
+      <Project>{1D36CD4F-2598-43E3-B268-BF7A0842416F}</Project>
+      <Name>LaserSensorManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightSource\LightControllerClsLib\LightControllerClsLib.csproj">
+      <Project>{232c07db-1d49-46dc-8824-9accf2dc4a44}</Project>
+      <Name>LightControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightSource\LightControllerManagerClsLib\LightControllerManagerClsLib.csproj">
+      <Project>{7c3a5cfd-d90a-4317-a596-12261eaf2d10}</Project>
+      <Name>LightControllerManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerController\PowerControllerManagerClsLib\PowerControllerManagerClsLib.csproj">
+      <Project>{2FB3C37E-6148-4456-A88D-63469D4FFC9A}</Project>
+      <Name>PowerControllerManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PressureSensor\PressureSensorControllerClsLib\PressureSensorControllerClsLib.csproj">
+      <Project>{622EB4EF-0C4A-4F4D-978A-7FA5981C3917}</Project>
+      <Name>PressureSensorControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stage\IStageControllerClsLib\StageControllerClsLib.csproj">
+      <Project>{1653a6d9-6ae3-4d6c-9a40-2b1b6730edb8}</Project>
+      <Name>StageControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stage\StageManagerClsLib\StageManagerClsLib.csproj">
+      <Project>{8f2593f4-ddd8-4790-8182-2ede2a7e21bd}</Project>
+      <Name>StageManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemperatureControlMeter\TemperatureControllerClsLib\TemperatureControllerClsLib.csproj">
+      <Project>{9B720372-F8F4-4E86-A815-0FCE39F1F8E9}</Project>
+      <Name>TemperatureControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TurboMolecularPump\TurboMolecularPumpControllerClsLib\TurboMolecularPumpControllerClsLib.csproj">
+      <Project>{ED19FF2C-57C8-4B19-AE7D-7420F70EB059}</Project>
+      <Name>TurboMolecularPumpControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VacuumGauge\VacuumGaugeControllerClsLib\VacuumGaugeControllerClsLib.csproj">
+      <Project>{1C846ADA-5C80-4CAB-ACA4-DC3E48337344}</Project>
+      <Name>VacuumGaugeControllerClsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

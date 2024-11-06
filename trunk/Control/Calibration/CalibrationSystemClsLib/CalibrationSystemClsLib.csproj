@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4700D3F-5D09-473C-BF6C-732848D12FF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CalibrationSystemClsLib</RootNamespace>
+    <AssemblyName>CalibrationSystemClsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Output\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BIRCH60X2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MVDContourPatMatch.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=b8a81e306fd608d0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Algo\MVDContourPatMatch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDCore.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=1325730a174c0650, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MVDCore.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDImage.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=ce2c144a3e6a9a93, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MVDImage.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDSDKLog.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=4900f093fd18c638, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MVDSDKLog.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDShape.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=a59215ef735587a6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MVDShape.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDXmlParse.NET, Version=4.2.1.4, Culture=neutral, PublicKeyToken=7806150e22c43124, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MVDXmlParse.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="MvRenderActiveX.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=da2fd3581884613a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\HIK\Common\MvRenderActiveX.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\ThirdParty\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WestDragon.Framework.UtilityHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assembly\Framework\WestDragon.Framework.UtilityHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calibration.cs" />
+    <Compile Include="CalibrationSystem.cs" />
+    <Compile Include="CustomAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
+      <Project>{2c9db70d-ae7f-4908-b6e7-c00701b9b6bc}</Project>
+      <Name>ConfigurationClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Global\GlobalDataDefineClsLib\GlobalDataDefineClsLib.csproj">
+      <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
+      <Name>GlobalDataDefineClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
+      <Project>{0bbd2b51-74d3-44e3-a73b-eb5b6c711cc7}</Project>
+      <Name>CameraControllerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\Camera\CameraControllerWrapperClsLib\CameraControllerWrapperClsLib.csproj">
+      <Project>{5b31a97b-763d-421b-8baa-84a5ebd020a0}</Project>
+      <Name>CameraControllerWrapperClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Hardware\HardwareManagerClsLib\HardwareManagerClsLib.csproj">
+      <Project>{1a0094c5-5e09-4867-8757-62f308de62ac}</Project>
+      <Name>HardwareManagerClsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Position\PositioningSystemClsLib\PositioningSystemClsLib.csproj">
+      <Project>{b80d9f07-da4d-437f-90f1-67722b0883fa}</Project>
+      <Name>PositioningSystemClsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\test.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
