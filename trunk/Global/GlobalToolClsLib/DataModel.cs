@@ -22,6 +22,14 @@ namespace GlobalToolClsLib
 
         #region 内部参数
 
+        private bool stageAxisIsconnect = false;
+        private bool stageIOIsconnect = false;
+        private bool cameraIsconnect = false;
+        private bool temperatureIsconnect = false;
+        private bool vacuumIsconnect = false;
+        private bool turboMolecularPumpIsconnect = false;
+
+
         private EnumOvenBoxState state = EnumOvenBoxState.None;
 
         private bool linkstatusofmodules = true;
@@ -259,6 +267,106 @@ namespace GlobalToolClsLib
 
 
         #region 全局参数
+
+
+        /// <summary>
+        /// 轴连接状态
+        /// </summary>
+        public bool StageAxisIsconnect
+        {
+            get { return stageAxisIsconnect; }
+            set
+            {
+                if (stageAxisIsconnect != value)
+                {
+                    stageAxisIsconnect = value;
+                    OnPropertyChanged(nameof(StageAxisIsconnect));
+                }
+            }
+        }
+        /// <summary>
+        /// 轴IO模块连接状态
+        /// </summary>
+        public bool StageIOIsconnect
+        {
+            get { return stageIOIsconnect; }
+            set
+            {
+                if (stageIOIsconnect != value)
+                {
+                    stageIOIsconnect = value;
+                    OnPropertyChanged(nameof(StageIOIsconnect));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 相机连接状态
+        /// </summary>
+        public bool CameraIsconnect
+        {
+            get { return cameraIsconnect; }
+            set
+            {
+                if (cameraIsconnect != value)
+                {
+                    cameraIsconnect = value;
+                    OnPropertyChanged(nameof(CameraIsconnect));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 温控表连接状态
+        /// </summary>
+        public bool TemperatureIsconnect
+        {
+            get { return temperatureIsconnect; }
+            set
+            {
+                if (temperatureIsconnect != value)
+                {
+                    temperatureIsconnect = value;
+                    OnPropertyChanged(nameof(TemperatureIsconnect));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 真空计连接状态
+        /// </summary>
+        public bool VacuumIsconnect
+        {
+            get { return vacuumIsconnect; }
+            set
+            {
+                if (vacuumIsconnect != value)
+                {
+                    vacuumIsconnect = value;
+                    OnPropertyChanged(nameof(VacuumIsconnect));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 分子泵连接状态
+        /// </summary>
+        public bool TurboMolecularPumpIsconnect
+        {
+            get { return turboMolecularPumpIsconnect; }
+            set
+            {
+                if (turboMolecularPumpIsconnect != value)
+                {
+                    turboMolecularPumpIsconnect = value;
+                    OnPropertyChanged(nameof(TurboMolecularPumpIsconnect));
+                }
+            }
+        }
+
+
+
+
 
         /// <summary>
         /// IO模块链接状态

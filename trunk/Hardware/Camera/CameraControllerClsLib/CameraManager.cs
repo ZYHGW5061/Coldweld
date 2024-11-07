@@ -51,6 +51,8 @@ namespace CameraControllerClsLib
             }
             return true;
         }
+
+
         public bool Shutdown()
         {
             foreach (var cam in AllCamera)

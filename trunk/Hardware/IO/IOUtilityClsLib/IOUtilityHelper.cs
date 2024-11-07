@@ -418,16 +418,26 @@ namespace IOUtilityClsLib
 
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).IsConnect)
                 {
-                    float Vacuum1 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).ReadVacuum();
-                    DataModel.Instance.BakeOvenVacuum = Vacuum1;
+                    float Vacuum1 = 0;
+                    bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).ReadVacuum(ref Vacuum1);
+                    if (ret)
+                    {
+                        DataModel.Instance.BakeOvenVacuum = Vacuum1;
+                    }
+                    
 
                     Thread.Sleep(50);
                 }
 
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).IsConnect)
                 {
-                    float Vacuum2 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).ReadVacuum();
-                    DataModel.Instance.BakeOven2Vacuum = Vacuum2;
+
+                    float Vacuum2 = 0;
+                    bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).ReadVacuum(ref Vacuum2);
+                    if (ret)
+                    {
+                        DataModel.Instance.BakeOven2Vacuum = Vacuum2;
+                    }
 
                     Thread.Sleep(50);
                 }
@@ -435,8 +445,12 @@ namespace IOUtilityClsLib
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).IsConnect)
                 {
 
-                    float Vacuum3 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum();
-                    DataModel.Instance.BoxVacuum = Vacuum3;
+                    float Vacuum3 = 0;
+                    bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum(ref Vacuum3);
+                    if (ret)
+                    {
+                        DataModel.Instance.BoxVacuum = Vacuum3;
+                    }
 
                     Thread.Sleep(50);
                 }

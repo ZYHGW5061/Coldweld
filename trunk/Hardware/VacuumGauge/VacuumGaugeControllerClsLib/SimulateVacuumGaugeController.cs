@@ -31,7 +31,7 @@ namespace VacuumGaugeControllerClsLib
             throw new NotImplementedException();
         }
 
-        public float ReadVacuum()
+        public bool ReadVacuum(ref float Vacuum)
         {
             throw new NotImplementedException();
         }

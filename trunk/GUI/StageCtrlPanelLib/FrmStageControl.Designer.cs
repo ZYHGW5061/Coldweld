@@ -34,26 +34,28 @@ namespace StageCtrlPanelLib
             // 
             // stageQuickMove1
             // 
-            this.stageQuickMove1.Location = new System.Drawing.Point(15, 11);
+            this.stageQuickMove1.Location = new System.Drawing.Point(20, 14);
+            this.stageQuickMove1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.stageQuickMove1.Name = "stageQuickMove1";
             this.stageQuickMove1.PositiveQucikMoveAct = null;
             this.stageQuickMove1.SelectedAxisSystem = GlobalDataDefineClsLib.EnumSystemAxis.XY;
             this.stageQuickMove1.SelectedStageSystem = GlobalDataDefineClsLib.EnumStageSystem.MaterialboxHook;
-            this.stageQuickMove1.Size = new System.Drawing.Size(269, 317);
+            this.stageQuickMove1.Size = new System.Drawing.Size(359, 396);
             this.stageQuickMove1.TabIndex = 0;
             // 
             // FrmStageControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 342);
+            this.ClientSize = new System.Drawing.Size(397, 428);
             this.Controls.Add(this.stageQuickMove1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStageControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Stage";
+            this.Text = "轴点动";
             this.ResumeLayout(false);
 
         }

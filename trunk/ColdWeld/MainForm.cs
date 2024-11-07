@@ -75,6 +75,8 @@ namespace BondTerminal
             get { return _VisualManager.GetCameraByID(EnumCameraType.WeldCamera); }
         }
 
+        public bool Isstop = false;
+
         #endregion
 
 
@@ -472,6 +474,21 @@ namespace BondTerminal
 
         private void toolSafeButton1_Click(object sender, EventArgs e)
         {
+            double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
+            double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
+
+            if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
+            {
+                if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
+                {
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             SystemCalibration.Instance.MaterialBoxHookReturnSafeLocation();
             SystemCalibration.Instance.MaterialHookReturnSafeLocation();
         }
@@ -518,6 +535,21 @@ namespace BondTerminal
         {
             try
             {
+                double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
+                double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
+
+                if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
+                {
+                    if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
                 _selectedHeatRecipeName = teTransportRecipeName.Text;
                 //验证Recipe是否完整
                 if (!TransportRecipe.Validate(_selectedHeatRecipeName, EnumRecipeType.Transport))
@@ -952,9 +984,25 @@ namespace BondTerminal
             SystemConfiguration.Instance.SaveConfig();
         }
 
+        
         private void btnAllAxisStop_Click(object sender, EventArgs e)
         {
-            _positionSystem.StopAll();
+            //_positionSystem.StopAll();
+            if(!Isstop)
+            {
+                _positionSystem.TriggerStop();
+                Isstop = true;
+                btnAllAxisStop.BackColor = Color.GreenYellow;
+                btnAllAxisStop.Text = "接触急停";
+            }
+            else
+            {
+                _positionSystem.ReleaseStop();
+                Isstop = false;
+                btnAllAxisStop.BackColor = Color.Red;
+                btnAllAxisStop.Text = "急停";
+            }
+
         }
 
         private void 分子泵控制ToolStripMenuItem_Click(object sender, EventArgs e)

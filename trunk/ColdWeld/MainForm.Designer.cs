@@ -38,21 +38,19 @@ namespace BondTerminal
             this.系统校准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动校准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动校准ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.测试按键ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iO测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OvenHeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.分子泵控制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.真空计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.运动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.箱体控制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolHomeButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolSafeButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnCameraControl = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnLightControl = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -74,8 +72,6 @@ namespace BondTerminal
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.teCurrentState = new System.Windows.Forms.TextBox();
             this.btnAllAxisStop = new System.Windows.Forms.Button();
-            this.分子泵控制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.真空计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -90,12 +86,11 @@ namespace BondTerminal
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编程ToolStripMenuItem,
-            this.系统ToolStripMenuItem,
-            this.工具ToolStripMenuItem});
+            this.系统ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 37);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,21 +100,21 @@ namespace BondTerminal
             this.HeatRecipeToolStripMenuItem,
             this.TransportRecipeToolStripMenuItem});
             this.编程ToolStripMenuItem.Name = "编程ToolStripMenuItem";
-            this.编程ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.编程ToolStripMenuItem.Size = new System.Drawing.Size(66, 31);
             this.编程ToolStripMenuItem.Text = "编程";
             // 
             // HeatRecipeToolStripMenuItem
             // 
             this.HeatRecipeToolStripMenuItem.Name = "HeatRecipeToolStripMenuItem";
-            this.HeatRecipeToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.HeatRecipeToolStripMenuItem.Size = new System.Drawing.Size(178, 32);
             this.HeatRecipeToolStripMenuItem.Text = "加热配方";
             this.HeatRecipeToolStripMenuItem.Click += new System.EventHandler(this.HeatRecipeToolStripMenuItem_Click);
             // 
             // TransportRecipeToolStripMenuItem
             // 
             this.TransportRecipeToolStripMenuItem.Name = "TransportRecipeToolStripMenuItem";
-            this.TransportRecipeToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.TransportRecipeToolStripMenuItem.Text = "传送配方";
+            this.TransportRecipeToolStripMenuItem.Size = new System.Drawing.Size(178, 32);
+            this.TransportRecipeToolStripMenuItem.Text = "生产配方";
             this.TransportRecipeToolStripMenuItem.Click += new System.EventHandler(this.TransportRecipeToolStripMenuItem_Click);
             // 
             // 系统ToolStripMenuItem
@@ -129,39 +124,31 @@ namespace BondTerminal
             this.iO测试ToolStripMenuItem,
             this.维护ToolStripMenuItem});
             this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
+            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(66, 31);
             this.系统ToolStripMenuItem.Text = "系统";
             // 
             // 系统校准ToolStripMenuItem
             // 
             this.系统校准ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.手动校准ToolStripMenuItem,
-            this.自动校准ToolStripMenuItem,
-            this.测试按键ToolStripMenuItem});
+            this.自动校准ToolStripMenuItem});
             this.系统校准ToolStripMenuItem.Name = "系统校准ToolStripMenuItem";
-            this.系统校准ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.系统校准ToolStripMenuItem.Size = new System.Drawing.Size(178, 32);
             this.系统校准ToolStripMenuItem.Text = "系统校准";
             // 
             // 手动校准ToolStripMenuItem
             // 
             this.手动校准ToolStripMenuItem.Name = "手动校准ToolStripMenuItem";
-            this.手动校准ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.手动校准ToolStripMenuItem.Size = new System.Drawing.Size(278, 32);
             this.手动校准ToolStripMenuItem.Text = "勾爪与相机位置校准";
             this.手动校准ToolStripMenuItem.Click += new System.EventHandler(this.手动校准ToolStripMenuItem_Click);
             // 
             // 自动校准ToolStripMenuItem
             // 
             this.自动校准ToolStripMenuItem.Name = "自动校准ToolStripMenuItem";
-            this.自动校准ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.自动校准ToolStripMenuItem.Size = new System.Drawing.Size(278, 32);
             this.自动校准ToolStripMenuItem.Text = "勾爪空闲位置校准";
             this.自动校准ToolStripMenuItem.Click += new System.EventHandler(this.自动校准ToolStripMenuItem_Click);
-            // 
-            // 测试按键ToolStripMenuItem
-            // 
-            this.测试按键ToolStripMenuItem.Name = "测试按键ToolStripMenuItem";
-            this.测试按键ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.测试按键ToolStripMenuItem.Text = "测试按键";
-            this.测试按键ToolStripMenuItem.Click += new System.EventHandler(this.测试按键ToolStripMenuItem_Click);
             // 
             // iO测试ToolStripMenuItem
             // 
@@ -170,16 +157,30 @@ namespace BondTerminal
             this.分子泵控制ToolStripMenuItem,
             this.真空计ToolStripMenuItem});
             this.iO测试ToolStripMenuItem.Name = "iO测试ToolStripMenuItem";
-            this.iO测试ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.iO测试ToolStripMenuItem.Size = new System.Drawing.Size(178, 32);
             this.iO测试ToolStripMenuItem.Text = "设备";
             this.iO测试ToolStripMenuItem.Click += new System.EventHandler(this.iO测试ToolStripMenuItem_Click);
             // 
             // OvenHeatToolStripMenuItem
             // 
             this.OvenHeatToolStripMenuItem.Name = "OvenHeatToolStripMenuItem";
-            this.OvenHeatToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.OvenHeatToolStripMenuItem.Text = "温控表";
+            this.OvenHeatToolStripMenuItem.Size = new System.Drawing.Size(198, 32);
+            this.OvenHeatToolStripMenuItem.Text = "烘箱加热";
             this.OvenHeatToolStripMenuItem.Click += new System.EventHandler(this.OvenHeatToolStripMenuItem_Click);
+            // 
+            // 分子泵控制ToolStripMenuItem
+            // 
+            this.分子泵控制ToolStripMenuItem.Name = "分子泵控制ToolStripMenuItem";
+            this.分子泵控制ToolStripMenuItem.Size = new System.Drawing.Size(198, 32);
+            this.分子泵控制ToolStripMenuItem.Text = "分子泵控制";
+            this.分子泵控制ToolStripMenuItem.Click += new System.EventHandler(this.分子泵控制ToolStripMenuItem_Click);
+            // 
+            // 真空计ToolStripMenuItem
+            // 
+            this.真空计ToolStripMenuItem.Name = "真空计ToolStripMenuItem";
+            this.真空计ToolStripMenuItem.Size = new System.Drawing.Size(198, 32);
+            this.真空计ToolStripMenuItem.Text = "真空";
+            this.真空计ToolStripMenuItem.Click += new System.EventHandler(this.真空计ToolStripMenuItem_Click);
             // 
             // 维护ToolStripMenuItem
             // 
@@ -187,37 +188,22 @@ namespace BondTerminal
             this.运动ToolStripMenuItem,
             this.iOToolStripMenuItem});
             this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
-            this.维护ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.维护ToolStripMenuItem.Size = new System.Drawing.Size(178, 32);
             this.维护ToolStripMenuItem.Text = "维护";
             // 
             // 运动ToolStripMenuItem
             // 
             this.运动ToolStripMenuItem.Name = "运动ToolStripMenuItem";
-            this.运动ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.运动ToolStripMenuItem.Size = new System.Drawing.Size(138, 32);
             this.运动ToolStripMenuItem.Text = "运动";
             this.运动ToolStripMenuItem.Click += new System.EventHandler(this.运动ToolStripMenuItem_Click);
             // 
             // iOToolStripMenuItem
             // 
             this.iOToolStripMenuItem.Name = "iOToolStripMenuItem";
-            this.iOToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.iOToolStripMenuItem.Size = new System.Drawing.Size(138, 32);
             this.iOToolStripMenuItem.Text = "IO";
             this.iOToolStripMenuItem.Click += new System.EventHandler(this.iOToolStripMenuItem_Click);
-            // 
-            // 工具ToolStripMenuItem
-            // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.箱体控制ToolStripMenuItem});
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(54, 25);
-            this.工具ToolStripMenuItem.Text = "工具";
-            // 
-            // 箱体控制ToolStripMenuItem
-            // 
-            this.箱体控制ToolStripMenuItem.Name = "箱体控制ToolStripMenuItem";
-            this.箱体控制ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
-            this.箱体控制ToolStripMenuItem.Text = "箱体控制";
-            this.箱体控制ToolStripMenuItem.Click += new System.EventHandler(this.箱体控制ToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -228,10 +214,9 @@ namespace BondTerminal
             this.toolHomeButton7,
             this.toolSafeButton1,
             this.toolStripBtnCameraControl,
-            this.toolStripBtnLightControl,
             this.toolStripButton4,
             this.toolStripButton8});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 31);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 37);
             this.toolStrip1.MaximumSize = new System.Drawing.Size(0, 71);
             this.toolStrip1.MinimumSize = new System.Drawing.Size(0, 52);
             this.toolStrip1.Name = "toolStrip1";
@@ -258,7 +243,7 @@ namespace BondTerminal
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(49, 49);
             this.toolStripButton6.Text = "toolStripButton6";
-            this.toolStripButton6.ToolTipText = "保存";
+            this.toolStripButton6.ToolTipText = "保存系统配置";
             // 
             // toolHomeButton7
             // 
@@ -279,6 +264,7 @@ namespace BondTerminal
             this.toolSafeButton1.Name = "toolSafeButton1";
             this.toolSafeButton1.Size = new System.Drawing.Size(49, 49);
             this.toolSafeButton1.Text = "轴回安全位置";
+            this.toolSafeButton1.ToolTipText = "轴回空闲位置";
             this.toolSafeButton1.Click += new System.EventHandler(this.toolSafeButton1_Click);
             // 
             // toolStripBtnCameraControl
@@ -294,19 +280,6 @@ namespace BondTerminal
             this.toolStripBtnCameraControl.CheckedChanged += new System.EventHandler(this.toolStripBtnCameraControl_CheckedChanged);
             this.toolStripBtnCameraControl.Click += new System.EventHandler(this.toolStripBtnCameraControl_Click);
             // 
-            // toolStripBtnLightControl
-            // 
-            this.toolStripBtnLightControl.CheckOnClick = true;
-            this.toolStripBtnLightControl.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBtnLightControl.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnLightControl.Image")));
-            this.toolStripBtnLightControl.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnLightControl.Name = "toolStripBtnLightControl";
-            this.toolStripBtnLightControl.Size = new System.Drawing.Size(49, 49);
-            this.toolStripBtnLightControl.Text = "toolStripBtnLightControl";
-            this.toolStripBtnLightControl.ToolTipText = "光源";
-            this.toolStripBtnLightControl.CheckedChanged += new System.EventHandler(this.toolStripBtnLightControl_CheckedChanged);
-            this.toolStripBtnLightControl.Click += new System.EventHandler(this.toolStripBtnLightControl_Click);
-            // 
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -315,7 +288,7 @@ namespace BondTerminal
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(49, 49);
             this.toolStripButton4.Text = "toolStripBtnStageControl";
-            this.toolStripButton4.ToolTipText = "运动";
+            this.toolStripButton4.ToolTipText = "轴运动控制";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripBtnStageControl_Click);
             // 
             // toolStripButton8
@@ -326,7 +299,7 @@ namespace BondTerminal
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(49, 49);
             this.toolStripButton8.Text = "toolStripButton8";
-            this.toolStripButton8.ToolTipText = "IO点位";
+            this.toolStripButton8.ToolTipText = "IO控制";
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // statusStrip1
@@ -347,14 +320,14 @@ namespace BondTerminal
             // toolStripStatusLabelTime
             // 
             this.toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
-            this.toolStripStatusLabelTime.Size = new System.Drawing.Size(0, 19);
+            this.toolStripStatusLabelTime.Size = new System.Drawing.Size(0, 18);
             // 
             // toolStripStatusLabelNowTime
             // 
             this.toolStripStatusLabelNowTime.AutoSize = false;
             this.toolStripStatusLabelNowTime.Name = "toolStripStatusLabelNowTime";
             this.toolStripStatusLabelNowTime.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.toolStripStatusLabelNowTime.Size = new System.Drawing.Size(200, 19);
+            this.toolStripStatusLabelNowTime.Size = new System.Drawing.Size(200, 18);
             this.toolStripStatusLabelNowTime.Text = "时间";
             // 
             // toolStripStatusLabelRunTime
@@ -362,7 +335,7 @@ namespace BondTerminal
             this.toolStripStatusLabelRunTime.AutoSize = false;
             this.toolStripStatusLabelRunTime.Name = "toolStripStatusLabelRunTime";
             this.toolStripStatusLabelRunTime.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.toolStripStatusLabelRunTime.Size = new System.Drawing.Size(200, 19);
+            this.toolStripStatusLabelRunTime.Size = new System.Drawing.Size(200, 18);
             this.toolStripStatusLabelRunTime.Text = "运行时长";
             // 
             // toolStripStatusLabelRunStatus
@@ -370,7 +343,7 @@ namespace BondTerminal
             this.toolStripStatusLabelRunStatus.AutoSize = false;
             this.toolStripStatusLabelRunStatus.Name = "toolStripStatusLabelRunStatus";
             this.toolStripStatusLabelRunStatus.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.toolStripStatusLabelRunStatus.Size = new System.Drawing.Size(150, 19);
+            this.toolStripStatusLabelRunStatus.Size = new System.Drawing.Size(150, 18);
             this.toolStripStatusLabelRunStatus.Text = "运行状态";
             // 
             // toolStripStatusLabelAlarm
@@ -378,7 +351,7 @@ namespace BondTerminal
             this.toolStripStatusLabelAlarm.AutoSize = false;
             this.toolStripStatusLabelAlarm.Name = "toolStripStatusLabelAlarm";
             this.toolStripStatusLabelAlarm.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.toolStripStatusLabelAlarm.Size = new System.Drawing.Size(250, 19);
+            this.toolStripStatusLabelAlarm.Size = new System.Drawing.Size(250, 18);
             this.toolStripStatusLabelAlarm.Text = "报警状态";
             // 
             // teLog
@@ -391,7 +364,7 @@ namespace BondTerminal
             this.teLog.Name = "teLog";
             this.tableLayoutPanel1.SetRowSpan(this.teLog, 7);
             this.teLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.teLog.Size = new System.Drawing.Size(514, 572);
+            this.teLog.Size = new System.Drawing.Size(514, 571);
             this.teLog.TabIndex = 4;
             this.teLog.Text = "*****日志*****\r\n";
             this.teLog.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -426,10 +399,10 @@ namespace BondTerminal
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(57, 26);
+            this.labelControl1.Location = new System.Drawing.Point(47, 23);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(80, 24);
+            this.labelControl1.Size = new System.Drawing.Size(100, 30);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "配方名称";
             // 
@@ -437,7 +410,7 @@ namespace BondTerminal
             // 
             this.btnStop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnStop.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStop.Location = new System.Drawing.Point(4, 582);
+            this.btnStop.Location = new System.Drawing.Point(4, 581);
             this.btnStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(187, 69);
@@ -450,7 +423,7 @@ namespace BondTerminal
             // 
             this.btnContinue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnContinue.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnContinue.Location = new System.Drawing.Point(4, 505);
+            this.btnContinue.Location = new System.Drawing.Point(4, 504);
             this.btnContinue.Margin = new System.Windows.Forms.Padding(4);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(187, 69);
@@ -463,7 +436,7 @@ namespace BondTerminal
             // 
             this.btnPausedOrSingle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPausedOrSingle.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPausedOrSingle.Location = new System.Drawing.Point(4, 428);
+            this.btnPausedOrSingle.Location = new System.Drawing.Point(4, 427);
             this.btnPausedOrSingle.Margin = new System.Windows.Forms.Padding(4);
             this.btnPausedOrSingle.Name = "btnPausedOrSingle";
             this.btnPausedOrSingle.Size = new System.Drawing.Size(187, 69);
@@ -476,7 +449,7 @@ namespace BondTerminal
             // 
             this.btnRun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRun.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRun.Location = new System.Drawing.Point(4, 351);
+            this.btnRun.Location = new System.Drawing.Point(4, 350);
             this.btnRun.Margin = new System.Windows.Forms.Padding(4);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(187, 69);
@@ -498,7 +471,7 @@ namespace BondTerminal
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView2, 7);
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView2.Size = new System.Drawing.Size(577, 570);
+            this.dataGridView2.Size = new System.Drawing.Size(577, 569);
             this.dataGridView2.TabIndex = 15;
             // 
             // groupBox1
@@ -529,7 +502,7 @@ namespace BondTerminal
             this.tableLayoutPanel1.Controls.Add(this.btnRun, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAllAxisStop, 0, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 19);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -542,7 +515,7 @@ namespace BondTerminal
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1300, 774);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1300, 770);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // teCurrentState
@@ -561,7 +534,7 @@ namespace BondTerminal
             this.btnAllAxisStop.BackColor = System.Drawing.Color.Red;
             this.btnAllAxisStop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAllAxisStop.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAllAxisStop.Location = new System.Drawing.Point(4, 659);
+            this.btnAllAxisStop.Location = new System.Drawing.Point(4, 658);
             this.btnAllAxisStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnAllAxisStop.Name = "btnAllAxisStop";
             this.btnAllAxisStop.Size = new System.Drawing.Size(187, 69);
@@ -570,24 +543,10 @@ namespace BondTerminal
             this.btnAllAxisStop.UseVisualStyleBackColor = false;
             this.btnAllAxisStop.Click += new System.EventHandler(this.btnAllAxisStop_Click);
             // 
-            // 分子泵控制ToolStripMenuItem
-            // 
-            this.分子泵控制ToolStripMenuItem.Name = "分子泵控制ToolStripMenuItem";
-            this.分子泵控制ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.分子泵控制ToolStripMenuItem.Text = "分子泵";
-            this.分子泵控制ToolStripMenuItem.Click += new System.EventHandler(this.分子泵控制ToolStripMenuItem_Click);
-            // 
-            // 真空计ToolStripMenuItem
-            // 
-            this.真空计ToolStripMenuItem.Name = "真空计ToolStripMenuItem";
-            this.真空计ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.真空计ToolStripMenuItem.Text = "真空计";
-            this.真空计ToolStripMenuItem.Click += new System.EventHandler(this.真空计ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.groupBox1);
@@ -595,6 +554,7 @@ namespace BondTerminal
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("MainForm.IconOptions.Image")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -629,7 +589,6 @@ namespace BondTerminal
         private System.Windows.Forms.ToolStripMenuItem 编程ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HeatRecipeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TransportRecipeToolStripMenuItem;        private System.Windows.Forms.ToolStripButton toolStripBtnCameraControl;
-        private System.Windows.Forms.ToolStripButton toolStripBtnLightControl;
         private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统校准ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 手动校准ToolStripMenuItem;
@@ -662,9 +621,6 @@ namespace BondTerminal
         private System.Windows.Forms.TextBox teCurrentState;
         private System.Windows.Forms.ToolStripButton toolSafeButton1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 箱体控制ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 测试按键ToolStripMenuItem;
         private System.Windows.Forms.Button btnAllAxisStop;
         private System.Windows.Forms.ToolStripMenuItem 分子泵控制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 真空计ToolStripMenuItem;

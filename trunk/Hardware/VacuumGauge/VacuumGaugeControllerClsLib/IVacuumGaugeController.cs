@@ -35,8 +35,12 @@ namespace VacuumGaugeControllerClsLib
         /// <returns></returns>
         int Read();
 
-
-        float ReadVacuum();
+        /// <summary>
+        /// 读取真空度
+        /// </summary>
+        /// <param name="Vacuum"></param>
+        /// <returns></returns>
+        bool ReadVacuum(ref float Vacuum);
 
         SerialPort SerialPortEngine
         {

@@ -104,6 +104,21 @@ namespace StageManagerClsLib
             }
         }
 
+        public bool ReadAxisConnectsta()
+        {
+
+            return _currentStageController.IsConnect;
+        }
+
+        public bool ReadIOConnectsta()
+        {
+
+            return true;
+        }
+
+        /// <summary>
+        /// 重连轴
+        /// </summary>
         public void ReconnectAxis()
         {
             if (!_currentStageController.IsConnect)
@@ -112,10 +127,11 @@ namespace StageManagerClsLib
             _currentStageController.InitialzeAllAxisParameter();
         }
 
+        /// <summary>
+        /// 重连IO
+        /// </summary>
         public void ReconnectIO()
         {
-            if (!_currentStageController.IsConnect)
-                _currentStageController.Connect();
             _currentStageController.InitialzeAllIO();
         }
 

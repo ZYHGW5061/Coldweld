@@ -91,28 +91,43 @@ namespace ControlPanelClsLib.Manual
         {
             //Task.Run(() =>
             //{
-                if (_VacuumGaugeControllerManager.AllVacuumGauges.Count > 0)
-                {
+            if (_VacuumGaugeControllerManager.AllVacuumGauges.Count > 0)
+            {
 
-                    if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).IsConnect)
+                if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).IsConnect)
+                {
+                    float Vacuum1 = 0;
+                    bool ret =  _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).ReadVacuum(ref Vacuum1);
+                    if(ret)
                     {
-                        float Vacuum1 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).ReadVacuum();
                         seOven1Vacuum.Value = (decimal)(Vacuum1);
                     }
+                    
+                }
 
-                    if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).IsConnect)
+                if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).IsConnect)
+                {
+                    float Vacuum2 = 0;
+                    bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).ReadVacuum(ref Vacuum2);
+                    if (ret)
                     {
-                        float Vacuum2 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).ReadVacuum();
                         seOven2Vacuum.Value = (decimal)(Vacuum2);
                     }
+                    
+                }
 
-                    if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).IsConnect)
+                if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).IsConnect)
+                {
+                    float Vacuum3 = 0;
+
+                    bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum(ref Vacuum3);
+                    
+                    if (ret)
                     {
-
-                        float Vacuum3 = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum();
                         seBoxVacuum.Value = (decimal)(Vacuum3);
                     }
                 }
+            }
             //});
             
         }

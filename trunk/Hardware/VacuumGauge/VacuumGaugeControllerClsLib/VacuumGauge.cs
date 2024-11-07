@@ -184,7 +184,7 @@ namespace VacuumGaugeControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private byte[] PCread(int PLCadd, int Add, int num)
+        private bool PCread(int PLCadd, int Add, int num, ref byte[] Data0)
         {
             try
             {
@@ -233,27 +233,31 @@ namespace VacuumGaugeControllerClsLib
                     {
                         if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
                         {
-                            byte[] Data0 = data.Skip(3).Take(length - 5).ToArray();
-                            return Data0;
+                            Data0 = data.Skip(3).Take(length - 5).ToArray();
+                            return true;
                         }
                         else
                         {
-                            return null;
+                            Data0 = null;
+                            return false;
                         }
                     }
                     else
                     {
-                        return null;
+                        Data0 = null;
+                        return false;
                     }
                 }
                 else
                 {
-                    return null;
+                    Data0 = null;
+                    return false;
                 }
             }
             catch
             {
-                return null;
+                Data0 = null;
+                return false;
             }
         }
         /// <summary>
@@ -261,7 +265,7 @@ namespace VacuumGaugeControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private void PCwrite(int PLCadd, int Add, int Data)
+        private bool PCwrite(int PLCadd, int Add, int Data)
         {
             try
             {
@@ -306,15 +310,32 @@ namespace VacuumGaugeControllerClsLib
                     PowerControl.Read(data, 0, length);
 
                     System.Threading.Thread.Sleep(200);
+
+                    if (length > 0)
+                    {
+                        if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
                 else
                 {
-                    return;
+                    return false;
                 }
             }
             catch
             {
-                return;
+                return false;
             }
         }
 
@@ -399,18 +420,19 @@ namespace VacuumGaugeControllerClsLib
             throw new NotImplementedException();
         }
 
-        public float ReadVacuum()
+        public bool ReadVacuum(ref float Vacuum)
         {
             PLCadd = _config.ChannelNumber;
-            byte[] BTData = PCread(PLCadd, (int)VacuumGaugeAdd.Vacuumdegree, 2);
+            byte[] BTData = new byte[4];
+            bool ret = PCread(PLCadd, (int)VacuumGaugeAdd.Vacuumdegree, 2, ref BTData);
             if(BTData == null)
             {
-                return -1;
+                return false;
             }
             // 检查返回数据的长度  
             if (BTData.Length != 4)
             {
-                return -1;
+                return false;
             }
 
             // 获取真空度的整数、分数和指数部分  
@@ -422,9 +444,12 @@ namespace VacuumGaugeControllerClsLib
             // 计算真空度  
             double vacuumValue = integerPart + decimalPart / 10.0; // 5.0  
             vacuumValue *= Math.Pow(10, exponentSign * exponentPart); // 5.0E-1 
+            Vacuum = (float)vacuumValue;
 
-            return (float)vacuumValue;
+            return true;
         }
+
+
     }
 
     public static class EnumExtensions

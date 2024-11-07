@@ -61,6 +61,11 @@ namespace PositioningSystemClsLib
         {
         }
 
+
+        private Thread stopAllaxisthd;
+        private bool stopthreadbool = false;
+
+
         /// <summary>
         /// 读取所有轴的Stage位置
         /// </summary>
@@ -125,6 +130,36 @@ namespace PositioningSystemClsLib
             _stageMotionControl.Stop(EnumStageAxis.MaterialboxX);
             _stageMotionControl.Stop(EnumStageAxis.MaterialboxT);
             _stageMotionControl.Stop(EnumStageAxis.MaterialboxHook);
+        }
+
+        private void Stopthread()
+        {
+            while(stopthreadbool)
+            {
+                StopAll();
+                Thread.Sleep(500);
+            }
+        }
+
+        public void TriggerStop()
+        {
+            if(stopAllaxisthd != null && stopAllaxisthd.IsAlive)
+            {
+                stopthreadbool = false;
+                stopAllaxisthd.Abort();
+            }
+            stopAllaxisthd = new Thread(Stopthread);
+            stopthreadbool = true;
+            stopAllaxisthd.Start();
+        }
+
+        public void ReleaseStop()
+        {
+            if (stopAllaxisthd != null && stopAllaxisthd.IsAlive)
+            {
+                stopthreadbool = false;
+                stopAllaxisthd.Abort();
+            }
         }
 
         /// <summary>

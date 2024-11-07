@@ -11,7 +11,7 @@ namespace BoardCardControllerClsLib
 {
     public class GoogolBoardCardController : IBoardCardController
     {
-        public bool IsConnect => throw new NotImplementedException();
+        public bool IsConnect => ReadConnect();
         const short CORE = 1;
         short EcatSts;
         static bool[] AxisClsStat = new bool[20];
@@ -32,6 +32,22 @@ namespace BoardCardControllerClsLib
                 err = GTN.mc.GTN_IsEcatReady(CORE, out EcatSts);
                
             }
+        }
+
+
+        public bool ReadConnect()
+        {
+            short Num = -1, Num2 = -1;
+            var err = GTN.mc.GTN_GetEcatSlaves(CORE, out Num, out Num2);
+            if(Num < 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
 
         private void StartEcatCommunication()

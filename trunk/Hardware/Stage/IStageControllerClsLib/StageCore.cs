@@ -47,7 +47,7 @@ namespace StageControllerClsLib
         const short CORE = 1;
         short EcatSts;
         public AStageInfo StageInfo { get; set; }
-        public bool IsConnect { get; set; }
+        public bool IsConnect { get { return _boardCardController.IsConnect; } }
         public bool IsHomedone { get; set; }
         IBoardCardController _boardCardController;
         public void AbloluteMoveSync(EnumStageAxis axis, double target)

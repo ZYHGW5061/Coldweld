@@ -100,7 +100,7 @@ namespace ControlPanelClsLib
                 this.tableLayoutPanel2.Controls.Add(this.btn_Add, 0, 0);
                 this.btn_Add.Visible = true;
                 this.btn_Edit.Visible = false;
-                this.Text = "新增传送配方";
+                this.Text = "新增生产配方";
             }
             else if (_operation == "Edit" && _selRecipe != null)
             {
@@ -111,7 +111,7 @@ namespace ControlPanelClsLib
                 //this.seTargetTemp.Value = _selRecipe.TargetTemperature;
                 //this.seHeatPreservationMinute.Value = _selRecipe.HeatPreservationMinute;
                 //this.seOverTemperatureThreshold.Value = _selRecipe.OverTemperatureThreshold;
-                this.Text = "编辑传送配方";
+                this.Text = "编辑生产配方";
             }
         }
 

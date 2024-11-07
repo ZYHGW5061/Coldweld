@@ -53,7 +53,7 @@ namespace BondTerminal
             this.MinimizeBox = false;
             this.Name = "FrmStageControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Stage";
+            this.Text = "轴点动";
             this.ResumeLayout(false);
 
         }

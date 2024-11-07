@@ -2214,6 +2214,29 @@ namespace TechnologicalClsLib
 
                         Thread.Sleep(200);
                     }
+
+                    if(DataModel.Instance.BakeOvenVacuum < 10)
+                    {
+
+                        Write<bool>(EnumBoardcardDefineOutputIO.BakeOvenPlugInValve, true);
+
+                        while (!StopDoor)
+                        {
+                            //bool Done = Read<bool>(EnumBoardcardDefineInputIO.BakeOvenInnerdoorOpenstatus);
+
+                            Done1 = DataModel.Instance.BakeOvenPlugInValveOpenstatus;
+                            if (Done1)
+                            {
+                                //Write<bool>(EnumBoardcardDefineOutputIO.BakeOvenInnerdoorUp, false);
+
+                                StopDoor = false;
+
+                                break;
+                            }
+
+                            Thread.Sleep(100);
+                        }
+                    }
                     if (StopDoor)
                     {
 
@@ -2244,6 +2267,28 @@ namespace TechnologicalClsLib
                         }
 
                         Thread.Sleep(200);
+                    }
+                    if (DataModel.Instance.BakeOven2Vacuum < 10)
+                    {
+
+                        Write<bool>(EnumBoardcardDefineOutputIO.BakeOven2PlugInValve, true);
+
+                        while (!StopDoor)
+                        {
+                            //bool Done = Read<bool>(EnumBoardcardDefineInputIO.BakeOvenInnerdoorOpenstatus);
+
+                            Done1 = DataModel.Instance.BakeOven2PlugInValveOpenstatus;
+                            if (Done1)
+                            {
+                                //Write<bool>(EnumBoardcardDefineOutputIO.BakeOvenInnerdoorUp, false);
+
+                                StopDoor = false;
+
+                                break;
+                            }
+
+                            Thread.Sleep(100);
+                        }
                     }
                     if (StopDoor)
                     {

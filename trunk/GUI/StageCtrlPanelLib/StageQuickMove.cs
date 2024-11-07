@@ -32,20 +32,11 @@ namespace StageCtrlPanelLib
         {
             InitializeComponent();
             InitialControl();
-            cmbSelectStageSystem.SelectedIndex = 0;
-            cmbSelectAxis.SelectedIndex = 0;
-            //var joyStickController = JoyStickManager.Instance.GetCurrentController();
-            //if(joyStickController!=null)
-            //{
-            //    if(!joyStickController.ActStageSystemChanged.CheckDelegateRegistered((Action<EnumStageSystem>)StageSystemChanged))
-            //    {
-            //        joyStickController.ActStageSystemChanged += StageSystemChanged;
-            //    }
-            //    if (!joyStickController.ActSystemAxisChanged.CheckDelegateRegistered((Action<EnumSystemAxis>)SystemAxisChanged))
-            //    {
-            //        joyStickController.ActSystemAxisChanged += SystemAxisChanged;
-            //    }
-            //}
+
+
+            //cmbSelectStageSystem.SelectedIndex = 0;
+            //cmbSelectAxis.SelectedIndex = 0;
+
             _readPosTimer.Interval = 500;
             _readPosTimer.Tick += OnTimedEvent;
             //_readPosTimer.Stop();
@@ -73,14 +64,29 @@ namespace StageCtrlPanelLib
         EnumStageAxis xAxis = EnumStageAxis.MaterialboxX;
         private void InitialControl()
         {
-            foreach (var item in Enum.GetValues(typeof(EnumStageSystem)))
+            //foreach (var item in Enum.GetValues(typeof(EnumStageSystem)))
+            //{
+            //    cmbSelectStageSystem.Items.Add(item);
+            //}
+            //foreach (var item in Enum.GetValues(typeof(EnumSystemAxis)))
+            //{
+            //    cmbSelectAxis.Items.Add(item);
+            //}
+
+
+            cmbSelectStageSystem.DataSource = Enum.GetValues(typeof(EnumStageSystem)).Cast<Enum>().Select(value => new
             {
-                cmbSelectStageSystem.Items.Add(item);
-            }
-            foreach (var item in Enum.GetValues(typeof(EnumSystemAxis)))
+                (Attribute.GetCustomAttribute(value.GetType().GetField(value.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute).Description,
+                value = value
+            }).ToList().OrderBy(x => x.value).ToList();
+            cmbSelectStageSystem.DisplayMember = "Description";
+            cmbSelectStageSystem.ValueMember = "Value";
+
+            foreach (EnumSystemAxis item in Enum.GetValues(typeof(EnumSystemAxis)))
             {
                 cmbSelectAxis.Items.Add(item);
             }
+
         }
 
 
