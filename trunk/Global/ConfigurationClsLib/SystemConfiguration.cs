@@ -103,7 +103,12 @@ namespace ConfigurationClsLib
 
         [XmlElement("OvenBoxConfig")]
         public OvenBoxConfig OvenBoxConfig { get; set; }
+
+        [XmlElement("StatisticalDataConfig")]
+        public StatisticalDataConfig StatisticalDataConfig { get; set; }
+
         
+
 
 
         #endregion
@@ -492,8 +497,6 @@ namespace ConfigurationClsLib
 
     }
 
-
-
     [Serializable]
     public class CalibrationConfig
     {
@@ -506,6 +509,35 @@ namespace ConfigurationClsLib
         /// </summary>
         [XmlElement("ChipPPPosCompensateCoordinate1")]
         public XYZTCoordinateConfig ChipPPPosCompensateCoordinate1 { get; set; }
-        
+
+    }
+
+
+
+    [Serializable]
+    public class StatisticalDataConfig
+    {
+        public StatisticalDataConfig()
+        {
+
+        }
+        /// <summary>
+        /// 已焊接物料个数
+        /// </summary>
+        [XmlElement("WeldMaterialNumber")]
+        public int WeldMaterialNumber { get; set; }
+
+        /// <summary>
+        /// 压机工作次数
+        /// </summary>
+        [XmlElement("PressWorkNumber")]
+        public int PressWorkNumber { get; set; }
+
+        /// <summary>
+        /// 设备运行时间
+        /// </summary>
+        [XmlElement("EquipmentOperatingTime")]
+        public int EquipmentOperatingTime { get; set; }
+
     }
 }

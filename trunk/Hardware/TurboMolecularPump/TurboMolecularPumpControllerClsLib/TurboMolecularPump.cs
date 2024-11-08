@@ -185,7 +185,7 @@ namespace TurboMolecularPumpControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private byte[] PCread(int PLCadd, int Add, int num)
+        private bool PCread(int PLCadd, int Add, int num, ref byte[] Data0)
         {
             try
             {
@@ -234,27 +234,31 @@ namespace TurboMolecularPumpControllerClsLib
                     {
                         if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
                         {
-                            byte[] Data0 = data.Skip(3).Take(length - 5).ToArray();
-                            return Data0;
+                            Data0 = data.Skip(3).Take(length - 5).ToArray();
+                            return true;
                         }
                         else
                         {
-                            return null;
+                            Data0 = null;
+                            return false;
                         }
                     }
                     else
                     {
-                        return null;
+                        Data0 = null;
+                        return false;
                     }
                 }
                 else
                 {
-                    return null;
+                    Data0 = null;
+                    return false;
                 }
             }
             catch
             {
-                return null;
+                Data0 = null;
+                return false;
             }
         }
         /// <summary>
@@ -262,7 +266,7 @@ namespace TurboMolecularPumpControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private void PCwrite(int PLCadd, int Add, int Data)
+        private bool PCwrite(int PLCadd, int Add, int Data)
         {
             try
             {
@@ -289,6 +293,7 @@ namespace TurboMolecularPumpControllerClsLib
                     PowerControl.DiscardOutBuffer();
                     PowerControl.Write(data, 0, length);
                     System.Threading.Thread.Sleep(100);
+
                     length = PowerControl.BytesToRead;
                     int T = 0;
                     while (length <= 0)
@@ -301,22 +306,37 @@ namespace TurboMolecularPumpControllerClsLib
                             break;
                         }
                     }
-
                     //length = 15;
                     data = new byte[length];
                     PowerControl.Read(data, 0, length);
 
                     System.Threading.Thread.Sleep(200);
 
+                    if (length > 0)
+                    {
+                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
                 else
                 {
-                    return;
+                    return false;
                 }
             }
             catch
             {
-                return;
+                return false;
             }
         }
 
@@ -401,21 +421,21 @@ namespace TurboMolecularPumpControllerClsLib
             throw new NotImplementedException();
         }
 
-        public TurboMolecularPumpstatus ReadStatus()
+        public bool ReadStatus(ref TurboMolecularPumpstatus param)
         {
-            TurboMolecularPumpstatus param = new TurboMolecularPumpstatus();
 
             PLCadd = _config.ChannelNumber;
-            byte[] BTData = PCread(PLCadd, (int)TurboMolecularPumpAdd.OutputFrequency, 4);
+            byte[] BTData = new byte[8];
+            bool ret = PCread(PLCadd, (int)TurboMolecularPumpAdd.OutputFrequency, 4, ref BTData);
 
-            if(BTData == null)
+            if(BTData == null || !ret)
             {
-                return null;
+                return false;
             }
 
             if (BTData.Length < 8)
             {
-                return null;
+                return false;
             }
 
             // 读取输出频率  
@@ -442,48 +462,48 @@ namespace TurboMolecularPumpControllerClsLib
             param.OH = (((BTData[6] << 8) | BTData[7]) == 11);
 
 
-            return param;
+            return true;
         }
 
-        public void SlowShutdown()
+        public bool SlowShutdown()
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 3);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 3);
         }
 
-        public void FreeShutdown()
+        public bool FreeShutdown()
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 4);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 4);
         }
 
-        public void Function()
+        public bool Function()
         {
             if(DataModel.Instance.TurboMolecularPumpRun(_config.ChannelNumber))
             {
-                return;
+                return false;
             }
 
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 8);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 8);
         }
 
-        public void FaultReset()
+        public bool FaultReset()
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 9);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 9);
         }
 
-        public void Unlock()
+        public bool Unlock()
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 1);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 1);
         }
 
-        public void Lock()
+        public bool Lock()
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 2);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 2);
         }
     }
 

@@ -198,7 +198,7 @@ namespace TemperatureControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private byte[] PCread(int PLCadd, int Add, int num)
+        private bool PCread(int PLCadd, int Add, int num, ref byte[] Data0)
         {
             try
             {
@@ -224,23 +224,19 @@ namespace TemperatureControllerClsLib
                     PowerControl.DiscardInBuffer();
                     PowerControl.DiscardOutBuffer();
                     PowerControl.Write(data, 0, length);
-
                     System.Threading.Thread.Sleep(100);
-
                     length = PowerControl.BytesToRead;
                     int T = 0;
-                    while(length <= 0)
+                    while (length <= 0)
                     {
                         length = PowerControl.BytesToRead;
                         System.Threading.Thread.Sleep(5);
                         T++;
-                        if(T > 400)
+                        if (T > 400)
                         {
                             break;
                         }
                     }
-
-                    
                     //length = 15;
                     data = new byte[length];
                     PowerControl.Read(data, 0, length);
@@ -251,27 +247,31 @@ namespace TemperatureControllerClsLib
                     {
                         if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
                         {
-                            byte[] Data0 = data.Skip(3).Take(length - 5).ToArray();
-                            return Data0;
+                            Data0 = data.Skip(3).Take(length - 5).ToArray();
+                            return true;
                         }
                         else
                         {
-                            return null;
+                            Data0 = null;
+                            return false;
                         }
                     }
                     else
                     {
-                        return null;
+                        Data0 = null;
+                        return false;
                     }
                 }
                 else
                 {
-                    return null;
+                    Data0 = null;
+                    return false;
                 }
             }
             catch
             {
-                return null;
+                Data0 = null;
+                return false;
             }
         }
         /// <summary>
@@ -279,7 +279,7 @@ namespace TemperatureControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="num"></param>
-        private void PCwrite(int PLCadd, int Add, int Data)
+        private bool PCwrite(int PLCadd, int Add, int Data)
         {
             try
             {
@@ -306,6 +306,7 @@ namespace TemperatureControllerClsLib
                     PowerControl.DiscardOutBuffer();
                     PowerControl.Write(data, 0, length);
                     System.Threading.Thread.Sleep(100);
+
                     length = PowerControl.BytesToRead;
                     int T = 0;
                     while (length <= 0)
@@ -323,15 +324,32 @@ namespace TemperatureControllerClsLib
                     PowerControl.Read(data, 0, length);
 
                     System.Threading.Thread.Sleep(200);
+
+                    if (length > 0)
+                    {
+                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
                 else
                 {
-                    return;
+                    return false;
                 }
             }
             catch
             {
-                return;
+                return false;
             }
         }
 
@@ -403,20 +421,27 @@ namespace TemperatureControllerClsLib
 
 
 
-        public void Write(TemperatureRtuAdd Add,int value)
+        public bool Write(TemperatureRtuAdd Add,int value)
         {
             PLCadd = _config.ChannelNumber;
-            PCwrite(PLCadd, (int)Add, value);
+            return PCwrite(PLCadd, (int)Add, value);
 
         }
 
-        public int Read(TemperatureRtuAdd Add)
+        public bool Read(TemperatureRtuAdd Add, ref int Data)
         {
             PLCadd = _config.ChannelNumber;
-            byte[] BTData = PCread(PLCadd, (int)Add, 1);
-            int Data = ByteToInt(BTData);
+            byte[] BTData = new byte[2];
+            bool ret = PCread(PLCadd, (int)Add, 1, ref BTData);
 
-            return Data;
+            if(!ret)
+            {
+                return false;
+            }
+
+            Data = ByteToInt(BTData);
+
+            return true;
         }
 
 

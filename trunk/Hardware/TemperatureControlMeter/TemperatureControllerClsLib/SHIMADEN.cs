@@ -1145,12 +1145,17 @@ namespace TemperatureControllerClsLib
             throw new NotImplementedException();
         }
 
-        public void Write(TemperatureRtuAdd Add, int value)
+        public bool Write(TemperatureRtuAdd Add, int value)
         {
             throw new NotImplementedException();
         }
 
         public int Read(TemperatureRtuAdd Add)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Read(TemperatureRtuAdd Add, ref int Data)
         {
             throw new NotImplementedException();
         }

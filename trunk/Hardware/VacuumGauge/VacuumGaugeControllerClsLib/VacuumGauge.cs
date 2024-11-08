@@ -313,7 +313,7 @@ namespace VacuumGaugeControllerClsLib
 
                     if (length > 0)
                     {
-                        if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
+                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
                         {
                             return true;
                         }
@@ -425,7 +425,7 @@ namespace VacuumGaugeControllerClsLib
             PLCadd = _config.ChannelNumber;
             byte[] BTData = new byte[4];
             bool ret = PCread(PLCadd, (int)VacuumGaugeAdd.Vacuumdegree, 2, ref BTData);
-            if(BTData == null)
+            if(BTData == null || !ret)
             {
                 return false;
             }

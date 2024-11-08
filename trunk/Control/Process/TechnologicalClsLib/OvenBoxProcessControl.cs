@@ -369,9 +369,27 @@ namespace TechnologicalClsLib
                 {
                     DataModel.Instance.OvenBox1Heating = true;
 
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                    bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                    if(!ret)
+                    {
+                        while(!ret)
+                        {
+                            Thread.Sleep(500);
 
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                        }
+                    }
+
+                    ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
+                    if (!ret)
+                    {
+                        while (!ret)
+                        {
+                            Thread.Sleep(500);
+
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
+                        }
+                    }
 
                     DataModel.Instance.OvenBox1Heating = true;
 
@@ -433,7 +451,17 @@ namespace TechnologicalClsLib
                         stopwatch.Stop();
                     }
 
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
+                    
+                    ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
+                    if (!ret)
+                    {
+                        while (!ret)
+                        {
+                            Thread.Sleep(500);
+
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
+                        }
+                    }
 
                     //IOManager.Instance.ChangeIOValue("HeatPreservationResidueMinute", 0);
                     DataModel.Instance.HeatPreservationResidueMinute = 0;
@@ -455,9 +483,29 @@ namespace TechnologicalClsLib
 
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).IsConnect)
                 {
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                    
+                    bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                    if (!ret)
+                    {
+                        while (!ret)
+                        {
+                            Thread.Sleep(500);
 
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                        }
+                    }
+
+                    
+                    ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
+                    if (!ret)
+                    {
+                        while (!ret)
+                        {
+                            Thread.Sleep(500);
+
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
+                        }
+                    }
 
                     DataModel.Instance.OvenBox2Heating = true;
 
@@ -518,7 +566,16 @@ namespace TechnologicalClsLib
                         stopwatch.Stop();
                     }
 
-                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
+                    ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
+                    if (!ret)
+                    {
+                        while (!ret)
+                        {
+                            Thread.Sleep(500);
+
+                            ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
+                        }
+                    }
 
                     //IOManager.Instance.ChangeIOValue("HeatPreservationResidueMinute", 0);
                     DataModel.Instance.HeatPreservationResidueMinute2 = 0;
@@ -783,8 +840,14 @@ namespace TechnologicalClsLib
                     {
                         if (!DataModel.Instance.OvenBox1Function)
                         {
-                            _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
-                            break;
+                            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
+
+                            if(ret && DataModel.Instance.OvenBox1Function)
+                            {
+                                break;
+
+                            }
+                            
                         }
                     }
 
@@ -1026,19 +1089,15 @@ namespace TechnologicalClsLib
                     {
                         if (!DataModel.Instance.OvenBox2Function)
                         {
-                            _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
-                            Thread.Sleep(500);
+                            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
+                            
 
-                            if (!DataModel.Instance.OvenBox2Function)
-                            {
-                                
-                            }
-                            else
+                            if (ret && DataModel.Instance.OvenBox2Function)
                             {
                                 break;
+
                             }
 
-                            
                         }
                     }
 
@@ -1485,7 +1544,24 @@ namespace TechnologicalClsLib
             {
                 if (DataModel.Instance.OvenBox1Function)
                 {
-                    _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).SlowShutdown();
+                    bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).SlowShutdown();
+                    if(!ret)
+                    {
+                        int i = 0;
+                        while(i < 10)
+                        {
+
+                            Thread.Sleep(500);
+
+                            ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).SlowShutdown();
+
+                            if(ret)
+                            {
+                                break;
+                            }
+
+                        }
+                    }
                 }
             }
 
@@ -1575,7 +1651,24 @@ namespace TechnologicalClsLib
             {
                 if (DataModel.Instance.OvenBox2Function)
                 {
-                    _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).SlowShutdown();
+                    bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).SlowShutdown();
+                    if (!ret)
+                    {
+                        int i = 0;
+                        while (i < 10)
+                        {
+
+                            Thread.Sleep(500);
+
+                            ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).SlowShutdown();
+
+                            if (ret)
+                            {
+                                break;
+                            }
+
+                        }
+                    }
                 }
             }
 

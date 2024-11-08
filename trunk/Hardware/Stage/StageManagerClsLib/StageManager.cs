@@ -90,6 +90,48 @@ namespace StageManagerClsLib
             _currentStageController.InitialzeAllIO();
         }
 
+        public void InitializeAxis()
+        {
+            var runningType = _hardwareConfig.StageConfig.RunningType;
+            if (runningType == EnumRunningType.Actual)
+            {
+
+                TPGJStageInfo stageInfo = new TPGJStageInfo();
+                stageInfo.AxisControllerDic = new Dictionary<EnumStageAxis, ISingleAxisController>();
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialboxX, new MaterialboxXSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialboxY, new MaterialboxYSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialboxZ, new MaterialboxZSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialboxT, new MaterialboxTSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialboxHook, new MaterialboxHookSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialX, new MaterialXSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialY, new MaterialYSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialZ, new MaterialZSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.MaterialHook, new MaterialHookSingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.OverTrack1, new OverTrack1SingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.OverTrack2, new OverTrack2SingleAxisController());
+                stageInfo.AxisControllerDic.Add(EnumStageAxis.Presslifting, new PressliftingSingleAxisController());
+                //添加其他轴
+
+                StageCore.Instance.StageInfo = stageInfo;
+                _currentStageController = new TPGJStageController();
+                //(_currentStageController as HCFAStageController).StageInfo = stageInfo;
+            }
+            else
+            {
+                _currentStageController = new SimulateStageController();
+            }
+
+            if (!_currentStageController.IsConnect)
+                _currentStageController.Connect();
+            _currentStageController.CheckHomeDone();
+            _currentStageController.InitialzeAllAxisParameter();
+        }
+
+        public void InitializeIO()
+        {
+            _currentStageController.InitialzeAllIO();
+        }
+
         /// <summary>
         /// 关闭
         /// </summary>

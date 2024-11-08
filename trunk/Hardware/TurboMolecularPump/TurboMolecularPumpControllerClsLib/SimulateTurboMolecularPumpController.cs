@@ -26,22 +26,22 @@ namespace TurboMolecularPumpControllerClsLib
             throw new NotImplementedException();
         }
 
-        public void FaultReset()
+        public bool FaultReset()
         {
             throw new NotImplementedException();
         }
 
-        public void FreeShutdown()
+        public bool FreeShutdown()
         {
             throw new NotImplementedException();
         }
 
-        public void Function()
+        public bool Function()
         {
             throw new NotImplementedException();
         }
 
-        public void Lock()
+        public bool Lock()
         {
             throw new NotImplementedException();
         }
@@ -51,22 +51,27 @@ namespace TurboMolecularPumpControllerClsLib
             throw new NotImplementedException();
         }
 
-        public TurboMolecularPumpstatus ReadStatus()
+        public bool ReadStatus(ref TurboMolecularPumpstatus param)
         {
             throw new NotImplementedException();
         }
 
-        public void SlowShutdown()
+        public bool SlowShutdown()
         {
             throw new NotImplementedException();
         }
 
-        public void Unlock()
+        public bool Unlock()
         {
             throw new NotImplementedException();
         }
 
-        public void Write()
+        public bool Write()
+        {
+            throw new NotImplementedException();
+        }
+
+        void ITurboMolecularPumpController.Write()
         {
             throw new NotImplementedException();
         }

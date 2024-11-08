@@ -1,4 +1,5 @@
 ﻿using BoardCardControllerClsLib;
+using CameraControllerClsLib;
 using ConfigurationClsLib;
 using DewPointMeterControllerClsLib;
 using GlobalDataDefineClsLib;
@@ -42,6 +43,11 @@ namespace IOUtilityClsLib
         private TurboMolecularPumpControllerManager _TurboMolecularPumpControllerManager
         {
             get { return TurboMolecularPumpControllerManager.Instance; }
+        }
+
+        private CameraManager _CameraManager
+        {
+            get { return CameraManager.Instance; }
         }
 
         private Dictionary<EnumBoardcardDefineInputIO, string> _inputIOList;
@@ -251,14 +257,11 @@ namespace IOUtilityClsLib
                     }
                 }
 
-                bool Done = _boardCardController.IO_GetGLinkCommStatus();
+                DataModel.Instance.StageAxisIsconnect = _boardCardController.IsConnect;
+                Thread.Sleep(10);
 
-                if(!Done && DataModel.Instance.Linkstatusofmodules)
-                {
-                    _boardCardController.IO_WriteOutPut_2(11, (short)EnumBoardcardDefineOutputIO.MotorBrake, 0);
-                    _boardCardController.IO_WriteOutPut_2(11, (short)EnumBoardcardDefineOutputIO.MotorBrake1, 0);
-                    DataModel.Instance.Linkstatusofmodules = false;
-                }
+                DataModel.Instance.StageIOIsconnect = _boardCardController.IO_GetGLinkCommStatus();
+                Thread.Sleep(10);
 
             }
         }
@@ -374,53 +377,127 @@ namespace IOUtilityClsLib
 
 
         internal void ParseDataAndUpdateInputIOIntValue()
-        {
+        { 
+
+
+            if(_CameraManager.AllCamera.Count > 0)
+            {
+                bool Camera1connect = true, Camera2connect = true;
+
+                if(!_CameraManager.GetCameraByID( EnumCameraType.TrackCamera).IsConnect)
+                {
+                    Camera1connect = false;
+                }
+                Thread.Sleep(50);
+
+                if (!_CameraManager.GetCameraByID(EnumCameraType.WeldCamera).IsConnect)
+                {
+                    Camera2connect = false;
+                }
+                Thread.Sleep(50);
+
+                if (Camera1connect && Camera2connect)
+                {
+                    DataModel.Instance.CameraIsconnect = true;
+                }
+                else
+                {
+                    DataModel.Instance.CameraIsconnect = false;
+                }
+
+            }
+
+
             if (_TemperatureControllerManager.AllTemperatures.Count > 0)
             {
+                bool To1connect = true, To2connect = true;
+
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).IsConnect)
                 {
-                    float BakeOvenDowntemp = ((float)_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.PV) / 10.0f);
-                    DataModel.Instance.BakeOvenDowntemp = BakeOvenDowntemp;
+                    int data = -1000;
+                    float BakeOvenDowntemp = -1000;
+                    bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.PV, ref data);
+                    if(ret && data > -1000)
+                    {
+                        BakeOvenDowntemp = data / 10;
+                        DataModel.Instance.BakeOvenDowntemp = BakeOvenDowntemp;
+                    }
+                    
 
                     Thread.Sleep(50);
 
                     //float BakeOvenDowntemp = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.PV);
                     //IOManager.Instance.ChangeIOValue("BakeOvenDowntemp", BakeOvenDowntemp);
 
-                    int num = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.OUT1));
-                    bool BakeOvenAutoHeatstatus = num == 1;
-                    DataModel.Instance.BakeOvenAutoHeat = BakeOvenAutoHeatstatus;
+                    data = -1000;
+                    ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.EV_FLG, ref data));
+                    if (ret && data > -1)
+                    {
+                        bool BakeOvenAutoHeatstatus = data > 0;
+                        DataModel.Instance.BakeOvenAutoHeat = BakeOvenAutoHeatstatus;
+                    }
+                    
 
                     Thread.Sleep(50);
+                }
+                else
+                {
+                    To1connect = false;
                 }
 
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).IsConnect)
                 {
-                    float BakeOvenDowntemp = ((float)_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.PV) / 10.0f);
-                    DataModel.Instance.BakeOven2Downtemp = BakeOvenDowntemp;
+                    int data = -1000;
+                    float BakeOvenDowntemp = -1000;
+                    bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.PV, ref data);
+                    if (ret && data > -1000)
+                    {
+                        BakeOvenDowntemp = data / 10;
+                        DataModel.Instance.BakeOven2Downtemp = BakeOvenDowntemp;
+                    }
+
 
                     Thread.Sleep(50);
 
                     //float BakeOvenDowntemp = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.PV);
                     //IOManager.Instance.ChangeIOValue("BakeOvenDowntemp", BakeOvenDowntemp);
 
-                    int num = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.OUT1));
-                    bool BakeOvenAutoHeatstatus = num == 1;
-                    DataModel.Instance.BakeOven2AutoHeat = BakeOvenAutoHeatstatus;
+                    data = -1000;
+                    ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.EV_FLG, ref data));
+                    if (ret && data > -1)
+                    {
+                        bool BakeOvenAutoHeatstatus = data > 0;
+                        DataModel.Instance.BakeOven2AutoHeat = BakeOvenAutoHeatstatus;
+                    }
+
 
                     Thread.Sleep(50);
-
                 }
+                else
+                {
+                    To2connect = false;
+                }
+
+                if(To1connect && To2connect)
+                {
+                    DataModel.Instance.TemperatureIsconnect = true;
+                }
+                else
+                {
+                    DataModel.Instance.TemperatureIsconnect = false;
+                }
+
             }
 
             if (_VacuumGaugeControllerManager.AllVacuumGauges.Count > 0)
             {
+                bool Vo1connect = true, Vo2connect = true, Vo3connect = true;
 
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).IsConnect)
                 {
-                    float Vacuum1 = 0;
+                    float Vacuum1 = -1;
                     bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox1).ReadVacuum(ref Vacuum1);
-                    if (ret)
+                    if (ret && Vacuum1 > 0)
                     {
                         DataModel.Instance.BakeOvenVacuum = Vacuum1;
                     }
@@ -428,18 +505,26 @@ namespace IOUtilityClsLib
 
                     Thread.Sleep(50);
                 }
+                else
+                {
+                    Vo1connect = false;
+                }
 
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).IsConnect)
                 {
 
                     float Vacuum2 = 0;
                     bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.OvenBox2).ReadVacuum(ref Vacuum2);
-                    if (ret)
+                    if (ret && Vacuum2 > 0)
                     {
                         DataModel.Instance.BakeOven2Vacuum = Vacuum2;
                     }
 
                     Thread.Sleep(50);
+                }
+                else
+                {
+                    Vo2connect = false;
                 }
 
                 if (_VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).IsConnect)
@@ -447,69 +532,106 @@ namespace IOUtilityClsLib
 
                     float Vacuum3 = 0;
                     bool ret = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum(ref Vacuum3);
-                    if (ret)
+                    if (ret && Vacuum3 > 0)
                     {
                         DataModel.Instance.BoxVacuum = Vacuum3;
                     }
 
                     Thread.Sleep(50);
                 }
+                else
+                {
+                    Vo3connect = false;
+                }
+
+                if (Vo1connect && Vo2connect && Vo3connect)
+                {
+                    DataModel.Instance.VacuumIsconnect = true;
+                }
+                else
+                {
+                    DataModel.Instance.VacuumIsconnect = false;
+                }
+
             }
 
             if(_TurboMolecularPumpControllerManager.AllTurboMolecularPumps.Count > 0)
             {
+                bool Tuo1connect = true, Tuo2connect = true;
+
                 if (_TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).IsConnect)
                 {
-                    TurboMolecularPumpstatus Value = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).ReadStatus();
-                    if (Value == null)
+                    TurboMolecularPumpstatus Value = null;
+                    bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).ReadStatus(ref Value);
+                    if (Value == null || !ret)
                     {
-                        return;
+                        
                     }
-
-                    DataModel.Instance.OvenBox1OutputFrequency = Value.OutputFrequency;
-                    DataModel.Instance.OvenBox1OutputVoltage = Value.OutputVoltage;
-                    DataModel.Instance.OvenBox1OutputCurrent = Value.OutputCurrent;
-                    DataModel.Instance.OvenBox1Standbymode = Value.Standbymode;
-                    DataModel.Instance.OvenBox1Function = Value.Function;
-                    DataModel.Instance.OvenBox1err = Value.err;
-                    DataModel.Instance.OvenBox1OC = Value.OC;
-                    DataModel.Instance.OvenBox1OE = Value.OE;
-                    DataModel.Instance.OvenBox1Retain = Value.Retain;
-                    DataModel.Instance.OvenBox1RLU = Value.RLU;
-                    DataModel.Instance.OvenBox1OL2 = Value.OL2;
-                    DataModel.Instance.OvenBox1SL = Value.SL;
-                    DataModel.Instance.OvenBox1ESP = Value.ESP;
-                    DataModel.Instance.OvenBox1LU = Value.LU;
-                    DataModel.Instance.OvenBox1OH = Value.OH;
-
-
+                    else
+                    {
+                        DataModel.Instance.OvenBox1OutputFrequency = Value.OutputFrequency;
+                        DataModel.Instance.OvenBox1OutputVoltage = Value.OutputVoltage;
+                        DataModel.Instance.OvenBox1OutputCurrent = Value.OutputCurrent;
+                        DataModel.Instance.OvenBox1Standbymode = Value.Standbymode;
+                        DataModel.Instance.OvenBox1Function = Value.Function;
+                        DataModel.Instance.OvenBox1err = Value.err;
+                        DataModel.Instance.OvenBox1OC = Value.OC;
+                        DataModel.Instance.OvenBox1OE = Value.OE;
+                        DataModel.Instance.OvenBox1Retain = Value.Retain;
+                        DataModel.Instance.OvenBox1RLU = Value.RLU;
+                        DataModel.Instance.OvenBox1OL2 = Value.OL2;
+                        DataModel.Instance.OvenBox1SL = Value.SL;
+                        DataModel.Instance.OvenBox1ESP = Value.ESP;
+                        DataModel.Instance.OvenBox1LU = Value.LU;
+                        DataModel.Instance.OvenBox1OH = Value.OH;
+                    }
+                }
+                else
+                {
+                    Tuo1connect = false;
                 }
 
                 if (_TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).IsConnect)
                 {
-                    TurboMolecularPumpstatus Value = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).ReadStatus();
-                    if (Value == null)
+                    TurboMolecularPumpstatus Value = null;
+                    bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).ReadStatus(ref Value);
+                    if (Value == null || !ret)
                     {
-                        return;
+                        
+                    }
+                    else
+                    {
+                        DataModel.Instance.OvenBox2OutputFrequency = Value.OutputFrequency;
+                        DataModel.Instance.OvenBox2OutputVoltage = Value.OutputVoltage;
+                        DataModel.Instance.OvenBox2OutputCurrent = Value.OutputCurrent;
+                        DataModel.Instance.OvenBox2Standbymode = Value.Standbymode;
+                        DataModel.Instance.OvenBox2Function = Value.Function;
+                        DataModel.Instance.OvenBox2err = Value.err;
+                        DataModel.Instance.OvenBox2OC = Value.OC;
+                        DataModel.Instance.OvenBox2OE = Value.OE;
+                        DataModel.Instance.OvenBox2Retain = Value.Retain;
+                        DataModel.Instance.OvenBox2RLU = Value.RLU;
+                        DataModel.Instance.OvenBox2OL2 = Value.OL2;
+                        DataModel.Instance.OvenBox2SL = Value.SL;
+                        DataModel.Instance.OvenBox2ESP = Value.ESP;
+                        DataModel.Instance.OvenBox2LU = Value.LU;
+                        DataModel.Instance.OvenBox2OH = Value.OH;
                     }
 
-                    DataModel.Instance.OvenBox2OutputFrequency = Value.OutputFrequency;
-                    DataModel.Instance.OvenBox2OutputVoltage = Value.OutputVoltage;
-                    DataModel.Instance.OvenBox2OutputCurrent = Value.OutputCurrent;
-                    DataModel.Instance.OvenBox2Standbymode = Value.Standbymode;
-                    DataModel.Instance.OvenBox2Function = Value.Function;
-                    DataModel.Instance.OvenBox2err = Value.err;
-                    DataModel.Instance.OvenBox2OC = Value.OC;
-                    DataModel.Instance.OvenBox2OE = Value.OE;
-                    DataModel.Instance.OvenBox2Retain = Value.Retain;
-                    DataModel.Instance.OvenBox2RLU = Value.RLU;
-                    DataModel.Instance.OvenBox2OL2 = Value.OL2;
-                    DataModel.Instance.OvenBox2SL = Value.SL;
-                    DataModel.Instance.OvenBox2ESP = Value.ESP;
-                    DataModel.Instance.OvenBox2LU = Value.LU;
-                    DataModel.Instance.OvenBox2OH = Value.OH;
+                }
+                else
+                {
+                    Tuo2connect = false;
+                }
 
 
+                if (Tuo1connect && Tuo2connect)
+                {
+                    DataModel.Instance.TurboMolecularPumpIsconnect = true;
+                }
+                else
+                {
+                    DataModel.Instance.TurboMolecularPumpIsconnect = false;
                 }
 
             }

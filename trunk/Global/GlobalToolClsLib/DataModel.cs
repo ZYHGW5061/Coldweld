@@ -22,12 +22,19 @@ namespace GlobalToolClsLib
 
         #region 内部参数
 
-        private bool stageAxisIsconnect = false;
-        private bool stageIOIsconnect = false;
-        private bool cameraIsconnect = false;
-        private bool temperatureIsconnect = false;
-        private bool vacuumIsconnect = false;
-        private bool turboMolecularPumpIsconnect = false;
+        private int weldMaterialNumber = 0;
+        private int pressWorkNumber = 0;
+        private int equipmentOperatingTime = 0;
+
+        private bool run = false;
+        private bool error = false;
+
+        private bool stageAxisIsconnect = true;
+        private bool stageIOIsconnect = true;
+        private bool cameraIsconnect = true;
+        private bool temperatureIsconnect = true;
+        private bool vacuumIsconnect = true;
+        private bool turboMolecularPumpIsconnect = true;
 
 
         private EnumOvenBoxState state = EnumOvenBoxState.None;
@@ -267,6 +274,89 @@ namespace GlobalToolClsLib
 
 
         #region 全局参数
+
+        /// <summary>
+        /// 已焊接物料个数
+        /// </summary>
+        public int WeldMaterialNumber
+        {
+            get { return weldMaterialNumber; }
+            set
+            {
+                if (weldMaterialNumber != value)
+                {
+                    weldMaterialNumber = value;
+                    OnPropertyChanged(nameof(WeldMaterialNumber));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 压机工作次数
+        /// </summary>
+        public int PressWorkNumber
+        {
+            get { return pressWorkNumber; }
+            set
+            {
+                if (pressWorkNumber != value)
+                {
+                    pressWorkNumber = value;
+                    OnPropertyChanged(nameof(PressWorkNumber));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 设备运行时间 分钟
+        /// </summary>
+        public int EquipmentOperatingTime
+        {
+            get { return equipmentOperatingTime; }
+            set
+            {
+                if (equipmentOperatingTime != value)
+                {
+                    equipmentOperatingTime = value;
+                    OnPropertyChanged(nameof(EquipmentOperatingTime));
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 运行状态
+        /// </summary>
+        public bool Run
+        {
+            get { return run; }
+            set
+            {
+                if (run != value)
+                {
+                    run = value;
+                    OnPropertyChanged(nameof(Run));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 错误状态
+        /// </summary>
+        public bool Error
+        {
+            get { return error; }
+            set
+            {
+                if (error != value)
+                {
+                    error = value;
+                    OnPropertyChanged(nameof(Error));
+                }
+            }
+        }
+
+
 
 
         /// <summary>

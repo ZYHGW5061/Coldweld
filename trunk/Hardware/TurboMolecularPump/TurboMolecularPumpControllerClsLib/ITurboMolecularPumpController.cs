@@ -39,14 +39,14 @@ namespace TurboMolecularPumpControllerClsLib
         /// 读取分子泵状态
         /// </summary>
         /// <returns></returns>
-        TurboMolecularPumpstatus ReadStatus();
+        bool ReadStatus(ref TurboMolecularPumpstatus param);
 
-        void SlowShutdown();
-        void FreeShutdown();
-        void Function();
-        void FaultReset();
-        void Unlock();
-        void Lock();
+        bool SlowShutdown();
+        bool FreeShutdown();
+        bool Function();
+        bool FaultReset();
+        bool Unlock();
+        bool Lock();
 
 
 

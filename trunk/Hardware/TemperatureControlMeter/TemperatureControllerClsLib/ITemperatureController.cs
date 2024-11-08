@@ -28,13 +28,13 @@ namespace TemperatureControllerClsLib
         /// </summary>
         /// <param name="Add"></param>
         /// <param name="value"></param>
-        void Write(TemperatureRtuAdd Add, int value);
+        bool Write(TemperatureRtuAdd Add, int value);
         /// <summary>
         /// 读取参数
         /// </summary>
         /// <param name="Add"></param>
         /// <returns></returns>
-        int Read(TemperatureRtuAdd Add);
+        bool Read(TemperatureRtuAdd Add, ref int Data);
 
         SerialPort SerialPortEngine
         {

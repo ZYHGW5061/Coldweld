@@ -66,6 +66,10 @@
       <Project>{bec297a8-3688-414c-92de-60b7e3355e4a}</Project>
       <Name>BoardCardControllerClsLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
+      <Project>{EE038ED1-7A96-4075-A51C-EA53A4D026DF}</Project>
+      <Name>CameraControllerClsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DewPointMeter\DewPointMeterControllerClsLib\DewPointMeterControllerClsLib.csproj">
       <Project>{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}</Project>
       <Name>DewPointMeterControllerClsLib</Name>
