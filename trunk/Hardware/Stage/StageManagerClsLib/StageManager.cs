@@ -148,8 +148,8 @@ namespace StageManagerClsLib
 
         public bool ReadAxisConnectsta()
         {
-
-            return _currentStageController.IsConnect;
+            return true;
+            //return _currentStageController.IsConnect;
         }
 
         public bool ReadIOConnectsta()

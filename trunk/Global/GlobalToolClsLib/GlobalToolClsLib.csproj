@@ -74,6 +74,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleStepRunUtility.cs" />
     <Compile Include="Source.cs" />
+    <Compile Include="SQLiteHelper.cs" />
+    <Compile Include="SQLiteProgram.cs" />
     <Compile Include="Win32ApiHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +83,11 @@
       <Project>{B0F0BD56-7EFF-414B-9D41-F4E7ACA2A8B2}</Project>
       <Name>GlobalDataDefineClsLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.119</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

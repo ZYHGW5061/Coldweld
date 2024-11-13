@@ -159,6 +159,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DewPointMeter", "DewPointMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DewPointMeterControllerClsLib", "Hardware\DewPointMeter\DewPointMeterControllerClsLib\DewPointMeterControllerClsLib.csproj", "{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagerClsLib", "Control\UserManagement\UserManagerClsLib\UserManagerClsLib.csproj", "{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -349,6 +351,10 @@ Global
 		{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BD2847F-FC85-436D-A7E5-CB005CCB88F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -425,6 +431,7 @@ Global
 		{622EB4EF-0C4A-4F4D-978A-7FA5981C3917} = {8B571D50-8979-4A59-98FE-A792DA54E491}
 		{73251A31-DED1-47DC-8EFA-15CF8D22FAA4} = {B984B073-3BBA-4FED-AC6F-56DC95FC5E7B}
 		{6BD2847F-FC85-436D-A7E5-CB005CCB88F3} = {73251A31-DED1-47DC-8EFA-15CF8D22FAA4}
+		{4F1D22B7-79A4-49DF-8DB4-4057CABC6329} = {B426578C-CE52-4BD2-8501-ADC25E2982B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84875D5C-A4A6-41C7-904E-67BC0939814E}

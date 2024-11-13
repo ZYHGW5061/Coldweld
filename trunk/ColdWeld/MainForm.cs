@@ -122,7 +122,7 @@ namespace BondTerminal
             InitializeVisualForm();
 
 
-            _syncContext = SynchronizationContext.Current;
+            
 
             toolStripStatusLabelRunStatus.BackColor = (DataModel.Instance.Run ? true : false) ? Color.GreenYellow : Color.Transparent;
             toolStripStatusLabelError.BackColor = (DataModel.Instance.Error ? true : false) ? Color.Red : Color.GreenYellow;
@@ -135,12 +135,15 @@ namespace BondTerminal
 
 
             DataModel.Instance.PropertyChanged += DataModel_PropertyChanged;
+            _syncContext = SynchronizationContext.Current;
 
             dataGridView2.ReadOnly = true;
             dataGridView2.Enabled = false;
 
 
             _boardCardController = BoardCardManager.Instance.GetCurrentController();
+
+            UpdateState();
         }
 
         private void InitializeVisualForm()
@@ -161,6 +164,14 @@ namespace BondTerminal
             startFrom.Dispose();
             startFrom = null;
 
+            Login login = new Login();
+            if (login.ShowDialog() != DialogResult.OK)
+            {
+                Application.Exit();
+                return;
+            }
+            login.Dispose();
+            login = null;
 
             this._clockTimer = new System.Timers.Timer();
             this._clockTimer.Enabled = true;
@@ -185,6 +196,7 @@ namespace BondTerminal
         {
             DateTime time = DateTime.Now;
             this.toolStripStatusLabelNowTime.Text = time.ToShortDateString() + "  " + time.ToLongTimeString();
+
         }
         private int _systemRunTimeMin = 0;
         private void OnTimerElapsedEvt(object sender, System.Timers.ElapsedEventArgs e)
@@ -193,6 +205,8 @@ namespace BondTerminal
             {
                 _systemRunTimeMin++;
                 this.toolStripStatusLabelRunTime.Text = $"设备已运行：{_systemRunTimeMin} 分钟";
+                DataModel.Instance.EquipmentOperatingTime++;
+                SystemConfiguration.Instance.StatisticalDataConfig.EquipmentOperatingTime = DataModel.Instance.EquipmentOperatingTime;
             }
             finally
             {
@@ -344,6 +358,7 @@ namespace BondTerminal
                     {
                         if (WarningBox.FormShow("确认关闭？", "确认退出软件？", "提示") == 0)
                         {
+                            SystemConfiguration.Instance.SaveConfig();
                             e.Cancel = true;
                         }
                         else
@@ -653,15 +668,586 @@ namespace BondTerminal
             }
         }
 
+        private void UpdateJobLogText(string str)
+        {
+            if (teCurrentState.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                teCurrentState.Invoke(new Action(() => UpdateJobLogText1(str)
+                )); ;
+            }
+            else
+            {
+                UpdateJobLogText1(str);
+            }
+        }
+
+        private void UpdateJobLogText1(string str)
+        {
+            this.teCurrentState.Text = str;
+            this.teCurrentState.Refresh();
+        }
+
+        private void UpdateState1()
+        {
+            if (teCurrentState1.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                teCurrentState1.Invoke(new Action(() => UpdateNum()));
+            }
+            else
+            {
+                UpdateNum();
+            }
+        }
+
+        private void UpdateBakeOvenDowntemp()
+        {
+            if (laOven1Temp.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1Temp.Invoke(new Action(() => 
+                {
+                    laOven1Temp.Text = DataModel.Instance.BakeOvenDowntemp.ToString();
+                }));
+            }
+            else
+            {
+                laOven1Temp.Text = DataModel.Instance.BakeOvenDowntemp.ToString();
+            }
+        }
+
+        private void UpdateBakeOven2Downtemp()
+        {
+            if (laOven2Temp.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2Temp.Invoke(new Action(() =>
+                {
+                    laOven2Temp.Text = DataModel.Instance.BakeOven2Downtemp.ToString();
+                }));
+            }
+            else
+            {
+                laOven2Temp.Text = DataModel.Instance.BakeOven2Downtemp.ToString();
+            }
+        }
+
+        private void UpdateOvenBox1Heating()
+        {
+            if (laOven1Heating.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1Heating.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.OvenBox1Heating)
+                    {
+                        laOven1Heating.Text = "加热";
+                        laOven1Heating.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        laOven1Heating.Text = "待机";
+                        laOven1Heating.BackColor = Color.Yellow;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.OvenBox1Heating)
+                {
+                    laOven1Heating.Text = "加热";
+                    laOven1Heating.BackColor = Color.Red;
+                }
+                else
+                {
+                    laOven1Heating.Text = "待机";
+                    laOven1Heating.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void UpdateOvenBox2Heating()
+        {
+            if (laOven2Heating.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2Heating.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.OvenBox2Heating)
+                    {
+                        laOven2Heating.Text = "加热";
+                        laOven2Heating.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        laOven2Heating.Text = "待机";
+                        laOven2Heating.BackColor = Color.Yellow;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.OvenBox2Heating)
+                {
+                    laOven2Heating.Text = "加热";
+                    laOven2Heating.BackColor = Color.Red;
+                }
+                else
+                {
+                    laOven2Heating.Text = "待机";
+                    laOven2Heating.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void UpdateHeatPreservationResidueMinute()
+        {
+            if (laOven1Time.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1Time.Invoke(new Action(() =>
+                {
+                    laOven1Time.Text = DataModel.Instance.HeatPreservationResidueMinute.ToString();
+                }));
+            }
+            else
+            {
+                laOven1Time.Text = DataModel.Instance.HeatPreservationResidueMinute.ToString();
+            }
+        }
+
+        private void UpdateHeatPreservationResidueMinute2()
+        {
+            if (laOven2Time.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2Time.Invoke(new Action(() =>
+                {
+                    laOven2Time.Text = DataModel.Instance.HeatPreservationResidueMinute2.ToString();
+                }));
+            }
+            else
+            {
+                laOven2Time.Text = DataModel.Instance.HeatPreservationResidueMinute2.ToString();
+            }
+        }
+
+        private void UpdateBakeOvenVacuum()
+        {
+            if (laOven1Vacuum.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1Vacuum.Invoke(new Action(() =>
+                {
+                    laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E1");
+                }));
+            }
+            else
+            {
+                laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E1");
+            }
+        }
+        private void UpdateBakeOven2Vacuum()
+        {
+            if (laOven2Vacuum.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2Vacuum.Invoke(new Action(() =>
+                {
+                    laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E1");
+                }));
+            }
+            else
+            {
+                laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E1");
+            }
+        }
+
+        private void UpdateBoxVacuum()
+        {
+            if (laBoxVacuum.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laBoxVacuum.Invoke(new Action(() =>
+                {
+                    laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E1");
+                }));
+            }
+            else
+            {
+                laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E1");
+            }
+        }
+
+        private void UpdateBakeOvenOuterdoorClosestatus()
+        {
+            if (laOven1OutDoorSta.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1OutDoorSta.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BakeOvenOuterdoorClosestatus)
+                    {
+                        laOven1OutDoorSta.Text = "关";
+                        laOven1OutDoorSta.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laOven1OutDoorSta.Text = "开";
+                        laOven1OutDoorSta.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BakeOvenOuterdoorClosestatus)
+                {
+                    laOven1OutDoorSta.Text = "关";
+                    laOven1OutDoorSta.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laOven1OutDoorSta.Text = "开";
+                    laOven1OutDoorSta.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateBakeOven2OuterdoorClosestatus()
+        {
+            if (laOven2OutDoorSta.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2OutDoorSta.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BakeOven2OuterdoorClosestatus)
+                    {
+                        laOven2OutDoorSta.Text = "关";
+                        laOven2OutDoorSta.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laOven2OutDoorSta.Text = "开";
+                        laOven2OutDoorSta.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BakeOven2OuterdoorClosestatus)
+                {
+                    laOven2OutDoorSta.Text = "关";
+                    laOven2OutDoorSta.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laOven2OutDoorSta.Text = "开";
+                    laOven2OutDoorSta.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateBoxOuterdoorClosestatus()
+        {
+            if (laBoxOutDoorSta.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laBoxOutDoorSta.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BoxOuterdoorClosetatus)
+                    {
+                        laBoxOutDoorSta.Text = "关";
+                        laBoxOutDoorSta.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laBoxOutDoorSta.Text = "开";
+                        laBoxOutDoorSta.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BoxOuterdoorClosetatus)
+                {
+                    laBoxOutDoorSta.Text = "关";
+                    laBoxOutDoorSta.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laBoxOutDoorSta.Text = "开";
+                    laBoxOutDoorSta.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateBakeOvenPressureSensor()
+        {
+            if (laOven1Atmosphere.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1Atmosphere.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BakeOvenPressureSensor)
+                    {
+                        laOven1Atmosphere.Text = "是";
+                        laOven1Atmosphere.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laOven1Atmosphere.Text = "否";
+                        laOven1Atmosphere.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BakeOvenPressureSensor)
+                {
+                    laOven1Atmosphere.Text = "是";
+                    laOven1Atmosphere.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laOven1Atmosphere.Text = "否";
+                    laOven1Atmosphere.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateBakeOven2PressureSensor()
+        {
+            if (laOven2Atmosphere.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2Atmosphere.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BakeOven2PressureSensor)
+                    {
+                        laOven2Atmosphere.Text = "是";
+                        laOven2Atmosphere.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laOven2Atmosphere.Text = "否";
+                        laOven2Atmosphere.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BakeOven2PressureSensor)
+                {
+                    laOven2Atmosphere.Text = "是";
+                    laOven2Atmosphere.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laOven2Atmosphere.Text = "否";
+                    laOven2Atmosphere.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateBoxPressureSensor()
+        {
+            if (laBoxAtmosphere.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laBoxAtmosphere.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.BoxPressureSensor)
+                    {
+                        laBoxAtmosphere.Text = "是";
+                        laBoxAtmosphere.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        laBoxAtmosphere.Text = "否";
+                        laBoxAtmosphere.BackColor = Color.Red;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.BoxPressureSensor)
+                {
+                    laBoxAtmosphere.Text = "是";
+                    laBoxAtmosphere.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    laBoxAtmosphere.Text = "否";
+                    laBoxAtmosphere.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void UpdateOvenBox1Function()
+        {
+            if (laOven1MolecularPump.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven1MolecularPump.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.OvenBox1Function)
+                    {
+                        laOven1MolecularPump.Text = "运行";
+                        laOven1MolecularPump.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        laOven1MolecularPump.Text = "待机";
+                        laOven1MolecularPump.BackColor = Color.Yellow;
+                    }
+
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.OvenBox1Function)
+                {
+                    laOven1MolecularPump.Text = "运行";
+                    laOven1MolecularPump.BackColor = Color.Red;
+                }
+                else
+                {
+                    laOven1MolecularPump.Text = "待机";
+                    laOven1MolecularPump.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void UpdateOvenBox2Function()
+        {
+            if (laOven2MolecularPump.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laOven2MolecularPump.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.OvenBox2Function)
+                    {
+                        laOven2MolecularPump.Text = "运行";
+                        laOven2MolecularPump.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        laOven2MolecularPump.Text = "待机";
+                        laOven2MolecularPump.BackColor = Color.Yellow;
+                    }
+
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.OvenBox2Function)
+                {
+                    laOven2MolecularPump.Text = "运行";
+                    laOven2MolecularPump.BackColor = Color.Red;
+                }
+                else
+                {
+                    laOven2MolecularPump.Text = "待机";
+                    laOven2MolecularPump.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void UpdateCondenserPump()
+        {
+            if (laBoxCondensatePump.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laBoxCondensatePump.Invoke(new Action(() =>
+                {
+                    if (DataModel.Instance.CondenserPump)
+                    {
+                        laBoxCondensatePump.Text = "运行";
+                        laBoxCondensatePump.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        laBoxCondensatePump.Text = "待机";
+                        laBoxCondensatePump.BackColor = Color.Yellow;
+                    }
+                }));
+            }
+            else
+            {
+                if (DataModel.Instance.CondenserPump)
+                {
+                    laBoxCondensatePump.Text = "运行";
+                    laBoxCondensatePump.BackColor = Color.Red;
+                }
+                else
+                {
+                    laBoxCondensatePump.Text = "待机";
+                    laBoxCondensatePump.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void UpdateWeldMaterialNumber()
+        {
+            if (laWeldMaterial.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laWeldMaterial.Invoke(new Action(() =>
+                {
+                    laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString();
+                }));
+            }
+            else
+            {
+                laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString();
+            }
+        }
+
+        private void UpdatePressWorkNumber()
+        {
+            if (laPressNum.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laPressNum.Invoke(new Action(() =>
+                {
+                    laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString();
+                }));
+            }
+            else
+            {
+                laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString();
+            }
+        }
+
+        private void UpdateEquipmentOperatingTime()
+        {
+            if (laRunTime.InvokeRequired)
+            {
+                // 使用 Invoke 来确保在 UI 线程上执行  
+                laRunTime.Invoke(new Action(() =>
+                {
+                    laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString();
+                }));
+            }
+            else
+            {
+                laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString();
+            }
+        }
+
+
         private void DataModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+           
             #region 生产状态
 
 
             if (e.PropertyName == nameof(DataModel.JobLogText))
             {
-                _syncContext.Post(_ => teCurrentState.Text = DataModel.Instance.JobLogText, null);
+                //_syncContext.Post(_ => teCurrentState.Text = DataModel.Instance.JobLogText, null);
                 //UpdateLogSafely(DataModel.Instance.JobLogText);
+                UpdateJobLogText(DataModel.Instance.JobLogText);
             }
             if (e.PropertyName == nameof(DataModel.MaterialMat))
             {
@@ -673,216 +1259,228 @@ namespace BondTerminal
             //}
             if (e.PropertyName == nameof(DataModel.Ovennum))
             {
-                UpdateNum(DataModel.Instance.Ovennum);
+                //UpdateNum(DataModel.Instance.Ovennum);
+                UpdateState1();
             }
             if (e.PropertyName == nameof(DataModel.Materialboxnum))
             {
-                UpdateNum(DataModel.Instance.Materialboxnum);
+                //UpdateNum(DataModel.Instance.Materialboxnum);
+                UpdateState1();
             }
             if (e.PropertyName == nameof(DataModel.Materialnum))
             {
-                UpdateNum(DataModel.Instance.Materialnum);
+                //UpdateNum(DataModel.Instance.Materialnum);
+                UpdateState1();
             }
             if (e.PropertyName == nameof(DataModel.Materialrow))
             {
-                UpdateNum(DataModel.Instance.Materialrow);
+                //UpdateNum(DataModel.Instance.Materialrow);
+                UpdateState1();
             }
             if (e.PropertyName == nameof(DataModel.Materialcol))
             {
-                UpdateNum(DataModel.Instance.Materialcol);
+                //UpdateNum(DataModel.Instance.Materialcol);
+                UpdateState1();
             }
 
 
             if (e.PropertyName == nameof(DataModel.BakeOvenDowntemp))
             {
-                _syncContext.Post(_ => laOven1Temp.Text = DataModel.Instance.BakeOvenDowntemp.ToString(), null);
+                //_syncContext.Post(_ => laOven1Temp.Text = DataModel.Instance.BakeOvenDowntemp.ToString(), null);
+                UpdateBakeOvenDowntemp();
             }
             if (e.PropertyName == nameof(DataModel.BakeOven2Downtemp))
             {
-                _syncContext.Post(_ => laOven2Temp.Text = DataModel.Instance.BakeOven2Downtemp.ToString(), null);
+                //_syncContext.Post(_ => laOven2Temp.Text = DataModel.Instance.BakeOven2Downtemp.ToString(), null);
+                UpdateBakeOven2Downtemp();
             }
 
             if (e.PropertyName == nameof(DataModel.OvenBox1Heating))
             {
-                if(DataModel.Instance.OvenBox1Heating)
-                {
-                    _syncContext.Post(_ => laOven1Heating.Text = "加热", null);
-                    _syncContext.Post(_ => laOven1Heating.BackColor = Color.Red, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven1Heating.Text = "待机", null);
-                    _syncContext.Post(_ => laOven1Heating.BackColor = Color.Yellow, null);
-                }
-                
+                //if(DataModel.Instance.OvenBox1Heating)
+                //{
+                //    _syncContext.Post(_ => laOven1Heating.Text = "加热", null);
+                //    _syncContext.Post(_ => laOven1Heating.BackColor = Color.Red, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven1Heating.Text = "待机", null);
+                //    _syncContext.Post(_ => laOven1Heating.BackColor = Color.Yellow, null);
+                //}
+                UpdateOvenBox1Heating();
             }
 
             if (e.PropertyName == nameof(DataModel.OvenBox2Heating))
             {
-                if (DataModel.Instance.OvenBox2Heating)
-                {
-                    _syncContext.Post(_ => laOven2Heating.Text = "加热", null);
-                    _syncContext.Post(_ => laOven2Heating.BackColor = Color.Red, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven2Heating.Text = "待机", null);
-                    _syncContext.Post(_ => laOven2Heating.BackColor = Color.Yellow, null);
-                }
-
+                //if (DataModel.Instance.OvenBox2Heating)
+                //{
+                //    _syncContext.Post(_ => laOven2Heating.Text = "加热", null);
+                //    _syncContext.Post(_ => laOven2Heating.BackColor = Color.Red, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven2Heating.Text = "待机", null);
+                //    _syncContext.Post(_ => laOven2Heating.BackColor = Color.Yellow, null);
+                //}
+                UpdateOvenBox2Heating();
             }
 
             if (e.PropertyName == nameof(DataModel.HeatPreservationResidueMinute))
             {
-                _syncContext.Post(_ => laOven1Time.Text = DataModel.Instance.HeatPreservationResidueMinute.ToString(), null);
+                //_syncContext.Post(_ => laOven1Time.Text = DataModel.Instance.HeatPreservationResidueMinute.ToString(), null);
+                UpdateHeatPreservationResidueMinute();
             }
             if (e.PropertyName == nameof(DataModel.HeatPreservationResidueMinute2))
             {
-                _syncContext.Post(_ => laOven2Time.Text = DataModel.Instance.HeatPreservationResidueMinute2.ToString(), null);
+                //_syncContext.Post(_ => laOven2Time.Text = DataModel.Instance.HeatPreservationResidueMinute2.ToString(), null);
+                UpdateHeatPreservationResidueMinute2();
             }
 
             if (e.PropertyName == nameof(DataModel.BakeOvenVacuum))
             {
-                _syncContext.Post(_ => laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E"), null);
+                //_syncContext.Post(_ => laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E"), null);
+                UpdateBakeOvenVacuum();
             }
             if (e.PropertyName == nameof(DataModel.BakeOven2Vacuum))
             {
-                _syncContext.Post(_ => laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E"), null);
+                //_syncContext.Post(_ => laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E"), null);
+                UpdateBakeOven2Vacuum();
             }
             if (e.PropertyName == nameof(DataModel.BoxVacuum))
             {
-                _syncContext.Post(_ => laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E"), null);
+                //_syncContext.Post(_ => laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E"), null);
+                UpdateBoxVacuum();
             }
 
 
             if (e.PropertyName == nameof(DataModel.BakeOvenOuterdoorClosestatus))
             {
-                if (DataModel.Instance.BakeOvenOuterdoorClosestatus)
-                {
-                    _syncContext.Post(_ => laOven1OutDoorSta.Text = "关", null);
-                    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven1OutDoorSta.Text = "开", null);
-                    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BakeOvenOuterdoorClosestatus)
+                //{
+                //    _syncContext.Post(_ => laOven1OutDoorSta.Text = "关", null);
+                //    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven1OutDoorSta.Text = "开", null);
+                //    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Red, null);
+                //}
+                UpdateBakeOvenOuterdoorClosestatus();
             }
             if (e.PropertyName == nameof(DataModel.BakeOven2OuterdoorClosestatus))
             {
-                if (DataModel.Instance.BakeOven2OuterdoorClosestatus)
-                {
-                    _syncContext.Post(_ => laOven2OutDoorSta.Text = "关", null);
-                    _syncContext.Post(_ => laOven2OutDoorSta.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven1OutDoorSta.Text = "开", null);
-                    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BakeOven2OuterdoorClosestatus)
+                //{
+                //    _syncContext.Post(_ => laOven2OutDoorSta.Text = "关", null);
+                //    _syncContext.Post(_ => laOven2OutDoorSta.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven1OutDoorSta.Text = "开", null);
+                //    _syncContext.Post(_ => laOven1OutDoorSta.BackColor = Color.Red, null);
+                //}
+                UpdateBakeOven2OuterdoorClosestatus();
             }
             if (e.PropertyName == nameof(DataModel.BoxOuterdoorClosetatus))
             {
-                if (DataModel.Instance.BoxOuterdoorClosetatus)
-                {
-                    _syncContext.Post(_ => laBoxOutDoorSta.Text = "关", null);
-                    _syncContext.Post(_ => laBoxOutDoorSta.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laBoxOutDoorSta.Text = "开", null);
-                    _syncContext.Post(_ => laBoxOutDoorSta.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BoxOuterdoorClosetatus)
+                //{
+                //    _syncContext.Post(_ => laBoxOutDoorSta.Text = "关", null);
+                //    _syncContext.Post(_ => laBoxOutDoorSta.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laBoxOutDoorSta.Text = "开", null);
+                //    _syncContext.Post(_ => laBoxOutDoorSta.BackColor = Color.Red, null);
+                //}
+                UpdateBoxOuterdoorClosestatus();
             }
 
 
             if (e.PropertyName == nameof(DataModel.BakeOvenPressureSensor))
             {
-                if (DataModel.Instance.BakeOvenPressureSensor)
-                {
-                    _syncContext.Post(_ => laOven1Atmosphere.Text = "是", null);
-                    _syncContext.Post(_ => laOven1Atmosphere.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven1Atmosphere.Text = "否", null);
-                    _syncContext.Post(_ => laOven1Atmosphere.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BakeOvenPressureSensor)
+                //{
+                //    _syncContext.Post(_ => laOven1Atmosphere.Text = "是", null);
+                //    _syncContext.Post(_ => laOven1Atmosphere.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven1Atmosphere.Text = "否", null);
+                //    _syncContext.Post(_ => laOven1Atmosphere.BackColor = Color.Red, null);
+                //}
+                UpdateBakeOvenPressureSensor();
             }
             if (e.PropertyName == nameof(DataModel.BakeOven2PressureSensor))
             {
-                if (DataModel.Instance.BakeOven2PressureSensor)
-                {
-                    _syncContext.Post(_ => laOven2Atmosphere.Text = "是", null);
-                    _syncContext.Post(_ => laOven2Atmosphere.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven2Atmosphere.Text = "否", null);
-                    _syncContext.Post(_ => laOven2Atmosphere.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BakeOven2PressureSensor)
+                //{
+                //    _syncContext.Post(_ => laOven2Atmosphere.Text = "是", null);
+                //    _syncContext.Post(_ => laOven2Atmosphere.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven2Atmosphere.Text = "否", null);
+                //    _syncContext.Post(_ => laOven2Atmosphere.BackColor = Color.Red, null);
+                //}
+                UpdateBakeOven2PressureSensor();
             }
             if (e.PropertyName == nameof(DataModel.BoxPressureSensor))
             {
-                if (DataModel.Instance.BoxPressureSensor)
-                {
-                    _syncContext.Post(_ => laBoxAtmosphere.Text = "是", null);
-                    _syncContext.Post(_ => laBoxAtmosphere.BackColor = Color.Yellow, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laBoxAtmosphere.Text = "否", null);
-                    _syncContext.Post(_ => laBoxAtmosphere.BackColor = Color.Red, null);
-                }
-
+                //if (DataModel.Instance.BoxPressureSensor)
+                //{
+                //    _syncContext.Post(_ => laBoxAtmosphere.Text = "是", null);
+                //    _syncContext.Post(_ => laBoxAtmosphere.BackColor = Color.Yellow, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laBoxAtmosphere.Text = "否", null);
+                //    _syncContext.Post(_ => laBoxAtmosphere.BackColor = Color.Red, null);
+                //}
+                UpdateBoxPressureSensor();
             }
 
             if (e.PropertyName == nameof(DataModel.OvenBox1Function))
             {
-                if (DataModel.Instance.OvenBox1Function)
-                {
-                    _syncContext.Post(_ => laOven1MolecularPump.Text = "运行", null);
-                    _syncContext.Post(_ => laOven1MolecularPump.BackColor = Color.Red, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven1MolecularPump.Text = "待机", null);
-                    _syncContext.Post(_ => laOven1MolecularPump.BackColor = Color.Yellow, null);
-                }
-
+                //if (DataModel.Instance.OvenBox1Function)
+                //{
+                //    _syncContext.Post(_ => laOven1MolecularPump.Text = "运行", null);
+                //    _syncContext.Post(_ => laOven1MolecularPump.BackColor = Color.Red, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven1MolecularPump.Text = "待机", null);
+                //    _syncContext.Post(_ => laOven1MolecularPump.BackColor = Color.Yellow, null);
+                //}
+                UpdateOvenBox1Function();
             }
             if (e.PropertyName == nameof(DataModel.OvenBox2Function))
             {
-                if (DataModel.Instance.OvenBox1Function)
-                {
-                    _syncContext.Post(_ => laOven2MolecularPump.Text = "运行", null);
-                    _syncContext.Post(_ => laOven2MolecularPump.BackColor = Color.Red, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laOven2MolecularPump.Text = "待机", null);
-                    _syncContext.Post(_ => laOven2MolecularPump.BackColor = Color.Yellow, null);
-                }
-
+                //if (DataModel.Instance.OvenBox1Function)
+                //{
+                //    _syncContext.Post(_ => laOven2MolecularPump.Text = "运行", null);
+                //    _syncContext.Post(_ => laOven2MolecularPump.BackColor = Color.Red, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laOven2MolecularPump.Text = "待机", null);
+                //    _syncContext.Post(_ => laOven2MolecularPump.BackColor = Color.Yellow, null);
+                //}
+                UpdateOvenBox2Function();
             }
             if (e.PropertyName == nameof(DataModel.CondenserPump))
             {
-                if (DataModel.Instance.CondenserPump)
-                {
-                    _syncContext.Post(_ => laBoxCondensatePump.Text = "运行", null);
-                    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Red, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => laBoxCondensatePump.Text = "待机", null);
-                    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Yellow, null);
-                }
-
+                //if (DataModel.Instance.CondenserPump)
+                //{
+                //    _syncContext.Post(_ => laBoxCondensatePump.Text = "运行", null);
+                //    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Red, null);
+                //}
+                //else
+                //{
+                //    _syncContext.Post(_ => laBoxCondensatePump.Text = "待机", null);
+                //    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Yellow, null);
+                //}
+                UpdateCondenserPump();
             }
 
 
@@ -891,7 +1489,23 @@ namespace BondTerminal
 
             #region 统计
 
+            if (e.PropertyName == nameof(DataModel.WeldMaterialNumber))
+            {
+                //_syncContext.Post(_ => laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString(), null);
+                UpdateWeldMaterialNumber();
+            }
 
+            if (e.PropertyName == nameof(DataModel.PressWorkNumber))
+            {
+                //_syncContext.Post(_ => laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString(), null);
+                UpdatePressWorkNumber();
+            }
+
+            if (e.PropertyName == nameof(DataModel.EquipmentOperatingTime))
+            {
+                //_syncContext.Post(_ => laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+                UpdateEquipmentOperatingTime();
+            }
 
 
             #endregion
@@ -948,6 +1562,158 @@ namespace BondTerminal
 
 
 
+
+        }
+
+
+        private void UpdateState()
+        {
+            #region 生产状态
+
+
+            teCurrentState.Text = DataModel.Instance.JobLogText;
+            laOven1Temp.Text = DataModel.Instance.BakeOvenDowntemp.ToString();
+            laOven2Temp.Text = DataModel.Instance.BakeOven2Downtemp.ToString();
+
+            if (DataModel.Instance.OvenBox1Heating)
+            {
+                laOven1Heating.Text = "加热";
+                laOven1Heating.BackColor = Color.Red;
+            }
+            else
+            {
+                laOven1Heating.Text = "待机";
+                laOven1Heating.BackColor = Color.Yellow;
+            }
+
+
+            if (DataModel.Instance.OvenBox2Heating)
+            {
+                laOven2Heating.Text = "加热";
+                laOven2Heating.BackColor = Color.Red;
+            }
+            else
+            {
+                laOven2Heating.Text = "待机";
+                laOven2Heating.BackColor = Color.Yellow;
+            }
+
+
+            laOven1Time.Text = DataModel.Instance.HeatPreservationResidueMinute.ToString();
+            laOven2Time.Text = DataModel.Instance.HeatPreservationResidueMinute2.ToString();
+
+            laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E1");
+            laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E1");
+            laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E1");
+
+            if (DataModel.Instance.BakeOvenOuterdoorClosestatus)
+            {
+                laOven1OutDoorSta.Text = "关";
+                laOven1OutDoorSta.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laOven1OutDoorSta.Text = "开";
+                laOven1OutDoorSta.BackColor = Color.Red;
+            }
+            if (DataModel.Instance.BakeOven2OuterdoorClosestatus)
+            {
+                laOven2OutDoorSta.Text = "关";
+                laOven2OutDoorSta.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laOven1OutDoorSta.Text = "开";
+                laOven1OutDoorSta.BackColor = Color.Red;
+            }
+            if (DataModel.Instance.BoxOuterdoorClosetatus)
+            {
+                laBoxOutDoorSta.Text = "关";
+                laBoxOutDoorSta.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laBoxOutDoorSta.Text = "开";
+                laBoxOutDoorSta.BackColor = Color.Red;
+            }
+
+
+            if (DataModel.Instance.BakeOvenPressureSensor)
+            {
+                laOven1Atmosphere.Text = "是";
+                laOven1Atmosphere.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laOven1Atmosphere.Text = "否";
+                laOven1Atmosphere.BackColor = Color.Red;
+            }
+            if (DataModel.Instance.BakeOven2PressureSensor)
+            {
+                laOven2Atmosphere.Text = "是";
+                laOven2Atmosphere.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laOven2Atmosphere.Text = "否";
+                laOven2Atmosphere.BackColor = Color.Red;
+            }
+            if (DataModel.Instance.BoxPressureSensor)
+            {
+                laBoxAtmosphere.Text = "是";
+                laBoxAtmosphere.BackColor = Color.Yellow;
+            }
+            else
+            {
+                laBoxAtmosphere.Text = "否";
+                laBoxAtmosphere.BackColor = Color.Red;
+            }
+
+            if (DataModel.Instance.OvenBox1Function)
+            {
+                laOven1MolecularPump.Text = "运行";
+                laOven1MolecularPump.BackColor = Color.Red;
+            }
+            else
+            {
+                laOven1MolecularPump.Text = "待机";
+                laOven1MolecularPump.BackColor = Color.Yellow;
+            }
+            if (DataModel.Instance.OvenBox1Function)
+            {
+                laOven2MolecularPump.Text = "运行";
+                laOven2MolecularPump.BackColor = Color.Red;
+            }
+            else
+            {
+                laOven2MolecularPump.Text = "待机";
+                laOven2MolecularPump.BackColor = Color.Yellow;
+            }
+            if (DataModel.Instance.CondenserPump)
+            {
+                laBoxCondensatePump.Text = "运行";
+                laBoxCondensatePump.BackColor = Color.Red;
+            }
+            else
+            {
+                laBoxCondensatePump.Text = "待机";
+                laBoxCondensatePump.BackColor = Color.Yellow;
+            }
+
+
+
+            #endregion
+
+            #region 统计
+
+            laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString();
+
+            laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString();
+
+            laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString();
+
+
+            #endregion
 
         }
 
@@ -1086,15 +1852,22 @@ namespace BondTerminal
 
         private void UpdateNum(int num)
         {
-            if (teCurrentState.InvokeRequired)
-            {
-                // 使用 Invoke 来确保在 UI 线程上执行  
-                teCurrentState.Invoke(new Action(() => UpdateNum()));
-            }
-            else
-            {
-                UpdateNum();
-            }
+            string str = $"当前烘箱：（ {DataModel.Instance.Ovennum} ）;" +
+                $"当前料盘：（ {DataModel.Instance.Materialboxnum} ）;" +
+                $"当前物料：（ {DataModel.Instance.Materialnum} ）;" +
+                $"（ 行： {DataModel.Instance.Materialrow} " +
+                $"列：{DataModel.Instance.Materialcol} ）;";
+            this.teCurrentState1.Text = str;
+            _syncContext.Post(_ => teCurrentState1.Text = str, null);
+            //if (teCurrentState.InvokeRequired)
+            //{
+            //    // 使用 Invoke 来确保在 UI 线程上执行  
+            //    teCurrentState.Invoke(new Action(() => UpdateNum()));
+            //}
+            //else
+            //{
+            //    UpdateNum();
+            //}
         }
 
         private void UpdateNum()
@@ -1104,8 +1877,8 @@ namespace BondTerminal
                 $"当前物料：（ {DataModel.Instance.Materialnum} ）;" +
                 $"（ 行： {DataModel.Instance.Materialrow} " +
                 $"列：{DataModel.Instance.Materialcol} ）;";
-            this.teCurrentState.Text = str;
-            this.teCurrentState.Refresh();
+            this.teCurrentState1.Text = str;
+            this.teCurrentState1.Refresh();
         }
 
 
@@ -1447,6 +2220,10 @@ namespace BondTerminal
                 form.Activate();
             }
         }
+
+
+
+
     }
 
 

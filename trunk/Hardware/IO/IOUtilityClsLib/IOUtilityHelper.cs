@@ -112,6 +112,13 @@ namespace IOUtilityClsLib
         }
         public void Start()
         {
+
+            Thread.Sleep(6000);
+
+            SQLiteProgram.Instance.Init();
+
+            Thread.Sleep(1000);
+
             _enablePollingIO = true;
             Task.Run(new Action(ReadIOTask));
 
@@ -282,15 +289,38 @@ namespace IOUtilityClsLib
 
             while (_enablePollingIO)
             {
-                if(SystemConfiguration.Instance.JobConfig.RecogniseResulSaveOption == EnumRecogniseResulSaveOption.AllSave || SystemConfiguration.Instance.JobConfig.RecogniseResulSaveOption == EnumRecogniseResulSaveOption.SaveVacuum)
+                //if(SystemConfiguration.Instance.JobConfig.RecogniseResulSaveOption == EnumRecogniseResulSaveOption.AllSave || SystemConfiguration.Instance.JobConfig.RecogniseResulSaveOption == EnumRecogniseResulSaveOption.SaveVacuum)
+                //{
+                //    LogRecorder.RecordData1Log(EnumLogContentType.Info, "烘箱A真空度：" + DataModel.Instance.BakeOvenVacuum);
+                //    LogRecorder.RecordData2Log(EnumLogContentType.Info, "烘箱B真空度：" + DataModel.Instance.BakeOven2Vacuum);
+                //    LogRecorder.RecordData3Log(EnumLogContentType.Info, "方舱真空度：" + DataModel.Instance.BoxVacuum);
+
+
+
+                //}
+
+                
+                string tablename = "VacuumsData";
+                string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+                string currentTime = DateTime.Now.ToString("HH:mm:ss");
+                float vacuum1 = DataModel.Instance.BakeOvenVacuum;
+                float vacuum2 = DataModel.Instance.BakeOven2Vacuum;
+                float vacuum3 = DataModel.Instance.BoxVacuum;
+
+                Dictionary<string, SQLData> tableDictionarys_0 = new Dictionary<string, SQLData>
                 {
-                    LogRecorder.RecordData1Log(EnumLogContentType.Info, "烘箱A真空度：" + DataModel.Instance.BakeOvenVacuum);
-                    LogRecorder.RecordData2Log(EnumLogContentType.Info, "烘箱B真空度：" + DataModel.Instance.BakeOven2Vacuum);
-                    LogRecorder.RecordData3Log(EnumLogContentType.Info, "方舱真空度：" + DataModel.Instance.BoxVacuum);
+                    { "Date", new SQLData(currentDate, SQLDataType.STRING) },
+                    { "Time", new SQLData(currentTime, SQLDataType.STRING) },
+                    { "Vacuum1", new SQLData(vacuum1, SQLDataType.FLOAT) },
+                    { "Vacuum2", new SQLData(vacuum2, SQLDataType.FLOAT) },
+                    { "Vacuum3", new SQLData(vacuum3, SQLDataType.FLOAT) },
+                };
+
+                SQLiteProgram.Instance.AddData(tablename, tableDictionarys_0);
+
+                
 
 
-
-                }
                 Thread.Sleep(30000);
 
 

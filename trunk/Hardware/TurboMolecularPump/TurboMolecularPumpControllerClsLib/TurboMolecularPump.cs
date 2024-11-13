@@ -314,7 +314,7 @@ namespace TurboMolecularPumpControllerClsLib
 
                     if (length > 0)
                     {
-                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
+                        if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
                         {
                             return true;
                         }
@@ -423,7 +423,7 @@ namespace TurboMolecularPumpControllerClsLib
 
         public bool ReadStatus(ref TurboMolecularPumpstatus param)
         {
-
+            param = new TurboMolecularPumpstatus();
             PLCadd = _config.ChannelNumber;
             byte[] BTData = new byte[8];
             bool ret = PCread(PLCadd, (int)TurboMolecularPumpAdd.OutputFrequency, 4, ref BTData);

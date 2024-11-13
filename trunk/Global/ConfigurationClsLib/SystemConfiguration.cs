@@ -44,6 +44,7 @@ namespace ConfigurationClsLib
             CalibrationConfig = new CalibrationConfig();
 
             OvenBoxConfig = new OvenBoxConfig();
+            StatisticalDataConfig = new StatisticalDataConfig();
         }
         private static SystemConfiguration LoadConfig()
         {

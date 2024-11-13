@@ -1487,11 +1487,13 @@ namespace ControlPanelClsLib.Manual
                     case "chTowerRedLight":
                         myBoolVariable = laTowerRedLight.BackColor == Color.GreenYellow;
                         myBoolVariable = !checkBox.Checked;
+                        DataModel.Instance.Error = checkBox.Checked;
                         OutputIOChange(EnumBoardcardDefineOutputIO.TowerRedLight, !myBoolVariable);
                         break;
                     case "chTowerGreenLight":
                         myBoolVariable = laTowerGreenLight.BackColor == Color.GreenYellow;
                         myBoolVariable = !checkBox.Checked;
+                        DataModel.Instance.Run = checkBox.Checked;
                         OutputIOChange(EnumBoardcardDefineOutputIO.TowerGreenLight, !myBoolVariable);
                         break;
 

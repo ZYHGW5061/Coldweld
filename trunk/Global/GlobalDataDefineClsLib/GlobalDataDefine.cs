@@ -118,6 +118,32 @@ namespace GlobalDataDefineClsLib
         Oven2Work = 5,
     }
 
+
+    [Serializable]
+    public enum EnumLoginResult
+    {
+        None = 0, Success = 1, UserNotExist = 2, PasswordWrong = 3
+    }
+    [Serializable]
+    public class RightsInfo
+    {
+        public RightsInfo() { }
+
+        public int RightsID { get; set; }
+        public string RightsType { get; set; }
+    }
+    [Serializable]
+    public class UserInfos
+    {
+        public UserInfos() { }
+
+        public int id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public string usertype { get; set; }
+        public string description { get; set; }
+    }
+
     [Serializable]
     public enum EnumSensor
     {

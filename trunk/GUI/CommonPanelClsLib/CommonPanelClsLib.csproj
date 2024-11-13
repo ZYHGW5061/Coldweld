@@ -117,6 +117,12 @@
     <Compile Include="ListmessagesBox.Designer.cs">
       <DependentUpon>ListmessagesBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="ListmessagesBox.resx">
       <DependentUpon>ListmessagesBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogMessageForm.resx">
       <DependentUpon>LogMessageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +209,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Control\UserManagement\UserManagerClsLib\UserManagerClsLib.csproj">
+      <Project>{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}</Project>
+      <Name>UserManagerClsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Global\ConfigurationClsLib\ConfigurationClsLib.csproj">
       <Project>{6cbe338a-1abb-4397-bba8-bc8477b1a21d}</Project>
       <Name>ConfigurationClsLib</Name>
@@ -208,10 +221,17 @@
       <Project>{b0f0bd56-7eff-414b-9d41-f4e7aca2a8b2}</Project>
       <Name>GlobalDataDefineClsLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Global\GlobalToolClsLib\GlobalToolClsLib.csproj">
+      <Project>{A22451FA-03C2-45C7-B2EA-39E9C9792925}</Project>
+      <Name>GlobalToolClsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Hardware\Camera\CameraControllerClsLib\CameraControllerClsLib.csproj">
       <Project>{EE038ED1-7A96-4075-A51C-EA53A4D026DF}</Project>
       <Name>CameraControllerClsLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -75,42 +75,8 @@ namespace BondTerminal
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.teCurrentState = new System.Windows.Forms.TextBox();
-            this.btnAllAxisStop = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.laOven1Temp = new System.Windows.Forms.Label();
-            this.laOven2Temp = new System.Windows.Forms.Label();
-            this.laOven1Vacuum = new System.Windows.Forms.Label();
-            this.laOven2Vacuum = new System.Windows.Forms.Label();
-            this.laBoxVacuum = new System.Windows.Forms.Label();
-            this.laOven1OutDoorSta = new System.Windows.Forms.Label();
-            this.laOven2OutDoorSta = new System.Windows.Forms.Label();
-            this.laBoxOutDoorSta = new System.Windows.Forms.Label();
-            this.laOven1Atmosphere = new System.Windows.Forms.Label();
-            this.laOven2Atmosphere = new System.Windows.Forms.Label();
-            this.laBoxAtmosphere = new System.Windows.Forms.Label();
-            this.laOven1MolecularPump = new System.Windows.Forms.Label();
-            this.laOven2MolecularPump = new System.Windows.Forms.Label();
-            this.laBoxCondensatePump = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.laOven1Heating = new System.Windows.Forms.Label();
-            this.laOven2Heating = new System.Windows.Forms.Label();
-            this.laOven1Time = new System.Windows.Forms.Label();
-            this.laOven2Time = new System.Windows.Forms.Label();
             this.laWeldMaterial0000 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -120,16 +86,51 @@ namespace BondTerminal
             this.laWeldMaterial = new System.Windows.Forms.Label();
             this.laPressNum = new System.Windows.Forms.Label();
             this.laRunTime = new System.Windows.Forms.Label();
+            this.teCurrentState = new System.Windows.Forms.TextBox();
+            this.btnAllAxisStop = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.laOven1Temp = new System.Windows.Forms.Label();
+            this.laOven2Temp = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.laBoxCondensatePump = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.laOven1MolecularPump = new System.Windows.Forms.Label();
+            this.laOven2MolecularPump = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.laOven1Atmosphere = new System.Windows.Forms.Label();
+            this.laOven2Atmosphere = new System.Windows.Forms.Label();
+            this.laBoxAtmosphere = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.laOven1OutDoorSta = new System.Windows.Forms.Label();
+            this.laOven2OutDoorSta = new System.Windows.Forms.Label();
+            this.laBoxOutDoorSta = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.laOven1Vacuum = new System.Windows.Forms.Label();
+            this.laOven2Vacuum = new System.Windows.Forms.Label();
+            this.laBoxVacuum = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.laOven1Heating = new System.Windows.Forms.Label();
+            this.laOven2Heating = new System.Windows.Forms.Label();
+            this.laOven1Time = new System.Windows.Forms.Label();
+            this.laOven2Time = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.teCurrentState1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -597,6 +598,7 @@ namespace BondTerminal
             this.tableLayoutPanel1.Controls.Add(this.btnAllAxisStop, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.teCurrentState1, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -614,44 +616,6 @@ namespace BondTerminal
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1694, 824);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
-            // teCurrentState
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.teCurrentState, 3);
-            this.teCurrentState.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teCurrentState.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.teCurrentState.Location = new System.Drawing.Point(172, 3);
-            this.teCurrentState.Multiline = true;
-            this.teCurrentState.Name = "teCurrentState";
-            this.teCurrentState.Size = new System.Drawing.Size(1519, 76);
-            this.teCurrentState.TabIndex = 18;
-            // 
-            // btnAllAxisStop
-            // 
-            this.btnAllAxisStop.BackColor = System.Drawing.Color.Red;
-            this.btnAllAxisStop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAllAxisStop.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAllAxisStop.Location = new System.Drawing.Point(4, 660);
-            this.btnAllAxisStop.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAllAxisStop.Name = "btnAllAxisStop";
-            this.btnAllAxisStop.Size = new System.Drawing.Size(161, 74);
-            this.btnAllAxisStop.TabIndex = 19;
-            this.btnAllAxisStop.Text = "急停";
-            this.btnAllAxisStop.UseVisualStyleBackColor = false;
-            this.btnAllAxisStop.Click += new System.EventHandler(this.btnAllAxisStop_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(849, 85);
-            this.groupBox2.Name = "groupBox2";
-            this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 7);
-            this.groupBox2.Size = new System.Drawing.Size(417, 568);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "状态";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel3);
@@ -664,70 +628,6 @@ namespace BondTerminal
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "统计";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(172, 656);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(671, 82);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "料盘的物料状态：\r\n白色：未焊接         红色：跳料\r\n绿色：已焊接         黄色：物料在压机\r\n";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1Temp, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2Temp, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label25, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 8);
-            this.tableLayoutPanel2.Controls.Add(this.laBoxCondensatePump, 3, 8);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1MolecularPump, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2MolecularPump, 2, 7);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1Atmosphere, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2Atmosphere, 2, 6);
-            this.tableLayoutPanel2.Controls.Add(this.laBoxAtmosphere, 3, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1OutDoorSta, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2OutDoorSta, 2, 5);
-            this.tableLayoutPanel2.Controls.Add(this.laBoxOutDoorSta, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1Vacuum, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2Vacuum, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.laBoxVacuum, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label26, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1Heating, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2Heating, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.laOven1Time, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.laOven2Time, 2, 3);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 28);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 10;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(411, 537);
-            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -761,383 +661,6 @@ namespace BondTerminal
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(413, 537);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(207, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 53);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "烘箱B";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(309, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 53);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "方舱";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(3, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 53);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "温度/℃";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(105, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 53);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "烘箱A";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(3, 212);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 53);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "真空度/Pa";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(3, 265);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 53);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "外门状态";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(3, 318);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 53);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "到达常压";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(3, 371);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 53);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "分子泵";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(3, 424);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 53);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "冷凝泵";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1Temp
-            // 
-            this.laOven1Temp.AutoSize = true;
-            this.laOven1Temp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1Temp.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1Temp.Location = new System.Drawing.Point(105, 53);
-            this.laOven1Temp.Name = "laOven1Temp";
-            this.laOven1Temp.Size = new System.Drawing.Size(96, 53);
-            this.laOven1Temp.TabIndex = 9;
-            this.laOven1Temp.Tag = "LabSta";
-            this.laOven1Temp.Text = "0";
-            this.laOven1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2Temp
-            // 
-            this.laOven2Temp.AutoSize = true;
-            this.laOven2Temp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2Temp.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2Temp.Location = new System.Drawing.Point(207, 53);
-            this.laOven2Temp.Name = "laOven2Temp";
-            this.laOven2Temp.Size = new System.Drawing.Size(96, 53);
-            this.laOven2Temp.TabIndex = 10;
-            this.laOven2Temp.Tag = "LabSta";
-            this.laOven2Temp.Text = "0";
-            this.laOven2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1Vacuum
-            // 
-            this.laOven1Vacuum.AutoSize = true;
-            this.laOven1Vacuum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1Vacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1Vacuum.Location = new System.Drawing.Point(105, 212);
-            this.laOven1Vacuum.Name = "laOven1Vacuum";
-            this.laOven1Vacuum.Size = new System.Drawing.Size(96, 53);
-            this.laOven1Vacuum.TabIndex = 11;
-            this.laOven1Vacuum.Tag = "LabSta";
-            this.laOven1Vacuum.Text = "1E5";
-            this.laOven1Vacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2Vacuum
-            // 
-            this.laOven2Vacuum.AutoSize = true;
-            this.laOven2Vacuum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2Vacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2Vacuum.Location = new System.Drawing.Point(207, 212);
-            this.laOven2Vacuum.Name = "laOven2Vacuum";
-            this.laOven2Vacuum.Size = new System.Drawing.Size(96, 53);
-            this.laOven2Vacuum.TabIndex = 12;
-            this.laOven2Vacuum.Tag = "LabSta";
-            this.laOven2Vacuum.Text = "1E5";
-            this.laOven2Vacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laBoxVacuum
-            // 
-            this.laBoxVacuum.AutoSize = true;
-            this.laBoxVacuum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laBoxVacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laBoxVacuum.Location = new System.Drawing.Point(309, 212);
-            this.laBoxVacuum.Name = "laBoxVacuum";
-            this.laBoxVacuum.Size = new System.Drawing.Size(99, 53);
-            this.laBoxVacuum.TabIndex = 13;
-            this.laBoxVacuum.Tag = "LabSta";
-            this.laBoxVacuum.Text = "1E5";
-            this.laBoxVacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1OutDoorSta
-            // 
-            this.laOven1OutDoorSta.AutoSize = true;
-            this.laOven1OutDoorSta.BackColor = System.Drawing.Color.Yellow;
-            this.laOven1OutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1OutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1OutDoorSta.Location = new System.Drawing.Point(105, 265);
-            this.laOven1OutDoorSta.Name = "laOven1OutDoorSta";
-            this.laOven1OutDoorSta.Size = new System.Drawing.Size(96, 53);
-            this.laOven1OutDoorSta.TabIndex = 14;
-            this.laOven1OutDoorSta.Tag = "LabSta";
-            this.laOven1OutDoorSta.Text = "关";
-            this.laOven1OutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2OutDoorSta
-            // 
-            this.laOven2OutDoorSta.AutoSize = true;
-            this.laOven2OutDoorSta.BackColor = System.Drawing.Color.Yellow;
-            this.laOven2OutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2OutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2OutDoorSta.Location = new System.Drawing.Point(207, 265);
-            this.laOven2OutDoorSta.Name = "laOven2OutDoorSta";
-            this.laOven2OutDoorSta.Size = new System.Drawing.Size(96, 53);
-            this.laOven2OutDoorSta.TabIndex = 15;
-            this.laOven2OutDoorSta.Tag = "LabSta";
-            this.laOven2OutDoorSta.Text = "关";
-            this.laOven2OutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laBoxOutDoorSta
-            // 
-            this.laBoxOutDoorSta.AutoSize = true;
-            this.laBoxOutDoorSta.BackColor = System.Drawing.Color.Yellow;
-            this.laBoxOutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laBoxOutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laBoxOutDoorSta.Location = new System.Drawing.Point(309, 265);
-            this.laBoxOutDoorSta.Name = "laBoxOutDoorSta";
-            this.laBoxOutDoorSta.Size = new System.Drawing.Size(99, 53);
-            this.laBoxOutDoorSta.TabIndex = 16;
-            this.laBoxOutDoorSta.Tag = "LabSta";
-            this.laBoxOutDoorSta.Text = "关";
-            this.laBoxOutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1Atmosphere
-            // 
-            this.laOven1Atmosphere.AutoSize = true;
-            this.laOven1Atmosphere.BackColor = System.Drawing.Color.Yellow;
-            this.laOven1Atmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1Atmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1Atmosphere.Location = new System.Drawing.Point(105, 318);
-            this.laOven1Atmosphere.Name = "laOven1Atmosphere";
-            this.laOven1Atmosphere.Size = new System.Drawing.Size(96, 53);
-            this.laOven1Atmosphere.TabIndex = 17;
-            this.laOven1Atmosphere.Tag = "LabSta";
-            this.laOven1Atmosphere.Text = "是";
-            this.laOven1Atmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2Atmosphere
-            // 
-            this.laOven2Atmosphere.AutoSize = true;
-            this.laOven2Atmosphere.BackColor = System.Drawing.Color.Yellow;
-            this.laOven2Atmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2Atmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2Atmosphere.Location = new System.Drawing.Point(207, 318);
-            this.laOven2Atmosphere.Name = "laOven2Atmosphere";
-            this.laOven2Atmosphere.Size = new System.Drawing.Size(96, 53);
-            this.laOven2Atmosphere.TabIndex = 18;
-            this.laOven2Atmosphere.Tag = "LabSta";
-            this.laOven2Atmosphere.Text = "是";
-            this.laOven2Atmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laBoxAtmosphere
-            // 
-            this.laBoxAtmosphere.AutoSize = true;
-            this.laBoxAtmosphere.BackColor = System.Drawing.Color.Yellow;
-            this.laBoxAtmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laBoxAtmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laBoxAtmosphere.Location = new System.Drawing.Point(309, 318);
-            this.laBoxAtmosphere.Name = "laBoxAtmosphere";
-            this.laBoxAtmosphere.Size = new System.Drawing.Size(99, 53);
-            this.laBoxAtmosphere.TabIndex = 19;
-            this.laBoxAtmosphere.Tag = "LabSta";
-            this.laBoxAtmosphere.Text = "是";
-            this.laBoxAtmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1MolecularPump
-            // 
-            this.laOven1MolecularPump.AutoSize = true;
-            this.laOven1MolecularPump.BackColor = System.Drawing.Color.Yellow;
-            this.laOven1MolecularPump.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1MolecularPump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1MolecularPump.Location = new System.Drawing.Point(105, 371);
-            this.laOven1MolecularPump.Name = "laOven1MolecularPump";
-            this.laOven1MolecularPump.Size = new System.Drawing.Size(96, 53);
-            this.laOven1MolecularPump.TabIndex = 20;
-            this.laOven1MolecularPump.Tag = "LabSta";
-            this.laOven1MolecularPump.Text = "待机";
-            this.laOven1MolecularPump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2MolecularPump
-            // 
-            this.laOven2MolecularPump.AutoSize = true;
-            this.laOven2MolecularPump.BackColor = System.Drawing.Color.Yellow;
-            this.laOven2MolecularPump.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2MolecularPump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2MolecularPump.Location = new System.Drawing.Point(207, 371);
-            this.laOven2MolecularPump.Name = "laOven2MolecularPump";
-            this.laOven2MolecularPump.Size = new System.Drawing.Size(96, 53);
-            this.laOven2MolecularPump.TabIndex = 21;
-            this.laOven2MolecularPump.Tag = "LabSta";
-            this.laOven2MolecularPump.Text = "待机";
-            this.laOven2MolecularPump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laBoxCondensatePump
-            // 
-            this.laBoxCondensatePump.AutoSize = true;
-            this.laBoxCondensatePump.BackColor = System.Drawing.Color.Yellow;
-            this.laBoxCondensatePump.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laBoxCondensatePump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laBoxCondensatePump.Location = new System.Drawing.Point(309, 424);
-            this.laBoxCondensatePump.Name = "laBoxCondensatePump";
-            this.laBoxCondensatePump.Size = new System.Drawing.Size(99, 53);
-            this.laBoxCondensatePump.TabIndex = 22;
-            this.laBoxCondensatePump.Tag = "LabSta";
-            this.laBoxCondensatePump.Text = "待机";
-            this.laBoxCondensatePump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(3, 106);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(96, 53);
-            this.label25.TabIndex = 23;
-            this.label25.Text = "加热状态";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label26.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(3, 159);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(96, 53);
-            this.label26.TabIndex = 24;
-            this.label26.Text = "剩余分钟";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1Heating
-            // 
-            this.laOven1Heating.AutoSize = true;
-            this.laOven1Heating.BackColor = System.Drawing.Color.Yellow;
-            this.laOven1Heating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1Heating.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1Heating.Location = new System.Drawing.Point(105, 106);
-            this.laOven1Heating.Name = "laOven1Heating";
-            this.laOven1Heating.Size = new System.Drawing.Size(96, 53);
-            this.laOven1Heating.TabIndex = 25;
-            this.laOven1Heating.Tag = "LabSta";
-            this.laOven1Heating.Text = "待机";
-            this.laOven1Heating.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2Heating
-            // 
-            this.laOven2Heating.AutoSize = true;
-            this.laOven2Heating.BackColor = System.Drawing.Color.Yellow;
-            this.laOven2Heating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2Heating.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2Heating.Location = new System.Drawing.Point(207, 106);
-            this.laOven2Heating.Name = "laOven2Heating";
-            this.laOven2Heating.Size = new System.Drawing.Size(96, 53);
-            this.laOven2Heating.TabIndex = 26;
-            this.laOven2Heating.Tag = "LabSta";
-            this.laOven2Heating.Text = "待机";
-            this.laOven2Heating.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven1Time
-            // 
-            this.laOven1Time.AutoSize = true;
-            this.laOven1Time.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven1Time.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven1Time.Location = new System.Drawing.Point(105, 159);
-            this.laOven1Time.Name = "laOven1Time";
-            this.laOven1Time.Size = new System.Drawing.Size(96, 53);
-            this.laOven1Time.TabIndex = 27;
-            this.laOven1Time.Tag = "LabSta";
-            this.laOven1Time.Text = "0";
-            this.laOven1Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laOven2Time
-            // 
-            this.laOven2Time.AutoSize = true;
-            this.laOven2Time.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laOven2Time.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.laOven2Time.Location = new System.Drawing.Point(207, 159);
-            this.laOven2Time.Name = "laOven2Time";
-            this.laOven2Time.Size = new System.Drawing.Size(96, 53);
-            this.laOven2Time.TabIndex = 28;
-            this.laOven2Time.Tag = "LabSta";
-            this.laOven2Time.Text = "0";
-            this.laOven2Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // laWeldMaterial0000
             // 
@@ -1250,6 +773,493 @@ namespace BondTerminal
             this.laRunTime.Text = "0";
             this.laRunTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // teCurrentState
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.teCurrentState, 2);
+            this.teCurrentState.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.teCurrentState.Location = new System.Drawing.Point(172, 3);
+            this.teCurrentState.Multiline = true;
+            this.teCurrentState.Name = "teCurrentState";
+            this.teCurrentState.Size = new System.Drawing.Size(1094, 76);
+            this.teCurrentState.TabIndex = 18;
+            // 
+            // btnAllAxisStop
+            // 
+            this.btnAllAxisStop.BackColor = System.Drawing.Color.Red;
+            this.btnAllAxisStop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAllAxisStop.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAllAxisStop.Location = new System.Drawing.Point(4, 660);
+            this.btnAllAxisStop.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAllAxisStop.Name = "btnAllAxisStop";
+            this.btnAllAxisStop.Size = new System.Drawing.Size(161, 74);
+            this.btnAllAxisStop.TabIndex = 19;
+            this.btnAllAxisStop.Text = "急停";
+            this.btnAllAxisStop.UseVisualStyleBackColor = false;
+            this.btnAllAxisStop.Click += new System.EventHandler(this.btnAllAxisStop_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Location = new System.Drawing.Point(849, 85);
+            this.groupBox2.Name = "groupBox2";
+            this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 7);
+            this.groupBox2.Size = new System.Drawing.Size(417, 568);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "状态";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1Temp, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2Temp, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label25, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.laBoxCondensatePump, 3, 8);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1MolecularPump, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2MolecularPump, 2, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1Atmosphere, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2Atmosphere, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.laBoxAtmosphere, 3, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1OutDoorSta, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2OutDoorSta, 2, 5);
+            this.tableLayoutPanel2.Controls.Add(this.laBoxOutDoorSta, 3, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1Vacuum, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2Vacuum, 2, 4);
+            this.tableLayoutPanel2.Controls.Add(this.laBoxVacuum, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label26, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1Heating, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2Heating, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.laOven1Time, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.laOven2Time, 2, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 10;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(411, 537);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(105, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 53);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "烘箱A";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(207, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 53);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "烘箱B";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(309, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 53);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "方舱";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(3, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 53);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "温度/℃";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1Temp
+            // 
+            this.laOven1Temp.AutoSize = true;
+            this.laOven1Temp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1Temp.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1Temp.Location = new System.Drawing.Point(105, 53);
+            this.laOven1Temp.Name = "laOven1Temp";
+            this.laOven1Temp.Size = new System.Drawing.Size(96, 53);
+            this.laOven1Temp.TabIndex = 9;
+            this.laOven1Temp.Tag = "LabSta";
+            this.laOven1Temp.Text = "0";
+            this.laOven1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2Temp
+            // 
+            this.laOven2Temp.AutoSize = true;
+            this.laOven2Temp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2Temp.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2Temp.Location = new System.Drawing.Point(207, 53);
+            this.laOven2Temp.Name = "laOven2Temp";
+            this.laOven2Temp.Size = new System.Drawing.Size(96, 53);
+            this.laOven2Temp.TabIndex = 10;
+            this.laOven2Temp.Tag = "LabSta";
+            this.laOven2Temp.Text = "0";
+            this.laOven2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label25.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.Location = new System.Drawing.Point(3, 106);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(96, 53);
+            this.label25.TabIndex = 23;
+            this.label25.Text = "加热状态";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(3, 424);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 53);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "冷凝泵";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laBoxCondensatePump
+            // 
+            this.laBoxCondensatePump.AutoSize = true;
+            this.laBoxCondensatePump.BackColor = System.Drawing.Color.Yellow;
+            this.laBoxCondensatePump.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laBoxCondensatePump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laBoxCondensatePump.Location = new System.Drawing.Point(309, 424);
+            this.laBoxCondensatePump.Name = "laBoxCondensatePump";
+            this.laBoxCondensatePump.Size = new System.Drawing.Size(99, 53);
+            this.laBoxCondensatePump.TabIndex = 22;
+            this.laBoxCondensatePump.Tag = "LabSta";
+            this.laBoxCondensatePump.Text = "待机";
+            this.laBoxCondensatePump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(3, 371);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 53);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "分子泵";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1MolecularPump
+            // 
+            this.laOven1MolecularPump.AutoSize = true;
+            this.laOven1MolecularPump.BackColor = System.Drawing.Color.Yellow;
+            this.laOven1MolecularPump.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1MolecularPump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1MolecularPump.Location = new System.Drawing.Point(105, 371);
+            this.laOven1MolecularPump.Name = "laOven1MolecularPump";
+            this.laOven1MolecularPump.Size = new System.Drawing.Size(96, 53);
+            this.laOven1MolecularPump.TabIndex = 20;
+            this.laOven1MolecularPump.Tag = "LabSta";
+            this.laOven1MolecularPump.Text = "待机";
+            this.laOven1MolecularPump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2MolecularPump
+            // 
+            this.laOven2MolecularPump.AutoSize = true;
+            this.laOven2MolecularPump.BackColor = System.Drawing.Color.Yellow;
+            this.laOven2MolecularPump.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2MolecularPump.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2MolecularPump.Location = new System.Drawing.Point(207, 371);
+            this.laOven2MolecularPump.Name = "laOven2MolecularPump";
+            this.laOven2MolecularPump.Size = new System.Drawing.Size(96, 53);
+            this.laOven2MolecularPump.TabIndex = 21;
+            this.laOven2MolecularPump.Tag = "LabSta";
+            this.laOven2MolecularPump.Text = "待机";
+            this.laOven2MolecularPump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(3, 318);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 53);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "到达常压";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1Atmosphere
+            // 
+            this.laOven1Atmosphere.AutoSize = true;
+            this.laOven1Atmosphere.BackColor = System.Drawing.Color.Yellow;
+            this.laOven1Atmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1Atmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1Atmosphere.Location = new System.Drawing.Point(105, 318);
+            this.laOven1Atmosphere.Name = "laOven1Atmosphere";
+            this.laOven1Atmosphere.Size = new System.Drawing.Size(96, 53);
+            this.laOven1Atmosphere.TabIndex = 17;
+            this.laOven1Atmosphere.Tag = "LabSta";
+            this.laOven1Atmosphere.Text = "是";
+            this.laOven1Atmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2Atmosphere
+            // 
+            this.laOven2Atmosphere.AutoSize = true;
+            this.laOven2Atmosphere.BackColor = System.Drawing.Color.Yellow;
+            this.laOven2Atmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2Atmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2Atmosphere.Location = new System.Drawing.Point(207, 318);
+            this.laOven2Atmosphere.Name = "laOven2Atmosphere";
+            this.laOven2Atmosphere.Size = new System.Drawing.Size(96, 53);
+            this.laOven2Atmosphere.TabIndex = 18;
+            this.laOven2Atmosphere.Tag = "LabSta";
+            this.laOven2Atmosphere.Text = "是";
+            this.laOven2Atmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laBoxAtmosphere
+            // 
+            this.laBoxAtmosphere.AutoSize = true;
+            this.laBoxAtmosphere.BackColor = System.Drawing.Color.Yellow;
+            this.laBoxAtmosphere.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laBoxAtmosphere.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laBoxAtmosphere.Location = new System.Drawing.Point(309, 318);
+            this.laBoxAtmosphere.Name = "laBoxAtmosphere";
+            this.laBoxAtmosphere.Size = new System.Drawing.Size(99, 53);
+            this.laBoxAtmosphere.TabIndex = 19;
+            this.laBoxAtmosphere.Tag = "LabSta";
+            this.laBoxAtmosphere.Text = "是";
+            this.laBoxAtmosphere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(3, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 53);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "外门状态";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1OutDoorSta
+            // 
+            this.laOven1OutDoorSta.AutoSize = true;
+            this.laOven1OutDoorSta.BackColor = System.Drawing.Color.Yellow;
+            this.laOven1OutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1OutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1OutDoorSta.Location = new System.Drawing.Point(105, 265);
+            this.laOven1OutDoorSta.Name = "laOven1OutDoorSta";
+            this.laOven1OutDoorSta.Size = new System.Drawing.Size(96, 53);
+            this.laOven1OutDoorSta.TabIndex = 14;
+            this.laOven1OutDoorSta.Tag = "LabSta";
+            this.laOven1OutDoorSta.Text = "关";
+            this.laOven1OutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2OutDoorSta
+            // 
+            this.laOven2OutDoorSta.AutoSize = true;
+            this.laOven2OutDoorSta.BackColor = System.Drawing.Color.Yellow;
+            this.laOven2OutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2OutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2OutDoorSta.Location = new System.Drawing.Point(207, 265);
+            this.laOven2OutDoorSta.Name = "laOven2OutDoorSta";
+            this.laOven2OutDoorSta.Size = new System.Drawing.Size(96, 53);
+            this.laOven2OutDoorSta.TabIndex = 15;
+            this.laOven2OutDoorSta.Tag = "LabSta";
+            this.laOven2OutDoorSta.Text = "关";
+            this.laOven2OutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laBoxOutDoorSta
+            // 
+            this.laBoxOutDoorSta.AutoSize = true;
+            this.laBoxOutDoorSta.BackColor = System.Drawing.Color.Yellow;
+            this.laBoxOutDoorSta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laBoxOutDoorSta.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laBoxOutDoorSta.Location = new System.Drawing.Point(309, 265);
+            this.laBoxOutDoorSta.Name = "laBoxOutDoorSta";
+            this.laBoxOutDoorSta.Size = new System.Drawing.Size(99, 53);
+            this.laBoxOutDoorSta.TabIndex = 16;
+            this.laBoxOutDoorSta.Tag = "LabSta";
+            this.laBoxOutDoorSta.Text = "关";
+            this.laBoxOutDoorSta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(3, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 53);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "真空度/Pa";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1Vacuum
+            // 
+            this.laOven1Vacuum.AutoSize = true;
+            this.laOven1Vacuum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1Vacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1Vacuum.Location = new System.Drawing.Point(105, 212);
+            this.laOven1Vacuum.Name = "laOven1Vacuum";
+            this.laOven1Vacuum.Size = new System.Drawing.Size(96, 53);
+            this.laOven1Vacuum.TabIndex = 11;
+            this.laOven1Vacuum.Tag = "LabSta";
+            this.laOven1Vacuum.Text = "1E5";
+            this.laOven1Vacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2Vacuum
+            // 
+            this.laOven2Vacuum.AutoSize = true;
+            this.laOven2Vacuum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2Vacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2Vacuum.Location = new System.Drawing.Point(207, 212);
+            this.laOven2Vacuum.Name = "laOven2Vacuum";
+            this.laOven2Vacuum.Size = new System.Drawing.Size(96, 53);
+            this.laOven2Vacuum.TabIndex = 12;
+            this.laOven2Vacuum.Tag = "LabSta";
+            this.laOven2Vacuum.Text = "1E5";
+            this.laOven2Vacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laBoxVacuum
+            // 
+            this.laBoxVacuum.AutoSize = true;
+            this.laBoxVacuum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laBoxVacuum.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laBoxVacuum.Location = new System.Drawing.Point(309, 212);
+            this.laBoxVacuum.Name = "laBoxVacuum";
+            this.laBoxVacuum.Size = new System.Drawing.Size(99, 53);
+            this.laBoxVacuum.TabIndex = 13;
+            this.laBoxVacuum.Tag = "LabSta";
+            this.laBoxVacuum.Text = "1E5";
+            this.laBoxVacuum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label26.Location = new System.Drawing.Point(3, 159);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(96, 53);
+            this.label26.TabIndex = 24;
+            this.label26.Text = "剩余分钟";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1Heating
+            // 
+            this.laOven1Heating.AutoSize = true;
+            this.laOven1Heating.BackColor = System.Drawing.Color.Yellow;
+            this.laOven1Heating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1Heating.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1Heating.Location = new System.Drawing.Point(105, 106);
+            this.laOven1Heating.Name = "laOven1Heating";
+            this.laOven1Heating.Size = new System.Drawing.Size(96, 53);
+            this.laOven1Heating.TabIndex = 25;
+            this.laOven1Heating.Tag = "LabSta";
+            this.laOven1Heating.Text = "待机";
+            this.laOven1Heating.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2Heating
+            // 
+            this.laOven2Heating.AutoSize = true;
+            this.laOven2Heating.BackColor = System.Drawing.Color.Yellow;
+            this.laOven2Heating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2Heating.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2Heating.Location = new System.Drawing.Point(207, 106);
+            this.laOven2Heating.Name = "laOven2Heating";
+            this.laOven2Heating.Size = new System.Drawing.Size(96, 53);
+            this.laOven2Heating.TabIndex = 26;
+            this.laOven2Heating.Tag = "LabSta";
+            this.laOven2Heating.Text = "待机";
+            this.laOven2Heating.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven1Time
+            // 
+            this.laOven1Time.AutoSize = true;
+            this.laOven1Time.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven1Time.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven1Time.Location = new System.Drawing.Point(105, 159);
+            this.laOven1Time.Name = "laOven1Time";
+            this.laOven1Time.Size = new System.Drawing.Size(96, 53);
+            this.laOven1Time.TabIndex = 27;
+            this.laOven1Time.Tag = "LabSta";
+            this.laOven1Time.Text = "0";
+            this.laOven1Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laOven2Time
+            // 
+            this.laOven2Time.AutoSize = true;
+            this.laOven2Time.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laOven2Time.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.laOven2Time.Location = new System.Drawing.Point(207, 159);
+            this.laOven2Time.Name = "laOven2Time";
+            this.laOven2Time.Size = new System.Drawing.Size(96, 53);
+            this.laOven2Time.TabIndex = 28;
+            this.laOven2Time.Tag = "LabSta";
+            this.laOven2Time.Text = "0";
+            this.laOven2Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(172, 656);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(671, 82);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "料盘的物料状态：\r\n白色：未焊接         红色：跳料\r\n绿色：已焊接         黄色：物料在压机\r\n";
+            // 
+            // teCurrentState1
+            // 
+            this.teCurrentState1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.teCurrentState1.Location = new System.Drawing.Point(1272, 3);
+            this.teCurrentState1.Multiline = true;
+            this.teCurrentState1.Name = "teCurrentState1";
+            this.teCurrentState1.Size = new System.Drawing.Size(419, 76);
+            this.teCurrentState1.TabIndex = 23;
+            // 
             // MainForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -1282,12 +1292,12 @@ namespace BondTerminal
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1385,6 +1395,7 @@ namespace BondTerminal
         private System.Windows.Forms.Label laPressNum;
         private System.Windows.Forms.Label laRunTime;
         private System.Windows.Forms.Label laBoxCondensatePump;
+        private System.Windows.Forms.TextBox teCurrentState1;
     }
 }
 

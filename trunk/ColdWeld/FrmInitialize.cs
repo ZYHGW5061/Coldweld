@@ -82,25 +82,25 @@ namespace BondTerminal
                     while (!this.Created) { continue; }
                     InitializeSystem();
                     //初始化硬件环境
-                    //ConnectingStage();
-                    ////ConnectingLightController();
-                    ////ConnectingPowerController();
-                    //ConnectingTemperatureController();
-                    //ConnectingTurboMolecularPumpController();
-                    //ConnectingVacuumGaugeController();
-                    ////ConnectingDewPointMeterController();
-                    ////ConnectingPressureSensorController();
-                    //ConnectingCameras();
-                    ////ConnectingLaserSensorController();
-                    ////ConnectingDynamometerController();
-                    //InitializeViualControl();
+                    ConnectingStage();
+                    //ConnectingLightController();
+                    //ConnectingPowerController();
+                    ConnectingTemperatureController();
+                    ConnectingTurboMolecularPumpController();
+                    ConnectingVacuumGaugeController();
+                    //ConnectingDewPointMeterController();
+                    //ConnectingPressureSensorController();
+                    ConnectingCameras();
+                    //ConnectingLaserSensorController();
+                    //ConnectingDynamometerController();
+                    InitializeViualControl();
 
 
 
-                    _ConnectCameraSuccess = true;
+                    //_ConnectCameraSuccess = true;
                     _ConnectLightControllerSuccess = true;
-                    _ConnectStageSuccess = true;
-                    _ConnectPowerControllerSuccess = true;
+                    //_ConnectStageSuccess = true;
+                    //_ConnectPowerControllerSuccess = true;
                     _VisualControlInitializeSuccess = true;
                     _ConnectTemperatureControllerSuccess = true;
                     _ConnectTurboMolecularPumpControllerSuccess = true;

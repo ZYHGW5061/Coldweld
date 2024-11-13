@@ -1107,6 +1107,9 @@ namespace JobClsLib
                 return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = false, Message = "物料焊接：物料焊接失败" };
             }
 
+            DataModel.Instance.PressWorkNumber++;
+            SystemConfiguration.Instance.StatisticalDataConfig.PressWorkNumber = DataModel.Instance.PressWorkNumber;
+
             DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：物料焊接";
             return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：物料焊接" };
 

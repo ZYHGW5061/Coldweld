@@ -2363,17 +2363,17 @@ namespace JobClsLib
                     Task.Factory.StartNew(new Action(() =>
                     {
                         DataModel.Instance.MaterialMat = param.MaterialMat;
-                    }));
 
-                    Task.Factory.StartNew(new Action(() =>
-                    {
                         DataModel.Instance.Materialnum = 0;
+                        DataModel.Instance.Materialrow = 0;
+                        DataModel.Instance.Materialcol = 0;
                     }));
 
 
                     int toweldnum = 0;
                     List<XYZTCoordinateConfig> weldpositions = new List<XYZTCoordinateConfig>();
                     List<List<int>> weldnum = new List<List<int>>();
+                    List<int> weldnum2 = new List<int>();
 
                     if (param.Iswelded == false)
                     {
@@ -2396,13 +2396,9 @@ namespace JobClsLib
 
                                 if (param.MaterialMat[i][j].Materialstate == EnumMaterialstate.Unwelded)
                                 {
-                                    Task.Factory.StartNew(new Action(() =>
-                                    {
-                                        DataModel.Instance.Materialnum++;
-                                        DataModel.Instance.Materialcol = j;
-                                        DataModel.Instance.Materialrow = i;
-                                    }));
-
+                                    DataModel.Instance.Materialnum = i * param.MaterialColNumber + j;
+                                    DataModel.Instance.Materialcol = j;
+                                    DataModel.Instance.Materialrow = i;
 
 
                                     state = "000021000";
@@ -2564,6 +2560,8 @@ namespace JobClsLib
                                     weldnumi.Add(i);
                                     weldnumi.Add(j);
                                     weldnum.Add(weldnumi);
+                                    
+                                    weldnum2.Add(i * param.MaterialColNumber + j);
 
                                     toweldnum++;
 
@@ -2707,6 +2705,8 @@ namespace JobClsLib
                                     if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
                                     WaitForNext();
 
+                                    
+
                                     if (isStopped)
                                     {
                                         LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
@@ -2723,8 +2723,9 @@ namespace JobClsLib
 
                                     for (int i0 = 0; i0 < toweldnum; i0++)
                                     {
-
-
+                                        DataModel.Instance.Materialnum = weldnum2[toweldnum - i0 - 1];
+                                        DataModel.Instance.Materialcol = weldnum[i0][1];
+                                        DataModel.Instance.Materialrow = weldnum[i0][0];
 
                                         Console.WriteLine("料盒焊接：升降轴升");
 
@@ -2826,6 +2827,8 @@ namespace JobClsLib
                                             //DataModel.Instance.Materialnum++;
                                             //DataModel.Instance.Materialcol = j;
                                             //DataModel.Instance.Materialrow = i;
+                                            DataModel.Instance.WeldMaterialNumber++;
+                                            SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;
                                         }));
 
 
@@ -2867,6 +2870,7 @@ namespace JobClsLib
                                             isRunning = false;
                                             return null;
                                         }
+                                        weldnum2.Clear();
                                     }
 
                                     weldpositions.Clear();
@@ -2889,6 +2893,10 @@ namespace JobClsLib
 
 
                     Console.WriteLine("料盒搬送：物料焊接完成.");
+
+                    DataModel.Instance.Materialnum = 0;
+                    DataModel.Instance.Materialrow = 0;
+                    DataModel.Instance.Materialcol = 0;
 
 
                     int wnum = 0;
