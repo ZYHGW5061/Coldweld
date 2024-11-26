@@ -496,6 +496,7 @@ namespace AxisControl
         {
             short rtn;
             byte count;
+            //rtn = GTN.glink.GT_GLinkInitEx(0, 1);
             rtn = GTN.glink.GT_GLinkInitEx(0, 3);
 
             rtn = GTN.glink.GT_GetGLinkOnlineSlaveNum(out count);

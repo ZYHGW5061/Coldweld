@@ -1001,7 +1001,7 @@ namespace JobClsLib
             methodCodestr = methodCode.ToString("D3");
 
             DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：物料钩爪拾取物料中";
-            Done = TransportControl.Instance.MaterialHookPickupMaterialAction(position.XYZT.Z, position.UpPostion);
+            Done = TransportControl.Instance.MaterialHookPickupMaterialAction(position.XYZT.Z - 0.1, position.UpPostion);
             if (Done != 0)
             {
                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：物料钩爪拾取物料失败";

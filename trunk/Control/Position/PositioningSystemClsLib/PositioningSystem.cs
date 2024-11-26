@@ -1,6 +1,7 @@
 ﻿using CameraControllerClsLib;
 using ConfigurationClsLib;
 using GlobalDataDefineClsLib;
+using GlobalToolClsLib;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -173,11 +174,15 @@ namespace PositioningSystemClsLib
             //var targetPos = new MillimeterUnitValue<double>() { Value = target };
             if (type == EnumCoordSetType.Absolute)
             {
+                DataModel.Instance.JobLogText = $"{axis}轴正在移动";
                 _stageMotionControl.AbsoluteMovingSync(axis, target);
+                DataModel.Instance.JobLogText = $"{axis}轴移动完成";
             }
             else
             {
+                DataModel.Instance.JobLogText = $"{axis}轴正在移动";
                 _stageMotionControl.RelativeMovingSync(axis, target);
+                DataModel.Instance.JobLogText = $"{axis}轴移动完成";
             }
         }
         public void MoveAixsToStageCoord(EnumStageAxis[] axis, double[] target, EnumCoordSetType type)

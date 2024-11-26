@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WestDragon.Framework.BaseLoggerClsLib;
 
 namespace GlobalToolClsLib
 {
@@ -35,6 +36,13 @@ namespace GlobalToolClsLib
         private bool temperatureIsconnect = true;
         private bool vacuumIsconnect = true;
         private bool turboMolecularPumpIsconnect = true;
+
+        private bool temperatureIsReading = false;
+        private bool vacuumIsReading = false;
+        private bool turboMolecularPumpIsReading = false;
+        private bool temperatureIsWriting = false;
+        private bool vacuumIsWriting = false;
+        private bool turboMolecularPumpIsWriting = false;
 
 
         private EnumOvenBoxState state = EnumOvenBoxState.None;
@@ -173,6 +181,21 @@ namespace GlobalToolClsLib
         /// </summary>
         private bool condenserPump = false;
 
+        /// <summary>
+        /// 还原IN bool
+        /// </summary>
+        private bool reductionIN = false;
+
+        /// <summary>
+        /// 还原OUT bool
+        /// </summary>
+        private bool reductionOUT = false;
+
+        /// <summary>
+        /// 冷凝泵加热 bool
+        /// </summary>
+        private bool condenserPumpHeat = false;
+
 
         #endregion
 
@@ -189,6 +212,7 @@ namespace GlobalToolClsLib
 
         #endregion
 
+        #region 输出
 
 
         private bool bakeOvenPlugInValveOpenstatus = false;
@@ -222,6 +246,8 @@ namespace GlobalToolClsLib
         private bool condenserPumpSignal4 = false;
         private bool condenserPumpSignal5 = false;
         private bool condenserPumpSignal6 = false;
+        private bool compressorAlarm = false;
+        private bool condenserStar = false;
         private bool thermalRelay = false;
         private bool boxPressureSensor = false;
         private float boxVacuum = 0;
@@ -268,6 +294,7 @@ namespace GlobalToolClsLib
         private bool ovenBox2OH = false;
 
 
+        #endregion
 
 
         #endregion
@@ -455,6 +482,102 @@ namespace GlobalToolClsLib
         }
 
 
+        /// <summary>
+        /// 温控表正在读
+        /// </summary>
+        public bool TemperatureIsReading
+        {
+            get { return temperatureIsReading; }
+            set
+            {
+                if (temperatureIsReading != value)
+                {
+                    temperatureIsReading = value;
+                    OnPropertyChanged(nameof(TemperatureIsReading));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 真空计正在读
+        /// </summary>
+        public bool VacuumIsReading
+        {
+            get { return vacuumIsReading; }
+            set
+            {
+                if (vacuumIsReading != value)
+                {
+                    vacuumIsReading = value;
+                    OnPropertyChanged(nameof(VacuumIsReading));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 分子泵正在读
+        /// </summary>
+        public bool TurboMolecularPumpIsReading
+        {
+            get { return turboMolecularPumpIsReading; }
+            set
+            {
+                if (turboMolecularPumpIsReading != value)
+                {
+                    turboMolecularPumpIsReading = value;
+                    OnPropertyChanged(nameof(TurboMolecularPumpIsReading));
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 温控表正在写
+        /// </summary>
+        public bool TemperatureIsWriting
+        {
+            get { return temperatureIsWriting; }
+            set
+            {
+                if (temperatureIsWriting != value)
+                {
+                    temperatureIsWriting = value;
+                    OnPropertyChanged(nameof(TemperatureIsWriting));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 真空计正在写
+        /// </summary>
+        public bool VacuumIsWriting
+        {
+            get { return vacuumIsWriting; }
+            set
+            {
+                if (vacuumIsWriting != value)
+                {
+                    vacuumIsWriting = value;
+                    OnPropertyChanged(nameof(VacuumIsWriting));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 分子泵正在写
+        /// </summary>
+        public bool TurboMolecularPumpIsWriting
+        {
+            get { return turboMolecularPumpIsWriting; }
+            set
+            {
+                if (turboMolecularPumpIsWriting != value)
+                {
+                    turboMolecularPumpIsWriting = value;
+                    OnPropertyChanged(nameof(TurboMolecularPumpIsWriting));
+                }
+            }
+        }
 
 
 
@@ -721,30 +844,98 @@ namespace GlobalToolClsLib
         /// <summary>
         /// 烘箱补气阀 bool
         /// </summary>
-        public bool BakeOvenAerate{get { return bakeOvenAerate; }set{if (bakeOvenAerate != value){ bakeOvenAerate = value;OnPropertyChanged(nameof(BakeOvenAerate));}}}
+        public bool BakeOvenAerate
+        {
+            get 
+            { 
+                return bakeOvenAerate; 
+            }
+            set
+            {
+                if (bakeOvenAerate != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A补气阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A补气阀关闭");
+                    }
+                    bakeOvenAerate = value;
+                    OnPropertyChanged(nameof(BakeOvenAerate));
+                }
+            }
+        }
 
         /// <summary>
         /// 烘箱粗抽阀 bool
         /// </summary>
-        public bool BakeOvenCoarseExtractionValve{get { return bakeOvenCoarseExtractionValve; }set{if (bakeOvenCoarseExtractionValve != value){ bakeOvenCoarseExtractionValve = value;OnPropertyChanged(nameof(BakeOvenCoarseExtractionValve));}}}
+        public bool BakeOvenCoarseExtractionValve
+        {get { return bakeOvenCoarseExtractionValve; }set{if (bakeOvenCoarseExtractionValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A粗抽阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A粗抽阀关闭");
+                    }
+                    bakeOvenCoarseExtractionValve = value;OnPropertyChanged(nameof(BakeOvenCoarseExtractionValve));}}}
         /// <summary>
         /// 烘箱前级阀 bool
         /// </summary>
-        public bool BakeOvenFrontStageValve{get { return bakeOvenFrontStageValve; }set{if (bakeOvenFrontStageValve != value){ bakeOvenFrontStageValve = value;OnPropertyChanged(nameof(BakeOvenFrontStageValve));}}}
+        public bool BakeOvenFrontStageValve{get { return bakeOvenFrontStageValve; }set{if (bakeOvenFrontStageValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A前级阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A前级阀关闭");
+                    }
+                    bakeOvenFrontStageValve = value;OnPropertyChanged(nameof(BakeOvenFrontStageValve));}}}
         /// <summary>
         /// 烘箱插板阀 bool
         /// </summary>
-        public bool BakeOvenPlugInValve{get { return bakeOvenPlugInValve; }set{if (bakeOvenPlugInValve != value){ bakeOvenPlugInValve = value;OnPropertyChanged(nameof(BakeOvenPlugInValve));}}}
+        public bool BakeOvenPlugInValve{get { return bakeOvenPlugInValve; }set{if (bakeOvenPlugInValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A挡板阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A挡板阀关闭");
+                    }
+                    bakeOvenPlugInValve = value;OnPropertyChanged(nameof(BakeOvenPlugInValve));}}}
         /// <summary>
         /// 烘箱机械泵 bool
         /// </summary>
-        public bool BakeOvenMechanicalPump{get { return bakeOvenMechanicalPump; }set{if (bakeOvenMechanicalPump != value){ bakeOvenMechanicalPump = value;OnPropertyChanged(nameof(BakeOvenMechanicalPump));}}}
+        public bool BakeOvenMechanicalPump{get { return bakeOvenMechanicalPump; }set{if (bakeOvenMechanicalPump != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A机械泵打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A机械泵关闭");
+                    }
+                    bakeOvenMechanicalPump = value;OnPropertyChanged(nameof(BakeOvenMechanicalPump));}}}
 
 
         /// <summary>
         /// 烘箱内门升降 bool 按1松0
         /// </summary>
-        public bool BakeOvenInnerdoorUpDown{get { return bakeOvenInnerdoorUpDown; }set{if (bakeOvenInnerdoorUpDown != value){ bakeOvenInnerdoorUpDown = value;OnPropertyChanged(nameof(BakeOvenInnerdoorUpDown));}}}
+        public bool BakeOvenInnerdoorUpDown{get { return bakeOvenInnerdoorUpDown; }set{if (bakeOvenInnerdoorUpDown != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A内门插板阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A内门插板阀关闭");
+                    }
+                    bakeOvenInnerdoorUpDown = value;OnPropertyChanged(nameof(BakeOvenInnerdoorUpDown));}}}
 
 
         #endregion
@@ -754,29 +945,83 @@ namespace GlobalToolClsLib
         /// <summary>
         /// 烘箱2补气阀 bool
         /// </summary>
-        public bool BakeOven2Aerate{get { return bakeOven2Aerate; }set{if (bakeOven2Aerate != value){ bakeOven2Aerate = value;OnPropertyChanged(nameof(BakeOven2Aerate));}}}
+        public bool BakeOven2Aerate{get { return bakeOven2Aerate; }set{if (bakeOven2Aerate != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B补气阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B补气阀关闭");
+                    }
+                    bakeOven2Aerate = value;OnPropertyChanged(nameof(BakeOven2Aerate));}}}
 
         /// <summary>
         /// 烘箱2粗抽阀 bool
         /// </summary>
-        public bool BakeOven2CoarseExtractionValve{get { return bakeOven2CoarseExtractionValve; }set{if (bakeOven2CoarseExtractionValve != value){ bakeOven2CoarseExtractionValve = value;OnPropertyChanged(nameof(BakeOven2CoarseExtractionValve));}}}
+        public bool BakeOven2CoarseExtractionValve{get { return bakeOven2CoarseExtractionValve; }set{if (bakeOven2CoarseExtractionValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B粗抽阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B粗抽阀关闭");
+                    }
+                    bakeOven2CoarseExtractionValve = value;OnPropertyChanged(nameof(BakeOven2CoarseExtractionValve));}}}
         /// <summary>
         /// 烘箱2前级阀 bool
         /// </summary>
-        public bool BakeOven2FrontStageValve{get { return bakeOven2FrontStageValve; }set{if (bakeOven2FrontStageValve != value){ bakeOven2FrontStageValve = value;OnPropertyChanged(nameof(BakeOven2FrontStageValve));}}}
+        public bool BakeOven2FrontStageValve{get { return bakeOven2FrontStageValve; }set{if (bakeOven2FrontStageValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B前级阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B前级阀关闭");
+                    }
+                    bakeOven2FrontStageValve = value;OnPropertyChanged(nameof(BakeOven2FrontStageValve));}}}
         /// <summary>
         /// 烘箱2插板阀 bool
         /// </summary>
-        public bool BakeOven2PlugInValve{get { return bakeOven2PlugInValve; }set{if (bakeOven2PlugInValve != value){ bakeOven2PlugInValve = value;OnPropertyChanged(nameof(BakeOven2PlugInValve));}}}
+        public bool BakeOven2PlugInValve{get { return bakeOven2PlugInValve; }set{if (bakeOven2PlugInValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B挡板阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B挡板阀关闭");
+                    }
+                    bakeOven2PlugInValve = value;OnPropertyChanged(nameof(BakeOven2PlugInValve));}}}
         /// <summary>
         /// 烘箱2机械泵 bool
         /// </summary>
-        public bool BakeOven2MechanicalPump{get { return bakeOven2MechanicalPump; }set{if (bakeOven2MechanicalPump != value){ bakeOven2MechanicalPump = value;OnPropertyChanged(nameof(BakeOven2MechanicalPump));}}}
+        public bool BakeOven2MechanicalPump{get { return bakeOven2MechanicalPump; }set{if (bakeOven2MechanicalPump != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B机械泵打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B机械泵关闭");
+                    }
+                    bakeOven2MechanicalPump = value;OnPropertyChanged(nameof(BakeOven2MechanicalPump));}}}
 
         /// <summary>
         /// 烘箱内门升 bool 按1松0
         /// </summary>
-        public bool BakeOven2InnerdoorUpDown{get { return bakeOven2InnerdoorUpDown; }set{if (bakeOven2InnerdoorUpDown != value){ bakeOven2InnerdoorUpDown = value;OnPropertyChanged(nameof(BakeOven2InnerdoorUpDown));}}}
+        public bool BakeOven2InnerdoorUpDown{get { return bakeOven2InnerdoorUpDown; }set{if (bakeOven2InnerdoorUpDown != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B内门插板阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B内门插板阀关闭");
+                    }
+                    bakeOven2InnerdoorUpDown = value;OnPropertyChanged(nameof(BakeOven2InnerdoorUpDown));}}}
 
         #endregion
 
@@ -786,45 +1031,189 @@ namespace GlobalToolClsLib
         /// <summary>
         /// 箱体补气阀 short
         /// </summary>
-        public bool BoxAerate{get { return boxAerate; }set{if (boxAerate != value){ boxAerate = value;OnPropertyChanged(nameof(BoxAerate));}}}
+        public bool BoxAerate{get { return boxAerate; }set{if (boxAerate != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱补气阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱补气阀关闭");
+                    }
+                    boxAerate = value;OnPropertyChanged(nameof(BoxAerate));}}}
 
         /// <summary>
         /// 方舱粗抽阀 bool
         /// </summary>
-        public bool BoxCoarseExtractionValve{get { return boxCoarseExtractionValve; }set{if (boxCoarseExtractionValve != value){ boxCoarseExtractionValve = value;OnPropertyChanged(nameof(BoxCoarseExtractionValve));}}}
+        public bool BoxCoarseExtractionValve{get { return boxCoarseExtractionValve; }set{if (boxCoarseExtractionValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱粗抽阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱粗抽阀关闭");
+                    }
+                    boxCoarseExtractionValve = value;OnPropertyChanged(nameof(BoxCoarseExtractionValve));}}}
         /// <summary>
         /// 方舱前级阀 bool
         /// </summary>
-        public bool BoxFrontStageValve{get { return boxFrontStageValve; }set{if (boxFrontStageValve != value){ boxFrontStageValve = value;OnPropertyChanged(nameof(BoxFrontStageValve));}}}
+        public bool BoxFrontStageValve{get { return boxFrontStageValve; }set{if (boxFrontStageValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱前级阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱前级阀关闭");
+                    }
+                    boxFrontStageValve = value;OnPropertyChanged(nameof(BoxFrontStageValve));}}}
         /// <summary>
         /// 方舱插板阀 bool
         /// </summary>
-        public bool BoxPlugInValve{get { return boxPlugInValve; }set{if (boxPlugInValve != value){ boxPlugInValve = value;OnPropertyChanged(nameof(BoxPlugInValve));}}}
+        public bool BoxPlugInValve{get { return boxPlugInValve; }set{if (boxPlugInValve != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱挡板阀打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱挡板阀关闭");
+                    }
+                    boxPlugInValve = value;OnPropertyChanged(nameof(BoxPlugInValve));}}}
         /// <summary>
         /// 方舱机械泵 bool
         /// </summary>
-        public bool BoxMechanicalPump{get { return boxMechanicalPump; }set{if (boxMechanicalPump != value){ boxMechanicalPump = value;OnPropertyChanged(nameof(BoxMechanicalPump));}}}
+        public bool BoxMechanicalPump{get { return boxMechanicalPump; }set{if (boxMechanicalPump != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱机械泵打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "方舱机械泵关闭");
+                    }
+                    boxMechanicalPump = value;OnPropertyChanged(nameof(BoxMechanicalPump));}}}
 
 
         /// <summary>
         /// 压机压合分离 bool
         /// </summary>
-        public bool PressPressingDivide{get { return pressPressingDivide; }set{if (pressPressingDivide != value){ pressPressingDivide = value;OnPropertyChanged(nameof(PressPressingDivide));}}}
+        public bool PressPressingDivide{get { return pressPressingDivide; }set{if (pressPressingDivide != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压机压合");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压机分离");
+                    }
+                    pressPressingDivide = value;OnPropertyChanged(nameof(PressPressingDivide));}}}
 
         /// <summary>
         /// 压缩机启动 bool
         /// </summary>
-        public bool CompressorStartup{get { return compressorStartup; }set{if (compressorStartup != value){ compressorStartup = value;OnPropertyChanged(nameof(CompressorStartup));}}}
+        public bool CompressorStartup{get { return compressorStartup; }set{if (compressorStartup != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机启动");
+                    }
+                    compressorStartup = value;OnPropertyChanged(nameof(CompressorStartup));}}}
 
         /// <summary>
         /// 压缩机停止 bool
         /// </summary>
-        public bool CompressorStops{get { return compressorStops; }set{if (compressorStops != value){ compressorStops = value;OnPropertyChanged(nameof(CompressorStops));}}}
+        public bool CompressorStops{get { return compressorStops; }set{if (compressorStops != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机停止");
+                    }
+                    compressorStops = value;OnPropertyChanged(nameof(CompressorStops));}}}
 
         /// <summary>
         /// 冷凝泵 bool
         /// </summary>
-        public bool CondenserPump{get { return condenserPump; }set{if (condenserPump != value){ condenserPump = value;OnPropertyChanged(nameof(CondenserPump));}}}
+        public bool CondenserPump{get { return condenserPump; }set{if (condenserPump != value){
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵启动");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵停止");
+                    }
+                    condenserPump = value;OnPropertyChanged(nameof(CondenserPump));}}}
+
+        /// <summary>
+        /// 还原IN bool
+        /// </summary>
+        public bool ReductionIN
+        {
+            get { return reductionIN; }
+            set
+            {
+                if (reductionIN != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "还原IN打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "还原IN关闭");
+                    }
+                    reductionIN = value; OnPropertyChanged(nameof(ReductionIN));
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 还原OUT bool
+        /// </summary>
+        public bool ReductionOUT
+        {
+            get { return reductionOUT; }
+            set
+            {
+                if (reductionOUT != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "还原OUT打开");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "还原OUT关闭");
+                    }
+                    reductionOUT = value; OnPropertyChanged(nameof(ReductionOUT));
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 冷凝泵 bool
+        /// </summary>
+        public bool CondenserPumpHeat
+        {
+            get { return condenserPumpHeat; }
+            set
+            {
+                if (condenserPumpHeat != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵加热启动");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵加热停止");
+                    }
+                    condenserPumpHeat = value; OnPropertyChanged(nameof(CondenserPumpHeat));
+                }
+            }
+        }
 
 
         #endregion
@@ -1255,6 +1644,14 @@ namespace GlobalToolClsLib
             {
                 if (condenserPumpSignal4 != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "皮拉尼到达40Pa");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "皮拉尼超过40Pa");
+                    }
                     condenserPumpSignal4 = value;
                     OnPropertyChanged(nameof(CondenserPumpSignal4));
                 }
@@ -1291,6 +1688,54 @@ namespace GlobalToolClsLib
             }
         }
         /// <summary>
+        /// 压缩机报警 bool
+        /// </summary>
+        public bool CompressorAlarm
+        {
+            get { return compressorAlarm; }
+            set
+            {
+                if (compressorAlarm != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机报警");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机未报警");
+                    }
+                    compressorAlarm = value;
+                    OnPropertyChanged(nameof(CompressorAlarm));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 冷凝泵启动 bool
+        /// </summary>
+        public bool CondenserStar
+        {
+            get { return condenserStar; }
+            set
+            {
+                if (condenserStar != value)
+                {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵启动");
+                    }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵停止");
+                    }
+                    condenserStar = value;
+                    OnPropertyChanged(nameof(CondenserStar));
+                }
+            }
+        }
+
+        /// <summary>
         /// 热继电器
         /// </summary>
         public bool ThermalRelay
@@ -1300,6 +1745,10 @@ namespace GlobalToolClsLib
             {
                 if (thermalRelay != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "热继电器报错");
+                    }
                     thermalRelay = value;
                     OnPropertyChanged(nameof(ThermalRelay));
                 }
@@ -1382,6 +1831,10 @@ namespace GlobalToolClsLib
             {
                 if (pressIsPress != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压机压合");
+                    }
                     pressIsPress = value;
                     OnPropertyChanged(nameof(PressIsPress));
                 }
@@ -1397,6 +1850,10 @@ namespace GlobalToolClsLib
             {
                 if (pressIsDivide != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "压机分离");
+                    }
                     pressIsDivide = value;
                     OnPropertyChanged(nameof(PressIsDivide));
                 }
@@ -1492,6 +1949,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox1Standbymode != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵待机");
+                    }
                     ovenBox1Standbymode = value;
                     OnPropertyChanged(nameof(OvenBox1Standbymode));
                 }
@@ -1507,6 +1968,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox1Function != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵运行");
+                    }
                     ovenBox1Function = value;
                     OnPropertyChanged(nameof(OvenBox1Function));
                 }
@@ -1522,6 +1987,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox1err != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵报错");
+                    }
                     ovenBox1err = value;
                     OnPropertyChanged(nameof(OvenBox1err));
                 }
@@ -1720,6 +2189,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox2Standbymode != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵待机");
+                    }
                     ovenBox2Standbymode = value;
                     OnPropertyChanged(nameof(OvenBox2Standbymode));
                 }
@@ -1735,6 +2208,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox2Function != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵运行");
+                    }
                     ovenBox2Function = value;
                     OnPropertyChanged(nameof(OvenBox2Function));
                 }
@@ -1750,6 +2227,10 @@ namespace GlobalToolClsLib
             {
                 if (ovenBox2err != value)
                 {
+                    if (value)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵报错");
+                    }
                     ovenBox2err = value;
                     OnPropertyChanged(nameof(OvenBox2err));
                 }

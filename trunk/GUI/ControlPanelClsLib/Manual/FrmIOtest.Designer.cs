@@ -374,6 +374,10 @@ namespace ControlPanelClsLib.Manual
             this.laCondenserPumpSignal5 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
             this.laCondenserPumpSignal6 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.laCompressorAlarm = new System.Windows.Forms.Label();
+            this.laCondenserPumpStar = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.chTowerGreenLight = new System.Windows.Forms.CheckBox();
@@ -455,6 +459,15 @@ namespace ControlPanelClsLib.Manual
             this.laMotorBrake1 = new System.Windows.Forms.Label();
             this.chMotorBrake = new System.Windows.Forms.CheckBox();
             this.chMotorBrake1 = new System.Windows.Forms.CheckBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.laReductionIN = new System.Windows.Forms.Label();
+            this.laReductionOUT = new System.Windows.Forms.Label();
+            this.laCondenserPumpHeat = new System.Windows.Forms.Label();
+            this.chReductionIN = new System.Windows.Forms.CheckBox();
+            this.chReductionOUT = new System.Windows.Forms.CheckBox();
+            this.chCondenserPumpHeat = new System.Windows.Forms.CheckBox();
             this.Updatetimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.MovePage.SuspendLayout();
@@ -540,7 +553,7 @@ namespace ControlPanelClsLib.Manual
             this.tabControl1.Controls.Add(this.MovePage);
             this.tabControl1.Controls.Add(this.IOPage);
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(840, 489);
@@ -550,9 +563,9 @@ namespace ControlPanelClsLib.Manual
             // 
             this.MovePage.Controls.Add(this.tabControl2);
             this.MovePage.Location = new System.Drawing.Point(4, 22);
-            this.MovePage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MovePage.Margin = new System.Windows.Forms.Padding(2);
             this.MovePage.Name = "MovePage";
-            this.MovePage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MovePage.Padding = new System.Windows.Forms.Padding(2);
             this.MovePage.Size = new System.Drawing.Size(832, 463);
             this.MovePage.TabIndex = 0;
             this.MovePage.Text = "运动";
@@ -565,7 +578,7 @@ namespace ControlPanelClsLib.Manual
             this.tabControl2.Controls.Add(this.OvenPage);
             this.tabControl2.Controls.Add(this.NoveStatePage);
             this.tabControl2.Location = new System.Drawing.Point(4, 5);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(825, 456);
@@ -575,9 +588,9 @@ namespace ControlPanelClsLib.Manual
             // 
             this.MaterialBoxPage.Controls.Add(this.tableLayoutPanel1);
             this.MaterialBoxPage.Location = new System.Drawing.Point(4, 22);
-            this.MaterialBoxPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaterialBoxPage.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialBoxPage.Name = "MaterialBoxPage";
-            this.MaterialBoxPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaterialBoxPage.Padding = new System.Windows.Forms.Padding(2);
             this.MaterialBoxPage.Size = new System.Drawing.Size(817, 430);
             this.MaterialBoxPage.TabIndex = 0;
             this.MaterialBoxPage.Text = "料盒钩爪";
@@ -648,7 +661,7 @@ namespace ControlPanelClsLib.Manual
             this.tableLayoutPanel1.Controls.Add(this.seMaterialBoxHRelative, 8, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -666,7 +679,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxHRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxHRelative.Location = new System.Drawing.Point(731, 214);
-            this.btnMaterialBoxHRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxHRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxHRelative.Name = "btnMaterialBoxHRelative";
             this.btnMaterialBoxHRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialBoxHRelative.TabIndex = 85;
@@ -678,7 +691,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxTRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxTRelative.Location = new System.Drawing.Point(731, 161);
-            this.btnMaterialBoxTRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxTRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxTRelative.Name = "btnMaterialBoxTRelative";
             this.btnMaterialBoxTRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialBoxTRelative.TabIndex = 84;
@@ -690,7 +703,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxZRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxZRelative.Location = new System.Drawing.Point(731, 108);
-            this.btnMaterialBoxZRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxZRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxZRelative.Name = "btnMaterialBoxZRelative";
             this.btnMaterialBoxZRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialBoxZRelative.TabIndex = 83;
@@ -702,7 +715,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxYRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxYRelative.Location = new System.Drawing.Point(731, 55);
-            this.btnMaterialBoxYRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxYRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxYRelative.Name = "btnMaterialBoxYRelative";
             this.btnMaterialBoxYRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialBoxYRelative.TabIndex = 82;
@@ -714,7 +727,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxXRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxXRelative.Location = new System.Drawing.Point(731, 2);
-            this.btnMaterialBoxXRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxXRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxXRelative.Name = "btnMaterialBoxXRelative";
             this.btnMaterialBoxXRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialBoxXRelative.TabIndex = 81;
@@ -746,7 +759,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxXAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxXAbsolute.Location = new System.Drawing.Point(569, 2);
-            this.btnMaterialBoxXAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxXAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxXAbsolute.Name = "btnMaterialBoxXAbsolute";
             this.btnMaterialBoxXAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxXAbsolute.TabIndex = 71;
@@ -778,7 +791,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxXReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxXReverse.Location = new System.Drawing.Point(407, 2);
-            this.btnMaterialBoxXReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxXReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxXReverse.Name = "btnMaterialBoxXReverse";
             this.btnMaterialBoxXReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxXReverse.TabIndex = 61;
@@ -1115,7 +1128,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxXForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxXForward.Location = new System.Drawing.Point(326, 2);
-            this.btnMaterialBoxXForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxXForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxXForward.Name = "btnMaterialBoxXForward";
             this.btnMaterialBoxXForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxXForward.TabIndex = 56;
@@ -1127,7 +1140,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxYForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxYForward.Location = new System.Drawing.Point(326, 55);
-            this.btnMaterialBoxYForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxYForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxYForward.Name = "btnMaterialBoxYForward";
             this.btnMaterialBoxYForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxYForward.TabIndex = 57;
@@ -1139,7 +1152,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxZForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxZForward.Location = new System.Drawing.Point(326, 108);
-            this.btnMaterialBoxZForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxZForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxZForward.Name = "btnMaterialBoxZForward";
             this.btnMaterialBoxZForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxZForward.TabIndex = 58;
@@ -1151,7 +1164,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxTForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxTForward.Location = new System.Drawing.Point(326, 161);
-            this.btnMaterialBoxTForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxTForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxTForward.Name = "btnMaterialBoxTForward";
             this.btnMaterialBoxTForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxTForward.TabIndex = 59;
@@ -1163,7 +1176,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxHForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxHForward.Location = new System.Drawing.Point(326, 214);
-            this.btnMaterialBoxHForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxHForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxHForward.Name = "btnMaterialBoxHForward";
             this.btnMaterialBoxHForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxHForward.TabIndex = 60;
@@ -1175,7 +1188,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxYReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxYReverse.Location = new System.Drawing.Point(407, 55);
-            this.btnMaterialBoxYReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxYReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxYReverse.Name = "btnMaterialBoxYReverse";
             this.btnMaterialBoxYReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxYReverse.TabIndex = 62;
@@ -1187,7 +1200,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxZReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxZReverse.Location = new System.Drawing.Point(407, 108);
-            this.btnMaterialBoxZReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxZReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxZReverse.Name = "btnMaterialBoxZReverse";
             this.btnMaterialBoxZReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxZReverse.TabIndex = 63;
@@ -1199,7 +1212,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxTReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxTReverse.Location = new System.Drawing.Point(407, 161);
-            this.btnMaterialBoxTReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxTReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxTReverse.Name = "btnMaterialBoxTReverse";
             this.btnMaterialBoxTReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxTReverse.TabIndex = 64;
@@ -1211,7 +1224,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxHReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxHReverse.Location = new System.Drawing.Point(407, 214);
-            this.btnMaterialBoxHReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxHReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxHReverse.Name = "btnMaterialBoxHReverse";
             this.btnMaterialBoxHReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxHReverse.TabIndex = 65;
@@ -1303,7 +1316,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxYAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxYAbsolute.Location = new System.Drawing.Point(569, 55);
-            this.btnMaterialBoxYAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxYAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxYAbsolute.Name = "btnMaterialBoxYAbsolute";
             this.btnMaterialBoxYAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxYAbsolute.TabIndex = 72;
@@ -1315,7 +1328,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxZAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxZAbsolute.Location = new System.Drawing.Point(569, 108);
-            this.btnMaterialBoxZAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxZAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxZAbsolute.Name = "btnMaterialBoxZAbsolute";
             this.btnMaterialBoxZAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxZAbsolute.TabIndex = 73;
@@ -1327,7 +1340,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxTAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxTAbsolute.Location = new System.Drawing.Point(569, 161);
-            this.btnMaterialBoxTAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxTAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxTAbsolute.Name = "btnMaterialBoxTAbsolute";
             this.btnMaterialBoxTAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxTAbsolute.TabIndex = 74;
@@ -1339,7 +1352,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialBoxHAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialBoxHAbsolute.Location = new System.Drawing.Point(569, 214);
-            this.btnMaterialBoxHAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialBoxHAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxHAbsolute.Name = "btnMaterialBoxHAbsolute";
             this.btnMaterialBoxHAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialBoxHAbsolute.TabIndex = 75;
@@ -1431,9 +1444,9 @@ namespace ControlPanelClsLib.Manual
             // 
             this.MaterialPage.Controls.Add(this.tableLayoutPanel2);
             this.MaterialPage.Location = new System.Drawing.Point(4, 22);
-            this.MaterialPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaterialPage.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialPage.Name = "MaterialPage";
-            this.MaterialPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaterialPage.Padding = new System.Windows.Forms.Padding(2);
             this.MaterialPage.Size = new System.Drawing.Size(817, 430);
             this.MaterialPage.TabIndex = 1;
             this.MaterialPage.Text = "物料钩爪";
@@ -1494,7 +1507,7 @@ namespace ControlPanelClsLib.Manual
             this.tableLayoutPanel2.Controls.Add(this.btnMaterialHRelative, 9, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 8;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -1512,7 +1525,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialZRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialZRelative.Location = new System.Drawing.Point(731, 108);
-            this.btnMaterialZRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialZRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialZRelative.Name = "btnMaterialZRelative";
             this.btnMaterialZRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialZRelative.TabIndex = 83;
@@ -1524,7 +1537,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialYRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialYRelative.Location = new System.Drawing.Point(731, 55);
-            this.btnMaterialYRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialYRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialYRelative.Name = "btnMaterialYRelative";
             this.btnMaterialYRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialYRelative.TabIndex = 82;
@@ -1536,7 +1549,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialXRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialXRelative.Location = new System.Drawing.Point(731, 2);
-            this.btnMaterialXRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialXRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialXRelative.Name = "btnMaterialXRelative";
             this.btnMaterialXRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialXRelative.TabIndex = 81;
@@ -1568,7 +1581,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialXAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialXAbsolute.Location = new System.Drawing.Point(569, 2);
-            this.btnMaterialXAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialXAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialXAbsolute.Name = "btnMaterialXAbsolute";
             this.btnMaterialXAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialXAbsolute.TabIndex = 71;
@@ -1600,7 +1613,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialXReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialXReverse.Location = new System.Drawing.Point(407, 2);
-            this.btnMaterialXReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialXReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialXReverse.Name = "btnMaterialXReverse";
             this.btnMaterialXReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialXReverse.TabIndex = 61;
@@ -1807,7 +1820,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialXForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialXForward.Location = new System.Drawing.Point(326, 2);
-            this.btnMaterialXForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialXForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialXForward.Name = "btnMaterialXForward";
             this.btnMaterialXForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialXForward.TabIndex = 56;
@@ -1819,7 +1832,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialYForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialYForward.Location = new System.Drawing.Point(326, 55);
-            this.btnMaterialYForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialYForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialYForward.Name = "btnMaterialYForward";
             this.btnMaterialYForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialYForward.TabIndex = 57;
@@ -1831,7 +1844,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialZForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialZForward.Location = new System.Drawing.Point(326, 108);
-            this.btnMaterialZForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialZForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialZForward.Name = "btnMaterialZForward";
             this.btnMaterialZForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialZForward.TabIndex = 58;
@@ -1843,7 +1856,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialYReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialYReverse.Location = new System.Drawing.Point(407, 55);
-            this.btnMaterialYReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialYReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialYReverse.Name = "btnMaterialYReverse";
             this.btnMaterialYReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialYReverse.TabIndex = 62;
@@ -1855,7 +1868,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialZReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialZReverse.Location = new System.Drawing.Point(407, 108);
-            this.btnMaterialZReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialZReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialZReverse.Name = "btnMaterialZReverse";
             this.btnMaterialZReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialZReverse.TabIndex = 63;
@@ -1907,7 +1920,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialYAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialYAbsolute.Location = new System.Drawing.Point(569, 55);
-            this.btnMaterialYAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialYAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialYAbsolute.Name = "btnMaterialYAbsolute";
             this.btnMaterialYAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialYAbsolute.TabIndex = 72;
@@ -1919,7 +1932,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialZAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialZAbsolute.Location = new System.Drawing.Point(569, 108);
-            this.btnMaterialZAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialZAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialZAbsolute.Name = "btnMaterialZAbsolute";
             this.btnMaterialZAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialZAbsolute.TabIndex = 73;
@@ -2036,7 +2049,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialHForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialHForward.Location = new System.Drawing.Point(326, 161);
-            this.btnMaterialHForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialHForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHForward.Name = "btnMaterialHForward";
             this.btnMaterialHForward.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialHForward.TabIndex = 60;
@@ -2048,7 +2061,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialHReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialHReverse.Location = new System.Drawing.Point(407, 161);
-            this.btnMaterialHReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialHReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHReverse.Name = "btnMaterialHReverse";
             this.btnMaterialHReverse.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialHReverse.TabIndex = 65;
@@ -2080,7 +2093,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialHAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialHAbsolute.Location = new System.Drawing.Point(569, 161);
-            this.btnMaterialHAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialHAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHAbsolute.Name = "btnMaterialHAbsolute";
             this.btnMaterialHAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnMaterialHAbsolute.TabIndex = 75;
@@ -2112,7 +2125,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnMaterialHRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMaterialHRelative.Location = new System.Drawing.Point(731, 161);
-            this.btnMaterialHRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaterialHRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHRelative.Name = "btnMaterialHRelative";
             this.btnMaterialHRelative.Size = new System.Drawing.Size(80, 49);
             this.btnMaterialHRelative.TabIndex = 85;
@@ -2124,7 +2137,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.OvenPage.Controls.Add(this.tableLayoutPanel3);
             this.OvenPage.Location = new System.Drawing.Point(4, 22);
-            this.OvenPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OvenPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenPage.Name = "OvenPage";
             this.OvenPage.Size = new System.Drawing.Size(817, 430);
             this.OvenPage.TabIndex = 2;
@@ -2176,7 +2189,7 @@ namespace ControlPanelClsLib.Manual
             this.tableLayoutPanel3.Controls.Add(this.sePressliftingRelative, 8, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 8;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -2194,7 +2207,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnPressliftingRelative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPressliftingRelative.Location = new System.Drawing.Point(732, 108);
-            this.btnPressliftingRelative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPressliftingRelative.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingRelative.Name = "btnPressliftingRelative";
             this.btnPressliftingRelative.Size = new System.Drawing.Size(83, 49);
             this.btnPressliftingRelative.TabIndex = 83;
@@ -2206,7 +2219,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack2Relative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack2Relative.Location = new System.Drawing.Point(732, 55);
-            this.btnOvenTrack2Relative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack2Relative.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack2Relative.Name = "btnOvenTrack2Relative";
             this.btnOvenTrack2Relative.Size = new System.Drawing.Size(83, 49);
             this.btnOvenTrack2Relative.TabIndex = 82;
@@ -2218,7 +2231,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack1Relative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack1Relative.Location = new System.Drawing.Point(732, 2);
-            this.btnOvenTrack1Relative.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack1Relative.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack1Relative.Name = "btnOvenTrack1Relative";
             this.btnOvenTrack1Relative.Size = new System.Drawing.Size(83, 49);
             this.btnOvenTrack1Relative.TabIndex = 81;
@@ -2250,7 +2263,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack1Absolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack1Absolute.Location = new System.Drawing.Point(570, 2);
-            this.btnOvenTrack1Absolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack1Absolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack1Absolute.Name = "btnOvenTrack1Absolute";
             this.btnOvenTrack1Absolute.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack1Absolute.TabIndex = 71;
@@ -2282,7 +2295,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack1Reverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack1Reverse.Location = new System.Drawing.Point(408, 2);
-            this.btnOvenTrack1Reverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack1Reverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack1Reverse.Name = "btnOvenTrack1Reverse";
             this.btnOvenTrack1Reverse.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack1Reverse.TabIndex = 61;
@@ -2489,7 +2502,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack1Forward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack1Forward.Location = new System.Drawing.Point(327, 2);
-            this.btnOvenTrack1Forward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack1Forward.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack1Forward.Name = "btnOvenTrack1Forward";
             this.btnOvenTrack1Forward.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack1Forward.TabIndex = 56;
@@ -2501,7 +2514,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack2Forward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack2Forward.Location = new System.Drawing.Point(327, 55);
-            this.btnOvenTrack2Forward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack2Forward.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack2Forward.Name = "btnOvenTrack2Forward";
             this.btnOvenTrack2Forward.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack2Forward.TabIndex = 57;
@@ -2513,7 +2526,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnPressliftingForward.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPressliftingForward.Location = new System.Drawing.Point(327, 108);
-            this.btnPressliftingForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPressliftingForward.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingForward.Name = "btnPressliftingForward";
             this.btnPressliftingForward.Size = new System.Drawing.Size(77, 49);
             this.btnPressliftingForward.TabIndex = 58;
@@ -2525,7 +2538,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack2Reverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack2Reverse.Location = new System.Drawing.Point(408, 55);
-            this.btnOvenTrack2Reverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack2Reverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack2Reverse.Name = "btnOvenTrack2Reverse";
             this.btnOvenTrack2Reverse.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack2Reverse.TabIndex = 62;
@@ -2537,7 +2550,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnPressliftingReverse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPressliftingReverse.Location = new System.Drawing.Point(408, 108);
-            this.btnPressliftingReverse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPressliftingReverse.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingReverse.Name = "btnPressliftingReverse";
             this.btnPressliftingReverse.Size = new System.Drawing.Size(77, 49);
             this.btnPressliftingReverse.TabIndex = 63;
@@ -2589,7 +2602,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnOvenTrack2Absolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOvenTrack2Absolute.Location = new System.Drawing.Point(570, 55);
-            this.btnOvenTrack2Absolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOvenTrack2Absolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnOvenTrack2Absolute.Name = "btnOvenTrack2Absolute";
             this.btnOvenTrack2Absolute.Size = new System.Drawing.Size(77, 49);
             this.btnOvenTrack2Absolute.TabIndex = 72;
@@ -2601,7 +2614,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.btnPressliftingAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPressliftingAbsolute.Location = new System.Drawing.Point(570, 108);
-            this.btnPressliftingAbsolute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPressliftingAbsolute.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingAbsolute.Name = "btnPressliftingAbsolute";
             this.btnPressliftingAbsolute.Size = new System.Drawing.Size(77, 49);
             this.btnPressliftingAbsolute.TabIndex = 73;
@@ -2653,7 +2666,7 @@ namespace ControlPanelClsLib.Manual
             // 
             this.NoveStatePage.Controls.Add(this.groupBox10);
             this.NoveStatePage.Location = new System.Drawing.Point(4, 22);
-            this.NoveStatePage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NoveStatePage.Margin = new System.Windows.Forms.Padding(2);
             this.NoveStatePage.Name = "NoveStatePage";
             this.NoveStatePage.Size = new System.Drawing.Size(817, 430);
             this.NoveStatePage.TabIndex = 3;
@@ -3007,9 +3020,9 @@ namespace ControlPanelClsLib.Manual
             // 
             this.IOPage.Controls.Add(this.tabControl3);
             this.IOPage.Location = new System.Drawing.Point(4, 22);
-            this.IOPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IOPage.Margin = new System.Windows.Forms.Padding(2);
             this.IOPage.Name = "IOPage";
-            this.IOPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IOPage.Padding = new System.Windows.Forms.Padding(2);
             this.IOPage.Size = new System.Drawing.Size(832, 463);
             this.IOPage.TabIndex = 1;
             this.IOPage.Text = "IO";
@@ -3021,7 +3034,7 @@ namespace ControlPanelClsLib.Manual
             this.tabControl3.Controls.Add(this.tabPage2);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.Location = new System.Drawing.Point(2, 2);
-            this.tabControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl3.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             this.tabControl3.Size = new System.Drawing.Size(828, 459);
@@ -3031,9 +3044,9 @@ namespace ControlPanelClsLib.Manual
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel4);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(820, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "输入";
@@ -3128,9 +3141,13 @@ namespace ControlPanelClsLib.Manual
             this.tableLayoutPanel4.Controls.Add(this.laCondenserPumpSignal5, 10, 5);
             this.tableLayoutPanel4.Controls.Add(this.label87, 9, 6);
             this.tableLayoutPanel4.Controls.Add(this.laCondenserPumpSignal6, 10, 6);
+            this.tableLayoutPanel4.Controls.Add(this.label86, 9, 7);
+            this.tableLayoutPanel4.Controls.Add(this.label89, 9, 8);
+            this.tableLayoutPanel4.Controls.Add(this.laCompressorAlarm, 10, 7);
+            this.tableLayoutPanel4.Controls.Add(this.laCondenserPumpStar, 10, 8);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 10;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -4013,10 +4030,11 @@ namespace ControlPanelClsLib.Manual
             // label85
             // 
             this.label85.AutoSize = true;
+            this.label85.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label85.Location = new System.Drawing.Point(536, 210);
             this.label85.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(65, 24);
+            this.label85.Size = new System.Drawing.Size(77, 42);
             this.label85.TabIndex = 178;
             this.label85.Text = "皮拉尼到达50Pa";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4024,6 +4042,7 @@ namespace ControlPanelClsLib.Manual
             // laCondenserPumpSignal5
             // 
             this.laCondenserPumpSignal5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laCondenserPumpSignal5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.laCondenserPumpSignal5.Location = new System.Drawing.Point(617, 210);
             this.laCondenserPumpSignal5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.laCondenserPumpSignal5.Name = "laCondenserPumpSignal5";
@@ -4033,10 +4052,11 @@ namespace ControlPanelClsLib.Manual
             // label87
             // 
             this.label87.AutoSize = true;
+            this.label87.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label87.Location = new System.Drawing.Point(536, 252);
             this.label87.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(77, 12);
+            this.label87.Size = new System.Drawing.Size(77, 42);
             this.label87.TabIndex = 180;
             this.label87.Text = "冷凝泵到大气";
             this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4044,19 +4064,64 @@ namespace ControlPanelClsLib.Manual
             // laCondenserPumpSignal6
             // 
             this.laCondenserPumpSignal6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laCondenserPumpSignal6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.laCondenserPumpSignal6.Location = new System.Drawing.Point(617, 252);
             this.laCondenserPumpSignal6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.laCondenserPumpSignal6.Name = "laCondenserPumpSignal6";
             this.laCondenserPumpSignal6.Size = new System.Drawing.Size(61, 42);
             this.laCondenserPumpSignal6.TabIndex = 181;
             // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label86.Location = new System.Drawing.Point(536, 294);
+            this.label86.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(77, 42);
+            this.label86.TabIndex = 182;
+            this.label86.Text = "压缩机报警";
+            this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label89.Location = new System.Drawing.Point(536, 336);
+            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(77, 42);
+            this.label89.TabIndex = 183;
+            this.label89.Text = "冷凝泵启动";
+            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laCompressorAlarm
+            // 
+            this.laCompressorAlarm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laCompressorAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laCompressorAlarm.Location = new System.Drawing.Point(617, 294);
+            this.laCompressorAlarm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.laCompressorAlarm.Name = "laCompressorAlarm";
+            this.laCompressorAlarm.Size = new System.Drawing.Size(61, 42);
+            this.laCompressorAlarm.TabIndex = 184;
+            // 
+            // laCondenserPumpStar
+            // 
+            this.laCondenserPumpStar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laCondenserPumpStar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laCondenserPumpStar.Location = new System.Drawing.Point(617, 336);
+            this.laCondenserPumpStar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.laCondenserPumpStar.Name = "laCondenserPumpStar";
+            this.laCondenserPumpStar.Size = new System.Drawing.Size(61, 42);
+            this.laCondenserPumpStar.TabIndex = 185;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(820, 433);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "输出";
@@ -4157,9 +4222,18 @@ namespace ControlPanelClsLib.Manual
             this.tableLayoutPanel5.Controls.Add(this.laMotorBrake1, 10, 4);
             this.tableLayoutPanel5.Controls.Add(this.chMotorBrake, 11, 3);
             this.tableLayoutPanel5.Controls.Add(this.chMotorBrake1, 11, 4);
+            this.tableLayoutPanel5.Controls.Add(this.label90, 9, 6);
+            this.tableLayoutPanel5.Controls.Add(this.label91, 9, 7);
+            this.tableLayoutPanel5.Controls.Add(this.label92, 9, 8);
+            this.tableLayoutPanel5.Controls.Add(this.laReductionIN, 10, 6);
+            this.tableLayoutPanel5.Controls.Add(this.laReductionOUT, 10, 7);
+            this.tableLayoutPanel5.Controls.Add(this.laCondenserPumpHeat, 10, 8);
+            this.tableLayoutPanel5.Controls.Add(this.chReductionIN, 11, 6);
+            this.tableLayoutPanel5.Controls.Add(this.chReductionOUT, 11, 7);
+            this.tableLayoutPanel5.Controls.Add(this.chCondenserPumpHeat, 11, 8);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 10;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -4182,7 +4256,7 @@ namespace ControlPanelClsLib.Manual
             this.chTowerGreenLight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chTowerGreenLight.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chTowerGreenLight.Location = new System.Drawing.Point(662, 86);
-            this.chTowerGreenLight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chTowerGreenLight.Margin = new System.Windows.Forms.Padding(2);
             this.chTowerGreenLight.Name = "chTowerGreenLight";
             this.chTowerGreenLight.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chTowerGreenLight.Size = new System.Drawing.Size(44, 38);
@@ -4197,7 +4271,7 @@ namespace ControlPanelClsLib.Manual
             this.chTowerRedLight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chTowerRedLight.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chTowerRedLight.Location = new System.Drawing.Point(662, 2);
-            this.chTowerRedLight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chTowerRedLight.Margin = new System.Windows.Forms.Padding(2);
             this.chTowerRedLight.Name = "chTowerRedLight";
             this.chTowerRedLight.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chTowerRedLight.Size = new System.Drawing.Size(44, 38);
@@ -4212,7 +4286,7 @@ namespace ControlPanelClsLib.Manual
             this.chBoxCoarseExtractionValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxCoarseExtractionValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBoxCoarseExtractionValve.Location = new System.Drawing.Point(485, 2);
-            this.chBoxCoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxCoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxCoarseExtractionValve.Name = "chBoxCoarseExtractionValve";
             this.chBoxCoarseExtractionValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBoxCoarseExtractionValve.Size = new System.Drawing.Size(44, 38);
@@ -4227,7 +4301,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2CoarseExtractionValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2CoarseExtractionValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2CoarseExtractionValve.Location = new System.Drawing.Point(308, 2);
-            this.chBakeOven2CoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2CoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2CoarseExtractionValve.Name = "chBakeOven2CoarseExtractionValve";
             this.chBakeOven2CoarseExtractionValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2CoarseExtractionValve.Size = new System.Drawing.Size(44, 38);
@@ -4647,7 +4721,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenCoarseExtractionValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenCoarseExtractionValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenCoarseExtractionValve.Location = new System.Drawing.Point(131, 2);
-            this.chBakeOvenCoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenCoarseExtractionValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenCoarseExtractionValve.Name = "chBakeOvenCoarseExtractionValve";
             this.chBakeOvenCoarseExtractionValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenCoarseExtractionValve.Size = new System.Drawing.Size(44, 38);
@@ -4662,7 +4736,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenFrontStageValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenFrontStageValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenFrontStageValve.Location = new System.Drawing.Point(131, 44);
-            this.chBakeOvenFrontStageValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenFrontStageValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenFrontStageValve.Name = "chBakeOvenFrontStageValve";
             this.chBakeOvenFrontStageValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenFrontStageValve.Size = new System.Drawing.Size(44, 38);
@@ -4677,7 +4751,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2FrontStageValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2FrontStageValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2FrontStageValve.Location = new System.Drawing.Point(308, 44);
-            this.chBakeOven2FrontStageValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2FrontStageValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2FrontStageValve.Name = "chBakeOven2FrontStageValve";
             this.chBakeOven2FrontStageValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2FrontStageValve.Size = new System.Drawing.Size(44, 38);
@@ -4692,7 +4766,7 @@ namespace ControlPanelClsLib.Manual
             this.chBoxFrontStageValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxFrontStageValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBoxFrontStageValve.Location = new System.Drawing.Point(485, 44);
-            this.chBoxFrontStageValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxFrontStageValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxFrontStageValve.Name = "chBoxFrontStageValve";
             this.chBoxFrontStageValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBoxFrontStageValve.Size = new System.Drawing.Size(44, 38);
@@ -4707,7 +4781,7 @@ namespace ControlPanelClsLib.Manual
             this.chTowerYellowLight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chTowerYellowLight.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chTowerYellowLight.Location = new System.Drawing.Point(662, 44);
-            this.chTowerYellowLight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chTowerYellowLight.Margin = new System.Windows.Forms.Padding(2);
             this.chTowerYellowLight.Name = "chTowerYellowLight";
             this.chTowerYellowLight.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chTowerYellowLight.Size = new System.Drawing.Size(44, 38);
@@ -4722,7 +4796,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenAerate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenAerate.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenAerate.Location = new System.Drawing.Point(131, 86);
-            this.chBakeOvenAerate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenAerate.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenAerate.Name = "chBakeOvenAerate";
             this.chBakeOvenAerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenAerate.Size = new System.Drawing.Size(44, 38);
@@ -4737,7 +4811,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2Aerate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2Aerate.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2Aerate.Location = new System.Drawing.Point(308, 86);
-            this.chBakeOven2Aerate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2Aerate.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2Aerate.Name = "chBakeOven2Aerate";
             this.chBakeOven2Aerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2Aerate.Size = new System.Drawing.Size(44, 38);
@@ -4752,7 +4826,7 @@ namespace ControlPanelClsLib.Manual
             this.chBoxAerate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxAerate.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBoxAerate.Location = new System.Drawing.Point(485, 86);
-            this.chBoxAerate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxAerate.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxAerate.Name = "chBoxAerate";
             this.chBoxAerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBoxAerate.Size = new System.Drawing.Size(44, 38);
@@ -4767,7 +4841,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenInnerdoorUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenInnerdoorUpDown.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenInnerdoorUpDown.Location = new System.Drawing.Point(131, 128);
-            this.chBakeOvenInnerdoorUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenInnerdoorUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenInnerdoorUpDown.Name = "chBakeOvenInnerdoorUpDown";
             this.chBakeOvenInnerdoorUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenInnerdoorUpDown.Size = new System.Drawing.Size(44, 38);
@@ -4782,7 +4856,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenPlugInValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenPlugInValve.Location = new System.Drawing.Point(131, 170);
-            this.chBakeOvenPlugInValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenPlugInValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenPlugInValve.Name = "chBakeOvenPlugInValve";
             this.chBakeOvenPlugInValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenPlugInValve.Size = new System.Drawing.Size(44, 38);
@@ -4797,7 +4871,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2InnerdoorUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2InnerdoorUpDown.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2InnerdoorUpDown.Location = new System.Drawing.Point(308, 128);
-            this.chBakeOven2InnerdoorUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2InnerdoorUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2InnerdoorUpDown.Name = "chBakeOven2InnerdoorUpDown";
             this.chBakeOven2InnerdoorUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2InnerdoorUpDown.Size = new System.Drawing.Size(44, 38);
@@ -4812,7 +4886,7 @@ namespace ControlPanelClsLib.Manual
             this.chBoxPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxPlugInValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBoxPlugInValve.Location = new System.Drawing.Point(485, 128);
-            this.chBoxPlugInValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxPlugInValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxPlugInValve.Name = "chBoxPlugInValve";
             this.chBoxPlugInValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBoxPlugInValve.Size = new System.Drawing.Size(44, 38);
@@ -4827,7 +4901,7 @@ namespace ControlPanelClsLib.Manual
             this.chPressPressingDivide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chPressPressingDivide.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chPressPressingDivide.Location = new System.Drawing.Point(485, 170);
-            this.chPressPressingDivide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chPressPressingDivide.Margin = new System.Windows.Forms.Padding(2);
             this.chPressPressingDivide.Name = "chPressPressingDivide";
             this.chPressPressingDivide.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chPressPressingDivide.Size = new System.Drawing.Size(44, 38);
@@ -4842,7 +4916,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2PlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2PlugInValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2PlugInValve.Location = new System.Drawing.Point(308, 170);
-            this.chBakeOven2PlugInValve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2PlugInValve.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2PlugInValve.Name = "chBakeOven2PlugInValve";
             this.chBakeOven2PlugInValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2PlugInValve.Size = new System.Drawing.Size(44, 38);
@@ -4901,7 +4975,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenMechanicalPump.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOvenMechanicalPump.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOvenMechanicalPump.Location = new System.Drawing.Point(131, 212);
-            this.chBakeOvenMechanicalPump.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOvenMechanicalPump.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOvenMechanicalPump.Name = "chBakeOvenMechanicalPump";
             this.chBakeOvenMechanicalPump.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOvenMechanicalPump.Size = new System.Drawing.Size(44, 38);
@@ -4916,7 +4990,7 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2MechanicalPump.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBakeOven2MechanicalPump.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBakeOven2MechanicalPump.Location = new System.Drawing.Point(308, 212);
-            this.chBakeOven2MechanicalPump.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBakeOven2MechanicalPump.Margin = new System.Windows.Forms.Padding(2);
             this.chBakeOven2MechanicalPump.Name = "chBakeOven2MechanicalPump";
             this.chBakeOven2MechanicalPump.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBakeOven2MechanicalPump.Size = new System.Drawing.Size(44, 38);
@@ -4953,7 +5027,7 @@ namespace ControlPanelClsLib.Manual
             this.chBoxMechanicalPump.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxMechanicalPump.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chBoxMechanicalPump.Location = new System.Drawing.Point(485, 212);
-            this.chBoxMechanicalPump.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxMechanicalPump.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxMechanicalPump.Name = "chBoxMechanicalPump";
             this.chBoxMechanicalPump.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chBoxMechanicalPump.Size = new System.Drawing.Size(44, 38);
@@ -4990,7 +5064,7 @@ namespace ControlPanelClsLib.Manual
             this.chCompressorStartup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chCompressorStartup.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chCompressorStartup.Location = new System.Drawing.Point(485, 254);
-            this.chCompressorStartup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chCompressorStartup.Margin = new System.Windows.Forms.Padding(2);
             this.chCompressorStartup.Name = "chCompressorStartup";
             this.chCompressorStartup.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chCompressorStartup.Size = new System.Drawing.Size(44, 38);
@@ -5073,7 +5147,7 @@ namespace ControlPanelClsLib.Manual
             this.chCompressorStops.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chCompressorStops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chCompressorStops.Location = new System.Drawing.Point(485, 296);
-            this.chCompressorStops.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chCompressorStops.Margin = new System.Windows.Forms.Padding(2);
             this.chCompressorStops.Name = "chCompressorStops";
             this.chCompressorStops.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chCompressorStops.Size = new System.Drawing.Size(44, 38);
@@ -5088,7 +5162,7 @@ namespace ControlPanelClsLib.Manual
             this.chCondenserPump.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chCondenserPump.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chCondenserPump.Location = new System.Drawing.Point(485, 338);
-            this.chCondenserPump.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chCondenserPump.Margin = new System.Windows.Forms.Padding(2);
             this.chCondenserPump.Name = "chCondenserPump";
             this.chCondenserPump.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chCondenserPump.Size = new System.Drawing.Size(44, 38);
@@ -5123,7 +5197,7 @@ namespace ControlPanelClsLib.Manual
             this.chMotorBrake.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chMotorBrake.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chMotorBrake.Location = new System.Drawing.Point(662, 128);
-            this.chMotorBrake.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chMotorBrake.Margin = new System.Windows.Forms.Padding(2);
             this.chMotorBrake.Name = "chMotorBrake";
             this.chMotorBrake.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chMotorBrake.Size = new System.Drawing.Size(44, 38);
@@ -5138,13 +5212,124 @@ namespace ControlPanelClsLib.Manual
             this.chMotorBrake1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chMotorBrake1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chMotorBrake1.Location = new System.Drawing.Point(662, 170);
-            this.chMotorBrake1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chMotorBrake1.Margin = new System.Windows.Forms.Padding(2);
             this.chMotorBrake1.Name = "chMotorBrake1";
             this.chMotorBrake1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chMotorBrake1.Size = new System.Drawing.Size(44, 38);
             this.chMotorBrake1.TabIndex = 192;
             this.chMotorBrake1.Tag = "OutputIO";
             this.chMotorBrake1.UseVisualStyleBackColor = true;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label90.Location = new System.Drawing.Point(533, 252);
+            this.label90.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(77, 42);
+            this.label90.TabIndex = 193;
+            this.label90.Text = "还原IN";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label91.Location = new System.Drawing.Point(533, 294);
+            this.label91.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(77, 42);
+            this.label91.TabIndex = 194;
+            this.label91.Text = "还原OUT";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label92.Location = new System.Drawing.Point(533, 336);
+            this.label92.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(77, 42);
+            this.label92.TabIndex = 195;
+            this.label92.Text = "冷凝泵加热";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // laReductionIN
+            // 
+            this.laReductionIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laReductionIN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laReductionIN.Location = new System.Drawing.Point(614, 252);
+            this.laReductionIN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.laReductionIN.Name = "laReductionIN";
+            this.laReductionIN.Size = new System.Drawing.Size(44, 42);
+            this.laReductionIN.TabIndex = 196;
+            // 
+            // laReductionOUT
+            // 
+            this.laReductionOUT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laReductionOUT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laReductionOUT.Location = new System.Drawing.Point(614, 294);
+            this.laReductionOUT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.laReductionOUT.Name = "laReductionOUT";
+            this.laReductionOUT.Size = new System.Drawing.Size(44, 42);
+            this.laReductionOUT.TabIndex = 197;
+            // 
+            // laCondenserPumpHeat
+            // 
+            this.laCondenserPumpHeat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laCondenserPumpHeat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laCondenserPumpHeat.Location = new System.Drawing.Point(614, 336);
+            this.laCondenserPumpHeat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.laCondenserPumpHeat.Name = "laCondenserPumpHeat";
+            this.laCondenserPumpHeat.Size = new System.Drawing.Size(44, 42);
+            this.laCondenserPumpHeat.TabIndex = 198;
+            // 
+            // chReductionIN
+            // 
+            this.chReductionIN.AutoSize = true;
+            this.chReductionIN.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chReductionIN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chReductionIN.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chReductionIN.Location = new System.Drawing.Point(662, 254);
+            this.chReductionIN.Margin = new System.Windows.Forms.Padding(2);
+            this.chReductionIN.Name = "chReductionIN";
+            this.chReductionIN.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chReductionIN.Size = new System.Drawing.Size(44, 38);
+            this.chReductionIN.TabIndex = 199;
+            this.chReductionIN.Tag = "OutputIO";
+            this.chReductionIN.UseVisualStyleBackColor = true;
+            // 
+            // chReductionOUT
+            // 
+            this.chReductionOUT.AutoSize = true;
+            this.chReductionOUT.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chReductionOUT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chReductionOUT.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chReductionOUT.Location = new System.Drawing.Point(662, 296);
+            this.chReductionOUT.Margin = new System.Windows.Forms.Padding(2);
+            this.chReductionOUT.Name = "chReductionOUT";
+            this.chReductionOUT.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chReductionOUT.Size = new System.Drawing.Size(44, 38);
+            this.chReductionOUT.TabIndex = 200;
+            this.chReductionOUT.Tag = "OutputIO";
+            this.chReductionOUT.UseVisualStyleBackColor = true;
+            // 
+            // chCondenserPumpHeat
+            // 
+            this.chCondenserPumpHeat.AutoSize = true;
+            this.chCondenserPumpHeat.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chCondenserPumpHeat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chCondenserPumpHeat.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chCondenserPumpHeat.Location = new System.Drawing.Point(662, 338);
+            this.chCondenserPumpHeat.Margin = new System.Windows.Forms.Padding(2);
+            this.chCondenserPumpHeat.Name = "chCondenserPumpHeat";
+            this.chCondenserPumpHeat.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chCondenserPumpHeat.Size = new System.Drawing.Size(44, 38);
+            this.chCondenserPumpHeat.TabIndex = 201;
+            this.chCondenserPumpHeat.Tag = "OutputIO";
+            this.chCondenserPumpHeat.UseVisualStyleBackColor = true;
             // 
             // Updatetimer
             // 
@@ -5157,9 +5342,10 @@ namespace ControlPanelClsLib.Manual
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 509);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmIOtest";
             this.Text = "IO控制";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmIOtest_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.MovePage.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -5570,5 +5756,18 @@ namespace ControlPanelClsLib.Manual
         private System.Windows.Forms.Label laCondenserPumpSignal5;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label laCondenserPumpSignal6;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label laCompressorAlarm;
+        private System.Windows.Forms.Label laCondenserPumpStar;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Label laReductionIN;
+        private System.Windows.Forms.Label laReductionOUT;
+        private System.Windows.Forms.Label laCondenserPumpHeat;
+        private System.Windows.Forms.CheckBox chReductionIN;
+        private System.Windows.Forms.CheckBox chReductionOUT;
+        private System.Windows.Forms.CheckBox chCondenserPumpHeat;
     }
 }

@@ -1238,32 +1238,67 @@ namespace GlobalDataDefineClsLib
         {
             double Xoffset = Centerxyztoffset.X - Centerxyzt.X;
             double Yoffset = Centerxyztoffset.Y - Centerxyzt.Y;
+            double Zoffset = (Centerxyztoffset.Z - Centerxyzt.Z) / MaterialColinterval / 2;
             double Toffset = Centerxyztoffset.Theta - Centerxyzt.Theta;
 
             double angleInRadians = Toffset * (Math.PI / 180.0);
 
 
+            double XBC = 0.14 / MaterialColNumber;
+            double YBC = 0.25 / MaterialRowNumber;
+            double ZBC = -0.15 / MaterialRowNumber;
+
+            double XiB = MaterialRowinterval / (20) * (19.9952);
+            double XjB = MaterialRowinterval / (20) * (-0.1133);
+            double YiB = MaterialRowinterval / (20) * (0.1419);
+            double YjB = MaterialRowinterval / (20) * (19.9515);
+            double ZiB = MaterialRowinterval / (20) * (-0.1628);
+            double ZjB = MaterialRowinterval / (20) * (-0.0378);
+
             for (int i = 0; i < MaterialRowNumber; i++)
             {
                 for (int j = 0; j < MaterialColNumber; j++)
                 {
-                    double X = Firstxyz.X + j * MaterialColinterval;
-                    double Y = Firstxyz.Y + i * MaterialRowinterval;
+                    double X0 = Firstxyz.X + i * XiB + j * XjB + i * j * XBC;
 
-                    double xNew1 = Math.Cos(angleInRadians) * (X - Centerxyzt.X) - Math.Sin(angleInRadians) * (Y - Centerxyzt.Y) + Centerxyzt.X;
-                    double yNew1 = Math.Sin(angleInRadians) * (X - Centerxyzt.X) + Math.Cos(angleInRadians) * (Y - Centerxyzt.Y) + Centerxyzt.Y;
+                    double Y0 = Firstxyz.Y + i * YiB + j * YjB + j * i * YBC;
+
+                    double Z0 = Firstxyz.Z + i * ZiB + j * ZjB + j * i * ZBC;
 
                     XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
                     {
-                        X = xNew1 + Xoffset,
-                        Y = yNew1 + Yoffset,
-                        Z = Firstxyz.Z,
+                        X = X0,
+                        Y = Y0,
+                        Z = Z0,
                     };
 
                     MaterialMat[i][j].MaterialPosition = xyz;
-
                 }
             }
+
+            //for (int i = 0; i < MaterialRowNumber; i++)
+            //{
+            //    for (int j = 0; j < MaterialColNumber; j++)
+            //    {
+            //        double X = Firstxyz.X + j * MaterialColinterval;
+            //        double Y = Firstxyz.Y + i * MaterialRowinterval;
+
+            //        double Z = i * MaterialRowinterval * Zoffset + j * MaterialColinterval * Zoffset;
+
+            //        double xNew1 = Math.Cos(angleInRadians) * (X - Centerxyzt.X) - Math.Sin(angleInRadians) * (Y - Centerxyzt.Y) + Centerxyzt.X;
+            //        double yNew1 = Math.Sin(angleInRadians) * (X - Centerxyzt.X) + Math.Cos(angleInRadians) * (Y - Centerxyzt.Y) + Centerxyzt.Y;
+
+            //        XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+            //        {
+            //            X = xNew1 + Xoffset,
+            //            Y = yNew1 + Yoffset,
+            //            Z = Firstxyz.Z + Z,
+            //        };
+
+            //        MaterialMat[i][j].MaterialPosition = xyz;
+
+            //    }
+            //}
         }
 
     }
@@ -2760,6 +2795,19 @@ namespace GlobalDataDefineClsLib
         /// </summary>
         CondenserPump = 6,
 
+        /// <summary>
+        /// 还原IN bool
+        /// </summary>
+        ReductionIN = 29,
+        /// <summary>
+        /// 还原OUT bool
+        /// </summary>
+        ReductionOUT = 28,
+        /// <summary>
+        /// 冷凝泵加热 bool
+        /// </summary>
+        CondenserPumpHeat = 15,
+
 
         #endregion
 
@@ -2860,6 +2908,16 @@ namespace GlobalDataDefineClsLib
         /// 箱体外门关闭到位
         /// </summary>
         BoxOuterdoorClosetatus = 14,
+
+        /// <summary>
+        /// 压缩机报警
+        /// </summary>
+        CompressorAlarm = 18,
+
+        /// <summary>
+        /// 冷凝泵启动
+        /// </summary>
+        CondenserStar = 17,
 
 
         /// <summary>

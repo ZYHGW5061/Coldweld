@@ -272,6 +272,20 @@ namespace TurboMolecularPumpControllerClsLib
             {
                 if (PowerControl.IsOpen)
                 {
+                    int T = 0;
+                    while(DataModel.Instance.TurboMolecularPumpIsReading)
+                    {
+                        T++;
+                        if(T > 100)
+                        {
+                            break;
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    }
+                    PowerControl.DiscardInBuffer();
+                    PowerControl.DiscardOutBuffer();
+                    DataModel.Instance.TurboMolecularPumpIsWriting = true;
+
                     int length = 8;
                     byte[] data = new byte[length];
 
@@ -295,7 +309,7 @@ namespace TurboMolecularPumpControllerClsLib
                     System.Threading.Thread.Sleep(100);
 
                     length = PowerControl.BytesToRead;
-                    int T = 0;
+                    T = 0;
                     while (length <= 0)
                     {
                         length = PowerControl.BytesToRead;
@@ -314,29 +328,38 @@ namespace TurboMolecularPumpControllerClsLib
 
                     if (length > 0)
                     {
-                        if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
+                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
                         {
+                            DataModel.Instance.TurboMolecularPumpIsWriting = false;
                             return true;
                         }
                         else
                         {
+                            DataModel.Instance.TurboMolecularPumpIsWriting = false;
                             return false;
                         }
                     }
                     else
                     {
+                        DataModel.Instance.TurboMolecularPumpIsWriting = false;
                         return false;
                     }
 
                 }
                 else
                 {
+                    DataModel.Instance.TurboMolecularPumpIsWriting = false;
                     return false;
                 }
             }
             catch
             {
+                DataModel.Instance.TurboMolecularPumpIsWriting = false;
                 return false;
+            }
+            finally
+            {
+                DataModel.Instance.TurboMolecularPumpIsWriting = false;
             }
         }
 

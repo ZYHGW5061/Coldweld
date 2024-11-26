@@ -75,9 +75,21 @@ namespace GlobalToolClsLib
                 { "Vacuum3", new SQLData(0, SQLDataType.FLOAT) },
             };
                 createTable(tablename, tableDictionarys);
+
+                string tablename2 = "TemperatureData";
+                Dictionary<string, SQLData> tableDictionarys2 = new Dictionary<string, SQLData>
+            {
+                { "Date", new SQLData("", SQLDataType.STRING) },
+                { "Time", new SQLData("", SQLDataType.STRING) },
+                { "Temperature1", new SQLData(0, SQLDataType.FLOAT) },
+                { "Temperature2", new SQLData(0, SQLDataType.FLOAT) },
+            };
+                createTable(tablename2, tableDictionarys2);
+
+
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }

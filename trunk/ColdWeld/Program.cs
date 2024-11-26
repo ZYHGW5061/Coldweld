@@ -65,6 +65,9 @@ namespace BondTerminal
                 //全局日志记录
                 LoggerManager.GetHandler().AddTxtLogger("SystemGlobalAppender", "SystemGlobalLogger");
                 LoggerManager.GetHandler().AddTxtLogger("KeyActionAppender", "KeyActionLogger");
+                LoggerManager.GetHandler().AddTxtLogger("HardwareData1Appender", "HardwareData1Logger");
+                LoggerManager.GetHandler().AddTxtLogger("HardwareData1Appender", "HardwareData1Logger");
+                LoggerManager.GetHandler().AddTxtLogger("HardwareData1Appender", "HardwareData1Logger");
             }
             catch (Exception ex)
             {

@@ -313,7 +313,7 @@ namespace VacuumGaugeControllerClsLib
 
                     if (length > 0)
                     {
-                        if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
+                        if (data[1] == 0x06 && data[0] == Convert.ToByte(PLCadd))
                         {
                             return true;
                         }

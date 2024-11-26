@@ -1,5 +1,6 @@
 ﻿using ConfigurationClsLib;
 using GlobalDataDefineClsLib;
+using GlobalToolClsLib;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -285,6 +286,22 @@ namespace TemperatureControllerClsLib
             {
                 if (PowerControl.IsOpen)
                 {
+                    int T = 0;
+                    while (DataModel.Instance.TemperatureIsReading)
+                    {
+                        T++;
+                        if (T > 100)
+                        {
+                            break;
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    }
+
+                    PowerControl.DiscardInBuffer();
+                    PowerControl.DiscardOutBuffer();
+
+                    DataModel.Instance.TemperatureIsWriting = true;
+
                     int length = 8;
                     byte[] data = new byte[length];
 
@@ -308,7 +325,7 @@ namespace TemperatureControllerClsLib
                     System.Threading.Thread.Sleep(100);
 
                     length = PowerControl.BytesToRead;
-                    int T = 0;
+                    T = 0;
                     while (length <= 0)
                     {
                         length = PowerControl.BytesToRead;
@@ -329,27 +346,36 @@ namespace TemperatureControllerClsLib
                     {
                         if (data[1] == 0x03 && data[0] == Convert.ToByte(PLCadd))
                         {
+                            DataModel.Instance.TemperatureIsWriting = false;
                             return true;
                         }
                         else
                         {
+                            DataModel.Instance.TemperatureIsWriting = false;
                             return false;
                         }
                     }
                     else
                     {
+                        DataModel.Instance.TemperatureIsWriting = false;
                         return false;
                     }
 
                 }
                 else
                 {
+                    DataModel.Instance.TemperatureIsWriting = false;
                     return false;
                 }
             }
             catch
             {
+                DataModel.Instance.TemperatureIsWriting = false;
                 return false;
+            }
+            finally
+            {
+                DataModel.Instance.TemperatureIsWriting = false;
             }
         }
 

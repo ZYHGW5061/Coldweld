@@ -353,6 +353,8 @@ namespace ControlPanelClsLib
             numMaterialHookPickupMaterialPositionZ.Value = (decimal)_selRecipe.MaterialHookPickupMaterialPosition.Z;
             numMaterialHookClose.Value = (decimal)_selRecipe.MaterialHookClose;
             numMaterialHookUp.Value = (decimal)_selRecipe.MaterialHookUp;
+            numericMaterialCompensationAngle.Value = (decimal)_selRecipe.MaterialCompensationAngle;
+            numMaterialCompensationZ.Value = (decimal)_selRecipe.MaterialCompensationZ;
             if (_selRecipe.OverBox1Param.MaterialboxParam.Count > 1)
                 this.TrackCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.TrackCameraIdentifyMaterialMatch;
 
@@ -591,6 +593,8 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
                 _selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.TrackCameraIdentifyMaterialMatch = this.TrackCameraIdentifyMaterialMatch;
 
 
@@ -828,6 +832,8 @@ namespace ControlPanelClsLib
                 };
                 recipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 recipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                recipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                recipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
                 recipe.OverBox1Param.MaterialboxParam[0].MaterialParam.TrackCameraIdentifyMaterialMatch = this.TrackCameraIdentifyMaterialMatch;
 
 
@@ -1701,7 +1707,11 @@ namespace ControlPanelClsLib
             if (_selRecipe != null)
             {
                 TransportControl.Instance.TransportRecipe = _selRecipe;
-                TransportControl.Instance.MaterialboxHooktoAvoidPositionAction();
+                Task.Run(() =>
+                {
+                    TransportControl.Instance.MaterialboxHooktoAvoidPositionAction();
+                });
+                
             }
         }
 
@@ -1744,7 +1754,12 @@ namespace ControlPanelClsLib
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
-                TransportControl.Instance.MaterialboxHooktoSafePositionAction();
+                Task.Run(() =>
+                {
+                    TransportControl.Instance.MaterialboxHooktoSafePositionAction();
+                });
+
+                
 
             }
         }
@@ -3166,6 +3181,8 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
 
                 if (comboBox2.SelectedIndex == 0)
                 {
@@ -3186,7 +3203,7 @@ namespace ControlPanelClsLib
                 }
                 else if (comboBox2.SelectedIndex == 1)
                 {
-                    _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].Iswelded = false;
+                    _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Iswelded = false;
 
                     if (_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Iswelded == false)
                     {
@@ -3223,15 +3240,104 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
+
+                
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
-                
-                Task.Run(() =>
-                {
-                    TransportControl.Instance.MaterialHooktoMaterialAction(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.MaterialHookUp);
-                });
 
+                if (numMaterialRawNum.Value >= 0 && numMaterialRawNum.Value < 14 && numMaterialColNum.Value >= 0 && numMaterialColNum.Value < 14)
+                {
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            XYZTCoordinateConfig xyzt = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHooktoMaterialAction(xyzt, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                    else if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            XYZTCoordinateConfig xyzt = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHooktoMaterialAction(xyzt, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+        private void numMaterialRawNum_ValueChanged(object sender, EventArgs e)
+        {
+            if (numMaterialRawNum.Value >= 0 && numMaterialRawNum.Value < 14 && numMaterialColNum.Value >= 0 && numMaterialColNum.Value < 14)
+            {
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    if (numMaterialRawNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                    {
+                        numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                        numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                        numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                    }
+
+                }
+                else if (comboBox2.SelectedIndex == 1)
+                {
+                    if (numMaterialRawNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                    {
+                        numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                        numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                        numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                    }
+
+                }
+            }
+
+        }
+
+        private void numMaterialColNum_ValueChanged(object sender, EventArgs e)
+        {
+            if (numMaterialRawNum.Value >= 0 && numMaterialRawNum.Value < 14 && numMaterialColNum.Value >= 0 && numMaterialColNum.Value < 14)
+            {
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    if (numMaterialRawNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                    {
+                        numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                        numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                        numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                    }
+
+                }
+                else if (comboBox2.SelectedIndex == 1)
+                {
+                    if (numMaterialRawNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                    {
+                        numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                        numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                        numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                    }
+
+                }
             }
 
         }
@@ -3248,14 +3354,47 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
+
+                if (numMaterialRawNum.Value >= 0 && numMaterialRawNum.Value < 14 && numMaterialColNum.Value >= 0 && numMaterialColNum.Value < 14)
+                {
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            float Z = (float)numMaterialHookPickupMaterialPositionZ1.Value;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHookPickupMaterialAction(Z, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                    else if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            float Z = (float)numMaterialHookPickupMaterialPositionZ1.Value;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHookPickupMaterialAction(Z, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                }
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
                
-                Task.Run(() =>
-                {
-                    TransportControl.Instance.MaterialHookPickupMaterialAction(_selRecipe.MaterialHookPickupMaterialPosition.Z, _selRecipe.MaterialHookUp);
-                });
+               
 
             }
 
@@ -3273,14 +3412,44 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
-                
-                Task.Run(() =>
+                if (numMaterialRawNum.Value >= 0 && numMaterialRawNum.Value < 14 && numMaterialColNum.Value >= 0 && numMaterialColNum.Value < 14)
                 {
-                    TransportControl.Instance.MaterialHookPutdownMaterialAction(_selRecipe.MaterialHookPickupMaterialPosition.Z, _selRecipe.MaterialHookUp);
-                });
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            float Z = (float)numMaterialHookPickupMaterialPositionZ1.Value;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHookPutdownMaterialAction(Z, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                    else if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (numMaterialRawNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialRowNumber && numMaterialColNum.Value < _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialColNumber)
+                        {
+                            numMaterialHookPickupMaterialPositionX1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.X;
+                            numMaterialHookPickupMaterialPositionY1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Y;
+                            numMaterialHookPickupMaterialPositionZ1.Value = (decimal)_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialMat[(int)numMaterialRawNum.Value][(int)numMaterialColNum.Value].MaterialPosition.Z;
+                            float Z = (float)numMaterialHookPickupMaterialPositionZ1.Value;
+                            Task.Run(() =>
+                            {
+                                TransportControl.Instance.MaterialHookPutdownMaterialAction(Z, _selRecipe.MaterialHookUp);
+                            });
+                        }
+
+                    }
+                }
 
             }
         }
@@ -3384,6 +3553,11 @@ namespace ControlPanelClsLib
                 };
                 _selRecipe.MaterialHookClose = (float)numMaterialHookClose.Value;
                 _selRecipe.MaterialHookUp = (float)numMaterialHookUp.Value;
+                _selRecipe.MaterialCompensationAngle = (float)numericMaterialCompensationAngle.Value;
+                _selRecipe.MaterialCompensationZ = (float)numMaterialCompensationZ.Value;
+
+                float offsetT = (float)numericMaterialCompensationAngle.Value;
+                float offsetZ = (float)numMaterialCompensationZ.Value;
 
                 if (comboBox2.SelectedIndex == 0)
                 {
@@ -3391,13 +3565,31 @@ namespace ControlPanelClsLib
 
                     if (_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].Iswelded == false)
                     {
-                        _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter);
+                        //XYZTCoordinateConfig offset = new XYZTCoordinateConfig()
+                        //{
+                        //    X = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.X,
+                        //    Y = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Y,
+                        //    Z = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Z,
+                        //    Theta = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Theta + offsetT,
+
+                        //};
+                        //_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, offset);
+
+                        XYZTCoordinateConfig offset = new XYZTCoordinateConfig()
+                        {
+                            X = _selRecipe.MaterialHookPickupMaterialPosition.X,
+                            Y = _selRecipe.MaterialHookPickupMaterialPosition.Y,
+                            Z = _selRecipe.MaterialHookPickupMaterialPosition.Z + offsetZ,
+                            Theta = _selRecipe.MaterialHookPickupMaterialPosition.Theta + offsetT,
+
+                        };
+                        _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.MaterialHookPickupMaterialPosition, offset);
 
                         var _materialboxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
 
                         if (_materialboxRecipe.RecipeName == teMaterialBoxName_2.Text)
                         {
-                            _materialboxRecipe.MaterialBoxParam.SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter);
+                            _materialboxRecipe.MaterialBoxParam.SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.MaterialHookPickupMaterialPosition, offset);
                             _materialboxRecipe.SaveRecipe();
                         }
                     }
@@ -3408,13 +3600,31 @@ namespace ControlPanelClsLib
 
                     if (_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Iswelded == false)
                     {
-                        _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter);
+                        //XYZTCoordinateConfig offset = new XYZTCoordinateConfig()
+                        //{
+                        //    X = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.X,
+                        //    Y = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Y,
+                        //    Z = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Z,
+                        //    Theta = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter.Theta + offsetT,
+
+                        //};
+                        //_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, offset);
+
+                        XYZTCoordinateConfig offset = new XYZTCoordinateConfig()
+                        {
+                            X = _selRecipe.MaterialHookPickupMaterialPosition.X,
+                            Y = _selRecipe.MaterialHookPickupMaterialPosition.Y,
+                            Z = _selRecipe.MaterialHookPickupMaterialPosition.Z + offsetZ,
+                            Theta = _selRecipe.MaterialHookPickupMaterialPosition.Theta + offsetT,
+
+                        };
+                        _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.MaterialHookPickupMaterialPosition, offset);
 
                         var _materialboxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
 
                         if (_materialboxRecipe.RecipeName == teMaterialBoxName_2.Text)
                         {
-                            _materialboxRecipe.MaterialBoxParam.SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter, _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialboxCenter);
+                            _materialboxRecipe.MaterialBoxParam.SetMaterialMat(_selRecipe.MaterialHookPickupMaterialPosition, _selRecipe.MaterialHookPickupMaterialPosition, offset);
                             _materialboxRecipe.SaveRecipe();
                         }
                     }
@@ -3851,9 +4061,10 @@ namespace ControlPanelClsLib
 
 
 
+
         #endregion
 
-        
+       
     }
 
 }

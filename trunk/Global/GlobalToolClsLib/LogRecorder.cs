@@ -153,6 +153,7 @@ namespace GlobalToolClsLib
         }
         public static void RecordData1Log(EnumLogContentType logType, string log, Exception ex = null)
         {
+            if (_data1Logger == null) return;
             var logcontent = string.Format("{0}, {1}", log, ex == null ? "" : ex.ToString());
             switch (logType)
             {
@@ -180,6 +181,7 @@ namespace GlobalToolClsLib
 
         public static void RecordData2Log(EnumLogContentType logType, string log, Exception ex = null)
         {
+            if (_data2Logger == null) return;
             var logcontent = string.Format("{0}, {1}", log, ex == null ? "" : ex.ToString());
             switch (logType)
             {
@@ -207,6 +209,7 @@ namespace GlobalToolClsLib
 
         public static void RecordData3Log(EnumLogContentType logType, string log, Exception ex = null)
         {
+            if (_data3Logger == null) return;
             var logcontent = string.Format("{0}, {1}", log, ex == null ? "" : ex.ToString());
             switch (logType)
             {

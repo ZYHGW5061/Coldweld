@@ -277,6 +277,17 @@ namespace RecipeClsLib
         [XmlElement("MaterialHookUp")]
         public float MaterialHookUp { get; set; }
 
+        /// <summary>
+        /// 物料补偿角度(左下角物料为基准，料盘顺时针旋转为正)
+        /// </summary>
+        [XmlElement("MaterialCompensationAngle")]
+        public float MaterialCompensationAngle { get; set; }
+        /// <summary>
+        /// 物料补偿高度(左下角物料为基准，向下是负)
+        /// </summary>
+        [XmlElement("MaterialCompensationZ")]
+        public float MaterialCompensationZ { get; set; }
+
 
         //物料钩爪到目标位置
 

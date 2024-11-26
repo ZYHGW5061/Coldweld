@@ -30,6 +30,7 @@ using VacuumGaugeControllerClsLib;
 using TurboMolecularPumpControllerClsLib;
 using CameraControllerClsLib;
 using StageManagerClsLib;
+using WestDragon.Framework.BaseLoggerClsLib;
 
 namespace BondTerminal
 {
@@ -255,7 +256,7 @@ namespace BondTerminal
                 CameraWindowForm.Instance.Size = new System.Drawing.Size(1150, 950);
                 CameraWindowForm.Instance.ShowLocation(new Point(300, 10));
                 CameraWindowForm.Instance.ControlBox = true;
-                //CameraForm.Owner = this.FindForm();
+                CameraForm.Owner = this.FindForm();
                 CameraForm.Show();
             }
         }
@@ -363,6 +364,8 @@ namespace BondTerminal
                         }
                         else
                         {
+                            DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
+                            SystemConfiguration.Instance.SaveConfig();
                             e.Cancel = false;
                         }
                     }
@@ -372,33 +375,66 @@ namespace BondTerminal
                         {
                             if (WarningBox.FormShow("确认关闭？", "请先停止烘箱1抽真空！停止分子泵！", "警告") == 0)
                             {
-                                e.Cancel = false;
+                                if (WarningBox.FormShow("确认关闭？", "确认退出软件？", "提示") == 0)
+                                {
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = false;
+                                }
                             }
                             else
                             {
-                                e.Cancel = false;
+                                SystemConfiguration.Instance.SaveConfig();
+                                e.Cancel = true;
                             }
                         }
                         if (DataModel.Instance.OvenBox2Function)
                         {
                             if (WarningBox.FormShow("确认关闭？", "请先停止烘箱2抽真空！停止分子泵！", "警告") == 0)
                             {
-                                e.Cancel = false;
+                                if (WarningBox.FormShow("确认关闭？", "确认退出软件？", "提示") == 0)
+                                {
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = false;
+                                }
                             }
                             else
                             {
-                                e.Cancel = false;
+                                SystemConfiguration.Instance.SaveConfig();
+                                e.Cancel = true;
                             }
                         }
                         if (DataModel.Instance.CondenserPump)
                         {
                             if (WarningBox.FormShow("确认关闭？", "请先停止方舱抽真空！停止冷凝泵！", "警告") == 0)
                             {
-                                e.Cancel = false;
+                                if (WarningBox.FormShow("确认关闭？", "确认退出软件？", "提示") == 0)
+                                {
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
+                                    SystemConfiguration.Instance.SaveConfig();
+                                    e.Cancel = false;
+                                }
                             }
                             else
                             {
-                                e.Cancel = false;
+                                SystemConfiguration.Instance.SaveConfig();
+                                e.Cancel = true;
                             }
                         }
 
@@ -740,7 +776,7 @@ namespace BondTerminal
                 // 使用 Invoke 来确保在 UI 线程上执行  
                 laOven1Heating.Invoke(new Action(() =>
                 {
-                    if (DataModel.Instance.OvenBox1Heating)
+                    if (DataModel.Instance.BakeOvenAutoHeat)
                     {
                         laOven1Heating.Text = "加热";
                         laOven1Heating.BackColor = Color.Red;
@@ -754,7 +790,7 @@ namespace BondTerminal
             }
             else
             {
-                if (DataModel.Instance.OvenBox1Heating)
+                if (DataModel.Instance.BakeOvenAutoHeat)
                 {
                     laOven1Heating.Text = "加热";
                     laOven1Heating.BackColor = Color.Red;
@@ -774,7 +810,7 @@ namespace BondTerminal
                 // 使用 Invoke 来确保在 UI 线程上执行  
                 laOven2Heating.Invoke(new Action(() =>
                 {
-                    if (DataModel.Instance.OvenBox2Heating)
+                    if (DataModel.Instance.BakeOven2AutoHeat)
                     {
                         laOven2Heating.Text = "加热";
                         laOven2Heating.BackColor = Color.Red;
@@ -788,7 +824,7 @@ namespace BondTerminal
             }
             else
             {
-                if (DataModel.Instance.OvenBox2Heating)
+                if (DataModel.Instance.BakeOven2AutoHeat)
                 {
                     laOven2Heating.Text = "加热";
                     laOven2Heating.BackColor = Color.Red;
@@ -1161,7 +1197,7 @@ namespace BondTerminal
                 // 使用 Invoke 来确保在 UI 线程上执行  
                 laBoxCondensatePump.Invoke(new Action(() =>
                 {
-                    if (DataModel.Instance.CondenserPump)
+                    if (DataModel.Instance.CondenserStar)
                     {
                         laBoxCondensatePump.Text = "运行";
                         laBoxCondensatePump.BackColor = Color.Red;
@@ -1295,7 +1331,7 @@ namespace BondTerminal
                 UpdateBakeOven2Downtemp();
             }
 
-            if (e.PropertyName == nameof(DataModel.OvenBox1Heating))
+            if (e.PropertyName == nameof(DataModel.BakeOvenAutoHeat))
             {
                 //if(DataModel.Instance.OvenBox1Heating)
                 //{
@@ -1310,7 +1346,7 @@ namespace BondTerminal
                 UpdateOvenBox1Heating();
             }
 
-            if (e.PropertyName == nameof(DataModel.OvenBox2Heating))
+            if (e.PropertyName == nameof(DataModel.BakeOven2AutoHeat))
             {
                 //if (DataModel.Instance.OvenBox2Heating)
                 //{
@@ -1468,19 +1504,70 @@ namespace BondTerminal
                 //}
                 UpdateOvenBox2Function();
             }
-            if (e.PropertyName == nameof(DataModel.CondenserPump))
+            if (e.PropertyName == nameof(DataModel.CondenserStar))
             {
-                //if (DataModel.Instance.CondenserPump)
-                //{
-                //    _syncContext.Post(_ => laBoxCondensatePump.Text = "运行", null);
-                //    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Red, null);
-                //}
-                //else
-                //{
-                //    _syncContext.Post(_ => laBoxCondensatePump.Text = "待机", null);
-                //    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Yellow, null);
-                //}
+                if (DataModel.Instance.CondenserStar)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵启动");
+                }
+                else
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵关闭");
+                }
                 UpdateCondenserPump();
+            }
+            if (e.PropertyName == nameof(DataModel.CompressorAlarm))
+            {
+                if (DataModel.Instance.CompressorAlarm)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机报警");
+                }
+                else
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "压缩机停止报警");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox1Standbymode))
+            {
+                if (DataModel.Instance.OvenBox1Standbymode)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵待机");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox1Function))
+            {
+                if (DataModel.Instance.OvenBox1Function)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵运行");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox1err))
+            {
+                if (DataModel.Instance.OvenBox1err)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱A分子泵报警");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox2Standbymode))
+            {
+                if (DataModel.Instance.OvenBox2Standbymode)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵待机");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox2Function))
+            {
+                if (DataModel.Instance.OvenBox2Function)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵运行");
+                }
+            }
+            if (e.PropertyName == nameof(DataModel.OvenBox2err))
+            {
+                if (DataModel.Instance.OvenBox2err)
+                {
+                    LogRecorder.RecordLog(EnumLogContentType.Info, "烘箱B分子泵报警");
+                }
             }
 
 
@@ -1510,55 +1597,55 @@ namespace BondTerminal
 
             #endregion
 
-            #region 硬件状态
+            //#region 硬件状态
 
-            if (e.PropertyName == nameof(DataModel.Linkstatusofmodules))
-            {
-                IODisconnect(DataModel.Instance.Linkstatusofmodules);
-            }
+            //if (e.PropertyName == nameof(DataModel.Linkstatusofmodules))
+            //{
+            //    IODisconnect(DataModel.Instance.Linkstatusofmodules);
+            //}
 
-            if (e.PropertyName == nameof(DataModel.Run))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelRunStatus.BackColor = (DataModel.Instance.Run ? true : false) ? Color.GreenYellow : Color.Transparent, null);
-            }
-            if (e.PropertyName == nameof(DataModel.Error))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelError.BackColor = (DataModel.Instance.Error ? true : false) ? Color.Red : Color.GreenYellow, null);
-            }
+            //if (e.PropertyName == nameof(DataModel.Run))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelRunStatus.BackColor = (DataModel.Instance.Run ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            //}
+            //if (e.PropertyName == nameof(DataModel.Error))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelError.BackColor = (DataModel.Instance.Error ? true : false) ? Color.Red : Color.GreenYellow, null);
+            //}
 
-            if (e.PropertyName == nameof(DataModel.StageAxisIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelAxis.BackColor = (DataModel.Instance.StageAxisIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                StageAxisIsDisconnect(DataModel.Instance.StageAxisIsconnect);
-            }
-            if (e.PropertyName == nameof(DataModel.StageIOIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelIO.BackColor = (DataModel.Instance.StageIOIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                StageIOIsDisconnect(DataModel.Instance.StageIOIsconnect);
-            }
-            if (e.PropertyName == nameof(DataModel.CameraIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelCamera.BackColor = (DataModel.Instance.CameraIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                CameraIsDisconnect(DataModel.Instance.CameraIsconnect);
-            }
-            if (e.PropertyName == nameof(DataModel.TemperatureIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelTemperature.BackColor = (DataModel.Instance.TemperatureIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                TemperatureIsDisconnect(DataModel.Instance.TemperatureIsconnect);
-            }
-            if (e.PropertyName == nameof(DataModel.VacuumIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelVacuum.BackColor = (DataModel.Instance.VacuumIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                VacuumDisconnect(DataModel.Instance.VacuumIsconnect);
-            }
-            if (e.PropertyName == nameof(DataModel.TurboMolecularPumpIsconnect))
-            {
-                _syncContext.Post(_ => toolStripStatusLabelPump.BackColor = (DataModel.Instance.TurboMolecularPumpIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
-                PumpDisconnect(DataModel.Instance.TurboMolecularPumpIsconnect);
-            }
+            //if (e.PropertyName == nameof(DataModel.StageAxisIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelAxis.BackColor = (DataModel.Instance.StageAxisIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    StageAxisIsDisconnect(DataModel.Instance.StageAxisIsconnect);
+            //}
+            //if (e.PropertyName == nameof(DataModel.StageIOIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelIO.BackColor = (DataModel.Instance.StageIOIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    StageIOIsDisconnect(DataModel.Instance.StageIOIsconnect);
+            //}
+            //if (e.PropertyName == nameof(DataModel.CameraIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelCamera.BackColor = (DataModel.Instance.CameraIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    CameraIsDisconnect(DataModel.Instance.CameraIsconnect);
+            //}
+            //if (e.PropertyName == nameof(DataModel.TemperatureIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelTemperature.BackColor = (DataModel.Instance.TemperatureIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    TemperatureIsDisconnect(DataModel.Instance.TemperatureIsconnect);
+            //}
+            //if (e.PropertyName == nameof(DataModel.VacuumIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelVacuum.BackColor = (DataModel.Instance.VacuumIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    VacuumDisconnect(DataModel.Instance.VacuumIsconnect);
+            //}
+            //if (e.PropertyName == nameof(DataModel.TurboMolecularPumpIsconnect))
+            //{
+            //    _syncContext.Post(_ => toolStripStatusLabelPump.BackColor = (DataModel.Instance.TurboMolecularPumpIsconnect ? true : false) ? Color.GreenYellow : Color.Red, null);
+            //    PumpDisconnect(DataModel.Instance.TurboMolecularPumpIsconnect);
+            //}
 
 
-            #endregion
+            //#endregion
 
 
 

@@ -305,7 +305,7 @@ namespace TechnologicalClsLib
                 }
 
                 //_boardCardController.IO_WriteOutPut(11, (short)name, V);
-                bool Done = DataModel.Instance.IOlock(name);
+                bool Done = DataModel.Instance.IOlock(name, value);
 
                 if(Done)
                 {
@@ -834,27 +834,31 @@ namespace TechnologicalClsLib
                 //    }
                 //}
 
-                while (!StopOvenBox1VacuumPumpingthd)
-                {
-                    if (!DataModel.Instance.OvenBox1err)
-                    {
-                        if (!DataModel.Instance.OvenBox1Function)
-                        {
-                            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
+                //while (!StopOvenBox1VacuumPumpingthd)
+                //{
+                //    if (!DataModel.Instance.OvenBox1err)
+                //    {
+                //        if (!DataModel.Instance.OvenBox1Function)
+                //        {
+                //            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
 
-                            if(ret && DataModel.Instance.OvenBox1Function)
-                            {
-                                break;
+                //            if(ret && DataModel.Instance.OvenBox1Function)
+                //            {
+                //                break;
 
-                            }
+                //            }
                             
-                        }
-                    }
+                //        }
+                //    }
 
-                    Thread.Sleep(500);
+                //    Thread.Sleep(500);
 
-                }
+                //}
 
+                _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
+                Thread.Sleep(500);
+                _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
+                Thread.Sleep(500);
 
                 while (!StopOvenBox1VacuumPumpingthd)
                 {
@@ -1083,27 +1087,32 @@ namespace TechnologicalClsLib
                 //    }
                 //}
 
-                while (!StopOvenBox2VacuumPumpingthd)
-                {
-                    if (!DataModel.Instance.OvenBox2err)
-                    {
-                        if (!DataModel.Instance.OvenBox2Function)
-                        {
-                            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
+                //while (!StopOvenBox2VacuumPumpingthd)
+                //{
+                //    if (!DataModel.Instance.OvenBox2err)
+                //    {
+                //        if (!DataModel.Instance.OvenBox2Function)
+                //        {
+                //            bool ret = _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
                             
 
-                            if (ret && DataModel.Instance.OvenBox2Function)
-                            {
-                                break;
+                //            if (ret && DataModel.Instance.OvenBox2Function)
+                //            {
+                //                break;
 
-                            }
+                //            }
 
-                        }
-                    }
+                //        }
+                //    }
 
-                    Thread.Sleep(500);
+                //    Thread.Sleep(500);
 
-                }
+                //}
+
+                _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
+                Thread.Sleep(500);
+                _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox2).Function();
+                Thread.Sleep(500);
 
 
                 while (!StopOvenBox2VacuumPumpingthd)
@@ -1274,6 +1283,22 @@ namespace TechnologicalClsLib
                     return;
                 }
 
+                T = 0;
+                while (!StopBoxVacuumPumpingthd)
+                {
+                    Thread.Sleep(1000);
+                    T++;
+                    if (T > 60)
+                    {
+                        break;
+                    }
+                }
+
+                if (StopBoxVacuumPumpingthd)
+                {
+                    StopBoxVacuumPumpingMothed();
+                    return;
+                }
 
                 //前级阀关闭
                 //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxFrontStageValve);
@@ -1314,16 +1339,16 @@ namespace TechnologicalClsLib
                     WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.CompressorStartup, false);//打开压缩机
                 }
 
-                T = 0;
-                while (!StopBoxVacuumPumpingthd)
-                {
-                    Thread.Sleep(500);
-                    T++;
-                    if (T > 60)
-                    {
-                        break;
-                    }
-                }
+                //T = 0;
+                //while (!StopBoxVacuumPumpingthd)
+                //{
+                //    Thread.Sleep(500);
+                //    T++;
+                //    if (T > 20)
+                //    {
+                //        break;
+                //    }
+                //}
 
                 if (StopBoxVacuumPumpingthd)
                 {
@@ -1331,20 +1356,20 @@ namespace TechnologicalClsLib
                     return;
                 }
 
-                //皮拉尼达到40pa
+                ////皮拉尼达到40pa
 
-                //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
-                Done1 = DataModel.Instance.CondenserPumpSignal4;
-                while (!StopBoxVacuumPumpingthd)
-                {
-                    //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
-                    Done1 = DataModel.Instance.CondenserPumpSignal4;
-                    if (Done1)
-                    {
-                        break;
-                    }
-                    Thread.Sleep(500);
-                }
+                ////Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
+                //Done1 = DataModel.Instance.CondenserPumpSignal4;
+                //while (!StopBoxVacuumPumpingthd)
+                //{
+                //    //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
+                //    Done1 = DataModel.Instance.CondenserPumpSignal4;
+                //    if (Done1)
+                //    {
+                //        break;
+                //    }
+                //    Thread.Sleep(500);
+                //}
 
                 if (StopBoxVacuumPumpingthd)
                 {
@@ -1358,6 +1383,22 @@ namespace TechnologicalClsLib
                 if (!Done1 && !StopBoxVacuumPumpingthd)
                 {
                     WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.CondenserPump, true);//打开冷凝泵
+                    Done1 = DataModel.Instance.CondenserStar;
+                    if (!Done1 && !StopBoxVacuumPumpingthd)
+                    {
+                        while(!StopBoxVacuumPumpingthd)
+                        {
+                            WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.CondenserPump, true);//打开冷凝泵
+                            
+                            Thread.Sleep(500);
+
+                            Done1 = DataModel.Instance.CondenserStar;
+                            if (Done1)
+                            {
+                                break;
+                            }
+                        }
+                    }
                 }
 
                 if (StopBoxVacuumPumpingthd)
@@ -1378,6 +1419,12 @@ namespace TechnologicalClsLib
                     {
                         break;
                     }
+                    //Done1 = DataModel.Instance.CompressorAlarm;
+                    //if (Done1)
+                    //{
+                    //    StopBoxVacuumPumpingMothed();
+                    //    return;
+                    //}
                     Thread.Sleep(500);
                 }
 
@@ -1422,6 +1469,7 @@ namespace TechnologicalClsLib
 
                     while (!StopOvenBox1VacuumPumpingthd)
                     {
+                        WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxPlugInValve, true);//打开插板阀
                         //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.BoxPlugInValveOpenstatus);
                         Done1 = DataModel.Instance.BoxPlugInValveOpenstatus;
                         if (Done1)
@@ -1466,6 +1514,11 @@ namespace TechnologicalClsLib
 
                 while (!StopBoxVacuumPumpingthd)
                 {
+                    //Done1 = DataModel.Instance.CompressorAlarm;
+                    //if (Done1)
+                    //{
+                    //    break;
+                    //}
 
 
                     Thread.Sleep(500);
@@ -2396,6 +2449,8 @@ namespace TechnologicalClsLib
 
         private void WeldMothed(int weldtime)
         {
+            Write<bool>(EnumBoardcardDefineOutputIO.PressPressingDivide, false);
+            return;
 
             if (!DataModel.Instance.PressIsPress && !Stopweld)
             {
@@ -2771,6 +2826,7 @@ namespace TechnologicalClsLib
             }
             else
             {
+                BoxVacuumPumpingthd?.Abort();
                 StopBoxVacuumPumpingMothed();
             }
 
@@ -3029,6 +3085,7 @@ namespace TechnologicalClsLib
                 //heatthd.Join();
 
                 DataModel.Instance.OvenBox1Heating = false;
+                heatthd.Abort();
             }
             else
             {
@@ -3073,6 +3130,7 @@ namespace TechnologicalClsLib
                 //heatthd2.Join();
 
                 DataModel.Instance.OvenBox2Heating = false;
+                heatthd2.Abort();
             }
             else
             {

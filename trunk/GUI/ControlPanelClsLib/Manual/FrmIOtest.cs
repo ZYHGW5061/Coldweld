@@ -427,6 +427,14 @@ namespace ControlPanelClsLib.Manual
             {
                 _syncContext.Post(_ => laCondenserPumpSignal6.BackColor = (DataModel.Instance.CondenserPumpSignal6 ? true : false) ? Color.GreenYellow : Color.Transparent, null);
             }
+            if (e.PropertyName == nameof(DataModel.CompressorAlarm))
+            {
+                _syncContext.Post(_ => laCompressorAlarm.BackColor = (DataModel.Instance.CompressorAlarm ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
+            if (e.PropertyName == nameof(DataModel.CondenserStar))
+            {
+                _syncContext.Post(_ => laCondenserPumpStar.BackColor = (DataModel.Instance.CondenserStar ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
             if (e.PropertyName == nameof(DataModel.ThermalRelay))
             {
                 _syncContext.Post(_ => laThermalRelay.BackColor = (DataModel.Instance.ThermalRelay ? true : false) ? Color.GreenYellow : Color.Transparent, null);
@@ -484,6 +492,18 @@ namespace ControlPanelClsLib.Manual
             if (e.PropertyName == nameof(DataModel.CondenserPump))
             {
                 _syncContext.Post(_ => laCondenserPump.BackColor = (DataModel.Instance.CondenserPump ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
+            if (e.PropertyName == nameof(DataModel.ReductionIN))
+            {
+                _syncContext.Post(_ => laReductionIN.BackColor = (DataModel.Instance.ReductionIN ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
+            if (e.PropertyName == nameof(DataModel.ReductionOUT))
+            {
+                _syncContext.Post(_ => laReductionOUT.BackColor = (DataModel.Instance.ReductionOUT ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
+            if (e.PropertyName == nameof(DataModel.CondenserPumpHeat))
+            {
+                _syncContext.Post(_ => laCondenserPumpHeat.BackColor = (DataModel.Instance.CondenserPumpHeat ? true : false) ? Color.GreenYellow : Color.Transparent, null);
             }
 
 
@@ -735,6 +755,8 @@ namespace ControlPanelClsLib.Manual
             laCondenserPumpSignal4.BackColor = (DataModel.Instance.CondenserPumpSignal4 ? true : false) ? Color.GreenYellow : Color.Transparent;
             laCondenserPumpSignal5.BackColor = (DataModel.Instance.CondenserPumpSignal5 ? true : false) ? Color.GreenYellow : Color.Transparent;
             laCondenserPumpSignal6.BackColor = (DataModel.Instance.CondenserPumpSignal6 ? true : false) ? Color.GreenYellow : Color.Transparent;
+            laCompressorAlarm.BackColor = (DataModel.Instance.CompressorAlarm ? true : false) ? Color.GreenYellow : Color.Transparent;
+            laCondenserPumpStar.BackColor = (DataModel.Instance.CondenserStar ? true : false) ? Color.GreenYellow : Color.Transparent;
             laBoxPressureSensor.BackColor = (DataModel.Instance.BoxPressureSensor ? true : false) ? Color.GreenYellow : Color.Transparent;
             seBoxVacuum.Value = (decimal)DataModel.Instance.BoxVacuum;
             seBoxPressure.Value = (decimal)DataModel.Instance.BoxPressure;
@@ -1336,7 +1358,7 @@ namespace ControlPanelClsLib.Manual
                         break;
                     case "btnMaterialBoxZAbsolute":
                         target = float.Parse(seMaterialBoxZAbsolute.Text);
-                        AxisAbsolute(EnumStageAxis.MaterialboxY, target);
+                        AxisAbsolute(EnumStageAxis.MaterialboxZ, target);
                         break;
                     case "btnMaterialBoxTAbsolute":
                         target = float.Parse(seMaterialBoxTAbsolute.Text);
@@ -1404,7 +1426,7 @@ namespace ControlPanelClsLib.Manual
                         break;
                     case "btnMaterialBoxZRelative":
                         target = float.Parse(seMaterialBoxZRelative.Text);
-                        AxisRelative(EnumStageAxis.MaterialboxY, target);
+                        AxisRelative(EnumStageAxis.MaterialboxZ, target);
                         break;
                     case "btnMaterialBoxTRelative":
                         target = float.Parse(seMaterialBoxTRelative.Text);
@@ -1607,6 +1629,21 @@ namespace ControlPanelClsLib.Manual
                         myBoolVariable = !checkBox.Checked;
                         OutputIOChange(EnumBoardcardDefineOutputIO.CondenserPump, !myBoolVariable);
                         break;
+                    case "chReductionIN":
+                        myBoolVariable = laReductionIN.BackColor == Color.GreenYellow;
+                        myBoolVariable = !checkBox.Checked;
+                        OutputIOChange(EnumBoardcardDefineOutputIO.ReductionIN, !myBoolVariable);
+                        break;
+                    case "chReductionOUT":
+                        myBoolVariable = laReductionOUT.BackColor == Color.GreenYellow;
+                        myBoolVariable = !checkBox.Checked;
+                        OutputIOChange(EnumBoardcardDefineOutputIO.ReductionOUT, !myBoolVariable);
+                        break;
+                    case "chCondenserPumpHeat":
+                        myBoolVariable = laCondenserPumpHeat.BackColor == Color.GreenYellow;
+                        myBoolVariable = !checkBox.Checked;
+                        OutputIOChange(EnumBoardcardDefineOutputIO.CondenserPumpHeat, !myBoolVariable);
+                        break;
 
                     case "chMotorBrake":
                         myBoolVariable = laMotorBrake.BackColor == Color.GreenYellow;
@@ -1707,6 +1744,10 @@ namespace ControlPanelClsLib.Manual
             _stageEngine[EnumStageAxis.Presslifting].SetSoftLeftAndRightLimit(axisConfig.SoftRightLimit, axisConfig.SoftLeftLimit);
         }
 
-        
+        private void FrmIOtest_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
+            e.Cancel = false;
+        }
     }
 }

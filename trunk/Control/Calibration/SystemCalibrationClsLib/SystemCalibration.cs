@@ -991,7 +991,7 @@ namespace SystemCalibrationClsLib
                         }
                     }
                 }
-
+                Thread.Sleep(1000);
                 Done = false;
 
                 while (!Done)
@@ -1017,7 +1017,7 @@ namespace SystemCalibrationClsLib
                         }
                     }
                 }
-
+                Thread.Sleep(1000);
 
                 Done = false;
 
@@ -1045,6 +1045,8 @@ namespace SystemCalibrationClsLib
                     }
                 }
 
+                Thread.Sleep(1000);
+
                 Done = false;
 
                 while (!Done)
@@ -1071,12 +1073,16 @@ namespace SystemCalibrationClsLib
                     }
                 }
 
+                Thread.Sleep(5000);
+
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxY, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookSafeLocation.Y);
                 if(!Done)
                 {
                     ShowMessageAsync("移动失败", "料盒5轴Y轴移动到空闲位置失败", "警告");
                     return false;
                 }
+
+                Thread.Sleep(5000);
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxT, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookSafeLocation.Theta);
                 if (!Done)
                 {
@@ -1238,18 +1244,27 @@ namespace SystemCalibrationClsLib
                     ShowMessageAsync("移动失败", "物料4轴Z轴移动到空闲位置失败", "警告");
                     return false;
                 }
+
+                Thread.Sleep(5000);
+
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialX, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.X);
                 if (!Done)
                 {
                     ShowMessageAsync("移动失败", "物料4轴X轴移动到空闲位置失败", "警告");
                     return false;
                 }
+
+                Thread.Sleep(5000);
+
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialY, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.Y);
                 if (!Done)
                 {
                     ShowMessageAsync("移动失败", "物料4轴Y轴移动到空闲位置失败", "警告");
                     return false;
                 }
+
+                Thread.Sleep(5000);
+
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialHook, SystemConfiguration.Instance.PositioningConfig.MaterialhookHookSafeLocation);
                 if (!Done)
                 {
@@ -1269,6 +1284,7 @@ namespace SystemCalibrationClsLib
                     ShowMessageAsync("移动失败", "料盒5轴X轴移动到空闲位置失败", "警告");
                     return false;
                 }
+
                 Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxHook, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookHookSafeLocation);
                 if (!Done)
                 {
