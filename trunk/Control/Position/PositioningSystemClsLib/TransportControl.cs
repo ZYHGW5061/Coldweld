@@ -62,8 +62,14 @@ namespace PositioningSystemClsLib
         }
 
 
+        /// <summary>
+        /// 硬件配置处理器
+        /// </summary>
+        private HardwareConfiguration _hardwareConfig
+        {
+            get { return HardwareConfiguration.Instance; }
+        }
 
-        
 
 
 
@@ -549,6 +555,10 @@ namespace PositioningSystemClsLib
             //stage.Home(axis);
         }
 
+        private void SetAxisSpeed(EnumStageAxis axis, float speed)
+        {
+            stage.SetAxisSpeed(axis, speed);
+        }
 
 
         #endregion
@@ -1936,7 +1946,140 @@ namespace PositioningSystemClsLib
         }
 
 
-        
+        public int SetRunSpeed(EnumRunSpeed speed)
+        {
+            try
+            {
+                if(speed == EnumRunSpeed.Low)
+                {
+                    AxisConfig axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxX);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxX, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxY);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxY, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxZ, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxT);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxT, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxHook, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialX);
+                    SetAxisSpeed(EnumStageAxis.MaterialX, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialY);
+                    SetAxisSpeed(EnumStageAxis.MaterialY, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialZ, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialHook, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack1);
+                    SetAxisSpeed(EnumStageAxis.OverTrack1, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack2);
+                    SetAxisSpeed(EnumStageAxis.OverTrack2, (float)axisConfig.LowAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.Presslifting);
+                    SetAxisSpeed(EnumStageAxis.Presslifting, (float)axisConfig.LowAxisSpeed);
+
+
+                }
+                else if (speed == EnumRunSpeed.Medium)
+                {
+                    AxisConfig axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxX);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxX, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxY);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxY, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxZ, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxT);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxT, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxHook, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialX);
+                    SetAxisSpeed(EnumStageAxis.MaterialX, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialY);
+                    SetAxisSpeed(EnumStageAxis.MaterialY, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialZ, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialHook, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack1);
+                    SetAxisSpeed(EnumStageAxis.OverTrack1, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack2);
+                    SetAxisSpeed(EnumStageAxis.OverTrack2, (float)axisConfig.MediumAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.Presslifting);
+                    SetAxisSpeed(EnumStageAxis.Presslifting, (float)axisConfig.MediumAxisSpeed);
+
+
+
+                }
+                else if (speed == EnumRunSpeed.Hight)
+                {
+                    AxisConfig axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxX);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxX, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxY);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxY, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxZ, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxT);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxT, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialboxHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialboxHook, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialX);
+                    SetAxisSpeed(EnumStageAxis.MaterialX, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialY);
+                    SetAxisSpeed(EnumStageAxis.MaterialY, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialZ);
+                    SetAxisSpeed(EnumStageAxis.MaterialZ, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.MaterialHook);
+                    SetAxisSpeed(EnumStageAxis.MaterialHook, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack1);
+                    SetAxisSpeed(EnumStageAxis.OverTrack1, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.OverTrack2);
+                    SetAxisSpeed(EnumStageAxis.OverTrack2, (float)axisConfig.HighAxisSpeed);
+
+                    axisConfig = _hardwareConfig.StageConfig.GetAixsConfigByType(EnumStageAxis.Presslifting);
+                    SetAxisSpeed(EnumStageAxis.Presslifting, (float)axisConfig.HighAxisSpeed);
+
+
+
+                }
+
+                return 0;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
 
 
         #endregion

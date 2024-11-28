@@ -860,18 +860,18 @@ namespace TechnologicalClsLib
                 _TurboMolecularPumpControllerManager.GetTurboMolecularPumpController(EnumTurboMolecularPumpType.OvenBox1).Function();
                 Thread.Sleep(500);
 
-                while (!StopOvenBox1VacuumPumpingthd)
-                {
+                //while (!StopOvenBox1VacuumPumpingthd)
+                //{
                     
                     
-                    Thread.Sleep(500);
+                //    Thread.Sleep(500);
                     
-                }
-                if (StopOvenBox1VacuumPumpingthd)
-                {
-                    StopOvenBox1VacuumPumpingMothed();
-                    return;
-                }
+                //}
+                //if (StopOvenBox1VacuumPumpingthd)
+                //{
+                //    StopOvenBox1VacuumPumpingMothed();
+                //    return;
+                //}
 
             }
 
@@ -1115,18 +1115,18 @@ namespace TechnologicalClsLib
                 Thread.Sleep(500);
 
 
-                while (!StopOvenBox2VacuumPumpingthd)
-                {
+                //while (!StopOvenBox2VacuumPumpingthd)
+                //{
 
 
-                    Thread.Sleep(500);
+                //    Thread.Sleep(500);
 
-                }
-                if (StopOvenBox2VacuumPumpingthd)
-                {
-                    StopOvenBox2VacuumPumpingMothed();
-                    return;
-                }
+                //}
+                //if (StopOvenBox2VacuumPumpingthd)
+                //{
+                //    StopOvenBox2VacuumPumpingMothed();
+                //    return;
+                //}
 
             }
 
@@ -1177,6 +1177,69 @@ namespace TechnologicalClsLib
                 if (!Done1 && !StopBoxVacuumPumpingthd)
                 {
                     WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxMechanicalPump, true);//打开机械泵
+                }
+
+                //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxFrontStageValve);
+                Done1 = DataModel.Instance.BoxFrontStageValve;
+                if (!Done1 && !StopBoxVacuumPumpingthd)
+                {
+                    WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxFrontStageValve, true);//打开前级阀
+                }
+
+
+                int T = 0;
+                while (!StopBoxVacuumPumpingthd)
+                {
+                    Thread.Sleep(500);
+                    T++;
+                    if (T > 120)
+                    {
+                        break;
+                    }
+                }
+
+                if (StopBoxVacuumPumpingthd)
+                {
+                    StopBoxVacuumPumpingMothed();
+                    return;
+                }
+
+                //冷凝泵达到40pa
+
+                //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
+                Done1 = DataModel.Instance.CondenserPumpSignal4;
+                while (!StopBoxVacuumPumpingthd)
+                {
+                    //Done1 = ReadBoolOvenBoxStatesMothed(EnumBoardcardDefineInputIO.CondenserPumpSignal4);
+                    Done1 = DataModel.Instance.CondenserPumpSignal4;
+                    if (Done1)
+                    {
+                        break;
+                    }
+                    Thread.Sleep(500);
+                }
+
+                if (StopBoxVacuumPumpingthd)
+                {
+                    StopBoxVacuumPumpingMothed();
+                    return;
+                }
+
+                T = 0;
+                while (!StopBoxVacuumPumpingthd)
+                {
+                    Thread.Sleep(1000);
+                    T++;
+                    if (T > 60)
+                    {
+                        break;
+                    }
+                }
+
+                if (StopBoxVacuumPumpingthd)
+                {
+                    StopBoxVacuumPumpingMothed();
+                    return;
                 }
 
                 //float Vacuum = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum();
@@ -1245,7 +1308,7 @@ namespace TechnologicalClsLib
                 }
 
 
-                int T = 0;
+                T = 0;
                 while (!StopBoxVacuumPumpingthd)
                 {
                     Thread.Sleep(500);
@@ -1512,23 +1575,23 @@ namespace TechnologicalClsLib
                 }
 
 
-                while (!StopBoxVacuumPumpingthd)
-                {
-                    //Done1 = DataModel.Instance.CompressorAlarm;
-                    //if (Done1)
-                    //{
-                    //    break;
-                    //}
+                //while (!StopBoxVacuumPumpingthd)
+                //{
+                //    //Done1 = DataModel.Instance.CompressorAlarm;
+                //    //if (Done1)
+                //    //{
+                //    //    break;
+                //    //}
 
 
-                    Thread.Sleep(500);
+                //    Thread.Sleep(500);
 
-                }
-                if (StopBoxVacuumPumpingthd)
-                {
-                    StopBoxVacuumPumpingMothed();
-                    return;
-                }
+                //}
+                //if (StopBoxVacuumPumpingthd)
+                //{
+                //    StopBoxVacuumPumpingMothed();
+                //    return;
+                //}
 
             }
 

@@ -84,6 +84,12 @@ namespace JobClsLib
                     return new EnumParameter(EnumOvenBoxNum.Oven2, code, true);
                 case 19:
                     return new EnumParameter(EnumOvenBoxNum.Oven2, code, false);
+                case 20:
+                    return new EnumMoveSpeedParameter(code, EnumRunSpeed.Low);
+                case 21:
+                    return new EnumMoveSpeedParameter(code, EnumRunSpeed.Medium);
+                case 22:
+                    return new EnumMoveSpeedParameter(code, EnumRunSpeed.Hight);
                 default:
                     throw new InvalidOperationException($"Unsupported generic parameter code: {code}");
             }
@@ -162,7 +168,10 @@ namespace JobClsLib
             { 25, param => MaterialHooktoAvoidPositionAction(25,0) },
 
             { 26, param => MaterialBoxOutofovenRemindAction(26,((EnumParameter)param).code,(EnumParameter)param) },
-            { 27, param => MaterialBoxIntoovenRemindAction(26,((EnumParameter)param).code,(EnumParameter)param) },
+            { 27, param => MaterialBoxIntoovenRemindAction(27,((EnumParameter)param).code,(EnumParameter)param) },
+
+            { 28, param => SetRunSpeed(28,((EnumMoveSpeedParameter)param).code,(EnumMoveSpeedParameter)param) },
+
 
         };
 
@@ -1373,6 +1382,34 @@ namespace JobClsLib
 
             DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：焊台位置物料识别成功";
             return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：焊台位置物料识别成功" };
+
+        }
+
+
+        /// <summary>
+        /// 设置轴运行速度
+        /// </summary>
+        /// <param name="Speed"></param>
+        /// <returns></returns>
+        private static XktResult<string> SetRunSpeed(int methodCode, int variableCode, EnumMoveSpeedParameter Speed)
+        {
+            int Done;
+
+            string variableCodestr = "000";
+            variableCodestr = variableCode.ToString("D3");
+            string methodCodestr = "000";
+            methodCodestr = methodCode.ToString("D3");
+
+            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + $"物料搬送：设置速度{Speed.speed}中";
+            Done = TransportControl.Instance.SetRunSpeed(Speed.speed);
+            if (Done != 0)
+            {
+                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + $"物料搬送：设置速度{Speed.speed}失败";
+                return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = false, Message = $"物料搬送：设置速度{Speed.speed}失败" };
+            }
+
+            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + $"物料搬送：设置速度{Speed.speed}成功";
+            return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = $"物料搬送：设置速度{Speed.speed}成功" };
 
         }
 

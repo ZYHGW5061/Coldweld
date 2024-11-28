@@ -215,6 +215,10 @@
       <Project>{1a0094c5-5e09-4867-8757-62f308de62ac}</Project>
       <Name>HardwareManagerClsLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hardware\IO\IOUtilityClsLib\IOUtilityClsLib.csproj">
+      <Project>{DA64843C-DF4E-45FD-940B-23AFF39FC8E3}</Project>
+      <Name>IOUtilityClsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hardware\Stage\StageManagerClsLib\StageManagerClsLib.csproj">
       <Project>{8F2593F4-DDD8-4790-8182-2EDE2A7E21BD}</Project>
       <Name>StageManagerClsLib</Name>

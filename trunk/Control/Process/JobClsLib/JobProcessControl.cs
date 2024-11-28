@@ -2394,11 +2394,30 @@ namespace JobClsLib
                                     return null;
                                 }
 
-                                if (param.MaterialMat[i][j].Materialstate == EnumMaterialstate.Unwelded)
+                                if (param.MaterialMat[param.MaterialColNumber - j - 1][i].Materialstate == EnumMaterialstate.Unwelded)
                                 {
                                     DataModel.Instance.Materialnum = i * param.MaterialColNumber + j;
                                     DataModel.Instance.Materialcol = j;
                                     DataModel.Instance.Materialrow = i;
+
+                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                    state = "022028000";
+                                    result = ProcessStateMachineControl.ExecuteState(state);
+                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                    WaitForNext();
+
+                                    if (isStopped)
+                                    {
+                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                        Task.Factory.StartNew(new Action(() =>
+                                        {
+                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                        }));
+
+
+                                        isRunning = false;
+                                        return null;
+                                    }
 
 
                                     state = "000021000";
@@ -2429,7 +2448,7 @@ namespace JobClsLib
                                             DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 搬送相机识别物料失败.";
                                         }));
 
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+                                        param.MaterialMat[i][j].MaterialPosition = TransportControl.Instance.TransportRecipe.OverBox1Param.MaterialboxParam[0].MaterialMat[i][j].MaterialPosition;
 
                                         int Done = VisionControlclass.Instance.ShowMessage("识别错误", "搬送相机未识别到物料，是否跳料", "警告");
                                         if (Done == 1)
@@ -2448,8 +2467,12 @@ namespace JobClsLib
 
                                             return null;
                                         }
-                                        param.MaterialMat[i][j].MaterialPosition = TransportControl.Instance.TransportRecipe.OverBox1Param.MaterialboxParam[0].MaterialMat[i][j].MaterialPosition;
+                                        
 
+
+                                        //LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+
+                                        
 
                                     }
                                     WaitForNext();
@@ -2474,6 +2497,26 @@ namespace JobClsLib
                                         isRunning = false;
                                         return null;
                                     }
+
+                                    Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                                    state = "021028000";
+                                    result = ProcessStateMachineControl.ExecuteState(state);
+                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                    WaitForNext();
+
+                                    if (isStopped)
+                                    {
+                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                        Task.Factory.StartNew(new Action(() =>
+                                        {
+                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                        }));
+
+
+                                        isRunning = false;
+                                        return null;
+                                    }
+
 
                                     Console.WriteLine("料盒焊接：物料钩爪拾取物料");
 
@@ -2523,13 +2566,8 @@ namespace JobClsLib
                                     state = "000018000";
                                     result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
 
-                                    Task.Factory.StartNew(new Action(() =>
-                                    {
-                                        DataModel.Instance.MaterialMat[i][j].Materialstate = EnumMaterialstate.Totheweldingstation;
-                                        DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
-                                        //DataModel.Instance.MaterialMat[i][j] = new EnumMaterialproperties() { MaterialPosition = DataModel.Instance.MaterialMat[i][j].MaterialPosition, Materialstate = EnumMaterialstate.Totheweldingstation };
-                                    }));
-
+                                    DataModel.Instance.MaterialMat[param.MaterialColNumber - j - 1][i].Materialstate = EnumMaterialstate.Totheweldingstation;
+                                    DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
 
 
                                     if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
@@ -2567,6 +2605,25 @@ namespace JobClsLib
 
                                 if (toweldnum == _transportControl.TransportRecipe.WeldNum || (toweldnum > 0 && i == param.MaterialRowNumber - 1 && j == param.MaterialColNumber - 1))
                                 {
+                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                    state = "022028000";
+                                    result = ProcessStateMachineControl.ExecuteState(state);
+                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                    WaitForNext();
+
+                                    if (isStopped)
+                                    {
+                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                        Task.Factory.StartNew(new Action(() =>
+                                        {
+                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                        }));
+
+
+                                        isRunning = false;
+                                        return null;
+                                    }
+
                                     Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
 
                                     state = "000012000";
@@ -2608,6 +2665,26 @@ namespace JobClsLib
 
 
 
+
+                                    if (isStopped)
+                                    {
+                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                        Task.Factory.StartNew(new Action(() =>
+                                        {
+                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                        }));
+
+
+                                        isRunning = false;
+                                        return null;
+                                    }
+
+
+                                    Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                                    state = "021028000";
+                                    result = ProcessStateMachineControl.ExecuteState(state);
+                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                    WaitForNext();
 
                                     if (isStopped)
                                     {
@@ -2748,6 +2825,26 @@ namespace JobClsLib
 
                                     for (int i0 = 0; i0 < toweldnum; i0++)
                                     {
+
+                                        Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                        state = "022028000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
                                         //DataModel.Instance.Materialnum = weldnum2[toweldnum - i0 - 1];
                                         DataModel.Instance.Materialcol = weldnum[i0][1];
                                         DataModel.Instance.Materialrow = weldnum[i0][0];
@@ -2760,6 +2857,25 @@ namespace JobClsLib
                                         result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum - i0 - 1));
 
                                         if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                                        state = "021028000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
                                         WaitForNext();
 
                                         if (isStopped)
@@ -2825,17 +2941,10 @@ namespace JobClsLib
                                         result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
 
 
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.MaterialMat[weldnum[toweldnum - i0 - 1][0]][weldnum[toweldnum - i0 - 1][1]].Materialstate = EnumMaterialstate.Welded;
-                                            DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
-                                            //DataModel.Instance.MaterialMat[i][j] = new EnumMaterialproperties() { MaterialPosition = DataModel.Instance.MaterialMat[i][j].MaterialPosition, Materialstate = EnumMaterialstate.Welded };
-                                            //DataModel.Instance.Materialnum++;
-                                            //DataModel.Instance.Materialcol = j;
-                                            //DataModel.Instance.Materialrow = i;
-                                            DataModel.Instance.WeldMaterialNumber++;
-                                            SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;
-                                        }));
+                                        DataModel.Instance.MaterialMat[param.MaterialColNumber - weldnum[toweldnum - i0 - 1][1] - 1][weldnum[toweldnum - i0 - 1][0]].Materialstate = EnumMaterialstate.Welded;
+                                        DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
+                                        DataModel.Instance.WeldMaterialNumber++;
+                                        SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;
 
 
 
@@ -2863,6 +2972,26 @@ namespace JobClsLib
                                     weldpositions.Clear();
                                     weldnum.Clear();
                                     toweldnum = 0;
+
+                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                    state = "022028000";
+                                    result = ProcessStateMachineControl.ExecuteState(state);
+
+                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                    WaitForNext();
+
+                                    if (isStopped)
+                                    {
+                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                        Task.Factory.StartNew(new Action(() =>
+                                        {
+                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                        }));
+
+
+                                        isRunning = false;
+                                        return null;
+                                    }
 
                                     Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
 
@@ -2898,6 +3027,26 @@ namespace JobClsLib
                     }
 
                     #endregion
+
+                    Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                    state = "021028000";
+                    result = ProcessStateMachineControl.ExecuteState(state);
+
+                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                    WaitForNext();
+
+                    if (isStopped)
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                        Task.Factory.StartNew(new Action(() =>
+                        {
+                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                        }));
+
+
+                        isRunning = false;
+                        return null;
+                    }
 
 
                     Console.WriteLine("料盒搬送：物料焊接完成.");

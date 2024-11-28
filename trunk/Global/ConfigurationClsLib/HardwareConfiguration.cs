@@ -226,7 +226,12 @@ namespace ConfigurationClsLib
         [XmlAttribute("Index")]
         public int Index { get; set; }
 
-
+        [XmlAttribute("LowAxisSpeed")]
+        public double LowAxisSpeed { get; set; }
+        [XmlAttribute("MediumAxisSpeed")]
+        public double MediumAxisSpeed { get; set; }
+        [XmlAttribute("HighAxisSpeed")]
+        public double HighAxisSpeed { get; set; }
 
 
         [XmlAttribute("AxisSpeed")]

@@ -100,6 +100,19 @@ namespace GlobalDataDefineClsLib
     }
 
     [Serializable]
+    public enum EnumRunSpeed
+    {
+        [Description("低速")]
+        Low = 0,
+        [Description("中速")]
+        Medium = 1,
+        [Description("高速")]
+        Hight = 2,
+
+
+    }
+
+    [Serializable]
     public enum EnumOvenBoxState
     {
         [Description("其他")]
@@ -1964,6 +1977,26 @@ namespace GlobalDataDefineClsLib
         public EnumOvenStates(EnumOvenBoxState State)
         {
             this.State = State;
+        }
+
+    }
+
+    [Serializable]
+    public class EnumMoveSpeedParameter
+    {
+        public int code { get; set; }
+
+        public EnumRunSpeed speed { get; set; }
+
+        public EnumMoveSpeedParameter()
+        {
+
+
+        }
+        public EnumMoveSpeedParameter(int code, EnumRunSpeed speed = EnumRunSpeed.Medium)
+        {
+            this.code = code;
+            this.speed = speed;
         }
 
     }
