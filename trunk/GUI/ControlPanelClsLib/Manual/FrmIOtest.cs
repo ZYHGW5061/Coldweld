@@ -196,38 +196,52 @@ namespace ControlPanelClsLib.Manual
         {
             #region 按键锁
 
+            if (e.PropertyName == nameof(DataModel.IOlocken))
+            {
+                _syncContext.Post(_ => laIOlocken.BackColor = (DataModel.Instance.IOlocken ? true : false) ? Color.GreenYellow : Color.Transparent, null);
+            }
+
             if (e.PropertyName == nameof(DataModel.OvenBox1Function))
             {
-                if(DataModel.Instance.OvenBox1Function)
+                if(DataModel.Instance.IOlocken)
                 {
-                    _syncContext.Post(_ => chBakeOvenCoarseExtractionValve.Enabled = false, null);
-                    _syncContext.Post(_ => chBakeOvenFrontStageValve.Enabled = false, null);
-                    _syncContext.Post(_ => chBakeOvenAerate.Enabled = false, null);
-                }
-                else
-                {
-                    _syncContext.Post(_ => chBakeOvenCoarseExtractionValve.Enabled = true, null);
-                    _syncContext.Post(_ => chBakeOvenFrontStageValve.Enabled = true, null);
-                    _syncContext.Post(_ => chBakeOvenAerate.Enabled = true, null);
+                    if (DataModel.Instance.OvenBox1Function)
+                    {
+                        _syncContext.Post(_ => chBakeOvenCoarseExtractionValve.Enabled = false, null);
+                        _syncContext.Post(_ => chBakeOvenFrontStageValve.Enabled = false, null);
+                        _syncContext.Post(_ => chBakeOvenAerate.Enabled = false, null);
+                    }
+                    else
+                    {
+                        _syncContext.Post(_ => chBakeOvenCoarseExtractionValve.Enabled = true, null);
+                        _syncContext.Post(_ => chBakeOvenFrontStageValve.Enabled = true, null);
+                        _syncContext.Post(_ => chBakeOvenAerate.Enabled = true, null);
+                    }
                 }
                 
+                
             }
+            
 
 
             if (e.PropertyName == nameof(DataModel.OvenBox2Function))
             {
-                if (DataModel.Instance.OvenBox2Function)
+                if (DataModel.Instance.IOlocken)
                 {
-                    _syncContext.Post(_ => chBakeOven2CoarseExtractionValve.Enabled = false, null);
-                    _syncContext.Post(_ => chBakeOven2FrontStageValve.Enabled = false, null);
-                    _syncContext.Post(_ => chBakeOven2Aerate.Enabled = false, null);
+                    if (DataModel.Instance.OvenBox2Function)
+                    {
+                        _syncContext.Post(_ => chBakeOven2CoarseExtractionValve.Enabled = false, null);
+                        _syncContext.Post(_ => chBakeOven2FrontStageValve.Enabled = false, null);
+                        _syncContext.Post(_ => chBakeOven2Aerate.Enabled = false, null);
+                    }
+                    else
+                    {
+                        _syncContext.Post(_ => chBakeOven2CoarseExtractionValve.Enabled = true, null);
+                        _syncContext.Post(_ => chBakeOven2FrontStageValve.Enabled = true, null);
+                        _syncContext.Post(_ => chBakeOven2Aerate.Enabled = true, null);
+                    }
                 }
-                else
-                {
-                    _syncContext.Post(_ => chBakeOven2CoarseExtractionValve.Enabled = true, null);
-                    _syncContext.Post(_ => chBakeOven2FrontStageValve.Enabled = true, null);
-                    _syncContext.Post(_ => chBakeOven2Aerate.Enabled = true, null);
-                }
+                    
 
             }
 
@@ -678,6 +692,11 @@ namespace ControlPanelClsLib.Manual
             if (runningType == EnumRunningType.Simulated)
             {
                 return;
+            }
+
+            if(DataModel.Instance.IOlocken)
+            {
+
             }
 
             if (DataModel.Instance.OvenBox1Function)
@@ -1644,7 +1663,11 @@ namespace ControlPanelClsLib.Manual
                         myBoolVariable = !checkBox.Checked;
                         OutputIOChange(EnumBoardcardDefineOutputIO.CondenserPumpHeat, !myBoolVariable);
                         break;
-
+                    case "chIOlocken":
+                        myBoolVariable = laIOlocken.BackColor == Color.GreenYellow;
+                        myBoolVariable = !checkBox.Checked;
+                        DataModel.Instance.IOlocken = !myBoolVariable;
+                        break;
                     case "chMotorBrake":
                         myBoolVariable = laMotorBrake.BackColor == Color.GreenYellow;
                         myBoolVariable = !checkBox.Checked;

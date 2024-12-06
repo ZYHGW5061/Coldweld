@@ -26,6 +26,7 @@ namespace IOUtilityClsLib
         private bool _enablePollingIO3;
         private bool _enablePollingIO4;
         private bool _enablePollingIO5;
+        private bool _enablePollingIO6;
         IBoardCardController _boardCardController;
         private TemperatureControllerManager _TemperatureControllerManager
         {
@@ -117,6 +118,10 @@ namespace IOUtilityClsLib
 
             Thread.Sleep(6000);
 
+            DataModel.Instance.WeldMaterialNumber = SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber;
+            DataModel.Instance.PressWorkNumber = SystemConfiguration.Instance.StatisticalDataConfig.PressWorkNumber;
+            DataModel.Instance.EquipmentOperatingTime = SystemConfiguration.Instance.StatisticalDataConfig.EquipmentOperatingTime;
+
             SQLiteProgram.Instance.Init();
 
             Thread.Sleep(1000);
@@ -133,8 +138,13 @@ namespace IOUtilityClsLib
             _enablePollingIO4 = true;
             Task.Run(new Action(ReadIOTask4));
 
+            
+
             _enablePollingIO5 = true;
             Task.Run(new Action(RecordData));
+
+            _enablePollingIO6 = true;
+            Task.Run(new Action(ReadIOTask6));
 
         }
 
@@ -145,6 +155,7 @@ namespace IOUtilityClsLib
             _enablePollingIO3 = false;
             _enablePollingIO4 = false;
             _enablePollingIO5 = false;
+            _enablePollingIO6 = false;
         }
 
         public bool IsTowerRedLightOn()
@@ -375,6 +386,23 @@ namespace IOUtilityClsLib
 
         }
 
+        private void ReadIOTask6()
+        {
+            DateTime startTime = DateTime.Now;
+            while (_enablePollingIO6)
+            {
+                DateTime time = DateTime.Now;
+                DataModel.Instance.Sysdatetime = time.ToShortDateString() + "  " + time.ToLongTimeString();
+
+                if ((time - startTime).TotalMinutes >= 1)
+                {
+                    DataModel.Instance.EquipmentOperatingTime++;
+                    startTime = DateTime.Now;
+                }
+
+                Thread.Sleep(1000);
+            }
+        }
 
 
         /// <summary>

@@ -1256,38 +1256,45 @@ namespace GlobalDataDefineClsLib
 
             double angleInRadians = Toffset * (Math.PI / 180.0);
 
+            #region 241206前固定位置补偿版本，最下角为起点
 
-            double XBC = 0.14 / MaterialColNumber;
-            double YBC = 0.25 / MaterialRowNumber;
-            double ZBC = -0.15 / MaterialRowNumber;
 
-            double XiB = MaterialRowinterval / (20) * (19.9952);
-            double XjB = MaterialRowinterval / (20) * (-0.1133);
-            double YiB = MaterialRowinterval / (20) * (0.1419);
-            double YjB = MaterialRowinterval / (20) * (19.9515);
-            double ZiB = MaterialRowinterval / (20) * (-0.1628);
-            double ZjB = MaterialRowinterval / (20) * (-0.0378);
+            //double XBC = 0.14 / MaterialColNumber / 15.0f * 7.0f;
+            //double YBC = 0.25 / MaterialRowNumber / 15.0f * 7.0f;
+            //double ZBC = -0.15 / MaterialRowNumber / 15.0f * 7.0f;
 
-            for (int i = 0; i < MaterialRowNumber; i++)
-            {
-                for (int j = 0; j < MaterialColNumber; j++)
-                {
-                    double X0 = Firstxyz.X + i * XiB + j * XjB + i * j * XBC;
+            //double XiB = MaterialRowinterval / (20) * (19.9952);
+            //double XjB = MaterialRowinterval / (20) * (-0.1133);
+            //double YiB = MaterialRowinterval / (20) * (0.1419);
+            //double YjB = MaterialRowinterval / (20) * (19.9515);
+            //double ZiB = MaterialRowinterval / (20) * (-0.1628);
+            //double ZjB = MaterialRowinterval / (20) * (-0.0378);
 
-                    double Y0 = Firstxyz.Y + i * YiB + j * YjB + j * i * YBC;
+            //for (int i = 0; i < MaterialRowNumber; i++)
+            //{
+            //    for (int j = 0; j < MaterialColNumber; j++)
+            //    {
+            //        double X0 = Firstxyz.X + i * XiB + j * XjB + i * j * XBC;
 
-                    double Z0 = Firstxyz.Z + i * ZiB + j * ZjB + j * i * ZBC;
+            //        double Y0 = Firstxyz.Y + i * YiB + j * YjB + j * i * YBC;
 
-                    XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
-                    {
-                        X = X0,
-                        Y = Y0,
-                        Z = Z0,
-                    };
+            //        double Z0 = Firstxyz.Z + i * ZiB + j * ZjB + j * i * ZBC;
 
-                    MaterialMat[i][j].MaterialPosition = xyz;
-                }
-            }
+            //        XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+            //        {
+            //            X = X0,
+            //            Y = Y0,
+            //            Z = Z0,
+            //        };
+
+            //        MaterialMat[i][j].MaterialPosition = xyz;
+            //    }
+            //}
+
+            #endregion
+
+            #region 最初的位置加角度补偿版本
+
 
             //for (int i = 0; i < MaterialRowNumber; i++)
             //{
@@ -1312,6 +1319,75 @@ namespace GlobalDataDefineClsLib
 
             //    }
             //}
+
+
+            #endregion
+
+
+            #region 241206大气下中心旋转补偿
+
+            //for (int i = 0; i < MaterialRowNumber; i++)
+            //{
+            //    for (int j = 0; j < MaterialColNumber; j++)
+            //    {
+            //        double X = 7 - i;
+            //        double Y = 7 - j;
+            //        double Qx = 147.4335 + X * 0.015799999999984 + Y * -19.999300000000005;
+            //        double Qy = -160.4275 + X * -19.999899999999997 + Y * -0.137999999999977;
+            //        double Qz = -42.8473 + X * 0.061099999999996 + Y * 0.101399999999998;
+
+            //        double X0 = Qx;
+
+            //        double Y0 = Qy;
+
+            //        double Z0 = Qz;
+
+            //        XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+            //        {
+            //            X = X0,
+            //            Y = Y0,
+            //            Z = Z0,
+            //        };
+
+            //        MaterialMat[i][j].MaterialPosition = xyz;
+            //    }
+            //}
+
+            #endregion
+
+
+            #region 241206真空下中心旋转补偿
+
+            for (int i = 0; i < MaterialRowNumber; i++)
+            {
+                for (int j = 0; j < MaterialColNumber; j++)
+                {
+                    double X = 7 - i;
+                    double Y = 7 - j;
+                    double Qx = 147.6465 + X * 0.015799999999984 + Y * -19.999300000000005;
+                    double Qy = -160.4275 + X * -19.999899999999997 + Y * -0.137999999999977;
+                    double Qz = -43.5 + X * 0.062099999999996 + Y * 0.191399999999998;
+
+                    double X0 = Qx;
+
+                    double Y0 = Qy;
+
+                    double Z0 = Qz;
+
+                    XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+                    {
+                        X = X0,
+                        Y = Y0,
+                        Z = Z0,
+                    };
+
+                    MaterialMat[i][j].MaterialPosition = xyz;
+                }
+            }
+
+            #endregion
+
+
         }
 
     }

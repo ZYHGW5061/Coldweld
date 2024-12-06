@@ -23,6 +23,11 @@ namespace GlobalToolClsLib
 
         #region 内部参数
 
+        private string sysdatetime;
+        private int sysRuntime;
+
+        private bool iolocken = true;
+
         private int weldMaterialNumber = 0;
         private int pressWorkNumber = 0;
         private int equipmentOperatingTime = 0;
@@ -301,6 +306,56 @@ namespace GlobalToolClsLib
 
 
         #region 全局参数
+
+        /// <summary>
+        /// 系统时间
+        /// </summary>
+        public string Sysdatetime
+        {
+            get { return sysdatetime; }
+            set
+            {
+                if (sysdatetime != value)
+                {
+                    sysdatetime = value;
+                    OnPropertyChanged(nameof(Sysdatetime));
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 系统运行时间
+        /// </summary>
+        public int SysRuntime
+        {
+            get { return sysRuntime; }
+            set
+            {
+                if (sysRuntime != value)
+                {
+                    sysRuntime = value;
+                    OnPropertyChanged(nameof(SysRuntime));
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// IO互锁开关
+        /// </summary>
+        public bool IOlocken
+        {
+            get { return iolocken; }
+            set
+            {
+                if (iolocken != value)
+                {
+                    iolocken = value;
+                }
+            }
+        }
 
         /// <summary>
         /// 已焊接物料个数
@@ -2394,69 +2449,79 @@ namespace GlobalToolClsLib
 
         public bool IOlock(EnumBoardcardDefineOutputIO iO, bool En = true)
         {
-            if(iO == EnumBoardcardDefineOutputIO.BakeOvenPlugInValve && En)
+            if(iolocken)
             {
-                if(BakeOvenInnerdoorOpenstatus)
+                if (iO == EnumBoardcardDefineOutputIO.PressPressingDivide && En)
                 {
-                    return true;
+
                 }
-                else
+
+                if (iO == EnumBoardcardDefineOutputIO.BakeOvenPlugInValve && En)
                 {
-                    return false;
+                    if (BakeOvenInnerdoorOpenstatus)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+
+                if (iO == EnumBoardcardDefineOutputIO.BakeOvenInnerdoorUpDown && En)
+                {
+                    if (BakeOvenPlugInValveOpenstatus)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+
+                if (iO == EnumBoardcardDefineOutputIO.BakeOven2PlugInValve && En)
+                {
+                    if (BakeOven2InnerdoorOpenstatus)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+
+                if (iO == EnumBoardcardDefineOutputIO.BakeOven2InnerdoorUpDown && En)
+                {
+                    if (BakeOven2PlugInValveOpenstatus)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+
+                if (iO == EnumBoardcardDefineOutputIO.CondenserPump && En)
+                {
+                    if (!CondenserPumpSignal4)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
 
             }
 
-            if (iO == EnumBoardcardDefineOutputIO.BakeOvenInnerdoorUpDown && En)
-            {
-                if (BakeOvenPlugInValveOpenstatus)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-
-            if (iO == EnumBoardcardDefineOutputIO.BakeOven2PlugInValve && En)
-            {
-                if (BakeOven2InnerdoorOpenstatus)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-
-            if (iO == EnumBoardcardDefineOutputIO.BakeOven2InnerdoorUpDown && En)
-            {
-                if (BakeOven2PlugInValveOpenstatus)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-
-            if(iO == EnumBoardcardDefineOutputIO.CondenserPump && En)
-            {
-                if(!CondenserPumpSignal4)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
 
 
             return false;

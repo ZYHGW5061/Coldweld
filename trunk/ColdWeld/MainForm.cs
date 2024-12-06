@@ -1388,17 +1388,17 @@ namespace BondTerminal
 
             if (e.PropertyName == nameof(DataModel.BakeOvenVacuum))
             {
-                _syncContext.Post(_ => laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E"), null);
+                _syncContext.Post(_ => laOven1Vacuum.Text = DataModel.Instance.BakeOvenVacuum.ToString("E1"), null);
                 //UpdateBakeOvenVacuum();
             }
             if (e.PropertyName == nameof(DataModel.BakeOven2Vacuum))
             {
-                _syncContext.Post(_ => laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E"), null);
+                _syncContext.Post(_ => laOven2Vacuum.Text = DataModel.Instance.BakeOven2Vacuum.ToString("E1"), null);
                 //UpdateBakeOven2Vacuum();
             }
             if (e.PropertyName == nameof(DataModel.BoxVacuum))
             {
-                _syncContext.Post(_ => laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E"), null);
+                _syncContext.Post(_ => laBoxVacuum.Text = DataModel.Instance.BoxVacuum.ToString("E1"), null);
                 //UpdateBoxVacuum();
             }
 
@@ -1590,6 +1590,12 @@ namespace BondTerminal
 
             #region 统计
 
+            if (e.PropertyName == nameof(DataModel.Sysdatetime))
+            {
+                _syncContext.Post(_ => toolStripStatusLabelNowTime.Text = DataModel.Instance.Sysdatetime.ToString(), null);
+                //UpdateWeldMaterialNumber();
+            }
+
             if (e.PropertyName == nameof(DataModel.WeldMaterialNumber))
             {
                 _syncContext.Post(_ => laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString(), null);
@@ -1605,6 +1611,8 @@ namespace BondTerminal
             if (e.PropertyName == nameof(DataModel.EquipmentOperatingTime))
             {
                 _syncContext.Post(_ => laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+                _syncContext.Post(_ => toolStripStatusLabelRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+
                 //UpdateEquipmentOperatingTime();
             }
 
@@ -1958,7 +1966,7 @@ namespace BondTerminal
                 $"当前物料：（ {DataModel.Instance.Materialnum} ）;" +
                 $"（ 行： {DataModel.Instance.Materialrow} " +
                 $"列：{DataModel.Instance.Materialcol} ）;";
-            this.teCurrentState1.Text = str;
+            //this.teCurrentState1.Text = str;
             _syncContext.Post(_ => teCurrentState1.Text = str, null);
             //if (teCurrentState.InvokeRequired)
             //{

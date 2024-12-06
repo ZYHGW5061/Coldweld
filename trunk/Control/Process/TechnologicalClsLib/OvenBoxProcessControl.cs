@@ -369,25 +369,38 @@ namespace TechnologicalClsLib
                 {
                     DataModel.Instance.OvenBox1Heating = true;
 
+                    int Num = 0;
                     bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
                     if(!ret)
                     {
                         while(!ret)
                         {
+                            Num++;
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                        
+                            if(Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
+                    Num = 0;
                     ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
                     if (!ret)
                     {
                         while (!ret)
                         {
+                            Num++;
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
+                            if (Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
@@ -451,15 +464,20 @@ namespace TechnologicalClsLib
                         stopwatch.Stop();
                     }
 
-                    
+                    Num = 0;
                     ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
                     if (!ret)
                     {
                         while (!ret)
                         {
+                            Num++;
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
+                            if (Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
@@ -483,19 +501,25 @@ namespace TechnologicalClsLib
 
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).IsConnect)
                 {
-                    
+                    int Num = 0;
                     bool ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
                     if (!ret)
                     {
                         while (!ret)
                         {
+                            
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)HeatTargetTemperature * 10);
+                            Num++;
+                            if(Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
-                    
+                    Num = 0;
                     ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
                     if (!ret)
                     {
@@ -504,6 +528,11 @@ namespace TechnologicalClsLib
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
+                            Num++;
+                            if (Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
@@ -565,7 +594,7 @@ namespace TechnologicalClsLib
                     {
                         stopwatch.Stop();
                     }
-
+                    Num = 0;
                     ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
                     if (!ret)
                     {
@@ -574,6 +603,11 @@ namespace TechnologicalClsLib
                             Thread.Sleep(500);
 
                             ret = _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
+                            Num++;
+                            if (Num > 10)
+                            {
+                                break;
+                            }
                         }
                     }
 
