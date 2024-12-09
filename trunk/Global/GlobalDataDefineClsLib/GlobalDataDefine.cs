@@ -17,7 +17,12 @@ namespace GlobalDataDefineClsLib
     public enum EnumRunningType { Actual, Simulated }
 
     [Serializable]
-    public enum EnumVisionRunningType { Identification, Nonidentification, IdentifyButNotLocate }
+    public enum EnumVisionRunningType 
+    { 
+        Identification,
+        IdentificationButNotLocate,
+        Nonidentification,
+    }
 
     [Serializable]
     public enum EnumStageAxis

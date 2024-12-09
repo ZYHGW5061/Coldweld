@@ -27,6 +27,7 @@ namespace IOUtilityClsLib
         private bool _enablePollingIO4;
         private bool _enablePollingIO5;
         private bool _enablePollingIO6;
+        private bool _enablePollingIO7;
         IBoardCardController _boardCardController;
         private TemperatureControllerManager _TemperatureControllerManager
         {
@@ -283,6 +284,7 @@ namespace IOUtilityClsLib
                     {
                         ParseDataAndUpdateOutputIOValue(data);
                     }
+                    ParsePositionValue();
                 }
 
                 DataModel.Instance.StageAxisIsconnect = _boardCardController.IsConnect;
@@ -405,6 +407,8 @@ namespace IOUtilityClsLib
         }
 
 
+
+
         /// <summary>
         /// 解析字符串并更新该IO点Value值
         /// </summary>
@@ -480,6 +484,25 @@ namespace IOUtilityClsLib
 
             DataModel.Instance.MotorBrake = msg[(int)EnumBoardcardDefineOutputIO.MotorBrake] == 1 ? true : false;
             DataModel.Instance.MotorBrake1 = msg[(int)EnumBoardcardDefineOutputIO.MotorBrake1] == 1 ? true : false;
+
+            Thread.Sleep(20);
+
+        }
+
+        internal void ParsePositionValue()
+        {
+            DataModel.Instance.PositionMaterialBoxX = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialboxX);
+            DataModel.Instance.PositionMaterialBoxY = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialboxY);
+            DataModel.Instance.PositionMaterialBoxZ = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialboxZ);
+            DataModel.Instance.PositionMaterialBoxT = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialboxT);
+            DataModel.Instance.PositionMaterialBoxH = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialboxHook);
+            DataModel.Instance.PositionMaterialX = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialX);
+            DataModel.Instance.PositionMaterialY = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialY);
+            DataModel.Instance.PositionMaterialZ = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialZ);
+            DataModel.Instance.PositionMaterialH = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.MaterialHook);
+            DataModel.Instance.PositionOverTrack1 = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.OverTrack1);
+            DataModel.Instance.PositionOverTrack2 = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.OverTrack2);
+            DataModel.Instance.PositionPresslifting = (float)_boardCardController.GetCurrentPosition(EnumStageAxis.Presslifting);
 
             Thread.Sleep(20);
 

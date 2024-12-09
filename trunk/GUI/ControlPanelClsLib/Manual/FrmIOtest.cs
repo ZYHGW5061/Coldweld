@@ -534,6 +534,57 @@ namespace ControlPanelClsLib.Manual
                 _syncContext.Post(_ => laMotorBrake1.BackColor = (DataModel.Instance.MotorBrake1 ? true : false) ? Color.GreenYellow : Color.Transparent, null);
             }
 
+            if (e.PropertyName == nameof(DataModel.PositionMaterialBoxX))
+            {
+                _syncContext.Post(_ => seMaterialBoxX.Text = DataModel.Instance.PositionMaterialBoxX.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialBoxY))
+            {
+                _syncContext.Post(_ => seMaterialBoxY.Text = DataModel.Instance.PositionMaterialBoxY.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialBoxZ))
+            {
+                _syncContext.Post(_ => seMaterialBoxZ.Text = DataModel.Instance.PositionMaterialBoxZ.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialBoxT))
+            {
+                _syncContext.Post(_ => seMaterialBoxT.Text = DataModel.Instance.PositionMaterialBoxT.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialBoxH))
+            {
+                _syncContext.Post(_ => seMaterialBoxH.Text = DataModel.Instance.PositionMaterialBoxH.ToString(), null);
+            }
+
+            if (e.PropertyName == nameof(DataModel.PositionMaterialX))
+            {
+                _syncContext.Post(_ => seMaterialX.Text = DataModel.Instance.PositionMaterialX.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialY))
+            {
+                _syncContext.Post(_ => seMaterialY.Text = DataModel.Instance.PositionMaterialY.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialZ))
+            {
+                _syncContext.Post(_ => seMaterialZ.Text = DataModel.Instance.PositionMaterialZ.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionMaterialH))
+            {
+                _syncContext.Post(_ => seMaterialH.Text = DataModel.Instance.PositionMaterialH.ToString(), null);
+            }
+
+            if (e.PropertyName == nameof(DataModel.PositionOverTrack1))
+            {
+                _syncContext.Post(_ => seOvenTrack1.Text = DataModel.Instance.PositionOverTrack1.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionOverTrack2))
+            {
+                _syncContext.Post(_ => seOvenTrack2.Text = DataModel.Instance.PositionOverTrack2.ToString(), null);
+            }
+            if (e.PropertyName == nameof(DataModel.PositionPresslifting))
+            {
+                _syncContext.Post(_ => sePresslifting.Text = DataModel.Instance.PositionPresslifting.ToString(), null);
+            }
+
             #endregion
 
             #region 塔灯
@@ -696,7 +747,7 @@ namespace ControlPanelClsLib.Manual
 
             if(DataModel.Instance.IOlocken)
             {
-
+                _syncContext.Post(_ => laIOlocken.BackColor = (DataModel.Instance.IOlocken ? true : false) ? Color.GreenYellow : Color.Transparent, null);
             }
 
             if (DataModel.Instance.OvenBox1Function)
@@ -785,6 +836,21 @@ namespace ControlPanelClsLib.Manual
             #endregion
 
             #region 电机
+
+            _syncContext.Post(_ => seMaterialBoxX.Text = DataModel.Instance.PositionMaterialBoxX.ToString(), null);
+            _syncContext.Post(_ => seMaterialBoxY.Text = DataModel.Instance.PositionMaterialBoxY.ToString(), null);
+            _syncContext.Post(_ => seMaterialBoxZ.Text = DataModel.Instance.PositionMaterialBoxZ.ToString(), null);
+            _syncContext.Post(_ => seMaterialBoxT.Text = DataModel.Instance.PositionMaterialBoxT.ToString(), null);
+            _syncContext.Post(_ => seMaterialBoxH.Text = DataModel.Instance.PositionMaterialBoxH.ToString(), null);
+
+            _syncContext.Post(_ => seMaterialX.Text = DataModel.Instance.PositionMaterialX.ToString(), null);
+            _syncContext.Post(_ => seMaterialY.Text = DataModel.Instance.PositionMaterialY.ToString(), null);
+            _syncContext.Post(_ => seMaterialZ.Text = DataModel.Instance.PositionMaterialZ.ToString(), null);
+            _syncContext.Post(_ => seMaterialH.Text = DataModel.Instance.PositionMaterialH.ToString(), null);
+
+            _syncContext.Post(_ => seOvenTrack1.Text = DataModel.Instance.PositionOverTrack1.ToString(), null);
+            _syncContext.Post(_ => seOvenTrack2.Text = DataModel.Instance.PositionOverTrack2.ToString(), null);
+            _syncContext.Post(_ => sePresslifting.Text = DataModel.Instance.PositionPresslifting.ToString(), null);
 
             #endregion
 
@@ -973,7 +1039,7 @@ namespace ControlPanelClsLib.Manual
             {
                 //ReadAllIO();
 
-                UpdateAxisPosition();
+                //UpdateAxisPosition();
                 UpdateAxisState();
             }
             catch(Exception ex)

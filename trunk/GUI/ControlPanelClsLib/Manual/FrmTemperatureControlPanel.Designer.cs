@@ -82,30 +82,30 @@ namespace ControlPanelClsLib
             // labPassWord
             // 
             this.labPassWord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labPassWord.Location = new System.Drawing.Point(4, 68);
-            this.labPassWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labPassWord.Location = new System.Drawing.Point(5, 85);
+            this.labPassWord.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labPassWord.Name = "labPassWord";
-            this.labPassWord.Size = new System.Drawing.Size(144, 24);
+            this.labPassWord.Size = new System.Drawing.Size(193, 30);
             this.labPassWord.TabIndex = 1;
             this.labPassWord.Text = "烘箱A:目标温度/℃:";
             // 
             // labelControl1
             // 
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(4, 100);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Location = new System.Drawing.Point(5, 125);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(144, 24);
+            this.labelControl1.Size = new System.Drawing.Size(193, 30);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "烘箱A:保温时间/分钟:";
             // 
             // labelControl2
             // 
             this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl2.Location = new System.Drawing.Point(4, 132);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl2.Location = new System.Drawing.Point(5, 165);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(144, 24);
+            this.labelControl2.Size = new System.Drawing.Size(193, 30);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "烘箱A:超温报警温度/℃:";
             // 
@@ -117,8 +117,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seTargetTemp.Location = new System.Drawing.Point(157, 69);
-            this.seTargetTemp.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seTargetTemp.Location = new System.Drawing.Point(210, 86);
+            this.seTargetTemp.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seTargetTemp.Name = "seTargetTemp";
             this.seTargetTemp.Properties.AutoHeight = false;
             this.seTargetTemp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -126,7 +126,7 @@ namespace ControlPanelClsLib
             this.seTargetTemp.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTargetTemp.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTargetTemp.Properties.MaskSettings.Set("mask", "n0");
-            this.seTargetTemp.Size = new System.Drawing.Size(69, 22);
+            this.seTargetTemp.Size = new System.Drawing.Size(91, 28);
             this.seTargetTemp.TabIndex = 41;
             // 
             // seHeatPreservationMinute
@@ -137,8 +137,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seHeatPreservationMinute.Location = new System.Drawing.Point(157, 101);
-            this.seHeatPreservationMinute.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seHeatPreservationMinute.Location = new System.Drawing.Point(210, 126);
+            this.seHeatPreservationMinute.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seHeatPreservationMinute.Name = "seHeatPreservationMinute";
             this.seHeatPreservationMinute.Properties.AutoHeight = false;
             this.seHeatPreservationMinute.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -146,7 +146,7 @@ namespace ControlPanelClsLib
             this.seHeatPreservationMinute.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seHeatPreservationMinute.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seHeatPreservationMinute.Properties.MaskSettings.Set("mask", "n0");
-            this.seHeatPreservationMinute.Size = new System.Drawing.Size(69, 22);
+            this.seHeatPreservationMinute.Size = new System.Drawing.Size(91, 28);
             this.seHeatPreservationMinute.TabIndex = 42;
             // 
             // seOverTemperatureThreshold
@@ -157,8 +157,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seOverTemperatureThreshold.Location = new System.Drawing.Point(157, 133);
-            this.seOverTemperatureThreshold.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seOverTemperatureThreshold.Location = new System.Drawing.Point(210, 166);
+            this.seOverTemperatureThreshold.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seOverTemperatureThreshold.Name = "seOverTemperatureThreshold";
             this.seOverTemperatureThreshold.Properties.AutoHeight = false;
             this.seOverTemperatureThreshold.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -166,16 +166,16 @@ namespace ControlPanelClsLib
             this.seOverTemperatureThreshold.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOverTemperatureThreshold.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOverTemperatureThreshold.Properties.MaskSettings.Set("mask", "n0");
-            this.seOverTemperatureThreshold.Size = new System.Drawing.Size(69, 22);
+            this.seOverTemperatureThreshold.Size = new System.Drawing.Size(91, 28);
             this.seOverTemperatureThreshold.TabIndex = 43;
             // 
             // btnHeat
             // 
             this.btnHeat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHeat.Location = new System.Drawing.Point(233, 66);
-            this.btnHeat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHeat.Location = new System.Drawing.Point(311, 82);
+            this.btnHeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHeat.Name = "btnHeat";
-            this.btnHeat.Size = new System.Drawing.Size(62, 28);
+            this.btnHeat.Size = new System.Drawing.Size(82, 36);
             this.btnHeat.TabIndex = 44;
             this.btnHeat.Text = "加热";
             this.btnHeat.UseVisualStyleBackColor = true;
@@ -184,10 +184,10 @@ namespace ControlPanelClsLib
             // btnStopHeat
             // 
             this.btnStopHeat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStopHeat.Location = new System.Drawing.Point(233, 98);
-            this.btnStopHeat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStopHeat.Location = new System.Drawing.Point(311, 122);
+            this.btnStopHeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStopHeat.Name = "btnStopHeat";
-            this.btnStopHeat.Size = new System.Drawing.Size(62, 28);
+            this.btnStopHeat.Size = new System.Drawing.Size(82, 36);
             this.btnStopHeat.TabIndex = 45;
             this.btnStopHeat.Text = "停止加热";
             this.btnStopHeat.UseVisualStyleBackColor = true;
@@ -196,10 +196,10 @@ namespace ControlPanelClsLib
             // btnSelfTuning
             // 
             this.btnSelfTuning.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSelfTuning.Location = new System.Drawing.Point(233, 130);
-            this.btnSelfTuning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelfTuning.Location = new System.Drawing.Point(311, 162);
+            this.btnSelfTuning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelfTuning.Name = "btnSelfTuning";
-            this.btnSelfTuning.Size = new System.Drawing.Size(62, 28);
+            this.btnSelfTuning.Size = new System.Drawing.Size(82, 36);
             this.btnSelfTuning.TabIndex = 46;
             this.btnSelfTuning.Text = "自整定";
             this.btnSelfTuning.UseVisualStyleBackColor = true;
@@ -210,10 +210,10 @@ namespace ControlPanelClsLib
             this.laHeat.Appearance.BackColor = System.Drawing.Color.YellowGreen;
             this.laHeat.Appearance.Options.UseBackColor = true;
             this.laHeat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laHeat.Location = new System.Drawing.Point(156, 196);
-            this.laHeat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.laHeat.Location = new System.Drawing.Point(208, 245);
+            this.laHeat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.laHeat.Name = "laHeat";
-            this.laHeat.Size = new System.Drawing.Size(71, 24);
+            this.laHeat.Size = new System.Drawing.Size(95, 30);
             this.laHeat.TabIndex = 66;
             this.laHeat.Text = "  ";
             // 
@@ -225,8 +225,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seTemp.Location = new System.Drawing.Point(157, 229);
-            this.seTemp.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seTemp.Location = new System.Drawing.Point(210, 286);
+            this.seTemp.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seTemp.Name = "seTemp";
             this.seTemp.Properties.AutoHeight = false;
             this.seTemp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -235,16 +235,16 @@ namespace ControlPanelClsLib
             this.seTemp.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTemp.Properties.MaskSettings.Set("mask", "n0");
             this.seTemp.Properties.ReadOnly = true;
-            this.seTemp.Size = new System.Drawing.Size(69, 22);
+            this.seTemp.Size = new System.Drawing.Size(91, 28);
             this.seTemp.TabIndex = 68;
             // 
             // labelControl4
             // 
             this.labelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl4.Location = new System.Drawing.Point(4, 228);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl4.Location = new System.Drawing.Point(5, 285);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(144, 24);
+            this.labelControl4.Size = new System.Drawing.Size(193, 30);
             this.labelControl4.TabIndex = 67;
             this.labelControl4.Text = "烘箱A:当前温度/℃:";
             // 
@@ -297,7 +297,7 @@ namespace ControlPanelClsLib
             this.tableLayoutPanel1.Controls.Add(this.seInsulatedMinutes2, 5, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -310,16 +310,16 @@ namespace ControlPanelClsLib
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(662, 323);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(883, 404);
             this.tableLayoutPanel1.TabIndex = 69;
             // 
             // btnSelectHeatRecipe2
             // 
             this.btnSelectHeatRecipe2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSelectHeatRecipe2.Location = new System.Drawing.Point(563, 2);
-            this.btnSelectHeatRecipe2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectHeatRecipe2.Location = new System.Drawing.Point(751, 2);
+            this.btnSelectHeatRecipe2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelectHeatRecipe2.Name = "btnSelectHeatRecipe2";
-            this.btnSelectHeatRecipe2.Size = new System.Drawing.Size(62, 28);
+            this.btnSelectHeatRecipe2.Size = new System.Drawing.Size(82, 36);
             this.btnSelectHeatRecipe2.TabIndex = 89;
             this.btnSelectHeatRecipe2.Text = "选择";
             this.btnSelectHeatRecipe2.UseVisualStyleBackColor = true;
@@ -328,85 +328,88 @@ namespace ControlPanelClsLib
             // teTransportRecipeName2
             // 
             this.teTransportRecipeName2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teTransportRecipeName2.Location = new System.Drawing.Point(485, 3);
+            this.teTransportRecipeName2.Location = new System.Drawing.Point(647, 4);
+            this.teTransportRecipeName2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teTransportRecipeName2.Name = "teTransportRecipeName2";
-            this.teTransportRecipeName2.Size = new System.Drawing.Size(73, 21);
+            this.teTransportRecipeName2.Size = new System.Drawing.Size(97, 25);
             this.teTransportRecipeName2.TabIndex = 88;
             // 
             // labelControl3
             // 
             this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl3.Location = new System.Drawing.Point(333, 3);
+            this.labelControl3.Location = new System.Drawing.Point(444, 4);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(146, 26);
+            this.labelControl3.Size = new System.Drawing.Size(195, 32);
             this.labelControl3.TabIndex = 87;
             this.labelControl3.Text = "烘箱B:配方名称";
             // 
             // teTransportRecipeName
             // 
             this.teTransportRecipeName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teTransportRecipeName.Location = new System.Drawing.Point(155, 3);
+            this.teTransportRecipeName.Location = new System.Drawing.Point(207, 4);
+            this.teTransportRecipeName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teTransportRecipeName.Name = "teTransportRecipeName";
-            this.teTransportRecipeName.Size = new System.Drawing.Size(73, 21);
+            this.teTransportRecipeName.Size = new System.Drawing.Size(97, 25);
             this.teTransportRecipeName.TabIndex = 85;
             // 
             // labelControl5
             // 
             this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl5.Location = new System.Drawing.Point(4, 196);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl5.Location = new System.Drawing.Point(5, 245);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(144, 24);
+            this.labelControl5.Size = new System.Drawing.Size(193, 30);
             this.labelControl5.TabIndex = 69;
             this.labelControl5.Text = "烘箱A:加热状态:";
             // 
             // labelControl7
             // 
             this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl7.Location = new System.Drawing.Point(334, 68);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl7.Location = new System.Drawing.Point(445, 85);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(144, 24);
+            this.labelControl7.Size = new System.Drawing.Size(193, 30);
             this.labelControl7.TabIndex = 71;
             this.labelControl7.Text = "烘箱B:目标温度/℃:";
             // 
             // labelControl8
             // 
             this.labelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl8.Location = new System.Drawing.Point(334, 100);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl8.Location = new System.Drawing.Point(445, 125);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(144, 24);
+            this.labelControl8.Size = new System.Drawing.Size(193, 30);
             this.labelControl8.TabIndex = 72;
             this.labelControl8.Text = "烘箱B:保温时间/分钟:";
             // 
             // labelControl9
             // 
             this.labelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl9.Location = new System.Drawing.Point(334, 132);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl9.Location = new System.Drawing.Point(445, 165);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(144, 24);
+            this.labelControl9.Size = new System.Drawing.Size(193, 30);
             this.labelControl9.TabIndex = 73;
             this.labelControl9.Text = "烘箱B:超温报警温度/℃:";
             // 
             // labelControl10
             // 
             this.labelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl10.Location = new System.Drawing.Point(334, 196);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl10.Location = new System.Drawing.Point(445, 245);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(144, 24);
+            this.labelControl10.Size = new System.Drawing.Size(193, 30);
             this.labelControl10.TabIndex = 74;
             this.labelControl10.Text = "烘箱B:加热状态:";
             // 
             // labelControl11
             // 
             this.labelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl11.Location = new System.Drawing.Point(334, 228);
-            this.labelControl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl11.Location = new System.Drawing.Point(445, 285);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(144, 24);
+            this.labelControl11.Size = new System.Drawing.Size(193, 30);
             this.labelControl11.TabIndex = 75;
             this.labelControl11.Text = "烘箱B:当前温度/℃:";
             // 
@@ -418,8 +421,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seTargetTemp2.Location = new System.Drawing.Point(487, 69);
-            this.seTargetTemp2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seTargetTemp2.Location = new System.Drawing.Point(650, 86);
+            this.seTargetTemp2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seTargetTemp2.Name = "seTargetTemp2";
             this.seTargetTemp2.Properties.AutoHeight = false;
             this.seTargetTemp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -427,7 +430,7 @@ namespace ControlPanelClsLib
             this.seTargetTemp2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTargetTemp2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTargetTemp2.Properties.MaskSettings.Set("mask", "n0");
-            this.seTargetTemp2.Size = new System.Drawing.Size(69, 22);
+            this.seTargetTemp2.Size = new System.Drawing.Size(91, 28);
             this.seTargetTemp2.TabIndex = 76;
             // 
             // seHeatPreservationMinute2
@@ -438,8 +441,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seHeatPreservationMinute2.Location = new System.Drawing.Point(487, 101);
-            this.seHeatPreservationMinute2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seHeatPreservationMinute2.Location = new System.Drawing.Point(650, 126);
+            this.seHeatPreservationMinute2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seHeatPreservationMinute2.Name = "seHeatPreservationMinute2";
             this.seHeatPreservationMinute2.Properties.AutoHeight = false;
             this.seHeatPreservationMinute2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -447,7 +450,7 @@ namespace ControlPanelClsLib
             this.seHeatPreservationMinute2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seHeatPreservationMinute2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seHeatPreservationMinute2.Properties.MaskSettings.Set("mask", "n0");
-            this.seHeatPreservationMinute2.Size = new System.Drawing.Size(69, 22);
+            this.seHeatPreservationMinute2.Size = new System.Drawing.Size(91, 28);
             this.seHeatPreservationMinute2.TabIndex = 77;
             // 
             // seOverTemperatureThreshold2
@@ -458,8 +461,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seOverTemperatureThreshold2.Location = new System.Drawing.Point(487, 133);
-            this.seOverTemperatureThreshold2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seOverTemperatureThreshold2.Location = new System.Drawing.Point(650, 166);
+            this.seOverTemperatureThreshold2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seOverTemperatureThreshold2.Name = "seOverTemperatureThreshold2";
             this.seOverTemperatureThreshold2.Properties.AutoHeight = false;
             this.seOverTemperatureThreshold2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -467,7 +470,7 @@ namespace ControlPanelClsLib
             this.seOverTemperatureThreshold2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOverTemperatureThreshold2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOverTemperatureThreshold2.Properties.MaskSettings.Set("mask", "n0");
-            this.seOverTemperatureThreshold2.Size = new System.Drawing.Size(69, 22);
+            this.seOverTemperatureThreshold2.Size = new System.Drawing.Size(91, 28);
             this.seOverTemperatureThreshold2.TabIndex = 78;
             // 
             // seTemp2
@@ -478,8 +481,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seTemp2.Location = new System.Drawing.Point(487, 229);
-            this.seTemp2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seTemp2.Location = new System.Drawing.Point(650, 286);
+            this.seTemp2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seTemp2.Name = "seTemp2";
             this.seTemp2.Properties.AutoHeight = false;
             this.seTemp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -488,7 +491,7 @@ namespace ControlPanelClsLib
             this.seTemp2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seTemp2.Properties.MaskSettings.Set("mask", "n0");
             this.seTemp2.Properties.ReadOnly = true;
-            this.seTemp2.Size = new System.Drawing.Size(69, 22);
+            this.seTemp2.Size = new System.Drawing.Size(91, 28);
             this.seTemp2.TabIndex = 79;
             // 
             // laHeat2
@@ -496,20 +499,20 @@ namespace ControlPanelClsLib
             this.laHeat2.Appearance.BackColor = System.Drawing.Color.YellowGreen;
             this.laHeat2.Appearance.Options.UseBackColor = true;
             this.laHeat2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laHeat2.Location = new System.Drawing.Point(486, 196);
-            this.laHeat2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.laHeat2.Location = new System.Drawing.Point(648, 245);
+            this.laHeat2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.laHeat2.Name = "laHeat2";
-            this.laHeat2.Size = new System.Drawing.Size(71, 24);
+            this.laHeat2.Size = new System.Drawing.Size(95, 30);
             this.laHeat2.TabIndex = 80;
             this.laHeat2.Text = "  ";
             // 
             // btnHeat2
             // 
             this.btnHeat2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHeat2.Location = new System.Drawing.Point(563, 66);
-            this.btnHeat2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHeat2.Location = new System.Drawing.Point(751, 82);
+            this.btnHeat2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHeat2.Name = "btnHeat2";
-            this.btnHeat2.Size = new System.Drawing.Size(62, 28);
+            this.btnHeat2.Size = new System.Drawing.Size(82, 36);
             this.btnHeat2.TabIndex = 81;
             this.btnHeat2.Text = "加热";
             this.btnHeat2.UseVisualStyleBackColor = true;
@@ -518,10 +521,10 @@ namespace ControlPanelClsLib
             // btnStopHeat2
             // 
             this.btnStopHeat2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStopHeat2.Location = new System.Drawing.Point(563, 98);
-            this.btnStopHeat2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStopHeat2.Location = new System.Drawing.Point(751, 122);
+            this.btnStopHeat2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStopHeat2.Name = "btnStopHeat2";
-            this.btnStopHeat2.Size = new System.Drawing.Size(62, 28);
+            this.btnStopHeat2.Size = new System.Drawing.Size(82, 36);
             this.btnStopHeat2.TabIndex = 82;
             this.btnStopHeat2.Text = "停止加热";
             this.btnStopHeat2.UseVisualStyleBackColor = true;
@@ -530,10 +533,10 @@ namespace ControlPanelClsLib
             // btnSelfTuning2
             // 
             this.btnSelfTuning2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSelfTuning2.Location = new System.Drawing.Point(563, 130);
-            this.btnSelfTuning2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelfTuning2.Location = new System.Drawing.Point(751, 162);
+            this.btnSelfTuning2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelfTuning2.Name = "btnSelfTuning2";
-            this.btnSelfTuning2.Size = new System.Drawing.Size(62, 28);
+            this.btnSelfTuning2.Size = new System.Drawing.Size(82, 36);
             this.btnSelfTuning2.TabIndex = 83;
             this.btnSelfTuning2.Text = "自整定";
             this.btnSelfTuning2.UseVisualStyleBackColor = true;
@@ -542,10 +545,10 @@ namespace ControlPanelClsLib
             // btnSelectHeatRecipe
             // 
             this.btnSelectHeatRecipe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSelectHeatRecipe.Location = new System.Drawing.Point(233, 2);
-            this.btnSelectHeatRecipe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectHeatRecipe.Location = new System.Drawing.Point(311, 2);
+            this.btnSelectHeatRecipe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelectHeatRecipe.Name = "btnSelectHeatRecipe";
-            this.btnSelectHeatRecipe.Size = new System.Drawing.Size(62, 28);
+            this.btnSelectHeatRecipe.Size = new System.Drawing.Size(82, 36);
             this.btnSelectHeatRecipe.TabIndex = 86;
             this.btnSelectHeatRecipe.Text = "选择";
             this.btnSelectHeatRecipe.UseVisualStyleBackColor = true;
@@ -554,27 +557,28 @@ namespace ControlPanelClsLib
             // labelControl6
             // 
             this.labelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl6.Location = new System.Drawing.Point(3, 3);
+            this.labelControl6.Location = new System.Drawing.Point(4, 4);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(146, 26);
+            this.labelControl6.Size = new System.Drawing.Size(195, 32);
             this.labelControl6.TabIndex = 84;
             this.labelControl6.Text = "烘箱A:配方名称";
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(4, 260);
-            this.labelControl12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl12.Location = new System.Drawing.Point(5, 325);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(141, 14);
+            this.labelControl12.Size = new System.Drawing.Size(175, 18);
             this.labelControl12.TabIndex = 90;
             this.labelControl12.Text = "烘箱A:剩余保温时间/分钟:";
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(334, 260);
-            this.labelControl13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl13.Location = new System.Drawing.Point(445, 325);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(140, 14);
+            this.labelControl13.Size = new System.Drawing.Size(175, 18);
             this.labelControl13.TabIndex = 91;
             this.labelControl13.Text = "烘箱B:剩余保温时间/分钟:";
             // 
@@ -585,8 +589,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seInsulatedMinutes.Location = new System.Drawing.Point(157, 261);
-            this.seInsulatedMinutes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seInsulatedMinutes.Location = new System.Drawing.Point(210, 326);
+            this.seInsulatedMinutes.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seInsulatedMinutes.Name = "seInsulatedMinutes";
             this.seInsulatedMinutes.Properties.AutoHeight = false;
             this.seInsulatedMinutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -595,7 +599,7 @@ namespace ControlPanelClsLib
             this.seInsulatedMinutes.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seInsulatedMinutes.Properties.MaskSettings.Set("mask", "n0");
             this.seInsulatedMinutes.Properties.ReadOnly = true;
-            this.seInsulatedMinutes.Size = new System.Drawing.Size(68, 22);
+            this.seInsulatedMinutes.Size = new System.Drawing.Size(91, 28);
             this.seInsulatedMinutes.TabIndex = 92;
             // 
             // seInsulatedMinutes2
@@ -605,8 +609,8 @@ namespace ControlPanelClsLib
             0,
             0,
             0});
-            this.seInsulatedMinutes2.Location = new System.Drawing.Point(487, 261);
-            this.seInsulatedMinutes2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.seInsulatedMinutes2.Location = new System.Drawing.Point(650, 326);
+            this.seInsulatedMinutes2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.seInsulatedMinutes2.Name = "seInsulatedMinutes2";
             this.seInsulatedMinutes2.Properties.AutoHeight = false;
             this.seInsulatedMinutes2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -615,16 +619,16 @@ namespace ControlPanelClsLib
             this.seInsulatedMinutes2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seInsulatedMinutes2.Properties.MaskSettings.Set("mask", "n0");
             this.seInsulatedMinutes2.Properties.ReadOnly = true;
-            this.seInsulatedMinutes2.Size = new System.Drawing.Size(68, 22);
+            this.seInsulatedMinutes2.Size = new System.Drawing.Size(91, 28);
             this.seInsulatedMinutes2.TabIndex = 93;
             // 
             // FrmTemperatureControlPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 323);
+            this.ClientSize = new System.Drawing.Size(883, 404);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTemperatureControlPanel";
             this.Text = "烘箱加热";
             ((System.ComponentModel.ISupportInitialize)(this.seTargetTemp.Properties)).EndInit();

@@ -177,6 +177,9 @@ namespace ConfigurationClsLib
             MaterialBoxZcannotmovedLocation1 = new XYZTCoordinateConfig();
             MaterialBoxRotatablePositionLocation = new XYZTCoordinateConfig();
 
+            MaterialBoxhookOven1Location = new XYZTCoordinateConfig();
+            MaterialBoxhookOven2Location = new XYZTCoordinateConfig();
+
             MaterialXcannotmovedLocation1 = new XYZTCoordinateConfig();
 
         }
@@ -289,6 +292,18 @@ namespace ConfigurationClsLib
         public XYZTCoordinateConfig MaterialXcannotmovedLocation1 { get; set; }
 
         /// <summary>
+        /// 料盒钩爪在烘箱1位置
+        /// </summary>
+        [XmlElement("MaterialBoxhookOven1Location")]
+        public XYZTCoordinateConfig MaterialBoxhookOven1Location { get; set; }
+
+        /// <summary>
+        /// 料盒钩爪在烘箱2位置
+        /// </summary>
+        [XmlElement("MaterialBoxhookOven2Location")]
+        public XYZTCoordinateConfig MaterialBoxhookOven2Location { get; set; }
+
+        /// <summary>
         /// 当物料勾爪在压机附近时的最高高度
         /// </summary>
         [XmlElement("MaterialZMaxZ")]
@@ -301,11 +316,23 @@ namespace ConfigurationClsLib
         [XmlElement("MaterialZMinZ")]
         public float MaterialZMinZ { get; set; }
 
-        // <summary>
+        /// <summary>
         /// 当物料勾爪在压机附近时的最合适高度（可以带着物料移动）
         /// </summary>
         [XmlElement("MaterialZmostsuitableZ")]
         public float MaterialZmostsuitableZ { get; set; }
+
+        /// <summary>
+        /// 烘箱1轨道在烘箱内的位置
+        /// </summary>
+        [XmlElement("OverTrack1InOven")]
+        public float OverTrack1InOven { get; set; }
+
+        /// <summary>
+        /// 烘箱2轨道在烘箱内的位置
+        /// </summary>
+        [XmlElement("OverTrack2InOven")]
+        public float OverTrack2InOven { get; set; }
 
     }
 

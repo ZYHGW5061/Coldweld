@@ -21,12 +21,28 @@ namespace GlobalToolClsLib
         
         public event PropertyChangedEventHandler PropertyChanged;
 
+
         #region 内部参数
 
         private string sysdatetime;
         private int sysRuntime;
 
         private bool iolocken = true;
+
+        private float positionMaterialBoxX;
+        private float positionMaterialBoxY;
+        private float positionMaterialBoxZ;
+        private float positionMaterialBoxT;
+        private float positionMaterialBoxH;
+        private float positionMaterialX;
+        private float positionMaterialY;
+        private float positionMaterialZ;
+        private float positionMaterialH;
+        private float positionOverTrack1;
+        private float positionOverTrack2;
+        private float positionPresslifting;
+
+        
 
         private int weldMaterialNumber = 0;
         private int pressWorkNumber = 0;
@@ -356,6 +372,225 @@ namespace GlobalToolClsLib
                 }
             }
         }
+
+        /// <summary>
+        /// 料盒钩爪X位置
+        /// </summary>
+        public float PositionMaterialBoxX
+        {
+            get { return positionMaterialBoxX; }
+            set
+            {
+                if (positionMaterialBoxX != value)
+                {
+                    positionMaterialBoxX = value;
+                    OnPropertyChanged(nameof(PositionMaterialBoxX));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 料盒钩爪Y位置
+        /// </summary>
+        public float PositionMaterialBoxY
+        {
+            get { return positionMaterialBoxY; }
+            set
+            {
+                if (positionMaterialBoxY != value)
+                {
+                    positionMaterialBoxY = value;
+                    OnPropertyChanged(nameof(PositionMaterialBoxY));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 料盒钩爪Z位置
+        /// </summary>
+        public float PositionMaterialBoxZ
+        {
+            get { return positionMaterialBoxZ; }
+            set
+            {
+                if (positionMaterialBoxZ != value)
+                {
+                    positionMaterialBoxZ = value;
+                    OnPropertyChanged(nameof(PositionMaterialBoxZ));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 料盒钩爪T位置
+        /// </summary>
+        public float PositionMaterialBoxT
+        {
+            get { return positionMaterialBoxT; }
+            set
+            {
+                if (positionMaterialBoxT != value)
+                {
+                    positionMaterialBoxT = value;
+                    OnPropertyChanged(nameof(PositionMaterialBoxT));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 料盒钩爪H位置
+        /// </summary>
+        public float PositionMaterialBoxH
+        {
+            get { return positionMaterialBoxH; }
+            set
+            {
+                if (positionMaterialBoxH != value)
+                {
+                    positionMaterialBoxH = value;
+                    OnPropertyChanged(nameof(PositionMaterialBoxH));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 物料钩爪X位置
+        /// </summary>
+        public float PositionMaterialX
+        {
+            get { return positionMaterialX; }
+            set
+            {
+                if (positionMaterialX != value)
+                {
+                    positionMaterialX = value;
+                    OnPropertyChanged(nameof(PositionMaterialX));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 物料钩爪Y位置
+        /// </summary>
+        public float PositionMaterialY
+        {
+            get { return positionMaterialY; }
+            set
+            {
+                if (positionMaterialY != value)
+                {
+                    positionMaterialY = value;
+                    OnPropertyChanged(nameof(PositionMaterialY));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 物料钩爪Z位置
+        /// </summary>
+        public float PositionMaterialZ
+        {
+            get { return positionMaterialZ; }
+            set
+            {
+                if (positionMaterialZ != value)
+                {
+                    positionMaterialZ = value;
+                    OnPropertyChanged(nameof(PositionMaterialZ));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 物料钩爪H位置
+        /// </summary>
+        public float PositionMaterialH
+        {
+            get { return positionMaterialH; }
+            set
+            {
+                if (positionMaterialH != value)
+                {
+                    positionMaterialH = value;
+                    OnPropertyChanged(nameof(PositionMaterialH));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 烘箱1轨道位置
+        /// </summary>
+        public float PositionOverTrack1
+        {
+            get { return positionOverTrack1; }
+            set
+            {
+                if (positionOverTrack1 != value)
+                {
+                    positionOverTrack1 = value;
+                    OnPropertyChanged(nameof(PositionOverTrack1));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 烘箱2轨道位置
+        /// </summary>
+        public float PositionOverTrack2
+        {
+            get { return positionOverTrack2; }
+            set
+            {
+                if (positionOverTrack2 != value)
+                {
+                    positionOverTrack2 = value;
+                    OnPropertyChanged(nameof(PositionOverTrack2));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 升降位置
+        /// </summary>
+        public float PositionPresslifting
+        {
+            get { return positionPresslifting; }
+            set
+            {
+                if (positionPresslifting != value)
+                {
+                    positionPresslifting = value;
+                    OnPropertyChanged(nameof(PositionPresslifting));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 物料钩爪避让位置
+        /// </summary>
+        public XYZTCoordinateConfig MaterialBoxhookAvoidLocation { get; set; }
+
+        /// <summary>
+        /// 料盒钩爪在烘箱1位置
+        /// </summary>
+        public XYZTCoordinateConfig MaterialBoxhookOven1Location { get; set; }
+
+        /// <summary>
+        /// 料盒钩爪在烘箱2位置
+        /// </summary>
+        public XYZTCoordinateConfig MaterialBoxhookOven2Location { get; set; }
+
+        /// <summary>
+        /// 烘箱1轨道在烘箱内的位置
+        /// </summary>
+        public float OverTrack1InOven { get; set; }
+
+        /// <summary>
+        /// 烘箱2轨道在烘箱内的位置
+        /// </summary>
+        public float OverTrack2InOven { get; set; }
+
+
 
         /// <summary>
         /// 已焊接物料个数
@@ -2453,7 +2688,36 @@ namespace GlobalToolClsLib
             {
                 if (iO == EnumBoardcardDefineOutputIO.PressPressingDivide && En)
                 {
-
+                    if (Math.Abs(PositionMaterialX - MaterialBoxhookAvoidLocation.X) < 30 && Math.Abs(PositionMaterialY - MaterialBoxhookAvoidLocation.Y) < 30)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                if (iO == EnumBoardcardDefineOutputIO.BakeOvenInnerdoorUpDown && !En)
+                {
+                    if ( (Math.Abs(PositionMaterialBoxX - MaterialBoxhookOven1Location.X) < 30 && Math.Abs(PositionMaterialBoxY - MaterialBoxhookOven1Location.Y) < 30) || PositionOverTrack1 > (OverTrack1InOven + 60))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                if (iO == EnumBoardcardDefineOutputIO.BakeOven2InnerdoorUpDown && !En)
+                {
+                    if ((Math.Abs(PositionMaterialBoxX - MaterialBoxhookOven2Location.X) < 30 && Math.Abs(PositionMaterialBoxY - MaterialBoxhookOven2Location.Y) < 30) || PositionOverTrack2 > (OverTrack2InOven + 60))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
 
                 if (iO == EnumBoardcardDefineOutputIO.BakeOvenPlugInValve && En)

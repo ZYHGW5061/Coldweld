@@ -2566,7 +2566,7 @@ namespace JobClsLib
                                     state = "000018000";
                                     result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
 
-                                    DataModel.Instance.MaterialMat[param.MaterialColNumber - j - 1][i].Materialstate = EnumMaterialstate.Totheweldingstation;
+                                    DataModel.Instance.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate = EnumMaterialstate.Totheweldingstation;
                                     DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
 
 
@@ -2801,6 +2801,24 @@ namespace JobClsLib
                                         return null;
                                     }
 
+                                    for (int i_w = 0; i_w < toweldnum; i_w++)
+                                    {
+                                        state = "000022000";
+                                        result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatchs[i_w]);
+
+                                        if (result.IsSuccess == false)
+                                        {
+                                            PauseOrStepMothed();
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
+                                            }));
+
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+                                        }
+                                        WaitForNext();
+                                    }
+
                                     Console.WriteLine("料盒焊接：升降轴升");
 
                                     state = "000013000";
@@ -2941,7 +2959,7 @@ namespace JobClsLib
                                         result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
 
 
-                                        DataModel.Instance.MaterialMat[param.MaterialColNumber - weldnum[toweldnum - i0 - 1][1] - 1][weldnum[toweldnum - i0 - 1][0]].Materialstate = EnumMaterialstate.Welded;
+                                        DataModel.Instance.MaterialMat[param.MaterialRowNumber - weldnum[toweldnum - i0 - 1][0] - 1][weldnum[toweldnum - i0 - 1][1]].Materialstate = EnumMaterialstate.Welded;
                                         DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
                                         DataModel.Instance.WeldMaterialNumber++;
                                         SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;

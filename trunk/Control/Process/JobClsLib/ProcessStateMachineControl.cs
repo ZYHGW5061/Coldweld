@@ -1146,7 +1146,7 @@ namespace JobClsLib
                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：不识别料盒";
                 return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：不识别料盒" };
             }
-            else if (type == EnumVisionRunningType.IdentifyButNotLocate)
+            else if (type == EnumVisionRunningType.IdentificationButNotLocate)
             {
                 xyzt = VisionControlclass.Instance.IdentificationAsync2(EnumCameraType.TrackCamera, param);
 
@@ -1306,7 +1306,7 @@ namespace JobClsLib
                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：不识别物料";
                 return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：不识别物料" };
             }
-            else if (type == EnumVisionRunningType.IdentifyButNotLocate)
+            else if (type == EnumVisionRunningType.IdentificationButNotLocate)
             {
                 xyzt = VisionControlclass.Instance.IdentificationAsync2(EnumCameraType.TrackCamera, param);
 
@@ -1370,15 +1370,18 @@ namespace JobClsLib
                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：焊台位置不识别物料";
                 return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：焊台位置不识别物料" };
             }
-
-
-            MatchResult result = VisionControlclass.Instance.IdentificationAsync(EnumCameraType.WeldCamera, param);
-
-            if (result == null)
+            if(type == EnumVisionRunningType.Identification || type == EnumVisionRunningType.IdentificationButNotLocate)
             {
-                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：焊台位置物料识别失败";
-                return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = false, Message = "物料焊接：焊台位置物料识别失败" };
+                MatchResult result = VisionControlclass.Instance.IdentificationAsync(EnumCameraType.WeldCamera, param);
+
+                if (result == null)
+                {
+                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：焊台位置物料识别失败";
+                    return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = false, Message = "物料焊接：焊台位置物料识别失败" };
+                }
             }
+
+            
 
             DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "物料焊接：焊台位置物料识别成功";
             return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "物料焊接：焊台位置物料识别成功" };

@@ -125,24 +125,29 @@ namespace BoardCardControllerClsLib
         /// <returns</returns
         double GetKillDeceleration(EnumStageAxis axis);
         void SetAxisMotionParameters(AxisConfig axisParam);
-        /// <summary
+        /// <summary>
         /// 绝对移动
-        /// </summary
-        /// <param name="targetPos"</param
-        /// <param name="millisecondsTimeout"超时时间  毫秒</param
+        /// </summary>
+        /// <param name="axis"></param>
+        /// <param name="targetPos"></param>
+        /// <param name="Speed"></param>
+        /// <param name="millisecondsTimeout"></param>
         void MoveAbsoluteSync(EnumStageAxis axis,double targetPos, double Speed, int millisecondsTimeout = -1);
 
-        /// <summary
+        /// <summary>
         /// 相对移动
-        /// </summary
-        /// <param name="distance"</param
-        /// <param name="millisecondsTimeout"超时时间  毫秒</param
+        /// </summary>
+        /// <param name="axis"></param>
+        /// <param name="distance"></param>
+        /// <param name="Speed"></param>
+        /// <param name="millisecondsTimeout">超时时间</param>
         void MoveRelativeSync(EnumStageAxis axis,double distance,double Speed, int millisecondsTimeout = -1);
 
-        /// <summary
+        /// <summary>
         /// 获得当前位置
-        /// </summary
-        /// <returns</returns
+        /// </summary>
+        /// <param name="axis"></param>
+        /// <returns></returns>
         double GetCurrentPosition(EnumStageAxis axis);
 
         void JogPositive(EnumStageAxis axis,float speed);

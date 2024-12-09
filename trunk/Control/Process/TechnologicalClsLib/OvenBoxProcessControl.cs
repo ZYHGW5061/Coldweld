@@ -3179,6 +3179,12 @@ namespace TechnologicalClsLib
             {
                 StopHeat = true;
 
+                _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
+
+                _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.AT, 0);
+
+                DataModel.Instance.HeatPreservationResidueMinute = 0;
+
                 //heatthd.Join();
 
                 DataModel.Instance.OvenBox1Heating = false;
@@ -3189,6 +3195,8 @@ namespace TechnologicalClsLib
                 _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 0);
 
                 _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.AT, 0);
+
+                DataModel.Instance.HeatPreservationResidueMinute = 0;
             }
         }
 
@@ -3224,6 +3232,12 @@ namespace TechnologicalClsLib
             {
                 StopHeat2 = true;
 
+                _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
+
+                _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.AT, 0);
+
+                DataModel.Instance.HeatPreservationResidueMinute2 = 0;
+
                 //heatthd2.Join();
 
                 DataModel.Instance.OvenBox2Heating = false;
@@ -3234,6 +3248,8 @@ namespace TechnologicalClsLib
                 _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 0);
 
                 _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.AT, 0);
+
+                DataModel.Instance.HeatPreservationResidueMinute2 = 0;
             }
         }
 
