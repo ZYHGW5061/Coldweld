@@ -334,6 +334,38 @@ namespace ConfigurationClsLib
         [XmlElement("OverTrack2InOven")]
         public float OverTrack2InOven { get; set; }
 
+
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQxX")]
+        public double MaterialArrayQxX { get; set; }
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQxY")]
+        public double MaterialArrayQxY { get; set; }
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQyX")]
+        public double MaterialArrayQyX { get; set; }
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQyY")]
+        public double MaterialArrayQyY { get; set; }
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQzX")]
+        public double MaterialArrayQzX { get; set; }
+        /// <summary>
+        /// 物料坐标阵列参数1
+        /// </summary>
+        [XmlElement("MaterialArrayQzY")]
+        public double MaterialArrayQzY { get; set; }
+
     }
 
     /// <summary>

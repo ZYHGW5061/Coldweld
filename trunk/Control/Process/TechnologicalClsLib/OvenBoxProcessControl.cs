@@ -1276,6 +1276,12 @@ namespace TechnologicalClsLib
                     return;
                 }
 
+                Done1 = DataModel.Instance.BoxFrontStageValve;
+                if (Done1 && !StopBoxVacuumPumpingthd)
+                {
+                    WriteBoolOvenBoxStatesMothed(EnumBoardcardDefineOutputIO.BoxFrontStageValve, false);//关闭前级阀
+                }
+
                 //float Vacuum = _VacuumGaugeControllerManager.GetVacuumGaugeController(EnumVacuumGaugeType.Box).ReadVacuum();
                 float Vacuum = DataModel.Instance.BoxVacuum;
                 if (Vacuum > 10)
@@ -2546,8 +2552,8 @@ namespace TechnologicalClsLib
 
         private void WeldMothed(int weldtime)
         {
-            Write<bool>(EnumBoardcardDefineOutputIO.PressPressingDivide, false);
-            return;
+            //Write<bool>(EnumBoardcardDefineOutputIO.PressPressingDivide, false);
+            //return;
 
             if (!DataModel.Instance.PressIsPress && !Stopweld)
             {

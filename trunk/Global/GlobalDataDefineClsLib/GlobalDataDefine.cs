@@ -136,6 +136,19 @@ namespace GlobalDataDefineClsLib
         Oven2Work = 5,
     }
 
+    [Serializable]
+    public enum ProcessTaskStatus
+    {
+        [Description("进行中")]
+        InProgress, // 进行中  
+        [Description("已完成")]
+        Completed,   // 已完成  
+        [Description("已暂停")]
+        Paused,      // 已暂停  
+        [Description("未执行")]
+        NotExecuted   // 未执行  
+    }
+
 
     [Serializable]
     public enum EnumLoginResult
@@ -1252,7 +1265,10 @@ namespace GlobalDataDefineClsLib
         public MatchIdentificationParam TrackCameraIdentifyMaterialBoxMatch { get; set; }
 
 
-        public void SetMaterialMat(XYZTCoordinateConfig Firstxyz, XYZTCoordinateConfig Centerxyzt, XYZTCoordinateConfig Centerxyztoffset)
+        public void SetMaterialMat(XYZTCoordinateConfig Firstxyz, XYZTCoordinateConfig Centerxyzt, XYZTCoordinateConfig Centerxyztoffset,
+            double MaterialArrayQxX = 0.015799999999984, double MaterialArrayQxY = -19.999300000000005,
+            double MaterialArrayQyX = -19.999899999999997, double MaterialArrayQyY = -0.137999999999977,
+            double MaterialArrayQzX = 0.062099999999996, double MaterialArrayQzY = 0.191399999999998)
         {
             double Xoffset = Centerxyztoffset.X - Centerxyzt.X;
             double Yoffset = Centerxyztoffset.Y - Centerxyzt.Y;
@@ -1363,34 +1379,71 @@ namespace GlobalDataDefineClsLib
 
             #region 241206真空下中心旋转补偿
 
-            for (int i = 0; i < MaterialRowNumber; i++)
-            {
-                for (int j = 0; j < MaterialColNumber; j++)
-                {
-                    double X = 7 - i;
-                    double Y = 7 - j;
-                    double Qx = 147.6465 + X * 0.015799999999984 + Y * -19.999300000000005;
-                    double Qy = -160.4275 + X * -19.999899999999997 + Y * -0.137999999999977;
-                    double Qz = -43.5 + X * 0.062099999999996 + Y * 0.191399999999998;
+            //for (int i = 0; i < MaterialRowNumber; i++)
+            //{
+            //    for (int j = 0; j < MaterialColNumber; j++)
+            //    {
+            //        double X = 7 - i;
+            //        double Y = 7 - j;
+            //        double Qx = 147.6465 + X * 0.015799999999984 + Y * -19.999300000000005;
+            //        double Qy = -160.4275 + X * -19.999899999999997 + Y * -0.137999999999977;
+            //        double Qz = -43.5 + X * 0.062099999999996 + Y * 0.191399999999998;
 
-                    double X0 = Qx;
+            //        double X0 = Qx;
 
-                    double Y0 = Qy;
+            //        double Y0 = Qy;
 
-                    double Z0 = Qz;
+            //        double Z0 = Qz;
 
-                    XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
-                    {
-                        X = X0,
-                        Y = Y0,
-                        Z = Z0,
-                    };
+            //        XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+            //        {
+            //            X = X0,
+            //            Y = Y0,
+            //            Z = Z0,
+            //        };
 
-                    MaterialMat[i][j].MaterialPosition = xyz;
-                }
-            }
+            //        MaterialMat[i][j].MaterialPosition = xyz;
+            //    }
+            //}
 
             #endregion
+
+            #region 241216真空下中心旋转补偿，参数可设置
+
+            if((MaterialRowNumber % 2 != 0) && (MaterialColNumber % 2 != 0))
+            {
+                for (int i = 0; i < MaterialRowNumber; i++)
+                {
+                    for (int j = 0; j < MaterialColNumber; j++)
+                    {
+                        double X = (MaterialRowNumber - 1) / 2 - i;
+                        double Y = (MaterialColNumber - 1) / 2 - j;
+                        double Qx = Firstxyz.X + X * MaterialArrayQxX + Y * MaterialArrayQxY ;
+                        double Qy = Firstxyz.Y + X * MaterialArrayQyX + Y * MaterialArrayQyY;
+                        double Qz = Firstxyz.Z + X * MaterialArrayQzX + Y * MaterialArrayQzY;
+
+                        double X0 = Qx;
+
+                        double Y0 = Qy;
+
+                        double Z0 = Qz;
+
+                        XYZTCoordinateConfig xyz = new XYZTCoordinateConfig()
+                        {
+                            X = X0,
+                            Y = Y0,
+                            Z = Z0,
+                        };
+
+                        MaterialMat[i][j].MaterialPosition = xyz;
+                    }
+                }
+
+            }
+
+
+            #endregion
+
 
 
         }

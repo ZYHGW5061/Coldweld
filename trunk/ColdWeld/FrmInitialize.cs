@@ -206,12 +206,13 @@ namespace BondTerminal
                     //{
 
 
+                    int _timeOut1 = 0;
 
                     while (_ConnectCameraSuccess == false || _systemInitializeSuccess == false)
                     {
                         Thread.Sleep(100);
-                        _timeOut += 100;
-                        if (_timeOut > 180000)
+                        _timeOut1 += 100;
+                        if (_timeOut1 > 180000)
                         {
                             break;
                         }

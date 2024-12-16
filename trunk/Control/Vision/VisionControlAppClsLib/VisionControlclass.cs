@@ -172,19 +172,17 @@ namespace VisionControlAppClsLib
 
                 if (results != null && results.Count > 0)
                 {
+                    Task.Factory.StartNew(new Action(() =>
+                    {
+                        CameraWindowGUI.Instance.ShowImage(Showbitmap, _TrackCameraConfig.CameraWindowImageScale);
+                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                        CameraWindowGUI.Instance.GraphicDrawInit(results);
+                        CameraWindowGUI.Instance.GraphicDraw(Graphic.match, true);
+                    }));
                     if (results[0].IsOk)
                     {
-                        Task.Factory.StartNew(new Action(() =>
-                        {
-                            CameraWindowGUI.Instance.ShowImage(Showbitmap, _TrackCameraConfig.CameraWindowImageScale);
-                            CameraWindowGUI.Instance.ClearGraphicDraw();
-                            CameraWindowGUI.Instance.GraphicDrawInit(results);
-                            CameraWindowGUI.Instance.GraphicDraw(Graphic.match, true);
-                        }));
-                        {
 
-                            return results[0];
-                        }
+                        return results[0];
                     }
 
 
@@ -221,20 +219,17 @@ namespace VisionControlAppClsLib
 
                 if (results != null && results.Count > 0)
                 {
-
+                    Task.Factory.StartNew(new Action(() =>
+                    {
+                        CameraWindowGUI.Instance.ShowImage(Showbitmap, _WeldCameraConfig.CameraWindowImageScale);
+                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                        CameraWindowGUI.Instance.GraphicDrawInit(results);
+                        CameraWindowGUI.Instance.GraphicDraw(Graphic.match, true);
+                    }));
                     if (results[0].IsOk)
                     {
-                        Task.Factory.StartNew(new Action(() =>
-                        {
-                            CameraWindowGUI.Instance.ShowImage(Showbitmap, _WeldCameraConfig.CameraWindowImageScale);
-                            CameraWindowGUI.Instance.ClearGraphicDraw();
-                            CameraWindowGUI.Instance.GraphicDrawInit(results);
-                            CameraWindowGUI.Instance.GraphicDraw(Graphic.match, true);
-                        }));
-                        {
-                            return results[0];
 
-                        }
+                        return results[0];
                     }
 
 

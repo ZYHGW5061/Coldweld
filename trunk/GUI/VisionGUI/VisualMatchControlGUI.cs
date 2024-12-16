@@ -536,7 +536,7 @@ namespace VisionGUI
             }
             else
             {
-                this.SearchRoi = param.TemplateRoi;
+                this.SearchRoi = param.SearchRoi;
             }
             //this.Templateresult = param.Templateresult;
             this.MatchTemplatefilepath = param.Templatexml;

@@ -316,6 +316,17 @@
             this.PickupMaterialtabPage = new System.Windows.Forms.TabPage();
             this.PickupMaterialSave = new System.Windows.Forms.Button();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.labelControl95 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl92 = new DevExpress.XtraEditors.LabelControl();
+            this.numMaterialHookPickupMaterialPositionZ1 = new System.Windows.Forms.NumericUpDown();
+            this.labelControl93 = new DevExpress.XtraEditors.LabelControl();
+            this.numMaterialHookPickupMaterialPositionY1 = new System.Windows.Forms.NumericUpDown();
+            this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
+            this.numMaterialHookPickupMaterialPositionX1 = new System.Windows.Forms.NumericUpDown();
+            this.numMaterialColNum = new System.Windows.Forms.NumericUpDown();
+            this.labelControl91 = new DevExpress.XtraEditors.LabelControl();
+            this.numMaterialRawNum = new System.Windows.Forms.NumericUpDown();
+            this.labelControl90 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
             this.numMaterialCompensationZ = new System.Windows.Forms.NumericUpDown();
             this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
@@ -396,17 +407,6 @@
             this.numWeldPessure = new System.Windows.Forms.NumericUpDown();
             this.numWeldTime = new System.Windows.Forms.NumericUpDown();
             this.labelControl153 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl90 = new DevExpress.XtraEditors.LabelControl();
-            this.numMaterialRawNum = new System.Windows.Forms.NumericUpDown();
-            this.numMaterialColNum = new System.Windows.Forms.NumericUpDown();
-            this.labelControl91 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl92 = new DevExpress.XtraEditors.LabelControl();
-            this.numMaterialHookPickupMaterialPositionZ1 = new System.Windows.Forms.NumericUpDown();
-            this.labelControl93 = new DevExpress.XtraEditors.LabelControl();
-            this.numMaterialHookPickupMaterialPositionY1 = new System.Windows.Forms.NumericUpDown();
-            this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
-            this.numMaterialHookPickupMaterialPositionX1 = new System.Windows.Forms.NumericUpDown();
-            this.labelControl95 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
             this.TransportTab.SuspendLayout();
             this.ParamPage.SuspendLayout();
@@ -513,6 +513,11 @@
             this.tabControl1.SuspendLayout();
             this.PickupMaterialtabPage.SuspendLayout();
             this.groupBox20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionZ1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionY1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialColNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialRawNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaterialCompensationZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaterialCompensationAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMaterialBoxName_2.Properties)).BeginInit();
@@ -538,31 +543,28 @@
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWeldPessure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWeldTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialRawNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialColNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionZ1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionY1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionX1)).BeginInit();
             this.SuspendLayout();
             // 
             // labName
             // 
             this.labName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labName.Location = new System.Drawing.Point(10, 10);
+            this.labName.Location = new System.Drawing.Point(12, 12);
+            this.labName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(28, 14);
+            this.labName.Size = new System.Drawing.Size(35, 18);
             this.labName.TabIndex = 0;
             this.labName.Text = "名称:";
             // 
             // teName
             // 
             this.teName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.teName.Location = new System.Drawing.Point(45, 6);
+            this.teName.Location = new System.Drawing.Point(56, 8);
+            this.teName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teName.Name = "teName";
             this.teName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teName.Properties.Appearance.Options.UseBackColor = true;
             this.teName.Properties.AutoHeight = false;
-            this.teName.Size = new System.Drawing.Size(174, 25);
+            this.teName.Size = new System.Drawing.Size(218, 31);
             this.teName.TabIndex = 1;
             // 
             // btn_Add
@@ -593,13 +595,14 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(493, 714);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(616, 892);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(219, 49);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(274, 61);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // TransportTab
@@ -608,12 +611,12 @@
             this.TransportTab.Controls.Add(this.MaterialboxTabPage);
             this.TransportTab.Controls.Add(this.MaterialTabPage);
             this.TransportTab.Controls.Add(this.WeldtabPage);
-            this.TransportTab.Location = new System.Drawing.Point(10, 54);
+            this.TransportTab.Location = new System.Drawing.Point(12, 68);
             this.TransportTab.Margin = new System.Windows.Forms.Padding(2);
             this.TransportTab.Name = "TransportTab";
             this.TransportTab.Padding = new System.Drawing.Point(70, 3);
             this.TransportTab.SelectedIndex = 0;
-            this.TransportTab.Size = new System.Drawing.Size(721, 654);
+            this.TransportTab.Size = new System.Drawing.Size(901, 818);
             this.TransportTab.TabIndex = 3;
             // 
             // ParamPage
@@ -623,11 +626,11 @@
             this.ParamPage.Controls.Add(this.OverBox1groupBox);
             this.ParamPage.Controls.Add(this.MaterialboxgroupBox);
             this.ParamPage.Controls.Add(this.MaterialgroupBox);
-            this.ParamPage.Location = new System.Drawing.Point(4, 23);
+            this.ParamPage.Location = new System.Drawing.Point(4, 27);
             this.ParamPage.Margin = new System.Windows.Forms.Padding(2);
             this.ParamPage.Name = "ParamPage";
             this.ParamPage.Padding = new System.Windows.Forms.Padding(2);
-            this.ParamPage.Size = new System.Drawing.Size(713, 627);
+            this.ParamPage.Size = new System.Drawing.Size(893, 787);
             this.ParamPage.TabIndex = 2;
             this.ParamPage.Text = "参数";
             this.ParamPage.UseVisualStyleBackColor = true;
@@ -637,21 +640,21 @@
             this.WeldTablegroupBox.Controls.Add(this.btnWeldNumSave);
             this.WeldTablegroupBox.Controls.Add(this.labelControl119);
             this.WeldTablegroupBox.Controls.Add(this.numWeldNum);
-            this.WeldTablegroupBox.Location = new System.Drawing.Point(6, 547);
+            this.WeldTablegroupBox.Location = new System.Drawing.Point(8, 684);
             this.WeldTablegroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.WeldTablegroupBox.Name = "WeldTablegroupBox";
             this.WeldTablegroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.WeldTablegroupBox.Size = new System.Drawing.Size(705, 66);
+            this.WeldTablegroupBox.Size = new System.Drawing.Size(881, 82);
             this.WeldTablegroupBox.TabIndex = 4;
             this.WeldTablegroupBox.TabStop = false;
             this.WeldTablegroupBox.Text = "焊台参数";
             // 
             // btnWeldNumSave
             // 
-            this.btnWeldNumSave.Location = new System.Drawing.Point(246, 20);
+            this.btnWeldNumSave.Location = new System.Drawing.Point(308, 25);
             this.btnWeldNumSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeldNumSave.Name = "btnWeldNumSave";
-            this.btnWeldNumSave.Size = new System.Drawing.Size(60, 25);
+            this.btnWeldNumSave.Size = new System.Drawing.Size(75, 31);
             this.btnWeldNumSave.TabIndex = 24;
             this.btnWeldNumSave.Text = "保存";
             this.btnWeldNumSave.UseVisualStyleBackColor = true;
@@ -660,18 +663,19 @@
             // labelControl119
             // 
             this.labelControl119.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl119.Location = new System.Drawing.Point(9, 25);
+            this.labelControl119.Location = new System.Drawing.Point(11, 31);
+            this.labelControl119.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl119.Name = "labelControl119";
-            this.labelControl119.Size = new System.Drawing.Size(52, 14);
+            this.labelControl119.Size = new System.Drawing.Size(65, 18);
             this.labelControl119.TabIndex = 23;
             this.labelControl119.Text = "焊接个数:";
             // 
             // numWeldNum
             // 
-            this.numWeldNum.Location = new System.Drawing.Point(66, 23);
+            this.numWeldNum.Location = new System.Drawing.Point(82, 29);
             this.numWeldNum.Margin = new System.Windows.Forms.Padding(2);
             this.numWeldNum.Name = "numWeldNum";
-            this.numWeldNum.Size = new System.Drawing.Size(96, 22);
+            this.numWeldNum.Size = new System.Drawing.Size(120, 26);
             this.numWeldNum.TabIndex = 22;
             // 
             // OverBox2groupBox
@@ -684,11 +688,11 @@
             this.OverBox2groupBox.Controls.Add(this.numOverBox2MaterialBoxLayerNumber);
             this.OverBox2groupBox.Controls.Add(this.teOverBox2SelectMaterialBoxName);
             this.OverBox2groupBox.Controls.Add(this.labelControl13);
-            this.OverBox2groupBox.Location = new System.Drawing.Point(364, 398);
+            this.OverBox2groupBox.Location = new System.Drawing.Point(455, 498);
             this.OverBox2groupBox.Margin = new System.Windows.Forms.Padding(2);
             this.OverBox2groupBox.Name = "OverBox2groupBox";
             this.OverBox2groupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.OverBox2groupBox.Size = new System.Drawing.Size(346, 146);
+            this.OverBox2groupBox.Size = new System.Drawing.Size(432, 182);
             this.OverBox2groupBox.TabIndex = 3;
             this.OverBox2groupBox.TabStop = false;
             this.OverBox2groupBox.Text = "烘箱2参数";
@@ -696,26 +700,27 @@
             // labelControl85
             // 
             this.labelControl85.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl85.Location = new System.Drawing.Point(10, 76);
+            this.labelControl85.Location = new System.Drawing.Point(12, 95);
+            this.labelControl85.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl85.Name = "labelControl85";
-            this.labelControl85.Size = new System.Drawing.Size(52, 14);
+            this.labelControl85.Size = new System.Drawing.Size(65, 18);
             this.labelControl85.TabIndex = 28;
             this.labelControl85.Text = "料盒层数:";
             // 
             // numOverBox2MaterialBoxGetInNumber
             // 
-            this.numOverBox2MaterialBoxGetInNumber.Location = new System.Drawing.Point(68, 74);
+            this.numOverBox2MaterialBoxGetInNumber.Location = new System.Drawing.Point(85, 92);
             this.numOverBox2MaterialBoxGetInNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numOverBox2MaterialBoxGetInNumber.Name = "numOverBox2MaterialBoxGetInNumber";
-            this.numOverBox2MaterialBoxGetInNumber.Size = new System.Drawing.Size(96, 22);
+            this.numOverBox2MaterialBoxGetInNumber.Size = new System.Drawing.Size(120, 26);
             this.numOverBox2MaterialBoxGetInNumber.TabIndex = 27;
             // 
             // btnSaveOverBox2
             // 
-            this.btnSaveOverBox2.Location = new System.Drawing.Point(248, 52);
+            this.btnSaveOverBox2.Location = new System.Drawing.Point(310, 65);
             this.btnSaveOverBox2.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveOverBox2.Name = "btnSaveOverBox2";
-            this.btnSaveOverBox2.Size = new System.Drawing.Size(60, 25);
+            this.btnSaveOverBox2.Size = new System.Drawing.Size(75, 31);
             this.btnSaveOverBox2.TabIndex = 25;
             this.btnSaveOverBox2.Text = "保存";
             this.btnSaveOverBox2.UseVisualStyleBackColor = true;
@@ -724,18 +729,19 @@
             // labelControl15
             // 
             this.labelControl15.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl15.Location = new System.Drawing.Point(10, 52);
+            this.labelControl15.Location = new System.Drawing.Point(12, 65);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(52, 14);
+            this.labelControl15.Size = new System.Drawing.Size(65, 18);
             this.labelControl15.TabIndex = 25;
             this.labelControl15.Text = "料盒层数:";
             // 
             // btnOverBox2SelectMaterialBox
             // 
-            this.btnOverBox2SelectMaterialBox.Location = new System.Drawing.Point(248, 20);
+            this.btnOverBox2SelectMaterialBox.Location = new System.Drawing.Point(310, 25);
             this.btnOverBox2SelectMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverBox2SelectMaterialBox.Name = "btnOverBox2SelectMaterialBox";
-            this.btnOverBox2SelectMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnOverBox2SelectMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnOverBox2SelectMaterialBox.TabIndex = 22;
             this.btnOverBox2SelectMaterialBox.Text = "选择";
             this.btnOverBox2SelectMaterialBox.UseVisualStyleBackColor = true;
@@ -743,31 +749,33 @@
             // 
             // numOverBox2MaterialBoxLayerNumber
             // 
-            this.numOverBox2MaterialBoxLayerNumber.Location = new System.Drawing.Point(68, 50);
+            this.numOverBox2MaterialBoxLayerNumber.Location = new System.Drawing.Point(85, 62);
             this.numOverBox2MaterialBoxLayerNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numOverBox2MaterialBoxLayerNumber.Name = "numOverBox2MaterialBoxLayerNumber";
-            this.numOverBox2MaterialBoxLayerNumber.Size = new System.Drawing.Size(96, 22);
+            this.numOverBox2MaterialBoxLayerNumber.Size = new System.Drawing.Size(120, 26);
             this.numOverBox2MaterialBoxLayerNumber.TabIndex = 24;
             // 
             // teOverBox2SelectMaterialBoxName
             // 
             this.teOverBox2SelectMaterialBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teOverBox2SelectMaterialBoxName.Enabled = false;
-            this.teOverBox2SelectMaterialBoxName.Location = new System.Drawing.Point(68, 20);
+            this.teOverBox2SelectMaterialBoxName.Location = new System.Drawing.Point(85, 25);
+            this.teOverBox2SelectMaterialBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teOverBox2SelectMaterialBoxName.Name = "teOverBox2SelectMaterialBoxName";
             this.teOverBox2SelectMaterialBoxName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teOverBox2SelectMaterialBoxName.Properties.Appearance.Options.UseBackColor = true;
             this.teOverBox2SelectMaterialBoxName.Properties.AutoHeight = false;
             this.teOverBox2SelectMaterialBoxName.Properties.ReadOnly = true;
-            this.teOverBox2SelectMaterialBoxName.Size = new System.Drawing.Size(174, 25);
+            this.teOverBox2SelectMaterialBoxName.Size = new System.Drawing.Size(218, 31);
             this.teOverBox2SelectMaterialBoxName.TabIndex = 21;
             // 
             // labelControl13
             // 
             this.labelControl13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl13.Location = new System.Drawing.Point(10, 25);
+            this.labelControl13.Location = new System.Drawing.Point(12, 31);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(52, 14);
+            this.labelControl13.Size = new System.Drawing.Size(65, 18);
             this.labelControl13.TabIndex = 20;
             this.labelControl13.Text = "料盒名称:";
             // 
@@ -781,38 +789,39 @@
             this.OverBox1groupBox.Controls.Add(this.btnOverBox1SelectMaterialBox);
             this.OverBox1groupBox.Controls.Add(this.labelControl12);
             this.OverBox1groupBox.Controls.Add(this.teOverBox1SelectMaterialBoxName);
-            this.OverBox1groupBox.Location = new System.Drawing.Point(5, 398);
+            this.OverBox1groupBox.Location = new System.Drawing.Point(6, 498);
             this.OverBox1groupBox.Margin = new System.Windows.Forms.Padding(2);
             this.OverBox1groupBox.Name = "OverBox1groupBox";
             this.OverBox1groupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.OverBox1groupBox.Size = new System.Drawing.Size(346, 146);
+            this.OverBox1groupBox.Size = new System.Drawing.Size(432, 182);
             this.OverBox1groupBox.TabIndex = 2;
             this.OverBox1groupBox.TabStop = false;
             this.OverBox1groupBox.Text = "烘箱1参数";
             // 
             // numOverBox1MaterialBoxGetInNumber
             // 
-            this.numOverBox1MaterialBoxGetInNumber.Location = new System.Drawing.Point(65, 74);
+            this.numOverBox1MaterialBoxGetInNumber.Location = new System.Drawing.Point(81, 92);
             this.numOverBox1MaterialBoxGetInNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numOverBox1MaterialBoxGetInNumber.Name = "numOverBox1MaterialBoxGetInNumber";
-            this.numOverBox1MaterialBoxGetInNumber.Size = new System.Drawing.Size(96, 22);
+            this.numOverBox1MaterialBoxGetInNumber.Size = new System.Drawing.Size(120, 26);
             this.numOverBox1MaterialBoxGetInNumber.TabIndex = 26;
             // 
             // labelControl84
             // 
             this.labelControl84.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl84.Location = new System.Drawing.Point(8, 76);
+            this.labelControl84.Location = new System.Drawing.Point(10, 95);
+            this.labelControl84.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl84.Name = "labelControl84";
-            this.labelControl84.Size = new System.Drawing.Size(52, 14);
+            this.labelControl84.Size = new System.Drawing.Size(65, 18);
             this.labelControl84.TabIndex = 25;
             this.labelControl84.Text = "进料次数:";
             // 
             // btnSaveOverBox1
             // 
-            this.btnSaveOverBox1.Location = new System.Drawing.Point(248, 50);
+            this.btnSaveOverBox1.Location = new System.Drawing.Point(310, 62);
             this.btnSaveOverBox1.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveOverBox1.Name = "btnSaveOverBox1";
-            this.btnSaveOverBox1.Size = new System.Drawing.Size(60, 25);
+            this.btnSaveOverBox1.Size = new System.Drawing.Size(75, 31);
             this.btnSaveOverBox1.TabIndex = 24;
             this.btnSaveOverBox1.Text = "保存";
             this.btnSaveOverBox1.UseVisualStyleBackColor = true;
@@ -821,26 +830,27 @@
             // labelControl14
             // 
             this.labelControl14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl14.Location = new System.Drawing.Point(8, 52);
+            this.labelControl14.Location = new System.Drawing.Point(10, 65);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(52, 14);
+            this.labelControl14.Size = new System.Drawing.Size(65, 18);
             this.labelControl14.TabIndex = 23;
             this.labelControl14.Text = "料盒层数:";
             // 
             // numOverBox1MaterialBoxLayerNumber
             // 
-            this.numOverBox1MaterialBoxLayerNumber.Location = new System.Drawing.Point(65, 50);
+            this.numOverBox1MaterialBoxLayerNumber.Location = new System.Drawing.Point(81, 62);
             this.numOverBox1MaterialBoxLayerNumber.Margin = new System.Windows.Forms.Padding(2);
             this.numOverBox1MaterialBoxLayerNumber.Name = "numOverBox1MaterialBoxLayerNumber";
-            this.numOverBox1MaterialBoxLayerNumber.Size = new System.Drawing.Size(96, 22);
+            this.numOverBox1MaterialBoxLayerNumber.Size = new System.Drawing.Size(120, 26);
             this.numOverBox1MaterialBoxLayerNumber.TabIndex = 22;
             // 
             // btnOverBox1SelectMaterialBox
             // 
-            this.btnOverBox1SelectMaterialBox.Location = new System.Drawing.Point(248, 20);
+            this.btnOverBox1SelectMaterialBox.Location = new System.Drawing.Point(310, 25);
             this.btnOverBox1SelectMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverBox1SelectMaterialBox.Name = "btnOverBox1SelectMaterialBox";
-            this.btnOverBox1SelectMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnOverBox1SelectMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnOverBox1SelectMaterialBox.TabIndex = 19;
             this.btnOverBox1SelectMaterialBox.Text = "选择";
             this.btnOverBox1SelectMaterialBox.UseVisualStyleBackColor = true;
@@ -849,9 +859,10 @@
             // labelControl12
             // 
             this.labelControl12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl12.Location = new System.Drawing.Point(8, 25);
+            this.labelControl12.Location = new System.Drawing.Point(10, 31);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(52, 14);
+            this.labelControl12.Size = new System.Drawing.Size(65, 18);
             this.labelControl12.TabIndex = 17;
             this.labelControl12.Text = "料盒名称:";
             // 
@@ -859,13 +870,14 @@
             // 
             this.teOverBox1SelectMaterialBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teOverBox1SelectMaterialBoxName.Enabled = false;
-            this.teOverBox1SelectMaterialBoxName.Location = new System.Drawing.Point(66, 20);
+            this.teOverBox1SelectMaterialBoxName.Location = new System.Drawing.Point(82, 25);
+            this.teOverBox1SelectMaterialBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teOverBox1SelectMaterialBoxName.Name = "teOverBox1SelectMaterialBoxName";
             this.teOverBox1SelectMaterialBoxName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teOverBox1SelectMaterialBoxName.Properties.Appearance.Options.UseBackColor = true;
             this.teOverBox1SelectMaterialBoxName.Properties.AutoHeight = false;
             this.teOverBox1SelectMaterialBoxName.Properties.ReadOnly = true;
-            this.teOverBox1SelectMaterialBoxName.Size = new System.Drawing.Size(174, 25);
+            this.teOverBox1SelectMaterialBoxName.Size = new System.Drawing.Size(218, 31);
             this.teOverBox1SelectMaterialBoxName.TabIndex = 18;
             // 
             // MaterialboxgroupBox
@@ -894,21 +906,21 @@
             this.MaterialboxgroupBox.Controls.Add(this.btnSelectMaterialBox);
             this.MaterialboxgroupBox.Controls.Add(this.labelControl8);
             this.MaterialboxgroupBox.Controls.Add(this.teMaterialBoxName);
-            this.MaterialboxgroupBox.Location = new System.Drawing.Point(5, 202);
+            this.MaterialboxgroupBox.Location = new System.Drawing.Point(6, 252);
             this.MaterialboxgroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialboxgroupBox.Name = "MaterialboxgroupBox";
             this.MaterialboxgroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.MaterialboxgroupBox.Size = new System.Drawing.Size(705, 192);
+            this.MaterialboxgroupBox.Size = new System.Drawing.Size(881, 240);
             this.MaterialboxgroupBox.TabIndex = 0;
             this.MaterialboxgroupBox.TabStop = false;
             this.MaterialboxgroupBox.Text = "料盘参数";
             // 
             // btnCreateMaterialMatrix
             // 
-            this.btnCreateMaterialMatrix.Location = new System.Drawing.Point(245, 134);
+            this.btnCreateMaterialMatrix.Location = new System.Drawing.Point(306, 168);
             this.btnCreateMaterialMatrix.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateMaterialMatrix.Name = "btnCreateMaterialMatrix";
-            this.btnCreateMaterialMatrix.Size = new System.Drawing.Size(60, 25);
+            this.btnCreateMaterialMatrix.Size = new System.Drawing.Size(75, 31);
             this.btnCreateMaterialMatrix.TabIndex = 37;
             this.btnCreateMaterialMatrix.Text = "创建Map";
             this.btnCreateMaterialMatrix.UseVisualStyleBackColor = true;
@@ -917,16 +929,17 @@
             // labelControl124
             // 
             this.labelControl124.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl124.Location = new System.Drawing.Point(473, 110);
+            this.labelControl124.Location = new System.Drawing.Point(591, 138);
+            this.labelControl124.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl124.Name = "labelControl124";
-            this.labelControl124.Size = new System.Drawing.Size(64, 14);
+            this.labelControl124.Size = new System.Drawing.Size(80, 18);
             this.labelControl124.TabIndex = 36;
             this.labelControl124.Text = "物料列间距:";
             // 
             // numMaterialColinterval
             // 
             this.numMaterialColinterval.DecimalPlaces = 3;
-            this.numMaterialColinterval.Location = new System.Drawing.Point(542, 108);
+            this.numMaterialColinterval.Location = new System.Drawing.Point(678, 135);
             this.numMaterialColinterval.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialColinterval.Maximum = new decimal(new int[] {
             300,
@@ -934,23 +947,24 @@
             0,
             0});
             this.numMaterialColinterval.Name = "numMaterialColinterval";
-            this.numMaterialColinterval.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialColinterval.Size = new System.Drawing.Size(120, 26);
             this.numMaterialColinterval.TabIndex = 35;
             this.numMaterialColinterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl125
             // 
             this.labelControl125.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl125.Location = new System.Drawing.Point(473, 84);
+            this.labelControl125.Location = new System.Drawing.Point(591, 105);
+            this.labelControl125.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl125.Name = "labelControl125";
-            this.labelControl125.Size = new System.Drawing.Size(64, 14);
+            this.labelControl125.Size = new System.Drawing.Size(80, 18);
             this.labelControl125.TabIndex = 34;
             this.labelControl125.Text = "物料行间距:";
             // 
             // numMaterialRowinterval
             // 
             this.numMaterialRowinterval.DecimalPlaces = 3;
-            this.numMaterialRowinterval.Location = new System.Drawing.Point(542, 82);
+            this.numMaterialRowinterval.Location = new System.Drawing.Point(678, 102);
             this.numMaterialRowinterval.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialRowinterval.Maximum = new decimal(new int[] {
             300,
@@ -958,52 +972,54 @@
             0,
             0});
             this.numMaterialRowinterval.Name = "numMaterialRowinterval";
-            this.numMaterialRowinterval.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialRowinterval.Size = new System.Drawing.Size(120, 26);
             this.numMaterialRowinterval.TabIndex = 33;
             this.numMaterialRowinterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl10
             // 
             this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl10.Location = new System.Drawing.Point(253, 111);
+            this.labelControl10.Location = new System.Drawing.Point(316, 139);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(52, 14);
+            this.labelControl10.Size = new System.Drawing.Size(65, 18);
             this.labelControl10.TabIndex = 32;
             this.labelControl10.Text = "物料列数:";
             // 
             // numMaterialCols
             // 
-            this.numMaterialCols.Location = new System.Drawing.Point(310, 110);
+            this.numMaterialCols.Location = new System.Drawing.Point(388, 138);
             this.numMaterialCols.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialCols.Name = "numMaterialCols";
-            this.numMaterialCols.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialCols.Size = new System.Drawing.Size(120, 26);
             this.numMaterialCols.TabIndex = 31;
             this.numMaterialCols.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl11
             // 
             this.labelControl11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl11.Location = new System.Drawing.Point(253, 86);
+            this.labelControl11.Location = new System.Drawing.Point(316, 108);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(52, 14);
+            this.labelControl11.Size = new System.Drawing.Size(65, 18);
             this.labelControl11.TabIndex = 30;
             this.labelControl11.Text = "物料行数:";
             // 
             // numMaterialRows
             // 
-            this.numMaterialRows.Location = new System.Drawing.Point(310, 84);
+            this.numMaterialRows.Location = new System.Drawing.Point(388, 105);
             this.numMaterialRows.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialRows.Name = "numMaterialRows";
-            this.numMaterialRows.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialRows.Size = new System.Drawing.Size(120, 26);
             this.numMaterialRows.TabIndex = 29;
             this.numMaterialRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnMaterialBoxSelectMaterial
             // 
-            this.btnMaterialBoxSelectMaterial.Location = new System.Drawing.Point(246, 52);
+            this.btnMaterialBoxSelectMaterial.Location = new System.Drawing.Point(308, 65);
             this.btnMaterialBoxSelectMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialBoxSelectMaterial.Name = "btnMaterialBoxSelectMaterial";
-            this.btnMaterialBoxSelectMaterial.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialBoxSelectMaterial.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialBoxSelectMaterial.TabIndex = 28;
             this.btnMaterialBoxSelectMaterial.Text = "选择";
             this.btnMaterialBoxSelectMaterial.UseVisualStyleBackColor = true;
@@ -1012,9 +1028,10 @@
             // labelControl9
             // 
             this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl9.Location = new System.Drawing.Point(8, 57);
+            this.labelControl9.Location = new System.Drawing.Point(10, 71);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(52, 14);
+            this.labelControl9.Size = new System.Drawing.Size(65, 18);
             this.labelControl9.TabIndex = 26;
             this.labelControl9.Text = "物料名称:";
             // 
@@ -1022,47 +1039,50 @@
             // 
             this.teMaterialBoxSelectMaterialName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teMaterialBoxSelectMaterialName.Enabled = false;
-            this.teMaterialBoxSelectMaterialName.Location = new System.Drawing.Point(66, 52);
+            this.teMaterialBoxSelectMaterialName.Location = new System.Drawing.Point(82, 65);
+            this.teMaterialBoxSelectMaterialName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teMaterialBoxSelectMaterialName.Name = "teMaterialBoxSelectMaterialName";
             this.teMaterialBoxSelectMaterialName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teMaterialBoxSelectMaterialName.Properties.Appearance.Options.UseBackColor = true;
             this.teMaterialBoxSelectMaterialName.Properties.AutoHeight = false;
             this.teMaterialBoxSelectMaterialName.Properties.ReadOnly = true;
-            this.teMaterialBoxSelectMaterialName.Size = new System.Drawing.Size(174, 25);
+            this.teMaterialBoxSelectMaterialName.Size = new System.Drawing.Size(218, 31);
             this.teMaterialBoxSelectMaterialName.TabIndex = 27;
             // 
             // labelControl5
             // 
             this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl5.Location = new System.Drawing.Point(20, 135);
+            this.labelControl5.Location = new System.Drawing.Point(25, 169);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(40, 14);
+            this.labelControl5.Size = new System.Drawing.Size(50, 18);
             this.labelControl5.TabIndex = 25;
             this.labelControl5.Text = "料盒高:";
             // 
             // numMaterialBoxHeight
             // 
             this.numMaterialBoxHeight.DecimalPlaces = 3;
-            this.numMaterialBoxHeight.Location = new System.Drawing.Point(66, 134);
+            this.numMaterialBoxHeight.Location = new System.Drawing.Point(82, 168);
             this.numMaterialBoxHeight.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialBoxHeight.Name = "numMaterialBoxHeight";
-            this.numMaterialBoxHeight.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialBoxHeight.Size = new System.Drawing.Size(120, 26);
             this.numMaterialBoxHeight.TabIndex = 24;
             this.numMaterialBoxHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl6
             // 
             this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl6.Location = new System.Drawing.Point(20, 110);
+            this.labelControl6.Location = new System.Drawing.Point(25, 138);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(40, 14);
+            this.labelControl6.Size = new System.Drawing.Size(50, 18);
             this.labelControl6.TabIndex = 23;
             this.labelControl6.Text = "料盒宽:";
             // 
             // numMaterialBoxWidth
             // 
             this.numMaterialBoxWidth.DecimalPlaces = 3;
-            this.numMaterialBoxWidth.Location = new System.Drawing.Point(66, 108);
+            this.numMaterialBoxWidth.Location = new System.Drawing.Point(82, 135);
             this.numMaterialBoxWidth.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialBoxWidth.Maximum = new decimal(new int[] {
             500,
@@ -1070,23 +1090,24 @@
             0,
             0});
             this.numMaterialBoxWidth.Name = "numMaterialBoxWidth";
-            this.numMaterialBoxWidth.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialBoxWidth.Size = new System.Drawing.Size(120, 26);
             this.numMaterialBoxWidth.TabIndex = 22;
             this.numMaterialBoxWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl7
             // 
             this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl7.Location = new System.Drawing.Point(20, 84);
+            this.labelControl7.Location = new System.Drawing.Point(25, 105);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(40, 14);
+            this.labelControl7.Size = new System.Drawing.Size(50, 18);
             this.labelControl7.TabIndex = 21;
             this.labelControl7.Text = "料盒长:";
             // 
             // numMaterialBoxLength
             // 
             this.numMaterialBoxLength.DecimalPlaces = 3;
-            this.numMaterialBoxLength.Location = new System.Drawing.Point(66, 82);
+            this.numMaterialBoxLength.Location = new System.Drawing.Point(82, 102);
             this.numMaterialBoxLength.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialBoxLength.Maximum = new decimal(new int[] {
             500,
@@ -1094,16 +1115,16 @@
             0,
             0});
             this.numMaterialBoxLength.Name = "numMaterialBoxLength";
-            this.numMaterialBoxLength.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialBoxLength.Size = new System.Drawing.Size(120, 26);
             this.numMaterialBoxLength.TabIndex = 20;
             this.numMaterialBoxLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSaveMaterialBox
             // 
-            this.btnSaveMaterialBox.Location = new System.Drawing.Point(440, 21);
+            this.btnSaveMaterialBox.Location = new System.Drawing.Point(550, 26);
             this.btnSaveMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveMaterialBox.Name = "btnSaveMaterialBox";
-            this.btnSaveMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnSaveMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnSaveMaterialBox.TabIndex = 19;
             this.btnSaveMaterialBox.Text = "保存";
             this.btnSaveMaterialBox.UseVisualStyleBackColor = true;
@@ -1111,10 +1132,10 @@
             // 
             // btnDeleteMaterialBox
             // 
-            this.btnDeleteMaterialBox.Location = new System.Drawing.Point(375, 21);
+            this.btnDeleteMaterialBox.Location = new System.Drawing.Point(469, 26);
             this.btnDeleteMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteMaterialBox.Name = "btnDeleteMaterialBox";
-            this.btnDeleteMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnDeleteMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnDeleteMaterialBox.TabIndex = 18;
             this.btnDeleteMaterialBox.Text = "删除";
             this.btnDeleteMaterialBox.UseVisualStyleBackColor = true;
@@ -1122,10 +1143,10 @@
             // 
             // btnNewMaterialBox
             // 
-            this.btnNewMaterialBox.Location = new System.Drawing.Point(310, 21);
+            this.btnNewMaterialBox.Location = new System.Drawing.Point(388, 26);
             this.btnNewMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewMaterialBox.Name = "btnNewMaterialBox";
-            this.btnNewMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnNewMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnNewMaterialBox.TabIndex = 17;
             this.btnNewMaterialBox.Text = "新建";
             this.btnNewMaterialBox.UseVisualStyleBackColor = true;
@@ -1133,10 +1154,10 @@
             // 
             // btnSelectMaterialBox
             // 
-            this.btnSelectMaterialBox.Location = new System.Drawing.Point(246, 21);
+            this.btnSelectMaterialBox.Location = new System.Drawing.Point(308, 26);
             this.btnSelectMaterialBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectMaterialBox.Name = "btnSelectMaterialBox";
-            this.btnSelectMaterialBox.Size = new System.Drawing.Size(60, 25);
+            this.btnSelectMaterialBox.Size = new System.Drawing.Size(75, 31);
             this.btnSelectMaterialBox.TabIndex = 16;
             this.btnSelectMaterialBox.Text = "选择";
             this.btnSelectMaterialBox.UseVisualStyleBackColor = true;
@@ -1145,9 +1166,10 @@
             // labelControl8
             // 
             this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl8.Location = new System.Drawing.Point(8, 26);
+            this.labelControl8.Location = new System.Drawing.Point(10, 32);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(52, 14);
+            this.labelControl8.Size = new System.Drawing.Size(65, 18);
             this.labelControl8.TabIndex = 14;
             this.labelControl8.Text = "料盒名称:";
             // 
@@ -1155,13 +1177,14 @@
             // 
             this.teMaterialBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teMaterialBoxName.Enabled = false;
-            this.teMaterialBoxName.Location = new System.Drawing.Point(66, 21);
+            this.teMaterialBoxName.Location = new System.Drawing.Point(82, 26);
+            this.teMaterialBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teMaterialBoxName.Name = "teMaterialBoxName";
             this.teMaterialBoxName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teMaterialBoxName.Properties.Appearance.Options.UseBackColor = true;
             this.teMaterialBoxName.Properties.AutoHeight = false;
             this.teMaterialBoxName.Properties.ReadOnly = true;
-            this.teMaterialBoxName.Size = new System.Drawing.Size(174, 25);
+            this.teMaterialBoxName.Size = new System.Drawing.Size(218, 31);
             this.teMaterialBoxName.TabIndex = 15;
             // 
             // MaterialgroupBox
@@ -1178,11 +1201,11 @@
             this.MaterialgroupBox.Controls.Add(this.btnSelectMaterial);
             this.MaterialgroupBox.Controls.Add(this.labelControl1);
             this.MaterialgroupBox.Controls.Add(this.teMaterialName);
-            this.MaterialgroupBox.Location = new System.Drawing.Point(5, 5);
+            this.MaterialgroupBox.Location = new System.Drawing.Point(6, 6);
             this.MaterialgroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialgroupBox.Name = "MaterialgroupBox";
             this.MaterialgroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.MaterialgroupBox.Size = new System.Drawing.Size(705, 192);
+            this.MaterialgroupBox.Size = new System.Drawing.Size(881, 240);
             this.MaterialgroupBox.TabIndex = 1;
             this.MaterialgroupBox.TabStop = false;
             this.MaterialgroupBox.Text = "物料参数";
@@ -1190,66 +1213,69 @@
             // labelControl4
             // 
             this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl4.Location = new System.Drawing.Point(20, 106);
+            this.labelControl4.Location = new System.Drawing.Point(25, 132);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(40, 14);
+            this.labelControl4.Size = new System.Drawing.Size(50, 18);
             this.labelControl4.TabIndex = 13;
             this.labelControl4.Text = "物料高:";
             // 
             // numMaterialHeight
             // 
             this.numMaterialHeight.DecimalPlaces = 3;
-            this.numMaterialHeight.Location = new System.Drawing.Point(66, 103);
+            this.numMaterialHeight.Location = new System.Drawing.Point(82, 129);
             this.numMaterialHeight.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHeight.Name = "numMaterialHeight";
-            this.numMaterialHeight.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialHeight.Size = new System.Drawing.Size(120, 26);
             this.numMaterialHeight.TabIndex = 12;
             this.numMaterialHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl3
             // 
             this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl3.Location = new System.Drawing.Point(20, 80);
+            this.labelControl3.Location = new System.Drawing.Point(25, 100);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(40, 14);
+            this.labelControl3.Size = new System.Drawing.Size(50, 18);
             this.labelControl3.TabIndex = 11;
             this.labelControl3.Text = "物料宽:";
             // 
             // numMaterialWidth
             // 
             this.numMaterialWidth.DecimalPlaces = 3;
-            this.numMaterialWidth.Location = new System.Drawing.Point(66, 78);
+            this.numMaterialWidth.Location = new System.Drawing.Point(82, 98);
             this.numMaterialWidth.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialWidth.Name = "numMaterialWidth";
-            this.numMaterialWidth.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialWidth.Size = new System.Drawing.Size(120, 26);
             this.numMaterialWidth.TabIndex = 10;
             this.numMaterialWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl2.Location = new System.Drawing.Point(20, 54);
+            this.labelControl2.Location = new System.Drawing.Point(25, 68);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(40, 14);
+            this.labelControl2.Size = new System.Drawing.Size(50, 18);
             this.labelControl2.TabIndex = 9;
             this.labelControl2.Text = "物料长:";
             // 
             // numMaterialLength
             // 
             this.numMaterialLength.DecimalPlaces = 3;
-            this.numMaterialLength.Location = new System.Drawing.Point(66, 52);
+            this.numMaterialLength.Location = new System.Drawing.Point(82, 65);
             this.numMaterialLength.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialLength.Name = "numMaterialLength";
-            this.numMaterialLength.Size = new System.Drawing.Size(96, 22);
+            this.numMaterialLength.Size = new System.Drawing.Size(120, 26);
             this.numMaterialLength.TabIndex = 8;
             this.numMaterialLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnSaveMaterial
             // 
-            this.btnSaveMaterial.Location = new System.Drawing.Point(440, 21);
+            this.btnSaveMaterial.Location = new System.Drawing.Point(550, 26);
             this.btnSaveMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveMaterial.Name = "btnSaveMaterial";
-            this.btnSaveMaterial.Size = new System.Drawing.Size(60, 25);
+            this.btnSaveMaterial.Size = new System.Drawing.Size(75, 31);
             this.btnSaveMaterial.TabIndex = 7;
             this.btnSaveMaterial.Text = "保存";
             this.btnSaveMaterial.UseVisualStyleBackColor = true;
@@ -1257,10 +1283,10 @@
             // 
             // btnDeleteMaterial
             // 
-            this.btnDeleteMaterial.Location = new System.Drawing.Point(375, 21);
+            this.btnDeleteMaterial.Location = new System.Drawing.Point(469, 26);
             this.btnDeleteMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteMaterial.Name = "btnDeleteMaterial";
-            this.btnDeleteMaterial.Size = new System.Drawing.Size(60, 25);
+            this.btnDeleteMaterial.Size = new System.Drawing.Size(75, 31);
             this.btnDeleteMaterial.TabIndex = 6;
             this.btnDeleteMaterial.Text = "删除";
             this.btnDeleteMaterial.UseVisualStyleBackColor = true;
@@ -1268,10 +1294,10 @@
             // 
             // btnNewMaterial
             // 
-            this.btnNewMaterial.Location = new System.Drawing.Point(310, 21);
+            this.btnNewMaterial.Location = new System.Drawing.Point(388, 26);
             this.btnNewMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewMaterial.Name = "btnNewMaterial";
-            this.btnNewMaterial.Size = new System.Drawing.Size(60, 25);
+            this.btnNewMaterial.Size = new System.Drawing.Size(75, 31);
             this.btnNewMaterial.TabIndex = 5;
             this.btnNewMaterial.Text = "新建";
             this.btnNewMaterial.UseVisualStyleBackColor = true;
@@ -1279,10 +1305,10 @@
             // 
             // btnSelectMaterial
             // 
-            this.btnSelectMaterial.Location = new System.Drawing.Point(246, 21);
+            this.btnSelectMaterial.Location = new System.Drawing.Point(308, 26);
             this.btnSelectMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectMaterial.Name = "btnSelectMaterial";
-            this.btnSelectMaterial.Size = new System.Drawing.Size(60, 25);
+            this.btnSelectMaterial.Size = new System.Drawing.Size(75, 31);
             this.btnSelectMaterial.TabIndex = 4;
             this.btnSelectMaterial.Text = "选择";
             this.btnSelectMaterial.UseVisualStyleBackColor = true;
@@ -1291,9 +1317,10 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl1.Location = new System.Drawing.Point(8, 26);
+            this.labelControl1.Location = new System.Drawing.Point(10, 32);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 14);
+            this.labelControl1.Size = new System.Drawing.Size(65, 18);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "物料名称:";
             // 
@@ -1301,23 +1328,24 @@
             // 
             this.teMaterialName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teMaterialName.Enabled = false;
-            this.teMaterialName.Location = new System.Drawing.Point(66, 22);
+            this.teMaterialName.Location = new System.Drawing.Point(82, 28);
+            this.teMaterialName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teMaterialName.Name = "teMaterialName";
             this.teMaterialName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teMaterialName.Properties.Appearance.Options.UseBackColor = true;
             this.teMaterialName.Properties.AutoHeight = false;
             this.teMaterialName.Properties.ReadOnly = true;
-            this.teMaterialName.Size = new System.Drawing.Size(174, 25);
+            this.teMaterialName.Size = new System.Drawing.Size(218, 31);
             this.teMaterialName.TabIndex = 3;
             // 
             // MaterialboxTabPage
             // 
             this.MaterialboxTabPage.Controls.Add(this.MaterialBoxTransporttabControl);
-            this.MaterialboxTabPage.Location = new System.Drawing.Point(4, 23);
+            this.MaterialboxTabPage.Location = new System.Drawing.Point(4, 27);
             this.MaterialboxTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialboxTabPage.Name = "MaterialboxTabPage";
             this.MaterialboxTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.MaterialboxTabPage.Size = new System.Drawing.Size(713, 627);
+            this.MaterialboxTabPage.Size = new System.Drawing.Size(893, 787);
             this.MaterialboxTabPage.TabIndex = 0;
             this.MaterialboxTabPage.Text = "料盒搬送";
             this.MaterialboxTabPage.UseVisualStyleBackColor = true;
@@ -1329,11 +1357,11 @@
             this.MaterialBoxTransporttabControl.Controls.Add(this.OvenBox1MaterialBoxToTragettabPage);
             this.MaterialBoxTransporttabControl.Controls.Add(this.OvenBox1InputtabPage);
             this.MaterialBoxTransporttabControl.Controls.Add(this.OvenBox2InputtabPage);
-            this.MaterialBoxTransporttabControl.Location = new System.Drawing.Point(2, 5);
+            this.MaterialBoxTransporttabControl.Location = new System.Drawing.Point(2, 6);
             this.MaterialBoxTransporttabControl.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialBoxTransporttabControl.Name = "MaterialBoxTransporttabControl";
             this.MaterialBoxTransporttabControl.SelectedIndex = 0;
-            this.MaterialBoxTransporttabControl.Size = new System.Drawing.Size(705, 620);
+            this.MaterialBoxTransporttabControl.Size = new System.Drawing.Size(881, 775);
             this.MaterialBoxTransporttabControl.TabIndex = 24;
             // 
             // OvenBox1OutputtabPage
@@ -1343,11 +1371,11 @@
             this.OvenBox1OutputtabPage.Controls.Add(this.groupBox3);
             this.OvenBox1OutputtabPage.Controls.Add(this.groupBox2);
             this.OvenBox1OutputtabPage.Controls.Add(this.groupBox1);
-            this.OvenBox1OutputtabPage.Location = new System.Drawing.Point(4, 23);
+            this.OvenBox1OutputtabPage.Location = new System.Drawing.Point(4, 27);
             this.OvenBox1OutputtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1OutputtabPage.Name = "OvenBox1OutputtabPage";
             this.OvenBox1OutputtabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.OvenBox1OutputtabPage.Size = new System.Drawing.Size(697, 593);
+            this.OvenBox1OutputtabPage.Size = new System.Drawing.Size(873, 744);
             this.OvenBox1OutputtabPage.TabIndex = 0;
             this.OvenBox1OutputtabPage.Text = "烘箱1出料";
             this.OvenBox1OutputtabPage.UseVisualStyleBackColor = true;
@@ -1355,10 +1383,10 @@
             // OvenBox1OutputSave
             // 
             this.OvenBox1OutputSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.OvenBox1OutputSave.Location = new System.Drawing.Point(609, 550);
+            this.OvenBox1OutputSave.Location = new System.Drawing.Point(761, 688);
             this.OvenBox1OutputSave.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1OutputSave.Name = "OvenBox1OutputSave";
-            this.OvenBox1OutputSave.Size = new System.Drawing.Size(82, 41);
+            this.OvenBox1OutputSave.Size = new System.Drawing.Size(102, 51);
             this.OvenBox1OutputSave.TabIndex = 36;
             this.OvenBox1OutputSave.Text = "保存";
             this.OvenBox1OutputSave.UseVisualStyleBackColor = true;
@@ -1379,21 +1407,21 @@
             this.groupBox4.Controls.Add(this.labelControl42);
             this.groupBox4.Controls.Add(this.numMaterialboxHooktoTarget1PositionX);
             this.groupBox4.Controls.Add(this.labelControl43);
-            this.groupBox4.Location = new System.Drawing.Point(6, 401);
+            this.groupBox4.Location = new System.Drawing.Point(8, 501);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(686, 144);
+            this.groupBox4.Size = new System.Drawing.Size(858, 180);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "料盒钩爪放下料盒位置";
             // 
             // btnMaterialboxHooktoTarget1PositionPickup
             // 
-            this.btnMaterialboxHooktoTarget1PositionPickup.Location = new System.Drawing.Point(506, 76);
+            this.btnMaterialboxHooktoTarget1PositionPickup.Location = new System.Drawing.Point(632, 95);
             this.btnMaterialboxHooktoTarget1PositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1PositionPickup.Name = "btnMaterialboxHooktoTarget1PositionPickup";
-            this.btnMaterialboxHooktoTarget1PositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1PositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1PositionPickup.TabIndex = 41;
             this.btnMaterialboxHooktoTarget1PositionPickup.Text = "夹取";
             this.btnMaterialboxHooktoTarget1PositionPickup.UseVisualStyleBackColor = true;
@@ -1401,10 +1429,10 @@
             // 
             // btnMaterialboxHooktoTarget1PositionPutdown
             // 
-            this.btnMaterialboxHooktoTarget1PositionPutdown.Location = new System.Drawing.Point(506, 106);
+            this.btnMaterialboxHooktoTarget1PositionPutdown.Location = new System.Drawing.Point(632, 132);
             this.btnMaterialboxHooktoTarget1PositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1PositionPutdown.Name = "btnMaterialboxHooktoTarget1PositionPutdown";
-            this.btnMaterialboxHooktoTarget1PositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1PositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1PositionPutdown.TabIndex = 40;
             this.btnMaterialboxHooktoTarget1PositionPutdown.Text = "放下";
             this.btnMaterialboxHooktoTarget1PositionPutdown.UseVisualStyleBackColor = true;
@@ -1412,10 +1440,10 @@
             // 
             // btnMaterialboxHooktoTarget1PositionMove
             // 
-            this.btnMaterialboxHooktoTarget1PositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoTarget1PositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoTarget1PositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1PositionMove.Name = "btnMaterialboxHooktoTarget1PositionMove";
-            this.btnMaterialboxHooktoTarget1PositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1PositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1PositionMove.TabIndex = 35;
             this.btnMaterialboxHooktoTarget1PositionMove.Text = "移动";
             this.btnMaterialboxHooktoTarget1PositionMove.UseVisualStyleBackColor = true;
@@ -1423,10 +1451,10 @@
             // 
             // btnMaterialboxHooktoTarget1PositionRead
             // 
-            this.btnMaterialboxHooktoTarget1PositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoTarget1PositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoTarget1PositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1PositionRead.Name = "btnMaterialboxHooktoTarget1PositionRead";
-            this.btnMaterialboxHooktoTarget1PositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1PositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1PositionRead.TabIndex = 34;
             this.btnMaterialboxHooktoTarget1PositionRead.Text = "读取";
             this.btnMaterialboxHooktoTarget1PositionRead.UseVisualStyleBackColor = true;
@@ -1435,16 +1463,17 @@
             // labelControl39
             // 
             this.labelControl39.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl39.Location = new System.Drawing.Point(394, 24);
+            this.labelControl39.Location = new System.Drawing.Point(492, 30);
+            this.labelControl39.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl39.Name = "labelControl39";
-            this.labelControl39.Size = new System.Drawing.Size(12, 14);
+            this.labelControl39.Size = new System.Drawing.Size(15, 18);
             this.labelControl39.TabIndex = 30;
             this.labelControl39.Text = "T:";
             // 
             // numMaterialboxHooktoTarget1PositionT
             // 
             this.numMaterialboxHooktoTarget1PositionT.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1PositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoTarget1PositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoTarget1PositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1PositionT.Maximum = new decimal(new int[] {
             1000,
@@ -1457,23 +1486,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1PositionT.Name = "numMaterialboxHooktoTarget1PositionT";
-            this.numMaterialboxHooktoTarget1PositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1PositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1PositionT.TabIndex = 29;
             this.numMaterialboxHooktoTarget1PositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl40
             // 
             this.labelControl40.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl40.Location = new System.Drawing.Point(292, 24);
+            this.labelControl40.Location = new System.Drawing.Point(365, 30);
+            this.labelControl40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl40.Name = "labelControl40";
-            this.labelControl40.Size = new System.Drawing.Size(11, 14);
+            this.labelControl40.Size = new System.Drawing.Size(13, 18);
             this.labelControl40.TabIndex = 28;
             this.labelControl40.Text = "Z:";
             // 
             // numMaterialboxHooktoTarget1PositionZ
             // 
             this.numMaterialboxHooktoTarget1PositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1PositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoTarget1PositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoTarget1PositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1PositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -1486,23 +1516,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1PositionZ.Name = "numMaterialboxHooktoTarget1PositionZ";
-            this.numMaterialboxHooktoTarget1PositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1PositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1PositionZ.TabIndex = 27;
             this.numMaterialboxHooktoTarget1PositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl41
             // 
             this.labelControl41.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl41.Location = new System.Drawing.Point(190, 24);
+            this.labelControl41.Location = new System.Drawing.Point(238, 30);
+            this.labelControl41.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl41.Name = "labelControl41";
-            this.labelControl41.Size = new System.Drawing.Size(12, 14);
+            this.labelControl41.Size = new System.Drawing.Size(15, 18);
             this.labelControl41.TabIndex = 26;
             this.labelControl41.Text = "Y:";
             // 
             // numMaterialboxHooktoTarget1PositionY
             // 
             this.numMaterialboxHooktoTarget1PositionY.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1PositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoTarget1PositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoTarget1PositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1PositionY.Maximum = new decimal(new int[] {
             1000,
@@ -1515,23 +1546,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1PositionY.Name = "numMaterialboxHooktoTarget1PositionY";
-            this.numMaterialboxHooktoTarget1PositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1PositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1PositionY.TabIndex = 25;
             this.numMaterialboxHooktoTarget1PositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl42
             // 
             this.labelControl42.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl42.Location = new System.Drawing.Point(87, 23);
+            this.labelControl42.Location = new System.Drawing.Point(109, 29);
+            this.labelControl42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl42.Name = "labelControl42";
-            this.labelControl42.Size = new System.Drawing.Size(11, 14);
+            this.labelControl42.Size = new System.Drawing.Size(14, 18);
             this.labelControl42.TabIndex = 24;
             this.labelControl42.Text = "X:";
             // 
             // numMaterialboxHooktoTarget1PositionX
             // 
             this.numMaterialboxHooktoTarget1PositionX.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1PositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoTarget1PositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoTarget1PositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1PositionX.Maximum = new decimal(new int[] {
             1000,
@@ -1544,16 +1576,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1PositionX.Name = "numMaterialboxHooktoTarget1PositionX";
-            this.numMaterialboxHooktoTarget1PositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1PositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1PositionX.TabIndex = 22;
             this.numMaterialboxHooktoTarget1PositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl43
             // 
             this.labelControl43.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl43.Location = new System.Drawing.Point(18, 24);
+            this.labelControl43.Location = new System.Drawing.Point(22, 30);
+            this.labelControl43.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl43.Name = "labelControl43";
-            this.labelControl43.Size = new System.Drawing.Size(52, 14);
+            this.labelControl43.Size = new System.Drawing.Size(65, 18);
             this.labelControl43.TabIndex = 23;
             this.labelControl43.Text = "料盒钩爪:";
             // 
@@ -1578,21 +1611,21 @@
             this.groupBox3.Controls.Add(this.labelControl31);
             this.groupBox3.Controls.Add(this.numMaterialboxHooktoMaterialboxPosition1X);
             this.groupBox3.Controls.Add(this.labelControl32);
-            this.groupBox3.Location = new System.Drawing.Point(6, 252);
+            this.groupBox3.Location = new System.Drawing.Point(8, 315);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(686, 144);
+            this.groupBox3.Size = new System.Drawing.Size(858, 180);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "料盒钩爪夹取料盒位置";
             // 
             // btnMaterialboxHooktoMaterialboxPosition1Putdown
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Location = new System.Drawing.Point(506, 106);
+            this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Location = new System.Drawing.Point(632, 132);
             this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Name = "btnMaterialboxHooktoMaterialboxPosition1Putdown";
-            this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition1Putdown.TabIndex = 41;
             this.btnMaterialboxHooktoMaterialboxPosition1Putdown.Text = "放下";
             this.btnMaterialboxHooktoMaterialboxPosition1Putdown.UseVisualStyleBackColor = true;
@@ -1600,10 +1633,10 @@
             // 
             // btnMaterialboxHooktoMaterialboxPosition1Pickup
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Location = new System.Drawing.Point(506, 76);
+            this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Location = new System.Drawing.Point(632, 95);
             this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Name = "btnMaterialboxHooktoMaterialboxPosition1Pickup";
-            this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition1Pickup.TabIndex = 39;
             this.btnMaterialboxHooktoMaterialboxPosition1Pickup.Text = "夹取";
             this.btnMaterialboxHooktoMaterialboxPosition1Pickup.UseVisualStyleBackColor = true;
@@ -1612,16 +1645,17 @@
             // labelControl33
             // 
             this.labelControl33.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl33.Location = new System.Drawing.Point(87, 92);
+            this.labelControl33.Location = new System.Drawing.Point(109, 115);
+            this.labelControl33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl33.Name = "labelControl33";
-            this.labelControl33.Size = new System.Drawing.Size(11, 14);
+            this.labelControl33.Size = new System.Drawing.Size(13, 18);
             this.labelControl33.TabIndex = 38;
             this.labelControl33.Text = "Z:";
             // 
             // numMaterialboxHookUp
             // 
             this.numMaterialboxHookUp.DecimalPlaces = 3;
-            this.numMaterialboxHookUp.Location = new System.Drawing.Point(102, 88);
+            this.numMaterialboxHookUp.Location = new System.Drawing.Point(128, 110);
             this.numMaterialboxHookUp.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookUp.Maximum = new decimal(new int[] {
             1000,
@@ -1634,25 +1668,26 @@
             0,
             -2147483648});
             this.numMaterialboxHookUp.Name = "numMaterialboxHookUp";
-            this.numMaterialboxHookUp.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookUp.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookUp.TabIndex = 37;
             this.numMaterialboxHookUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl34
             // 
             this.labelControl34.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl34.Location = new System.Drawing.Point(18, 92);
+            this.labelControl34.Location = new System.Drawing.Point(22, 115);
+            this.labelControl34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl34.Name = "labelControl34";
-            this.labelControl34.Size = new System.Drawing.Size(52, 14);
+            this.labelControl34.Size = new System.Drawing.Size(65, 18);
             this.labelControl34.TabIndex = 36;
             this.labelControl34.Text = "抬升距离:";
             // 
             // btnMaterialboxHooktoMaterialboxPosition1Move
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition1Move.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoMaterialboxPosition1Move.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoMaterialboxPosition1Move.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition1Move.Name = "btnMaterialboxHooktoMaterialboxPosition1Move";
-            this.btnMaterialboxHooktoMaterialboxPosition1Move.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition1Move.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition1Move.TabIndex = 35;
             this.btnMaterialboxHooktoMaterialboxPosition1Move.Text = "移动";
             this.btnMaterialboxHooktoMaterialboxPosition1Move.UseVisualStyleBackColor = true;
@@ -1660,10 +1695,10 @@
             // 
             // btnMaterialboxHooktoMaterialboxPosition1Read
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition1Read.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoMaterialboxPosition1Read.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoMaterialboxPosition1Read.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition1Read.Name = "btnMaterialboxHooktoMaterialboxPosition1Read";
-            this.btnMaterialboxHooktoMaterialboxPosition1Read.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition1Read.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition1Read.TabIndex = 34;
             this.btnMaterialboxHooktoMaterialboxPosition1Read.Text = "读取";
             this.btnMaterialboxHooktoMaterialboxPosition1Read.UseVisualStyleBackColor = true;
@@ -1672,25 +1707,27 @@
             // labelControl24
             // 
             this.labelControl24.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl24.Location = new System.Drawing.Point(18, 57);
+            this.labelControl24.Location = new System.Drawing.Point(22, 71);
+            this.labelControl24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(52, 14);
+            this.labelControl24.Size = new System.Drawing.Size(65, 18);
             this.labelControl24.TabIndex = 33;
             this.labelControl24.Text = "钩爪夹取:";
             // 
             // labelControl25
             // 
             this.labelControl25.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl25.Location = new System.Drawing.Point(87, 57);
+            this.labelControl25.Location = new System.Drawing.Point(109, 71);
+            this.labelControl25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(12, 14);
+            this.labelControl25.Size = new System.Drawing.Size(15, 18);
             this.labelControl25.TabIndex = 32;
             this.labelControl25.Text = "H:";
             // 
             // numMaterialboxHookClose
             // 
             this.numMaterialboxHookClose.DecimalPlaces = 3;
-            this.numMaterialboxHookClose.Location = new System.Drawing.Point(102, 53);
+            this.numMaterialboxHookClose.Location = new System.Drawing.Point(128, 66);
             this.numMaterialboxHookClose.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookClose.Maximum = new decimal(new int[] {
             1000,
@@ -1703,23 +1740,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookClose.Name = "numMaterialboxHookClose";
-            this.numMaterialboxHookClose.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookClose.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookClose.TabIndex = 31;
             this.numMaterialboxHookClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl26
             // 
             this.labelControl26.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl26.Location = new System.Drawing.Point(394, 24);
+            this.labelControl26.Location = new System.Drawing.Point(492, 30);
+            this.labelControl26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(12, 14);
+            this.labelControl26.Size = new System.Drawing.Size(15, 18);
             this.labelControl26.TabIndex = 30;
             this.labelControl26.Text = "T:";
             // 
             // numMaterialboxHooktoMaterialboxPosition1T
             // 
             this.numMaterialboxHooktoMaterialboxPosition1T.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition1T.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoMaterialboxPosition1T.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoMaterialboxPosition1T.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition1T.Maximum = new decimal(new int[] {
             1000,
@@ -1732,23 +1770,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition1T.Name = "numMaterialboxHooktoMaterialboxPosition1T";
-            this.numMaterialboxHooktoMaterialboxPosition1T.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition1T.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition1T.TabIndex = 29;
             this.numMaterialboxHooktoMaterialboxPosition1T.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl27
             // 
             this.labelControl27.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl27.Location = new System.Drawing.Point(292, 24);
+            this.labelControl27.Location = new System.Drawing.Point(365, 30);
+            this.labelControl27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(11, 14);
+            this.labelControl27.Size = new System.Drawing.Size(13, 18);
             this.labelControl27.TabIndex = 28;
             this.labelControl27.Text = "Z:";
             // 
             // numMaterialboxHooktoMaterialboxPosition1Z
             // 
             this.numMaterialboxHooktoMaterialboxPosition1Z.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition1Z.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoMaterialboxPosition1Z.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoMaterialboxPosition1Z.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition1Z.Maximum = new decimal(new int[] {
             1000,
@@ -1761,23 +1800,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition1Z.Name = "numMaterialboxHooktoMaterialboxPosition1Z";
-            this.numMaterialboxHooktoMaterialboxPosition1Z.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition1Z.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition1Z.TabIndex = 27;
             this.numMaterialboxHooktoMaterialboxPosition1Z.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl30
             // 
             this.labelControl30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl30.Location = new System.Drawing.Point(190, 24);
+            this.labelControl30.Location = new System.Drawing.Point(238, 30);
+            this.labelControl30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(12, 14);
+            this.labelControl30.Size = new System.Drawing.Size(15, 18);
             this.labelControl30.TabIndex = 26;
             this.labelControl30.Text = "Y:";
             // 
             // numMaterialboxHooktoMaterialboxPosition1Y
             // 
             this.numMaterialboxHooktoMaterialboxPosition1Y.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition1Y.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoMaterialboxPosition1Y.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoMaterialboxPosition1Y.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition1Y.Maximum = new decimal(new int[] {
             1000,
@@ -1790,23 +1830,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition1Y.Name = "numMaterialboxHooktoMaterialboxPosition1Y";
-            this.numMaterialboxHooktoMaterialboxPosition1Y.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition1Y.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition1Y.TabIndex = 25;
             this.numMaterialboxHooktoMaterialboxPosition1Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl31
             // 
             this.labelControl31.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl31.Location = new System.Drawing.Point(87, 23);
+            this.labelControl31.Location = new System.Drawing.Point(109, 29);
+            this.labelControl31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl31.Name = "labelControl31";
-            this.labelControl31.Size = new System.Drawing.Size(11, 14);
+            this.labelControl31.Size = new System.Drawing.Size(14, 18);
             this.labelControl31.TabIndex = 24;
             this.labelControl31.Text = "X:";
             // 
             // numMaterialboxHooktoMaterialboxPosition1X
             // 
             this.numMaterialboxHooktoMaterialboxPosition1X.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition1X.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoMaterialboxPosition1X.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoMaterialboxPosition1X.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition1X.Maximum = new decimal(new int[] {
             1000,
@@ -1819,16 +1860,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition1X.Name = "numMaterialboxHooktoMaterialboxPosition1X";
-            this.numMaterialboxHooktoMaterialboxPosition1X.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition1X.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition1X.TabIndex = 22;
             this.numMaterialboxHooktoMaterialboxPosition1X.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl32
             // 
             this.labelControl32.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl32.Location = new System.Drawing.Point(18, 24);
+            this.labelControl32.Location = new System.Drawing.Point(22, 30);
+            this.labelControl32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl32.Name = "labelControl32";
-            this.labelControl32.Size = new System.Drawing.Size(52, 14);
+            this.labelControl32.Size = new System.Drawing.Size(65, 18);
             this.labelControl32.TabIndex = 23;
             this.labelControl32.Text = "料盒钩爪:";
             // 
@@ -1845,82 +1887,95 @@
             this.groupBox2.Controls.Add(this.labelControl28);
             this.groupBox2.Controls.Add(this.numOverTrackMaterialboxOutofoven);
             this.groupBox2.Controls.Add(this.labelControl29);
-            this.groupBox2.Location = new System.Drawing.Point(6, 103);
+            this.groupBox2.Location = new System.Drawing.Point(8, 129);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(686, 144);
+            this.groupBox2.Size = new System.Drawing.Size(858, 180);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "烘箱出料";
             // 
             // btnOpenExchangeMakeupValve
             // 
-            this.btnOpenExchangeMakeupValve.Location = new System.Drawing.Point(318, 17);
+            this.btnOpenExchangeMakeupValve.Enabled = false;
+            this.btnOpenExchangeMakeupValve.Location = new System.Drawing.Point(398, 21);
             this.btnOpenExchangeMakeupValve.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenExchangeMakeupValve.Name = "btnOpenExchangeMakeupValve";
-            this.btnOpenExchangeMakeupValve.Size = new System.Drawing.Size(127, 23);
+            this.btnOpenExchangeMakeupValve.Size = new System.Drawing.Size(159, 29);
             this.btnOpenExchangeMakeupValve.TabIndex = 41;
             this.btnOpenExchangeMakeupValve.Text = "工作箱充气阀";
+            this.btnOpenExchangeMakeupValve.Visible = false;
             this.btnOpenExchangeMakeupValve.CheckedChanged += new System.EventHandler(this.btnOpenExchangeMakeupValve_CheckedChanged);
             // 
             // checkbtnOvenBox1Aerates
             // 
-            this.checkbtnOvenBox1Aerates.Location = new System.Drawing.Point(187, 17);
+            this.checkbtnOvenBox1Aerates.Enabled = false;
+            this.checkbtnOvenBox1Aerates.Location = new System.Drawing.Point(234, 21);
             this.checkbtnOvenBox1Aerates.Margin = new System.Windows.Forms.Padding(2);
             this.checkbtnOvenBox1Aerates.Name = "checkbtnOvenBox1Aerates";
-            this.checkbtnOvenBox1Aerates.Size = new System.Drawing.Size(127, 23);
+            this.checkbtnOvenBox1Aerates.Size = new System.Drawing.Size(159, 29);
             this.checkbtnOvenBox1Aerates.TabIndex = 40;
             this.checkbtnOvenBox1Aerates.Text = "烘箱充气阀";
+            this.checkbtnOvenBox1Aerates.Visible = false;
             this.checkbtnOvenBox1Aerates.CheckedChanged += new System.EventHandler(this.checkbtnOvenBox1Aerates_CheckedChanged);
             // 
             // labelControl23
             // 
             this.labelControl23.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl23.Location = new System.Drawing.Point(35, 22);
+            this.labelControl23.Enabled = false;
+            this.labelControl23.Location = new System.Drawing.Point(44, 28);
+            this.labelControl23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(64, 14);
+            this.labelControl23.Size = new System.Drawing.Size(80, 18);
             this.labelControl23.TabIndex = 39;
             this.labelControl23.Text = "烘箱真空度:";
+            this.labelControl23.Visible = false;
             // 
             // numericUpDown6
             // 
             this.numericUpDown6.DecimalPlaces = 3;
-            this.numericUpDown6.Location = new System.Drawing.Point(102, 20);
+            this.numericUpDown6.Enabled = false;
+            this.numericUpDown6.Location = new System.Drawing.Point(128, 25);
             this.numericUpDown6.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(80, 22);
+            this.numericUpDown6.Size = new System.Drawing.Size(100, 26);
             this.numericUpDown6.TabIndex = 38;
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown6.Visible = false;
             // 
             // btnBakeOven1InnerdoorClose
             // 
-            this.btnBakeOven1InnerdoorClose.Location = new System.Drawing.Point(187, 74);
+            this.btnBakeOven1InnerdoorClose.Enabled = false;
+            this.btnBakeOven1InnerdoorClose.Location = new System.Drawing.Point(234, 92);
             this.btnBakeOven1InnerdoorClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnBakeOven1InnerdoorClose.Name = "btnBakeOven1InnerdoorClose";
-            this.btnBakeOven1InnerdoorClose.Size = new System.Drawing.Size(127, 25);
+            this.btnBakeOven1InnerdoorClose.Size = new System.Drawing.Size(159, 31);
             this.btnBakeOven1InnerdoorClose.TabIndex = 37;
             this.btnBakeOven1InnerdoorClose.Text = "烘箱关内门";
             this.btnBakeOven1InnerdoorClose.UseVisualStyleBackColor = true;
+            this.btnBakeOven1InnerdoorClose.Visible = false;
             this.btnBakeOven1InnerdoorClose.Click += new System.EventHandler(this.btnBakeOven1InnerdoorClose_Click);
             // 
             // btnBakeOven1InnerdoorOpen
             // 
-            this.btnBakeOven1InnerdoorOpen.Location = new System.Drawing.Point(187, 45);
+            this.btnBakeOven1InnerdoorOpen.Enabled = false;
+            this.btnBakeOven1InnerdoorOpen.Location = new System.Drawing.Point(234, 56);
             this.btnBakeOven1InnerdoorOpen.Margin = new System.Windows.Forms.Padding(2);
             this.btnBakeOven1InnerdoorOpen.Name = "btnBakeOven1InnerdoorOpen";
-            this.btnBakeOven1InnerdoorOpen.Size = new System.Drawing.Size(127, 25);
+            this.btnBakeOven1InnerdoorOpen.Size = new System.Drawing.Size(159, 31);
             this.btnBakeOven1InnerdoorOpen.TabIndex = 36;
             this.btnBakeOven1InnerdoorOpen.Text = "烘箱开内门";
             this.btnBakeOven1InnerdoorOpen.UseVisualStyleBackColor = true;
+            this.btnBakeOven1InnerdoorOpen.Visible = false;
             this.btnBakeOven1InnerdoorOpen.Click += new System.EventHandler(this.btnBakeOven1InnerdoorOpen_Click);
             // 
             // btnOverTrack1MaterialboxOutofovenMove
             // 
-            this.btnOverTrack1MaterialboxOutofovenMove.Location = new System.Drawing.Point(254, 104);
+            this.btnOverTrack1MaterialboxOutofovenMove.Location = new System.Drawing.Point(318, 130);
             this.btnOverTrack1MaterialboxOutofovenMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack1MaterialboxOutofovenMove.Name = "btnOverTrack1MaterialboxOutofovenMove";
-            this.btnOverTrack1MaterialboxOutofovenMove.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack1MaterialboxOutofovenMove.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack1MaterialboxOutofovenMove.TabIndex = 35;
             this.btnOverTrack1MaterialboxOutofovenMove.Text = "移动";
             this.btnOverTrack1MaterialboxOutofovenMove.UseVisualStyleBackColor = true;
@@ -1928,10 +1983,10 @@
             // 
             // btnOverTrack1MaterialboxOutofovenRead
             // 
-            this.btnOverTrack1MaterialboxOutofovenRead.Location = new System.Drawing.Point(190, 104);
+            this.btnOverTrack1MaterialboxOutofovenRead.Location = new System.Drawing.Point(238, 130);
             this.btnOverTrack1MaterialboxOutofovenRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack1MaterialboxOutofovenRead.Name = "btnOverTrack1MaterialboxOutofovenRead";
-            this.btnOverTrack1MaterialboxOutofovenRead.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack1MaterialboxOutofovenRead.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack1MaterialboxOutofovenRead.TabIndex = 34;
             this.btnOverTrack1MaterialboxOutofovenRead.Text = "读取";
             this.btnOverTrack1MaterialboxOutofovenRead.UseVisualStyleBackColor = true;
@@ -1940,16 +1995,17 @@
             // labelControl28
             // 
             this.labelControl28.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl28.Location = new System.Drawing.Point(88, 108);
+            this.labelControl28.Location = new System.Drawing.Point(110, 135);
+            this.labelControl28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(11, 14);
+            this.labelControl28.Size = new System.Drawing.Size(14, 18);
             this.labelControl28.TabIndex = 24;
             this.labelControl28.Text = "X:";
             // 
             // numOverTrackMaterialboxOutofoven
             // 
             this.numOverTrackMaterialboxOutofoven.DecimalPlaces = 3;
-            this.numOverTrackMaterialboxOutofoven.Location = new System.Drawing.Point(102, 106);
+            this.numOverTrackMaterialboxOutofoven.Location = new System.Drawing.Point(128, 132);
             this.numOverTrackMaterialboxOutofoven.Margin = new System.Windows.Forms.Padding(2);
             this.numOverTrackMaterialboxOutofoven.Maximum = new decimal(new int[] {
             10000,
@@ -1962,16 +2018,17 @@
             0,
             -2147483648});
             this.numOverTrackMaterialboxOutofoven.Name = "numOverTrackMaterialboxOutofoven";
-            this.numOverTrackMaterialboxOutofoven.Size = new System.Drawing.Size(80, 22);
+            this.numOverTrackMaterialboxOutofoven.Size = new System.Drawing.Size(100, 26);
             this.numOverTrackMaterialboxOutofoven.TabIndex = 22;
             this.numOverTrackMaterialboxOutofoven.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl29
             // 
             this.labelControl29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl29.Location = new System.Drawing.Point(6, 109);
+            this.labelControl29.Location = new System.Drawing.Point(8, 136);
+            this.labelControl29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(76, 14);
+            this.labelControl29.Size = new System.Drawing.Size(95, 18);
             this.labelControl29.TabIndex = 23;
             this.labelControl29.Text = "轨道出料位置:";
             // 
@@ -1992,21 +2049,21 @@
             this.groupBox1.Controls.Add(this.labelControl17);
             this.groupBox1.Controls.Add(this.numMaterialboxHookSafePositionX);
             this.groupBox1.Controls.Add(this.labelControl16);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(8, 8);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(686, 93);
+            this.groupBox1.Size = new System.Drawing.Size(858, 116);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "料盒钩爪到空闲位置";
             // 
             // btnAvoidancePosition
             // 
-            this.btnAvoidancePosition.Location = new System.Drawing.Point(593, 16);
+            this.btnAvoidancePosition.Location = new System.Drawing.Point(741, 20);
             this.btnAvoidancePosition.Margin = new System.Windows.Forms.Padding(2);
             this.btnAvoidancePosition.Name = "btnAvoidancePosition";
-            this.btnAvoidancePosition.Size = new System.Drawing.Size(60, 54);
+            this.btnAvoidancePosition.Size = new System.Drawing.Size(75, 68);
             this.btnAvoidancePosition.TabIndex = 36;
             this.btnAvoidancePosition.Text = "到避让位置";
             this.btnAvoidancePosition.UseVisualStyleBackColor = true;
@@ -2014,10 +2071,10 @@
             // 
             // btnMaterialboxHookSafePositionMove
             // 
-            this.btnMaterialboxHookSafePositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHookSafePositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHookSafePositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookSafePositionMove.Name = "btnMaterialboxHookSafePositionMove";
-            this.btnMaterialboxHookSafePositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookSafePositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookSafePositionMove.TabIndex = 35;
             this.btnMaterialboxHookSafePositionMove.Text = "移动";
             this.btnMaterialboxHookSafePositionMove.UseVisualStyleBackColor = true;
@@ -2025,10 +2082,10 @@
             // 
             // btnMaterialboxHookSafePositionRead
             // 
-            this.btnMaterialboxHookSafePositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHookSafePositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHookSafePositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookSafePositionRead.Name = "btnMaterialboxHookSafePositionRead";
-            this.btnMaterialboxHookSafePositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookSafePositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookSafePositionRead.TabIndex = 34;
             this.btnMaterialboxHookSafePositionRead.Text = "读取";
             this.btnMaterialboxHookSafePositionRead.UseVisualStyleBackColor = true;
@@ -2037,25 +2094,27 @@
             // labelControl22
             // 
             this.labelControl22.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl22.Location = new System.Drawing.Point(18, 56);
+            this.labelControl22.Location = new System.Drawing.Point(22, 70);
+            this.labelControl22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(52, 14);
+            this.labelControl22.Size = new System.Drawing.Size(65, 18);
             this.labelControl22.TabIndex = 33;
             this.labelControl22.Text = "钩爪打开:";
             // 
             // labelControl21
             // 
             this.labelControl21.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl21.Location = new System.Drawing.Point(87, 56);
+            this.labelControl21.Location = new System.Drawing.Point(109, 70);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(12, 14);
+            this.labelControl21.Size = new System.Drawing.Size(15, 18);
             this.labelControl21.TabIndex = 32;
             this.labelControl21.Text = "H:";
             // 
             // numMaterialboxHookOpen
             // 
             this.numMaterialboxHookOpen.DecimalPlaces = 3;
-            this.numMaterialboxHookOpen.Location = new System.Drawing.Point(102, 53);
+            this.numMaterialboxHookOpen.Location = new System.Drawing.Point(128, 66);
             this.numMaterialboxHookOpen.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookOpen.Maximum = new decimal(new int[] {
             1000,
@@ -2068,23 +2127,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookOpen.Name = "numMaterialboxHookOpen";
-            this.numMaterialboxHookOpen.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookOpen.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookOpen.TabIndex = 31;
             this.numMaterialboxHookOpen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl20
             // 
             this.labelControl20.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl20.Location = new System.Drawing.Point(394, 23);
+            this.labelControl20.Location = new System.Drawing.Point(492, 29);
+            this.labelControl20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(12, 14);
+            this.labelControl20.Size = new System.Drawing.Size(15, 18);
             this.labelControl20.TabIndex = 30;
             this.labelControl20.Text = "T:";
             // 
             // numMaterialboxHookSafePositionT
             // 
             this.numMaterialboxHookSafePositionT.DecimalPlaces = 3;
-            this.numMaterialboxHookSafePositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHookSafePositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHookSafePositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookSafePositionT.Maximum = new decimal(new int[] {
             1000,
@@ -2097,23 +2157,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookSafePositionT.Name = "numMaterialboxHookSafePositionT";
-            this.numMaterialboxHookSafePositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookSafePositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookSafePositionT.TabIndex = 29;
             this.numMaterialboxHookSafePositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl19
             // 
             this.labelControl19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl19.Location = new System.Drawing.Point(292, 23);
+            this.labelControl19.Location = new System.Drawing.Point(365, 29);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(11, 14);
+            this.labelControl19.Size = new System.Drawing.Size(13, 18);
             this.labelControl19.TabIndex = 28;
             this.labelControl19.Text = "Z:";
             // 
             // numMaterialboxHookSafePositionZ
             // 
             this.numMaterialboxHookSafePositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHookSafePositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHookSafePositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHookSafePositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookSafePositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -2126,23 +2187,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookSafePositionZ.Name = "numMaterialboxHookSafePositionZ";
-            this.numMaterialboxHookSafePositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookSafePositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookSafePositionZ.TabIndex = 27;
             this.numMaterialboxHookSafePositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl18
             // 
             this.labelControl18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl18.Location = new System.Drawing.Point(190, 23);
+            this.labelControl18.Location = new System.Drawing.Point(238, 29);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(12, 14);
+            this.labelControl18.Size = new System.Drawing.Size(15, 18);
             this.labelControl18.TabIndex = 26;
             this.labelControl18.Text = "Y:";
             // 
             // numMaterialboxHookSafePositionY
             // 
             this.numMaterialboxHookSafePositionY.DecimalPlaces = 3;
-            this.numMaterialboxHookSafePositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHookSafePositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHookSafePositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookSafePositionY.Maximum = new decimal(new int[] {
             1000,
@@ -2155,23 +2217,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookSafePositionY.Name = "numMaterialboxHookSafePositionY";
-            this.numMaterialboxHookSafePositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookSafePositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookSafePositionY.TabIndex = 25;
             this.numMaterialboxHookSafePositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl17
             // 
             this.labelControl17.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl17.Location = new System.Drawing.Point(87, 22);
+            this.labelControl17.Location = new System.Drawing.Point(109, 28);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(11, 14);
+            this.labelControl17.Size = new System.Drawing.Size(14, 18);
             this.labelControl17.TabIndex = 24;
             this.labelControl17.Text = "X:";
             // 
             // numMaterialboxHookSafePositionX
             // 
             this.numMaterialboxHookSafePositionX.DecimalPlaces = 3;
-            this.numMaterialboxHookSafePositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHookSafePositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHookSafePositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookSafePositionX.Maximum = new decimal(new int[] {
             1000,
@@ -2184,16 +2247,17 @@
             0,
             -2147483648});
             this.numMaterialboxHookSafePositionX.Name = "numMaterialboxHookSafePositionX";
-            this.numMaterialboxHookSafePositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookSafePositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookSafePositionX.TabIndex = 22;
             this.numMaterialboxHookSafePositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl16
             // 
             this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl16.Location = new System.Drawing.Point(18, 23);
+            this.labelControl16.Location = new System.Drawing.Point(22, 29);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(52, 14);
+            this.labelControl16.Size = new System.Drawing.Size(65, 18);
             this.labelControl16.TabIndex = 23;
             this.labelControl16.Text = "料盒钩爪:";
             // 
@@ -2203,10 +2267,10 @@
             this.OvenBox2OutputtabPage.Controls.Add(this.groupBox10);
             this.OvenBox2OutputtabPage.Controls.Add(this.groupBox11);
             this.OvenBox2OutputtabPage.Controls.Add(this.groupBox12);
-            this.OvenBox2OutputtabPage.Location = new System.Drawing.Point(4, 23);
+            this.OvenBox2OutputtabPage.Location = new System.Drawing.Point(4, 27);
             this.OvenBox2OutputtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox2OutputtabPage.Name = "OvenBox2OutputtabPage";
-            this.OvenBox2OutputtabPage.Size = new System.Drawing.Size(697, 593);
+            this.OvenBox2OutputtabPage.Size = new System.Drawing.Size(873, 744);
             this.OvenBox2OutputtabPage.TabIndex = 3;
             this.OvenBox2OutputtabPage.Text = "烘箱2出料";
             this.OvenBox2OutputtabPage.UseVisualStyleBackColor = true;
@@ -2214,10 +2278,10 @@
             // OvenBox2OutputSave
             // 
             this.OvenBox2OutputSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.OvenBox2OutputSave.Location = new System.Drawing.Point(614, 552);
+            this.OvenBox2OutputSave.Location = new System.Drawing.Point(768, 690);
             this.OvenBox2OutputSave.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox2OutputSave.Name = "OvenBox2OutputSave";
-            this.OvenBox2OutputSave.Size = new System.Drawing.Size(82, 41);
+            this.OvenBox2OutputSave.Size = new System.Drawing.Size(102, 51);
             this.OvenBox2OutputSave.TabIndex = 37;
             this.OvenBox2OutputSave.Text = "保存";
             this.OvenBox2OutputSave.UseVisualStyleBackColor = true;
@@ -2238,21 +2302,21 @@
             this.groupBox10.Controls.Add(this.labelControl66);
             this.groupBox10.Controls.Add(this.numMaterialboxHooktoTarget1Position2X);
             this.groupBox10.Controls.Add(this.labelControl67);
-            this.groupBox10.Location = new System.Drawing.Point(2, 300);
+            this.groupBox10.Location = new System.Drawing.Point(2, 375);
             this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox10.Size = new System.Drawing.Size(686, 144);
+            this.groupBox10.Size = new System.Drawing.Size(858, 180);
             this.groupBox10.TabIndex = 31;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "料盒钩爪放下物料";
             // 
             // btnMaterialboxHooktoTarget1Position2Pickup
             // 
-            this.btnMaterialboxHooktoTarget1Position2Pickup.Location = new System.Drawing.Point(506, 76);
+            this.btnMaterialboxHooktoTarget1Position2Pickup.Location = new System.Drawing.Point(632, 95);
             this.btnMaterialboxHooktoTarget1Position2Pickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1Position2Pickup.Name = "btnMaterialboxHooktoTarget1Position2Pickup";
-            this.btnMaterialboxHooktoTarget1Position2Pickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1Position2Pickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1Position2Pickup.TabIndex = 41;
             this.btnMaterialboxHooktoTarget1Position2Pickup.Text = "夹取";
             this.btnMaterialboxHooktoTarget1Position2Pickup.UseVisualStyleBackColor = true;
@@ -2260,10 +2324,10 @@
             // 
             // btnMaterialboxHooktoTarget1Position2Putdown
             // 
-            this.btnMaterialboxHooktoTarget1Position2Putdown.Location = new System.Drawing.Point(506, 106);
+            this.btnMaterialboxHooktoTarget1Position2Putdown.Location = new System.Drawing.Point(632, 132);
             this.btnMaterialboxHooktoTarget1Position2Putdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1Position2Putdown.Name = "btnMaterialboxHooktoTarget1Position2Putdown";
-            this.btnMaterialboxHooktoTarget1Position2Putdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1Position2Putdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1Position2Putdown.TabIndex = 40;
             this.btnMaterialboxHooktoTarget1Position2Putdown.Text = "放下";
             this.btnMaterialboxHooktoTarget1Position2Putdown.UseVisualStyleBackColor = true;
@@ -2271,10 +2335,10 @@
             // 
             // btnMaterialboxHooktoTarget1Position2Move
             // 
-            this.btnMaterialboxHooktoTarget1Position2Move.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoTarget1Position2Move.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoTarget1Position2Move.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1Position2Move.Name = "btnMaterialboxHooktoTarget1Position2Move";
-            this.btnMaterialboxHooktoTarget1Position2Move.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1Position2Move.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1Position2Move.TabIndex = 35;
             this.btnMaterialboxHooktoTarget1Position2Move.Text = "移动";
             this.btnMaterialboxHooktoTarget1Position2Move.UseVisualStyleBackColor = true;
@@ -2282,10 +2346,10 @@
             // 
             // btnMaterialboxHooktoTarget1Position2Read
             // 
-            this.btnMaterialboxHooktoTarget1Position2Read.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoTarget1Position2Read.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoTarget1Position2Read.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget1Position2Read.Name = "btnMaterialboxHooktoTarget1Position2Read";
-            this.btnMaterialboxHooktoTarget1Position2Read.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget1Position2Read.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget1Position2Read.TabIndex = 34;
             this.btnMaterialboxHooktoTarget1Position2Read.Text = "读取";
             this.btnMaterialboxHooktoTarget1Position2Read.UseVisualStyleBackColor = true;
@@ -2294,16 +2358,17 @@
             // labelControl58
             // 
             this.labelControl58.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl58.Location = new System.Drawing.Point(394, 24);
+            this.labelControl58.Location = new System.Drawing.Point(492, 30);
+            this.labelControl58.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl58.Name = "labelControl58";
-            this.labelControl58.Size = new System.Drawing.Size(12, 14);
+            this.labelControl58.Size = new System.Drawing.Size(15, 18);
             this.labelControl58.TabIndex = 30;
             this.labelControl58.Text = "T:";
             // 
             // numMaterialboxHooktoTarget1Position2T
             // 
             this.numMaterialboxHooktoTarget1Position2T.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1Position2T.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoTarget1Position2T.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoTarget1Position2T.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1Position2T.Maximum = new decimal(new int[] {
             1000,
@@ -2316,23 +2381,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1Position2T.Name = "numMaterialboxHooktoTarget1Position2T";
-            this.numMaterialboxHooktoTarget1Position2T.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1Position2T.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1Position2T.TabIndex = 29;
             this.numMaterialboxHooktoTarget1Position2T.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl59
             // 
             this.labelControl59.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl59.Location = new System.Drawing.Point(292, 24);
+            this.labelControl59.Location = new System.Drawing.Point(365, 30);
+            this.labelControl59.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl59.Name = "labelControl59";
-            this.labelControl59.Size = new System.Drawing.Size(11, 14);
+            this.labelControl59.Size = new System.Drawing.Size(13, 18);
             this.labelControl59.TabIndex = 28;
             this.labelControl59.Text = "Z:";
             // 
             // numMaterialboxHooktoTarget1Position2Z
             // 
             this.numMaterialboxHooktoTarget1Position2Z.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1Position2Z.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoTarget1Position2Z.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoTarget1Position2Z.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1Position2Z.Maximum = new decimal(new int[] {
             1000,
@@ -2345,23 +2411,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1Position2Z.Name = "numMaterialboxHooktoTarget1Position2Z";
-            this.numMaterialboxHooktoTarget1Position2Z.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1Position2Z.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1Position2Z.TabIndex = 27;
             this.numMaterialboxHooktoTarget1Position2Z.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl65
             // 
             this.labelControl65.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl65.Location = new System.Drawing.Point(190, 24);
+            this.labelControl65.Location = new System.Drawing.Point(238, 30);
+            this.labelControl65.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl65.Name = "labelControl65";
-            this.labelControl65.Size = new System.Drawing.Size(12, 14);
+            this.labelControl65.Size = new System.Drawing.Size(15, 18);
             this.labelControl65.TabIndex = 26;
             this.labelControl65.Text = "Y:";
             // 
             // numMaterialboxHooktoTarget1Position2Y
             // 
             this.numMaterialboxHooktoTarget1Position2Y.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1Position2Y.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoTarget1Position2Y.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoTarget1Position2Y.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1Position2Y.Maximum = new decimal(new int[] {
             1000,
@@ -2374,23 +2441,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1Position2Y.Name = "numMaterialboxHooktoTarget1Position2Y";
-            this.numMaterialboxHooktoTarget1Position2Y.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1Position2Y.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1Position2Y.TabIndex = 25;
             this.numMaterialboxHooktoTarget1Position2Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl66
             // 
             this.labelControl66.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl66.Location = new System.Drawing.Point(87, 23);
+            this.labelControl66.Location = new System.Drawing.Point(109, 29);
+            this.labelControl66.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl66.Name = "labelControl66";
-            this.labelControl66.Size = new System.Drawing.Size(11, 14);
+            this.labelControl66.Size = new System.Drawing.Size(14, 18);
             this.labelControl66.TabIndex = 24;
             this.labelControl66.Text = "X:";
             // 
             // numMaterialboxHooktoTarget1Position2X
             // 
             this.numMaterialboxHooktoTarget1Position2X.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget1Position2X.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoTarget1Position2X.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoTarget1Position2X.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget1Position2X.Maximum = new decimal(new int[] {
             1000,
@@ -2403,16 +2471,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget1Position2X.Name = "numMaterialboxHooktoTarget1Position2X";
-            this.numMaterialboxHooktoTarget1Position2X.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget1Position2X.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget1Position2X.TabIndex = 22;
             this.numMaterialboxHooktoTarget1Position2X.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl67
             // 
             this.labelControl67.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl67.Location = new System.Drawing.Point(18, 24);
+            this.labelControl67.Location = new System.Drawing.Point(22, 30);
+            this.labelControl67.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl67.Name = "labelControl67";
-            this.labelControl67.Size = new System.Drawing.Size(52, 14);
+            this.labelControl67.Size = new System.Drawing.Size(65, 18);
             this.labelControl67.TabIndex = 23;
             this.labelControl67.Text = "料盒钩爪:";
             // 
@@ -2437,21 +2506,21 @@
             this.groupBox11.Controls.Add(this.labelControl75);
             this.groupBox11.Controls.Add(this.numMaterialboxHooktoMaterialboxPosition2X);
             this.groupBox11.Controls.Add(this.labelControl76);
-            this.groupBox11.Location = new System.Drawing.Point(2, 151);
+            this.groupBox11.Location = new System.Drawing.Point(2, 189);
             this.groupBox11.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox11.Size = new System.Drawing.Size(686, 144);
+            this.groupBox11.Size = new System.Drawing.Size(858, 180);
             this.groupBox11.TabIndex = 30;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "料盒钩爪夹取物料";
             // 
             // btnMaterialboxHooktoMaterialboxPosition2Putdown
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Location = new System.Drawing.Point(506, 106);
+            this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Location = new System.Drawing.Point(632, 132);
             this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Name = "btnMaterialboxHooktoMaterialboxPosition2Putdown";
-            this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition2Putdown.TabIndex = 41;
             this.btnMaterialboxHooktoMaterialboxPosition2Putdown.Text = "放下";
             this.btnMaterialboxHooktoMaterialboxPosition2Putdown.UseVisualStyleBackColor = true;
@@ -2459,10 +2528,10 @@
             // 
             // btnMaterialboxHooktoMaterialboxPosition2Pickup
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Location = new System.Drawing.Point(506, 76);
+            this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Location = new System.Drawing.Point(632, 95);
             this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Name = "btnMaterialboxHooktoMaterialboxPosition2Pickup";
-            this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition2Pickup.TabIndex = 39;
             this.btnMaterialboxHooktoMaterialboxPosition2Pickup.Text = "夹取";
             this.btnMaterialboxHooktoMaterialboxPosition2Pickup.UseVisualStyleBackColor = true;
@@ -2471,16 +2540,17 @@
             // labelControl68
             // 
             this.labelControl68.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl68.Location = new System.Drawing.Point(87, 92);
+            this.labelControl68.Location = new System.Drawing.Point(109, 115);
+            this.labelControl68.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl68.Name = "labelControl68";
-            this.labelControl68.Size = new System.Drawing.Size(11, 14);
+            this.labelControl68.Size = new System.Drawing.Size(13, 18);
             this.labelControl68.TabIndex = 38;
             this.labelControl68.Text = "Z:";
             // 
             // numMaterialboxHookUp2
             // 
             this.numMaterialboxHookUp2.DecimalPlaces = 3;
-            this.numMaterialboxHookUp2.Location = new System.Drawing.Point(102, 88);
+            this.numMaterialboxHookUp2.Location = new System.Drawing.Point(128, 110);
             this.numMaterialboxHookUp2.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookUp2.Maximum = new decimal(new int[] {
             1000,
@@ -2493,25 +2563,26 @@
             0,
             -2147483648});
             this.numMaterialboxHookUp2.Name = "numMaterialboxHookUp2";
-            this.numMaterialboxHookUp2.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookUp2.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookUp2.TabIndex = 37;
             this.numMaterialboxHookUp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl69
             // 
             this.labelControl69.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl69.Location = new System.Drawing.Point(18, 92);
+            this.labelControl69.Location = new System.Drawing.Point(22, 115);
+            this.labelControl69.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl69.Name = "labelControl69";
-            this.labelControl69.Size = new System.Drawing.Size(52, 14);
+            this.labelControl69.Size = new System.Drawing.Size(65, 18);
             this.labelControl69.TabIndex = 36;
             this.labelControl69.Text = "抬升距离:";
             // 
             // btnMaterialboxHooktoMaterialboxPosition2Move
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition2Move.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoMaterialboxPosition2Move.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoMaterialboxPosition2Move.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition2Move.Name = "btnMaterialboxHooktoMaterialboxPosition2Move";
-            this.btnMaterialboxHooktoMaterialboxPosition2Move.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition2Move.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition2Move.TabIndex = 35;
             this.btnMaterialboxHooktoMaterialboxPosition2Move.Text = "移动";
             this.btnMaterialboxHooktoMaterialboxPosition2Move.UseVisualStyleBackColor = true;
@@ -2519,10 +2590,10 @@
             // 
             // btnMaterialboxHooktoMaterialboxPosition2Read
             // 
-            this.btnMaterialboxHooktoMaterialboxPosition2Read.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoMaterialboxPosition2Read.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoMaterialboxPosition2Read.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoMaterialboxPosition2Read.Name = "btnMaterialboxHooktoMaterialboxPosition2Read";
-            this.btnMaterialboxHooktoMaterialboxPosition2Read.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoMaterialboxPosition2Read.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoMaterialboxPosition2Read.TabIndex = 34;
             this.btnMaterialboxHooktoMaterialboxPosition2Read.Text = "读取";
             this.btnMaterialboxHooktoMaterialboxPosition2Read.UseVisualStyleBackColor = true;
@@ -2531,25 +2602,27 @@
             // labelControl70
             // 
             this.labelControl70.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl70.Location = new System.Drawing.Point(18, 57);
+            this.labelControl70.Location = new System.Drawing.Point(22, 71);
+            this.labelControl70.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl70.Name = "labelControl70";
-            this.labelControl70.Size = new System.Drawing.Size(52, 14);
+            this.labelControl70.Size = new System.Drawing.Size(65, 18);
             this.labelControl70.TabIndex = 33;
             this.labelControl70.Text = "钩爪夹取:";
             // 
             // labelControl71
             // 
             this.labelControl71.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl71.Location = new System.Drawing.Point(87, 57);
+            this.labelControl71.Location = new System.Drawing.Point(109, 71);
+            this.labelControl71.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl71.Name = "labelControl71";
-            this.labelControl71.Size = new System.Drawing.Size(12, 14);
+            this.labelControl71.Size = new System.Drawing.Size(15, 18);
             this.labelControl71.TabIndex = 32;
             this.labelControl71.Text = "H:";
             // 
             // numMaterialboxHookClose2
             // 
             this.numMaterialboxHookClose2.DecimalPlaces = 3;
-            this.numMaterialboxHookClose2.Location = new System.Drawing.Point(102, 53);
+            this.numMaterialboxHookClose2.Location = new System.Drawing.Point(128, 66);
             this.numMaterialboxHookClose2.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookClose2.Maximum = new decimal(new int[] {
             1000,
@@ -2562,23 +2635,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookClose2.Name = "numMaterialboxHookClose2";
-            this.numMaterialboxHookClose2.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookClose2.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookClose2.TabIndex = 31;
             this.numMaterialboxHookClose2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl72
             // 
             this.labelControl72.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl72.Location = new System.Drawing.Point(394, 24);
+            this.labelControl72.Location = new System.Drawing.Point(492, 30);
+            this.labelControl72.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl72.Name = "labelControl72";
-            this.labelControl72.Size = new System.Drawing.Size(12, 14);
+            this.labelControl72.Size = new System.Drawing.Size(15, 18);
             this.labelControl72.TabIndex = 30;
             this.labelControl72.Text = "T:";
             // 
             // numMaterialboxHooktoMaterialboxPosition2T
             // 
             this.numMaterialboxHooktoMaterialboxPosition2T.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition2T.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoMaterialboxPosition2T.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoMaterialboxPosition2T.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition2T.Maximum = new decimal(new int[] {
             1000,
@@ -2591,23 +2665,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition2T.Name = "numMaterialboxHooktoMaterialboxPosition2T";
-            this.numMaterialboxHooktoMaterialboxPosition2T.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition2T.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition2T.TabIndex = 29;
             this.numMaterialboxHooktoMaterialboxPosition2T.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl73
             // 
             this.labelControl73.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl73.Location = new System.Drawing.Point(292, 24);
+            this.labelControl73.Location = new System.Drawing.Point(365, 30);
+            this.labelControl73.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl73.Name = "labelControl73";
-            this.labelControl73.Size = new System.Drawing.Size(11, 14);
+            this.labelControl73.Size = new System.Drawing.Size(13, 18);
             this.labelControl73.TabIndex = 28;
             this.labelControl73.Text = "Z:";
             // 
             // numMaterialboxHooktoMaterialboxPosition2Z
             // 
             this.numMaterialboxHooktoMaterialboxPosition2Z.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition2Z.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoMaterialboxPosition2Z.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoMaterialboxPosition2Z.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition2Z.Maximum = new decimal(new int[] {
             1000,
@@ -2620,23 +2695,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition2Z.Name = "numMaterialboxHooktoMaterialboxPosition2Z";
-            this.numMaterialboxHooktoMaterialboxPosition2Z.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition2Z.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition2Z.TabIndex = 27;
             this.numMaterialboxHooktoMaterialboxPosition2Z.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl74
             // 
             this.labelControl74.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl74.Location = new System.Drawing.Point(190, 24);
+            this.labelControl74.Location = new System.Drawing.Point(238, 30);
+            this.labelControl74.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl74.Name = "labelControl74";
-            this.labelControl74.Size = new System.Drawing.Size(12, 14);
+            this.labelControl74.Size = new System.Drawing.Size(15, 18);
             this.labelControl74.TabIndex = 26;
             this.labelControl74.Text = "Y:";
             // 
             // numMaterialboxHooktoMaterialboxPosition2Y
             // 
             this.numMaterialboxHooktoMaterialboxPosition2Y.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition2Y.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoMaterialboxPosition2Y.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoMaterialboxPosition2Y.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition2Y.Maximum = new decimal(new int[] {
             1000,
@@ -2649,23 +2725,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition2Y.Name = "numMaterialboxHooktoMaterialboxPosition2Y";
-            this.numMaterialboxHooktoMaterialboxPosition2Y.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition2Y.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition2Y.TabIndex = 25;
             this.numMaterialboxHooktoMaterialboxPosition2Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl75
             // 
             this.labelControl75.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl75.Location = new System.Drawing.Point(87, 23);
+            this.labelControl75.Location = new System.Drawing.Point(109, 29);
+            this.labelControl75.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl75.Name = "labelControl75";
-            this.labelControl75.Size = new System.Drawing.Size(11, 14);
+            this.labelControl75.Size = new System.Drawing.Size(14, 18);
             this.labelControl75.TabIndex = 24;
             this.labelControl75.Text = "X:";
             // 
             // numMaterialboxHooktoMaterialboxPosition2X
             // 
             this.numMaterialboxHooktoMaterialboxPosition2X.DecimalPlaces = 3;
-            this.numMaterialboxHooktoMaterialboxPosition2X.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoMaterialboxPosition2X.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoMaterialboxPosition2X.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoMaterialboxPosition2X.Maximum = new decimal(new int[] {
             1000,
@@ -2678,16 +2755,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoMaterialboxPosition2X.Name = "numMaterialboxHooktoMaterialboxPosition2X";
-            this.numMaterialboxHooktoMaterialboxPosition2X.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoMaterialboxPosition2X.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoMaterialboxPosition2X.TabIndex = 22;
             this.numMaterialboxHooktoMaterialboxPosition2X.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl76
             // 
             this.labelControl76.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl76.Location = new System.Drawing.Point(18, 24);
+            this.labelControl76.Location = new System.Drawing.Point(22, 30);
+            this.labelControl76.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl76.Name = "labelControl76";
-            this.labelControl76.Size = new System.Drawing.Size(52, 14);
+            this.labelControl76.Size = new System.Drawing.Size(65, 18);
             this.labelControl76.TabIndex = 23;
             this.labelControl76.Text = "料盒钩爪:";
             // 
@@ -2707,68 +2785,79 @@
             this.groupBox12.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox12.Size = new System.Drawing.Size(686, 144);
+            this.groupBox12.Size = new System.Drawing.Size(858, 180);
             this.groupBox12.TabIndex = 29;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "烘箱出料";
             // 
             // checkButton3
             // 
-            this.checkButton3.Location = new System.Drawing.Point(187, 17);
+            this.checkButton3.Enabled = false;
+            this.checkButton3.Location = new System.Drawing.Point(234, 21);
             this.checkButton3.Margin = new System.Windows.Forms.Padding(2);
             this.checkButton3.Name = "checkButton3";
-            this.checkButton3.Size = new System.Drawing.Size(127, 23);
+            this.checkButton3.Size = new System.Drawing.Size(159, 29);
             this.checkButton3.TabIndex = 40;
             this.checkButton3.Text = "烘箱充气阀";
+            this.checkButton3.Visible = false;
             this.checkButton3.CheckedChanged += new System.EventHandler(this.checkButton3_CheckedChanged);
             // 
             // labelControl77
             // 
             this.labelControl77.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl77.Location = new System.Drawing.Point(35, 22);
+            this.labelControl77.Enabled = false;
+            this.labelControl77.Location = new System.Drawing.Point(44, 28);
+            this.labelControl77.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl77.Name = "labelControl77";
-            this.labelControl77.Size = new System.Drawing.Size(64, 14);
+            this.labelControl77.Size = new System.Drawing.Size(80, 18);
             this.labelControl77.TabIndex = 39;
             this.labelControl77.Text = "烘箱真空度:";
+            this.labelControl77.Visible = false;
             // 
             // numericUpDown46
             // 
             this.numericUpDown46.DecimalPlaces = 3;
-            this.numericUpDown46.Location = new System.Drawing.Point(102, 20);
+            this.numericUpDown46.Enabled = false;
+            this.numericUpDown46.Location = new System.Drawing.Point(128, 25);
             this.numericUpDown46.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown46.Name = "numericUpDown46";
-            this.numericUpDown46.Size = new System.Drawing.Size(80, 22);
+            this.numericUpDown46.Size = new System.Drawing.Size(100, 26);
             this.numericUpDown46.TabIndex = 38;
             this.numericUpDown46.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown46.Visible = false;
             // 
             // button44
             // 
-            this.button44.Location = new System.Drawing.Point(187, 74);
+            this.button44.Enabled = false;
+            this.button44.Location = new System.Drawing.Point(234, 92);
             this.button44.Margin = new System.Windows.Forms.Padding(2);
             this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(127, 25);
+            this.button44.Size = new System.Drawing.Size(159, 31);
             this.button44.TabIndex = 37;
             this.button44.Text = "烘箱关内门";
             this.button44.UseVisualStyleBackColor = true;
+            this.button44.Visible = false;
             this.button44.Click += new System.EventHandler(this.button44_Click);
             // 
             // button45
             // 
-            this.button45.Location = new System.Drawing.Point(187, 45);
+            this.button45.Enabled = false;
+            this.button45.Location = new System.Drawing.Point(234, 56);
             this.button45.Margin = new System.Windows.Forms.Padding(2);
             this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(127, 25);
+            this.button45.Size = new System.Drawing.Size(159, 31);
             this.button45.TabIndex = 36;
             this.button45.Text = "烘箱开内门";
             this.button45.UseVisualStyleBackColor = true;
+            this.button45.Visible = false;
             this.button45.Click += new System.EventHandler(this.button45_Click);
             // 
             // btnOverTrack2MaterialboxOutofovenMove
             // 
-            this.btnOverTrack2MaterialboxOutofovenMove.Location = new System.Drawing.Point(254, 104);
+            this.btnOverTrack2MaterialboxOutofovenMove.Location = new System.Drawing.Point(318, 130);
             this.btnOverTrack2MaterialboxOutofovenMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack2MaterialboxOutofovenMove.Name = "btnOverTrack2MaterialboxOutofovenMove";
-            this.btnOverTrack2MaterialboxOutofovenMove.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack2MaterialboxOutofovenMove.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack2MaterialboxOutofovenMove.TabIndex = 35;
             this.btnOverTrack2MaterialboxOutofovenMove.Text = "移动";
             this.btnOverTrack2MaterialboxOutofovenMove.UseVisualStyleBackColor = true;
@@ -2776,10 +2865,10 @@
             // 
             // btnOverTrack2MaterialboxOutofovenRead
             // 
-            this.btnOverTrack2MaterialboxOutofovenRead.Location = new System.Drawing.Point(190, 104);
+            this.btnOverTrack2MaterialboxOutofovenRead.Location = new System.Drawing.Point(238, 130);
             this.btnOverTrack2MaterialboxOutofovenRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack2MaterialboxOutofovenRead.Name = "btnOverTrack2MaterialboxOutofovenRead";
-            this.btnOverTrack2MaterialboxOutofovenRead.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack2MaterialboxOutofovenRead.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack2MaterialboxOutofovenRead.TabIndex = 34;
             this.btnOverTrack2MaterialboxOutofovenRead.Text = "读取";
             this.btnOverTrack2MaterialboxOutofovenRead.UseVisualStyleBackColor = true;
@@ -2788,16 +2877,17 @@
             // labelControl78
             // 
             this.labelControl78.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl78.Location = new System.Drawing.Point(88, 108);
+            this.labelControl78.Location = new System.Drawing.Point(110, 135);
+            this.labelControl78.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl78.Name = "labelControl78";
-            this.labelControl78.Size = new System.Drawing.Size(11, 14);
+            this.labelControl78.Size = new System.Drawing.Size(14, 18);
             this.labelControl78.TabIndex = 24;
             this.labelControl78.Text = "X:";
             // 
             // numOverTrack2MaterialboxOutofoven
             // 
             this.numOverTrack2MaterialboxOutofoven.DecimalPlaces = 3;
-            this.numOverTrack2MaterialboxOutofoven.Location = new System.Drawing.Point(102, 106);
+            this.numOverTrack2MaterialboxOutofoven.Location = new System.Drawing.Point(128, 132);
             this.numOverTrack2MaterialboxOutofoven.Margin = new System.Windows.Forms.Padding(2);
             this.numOverTrack2MaterialboxOutofoven.Maximum = new decimal(new int[] {
             10000,
@@ -2810,16 +2900,17 @@
             0,
             -2147483648});
             this.numOverTrack2MaterialboxOutofoven.Name = "numOverTrack2MaterialboxOutofoven";
-            this.numOverTrack2MaterialboxOutofoven.Size = new System.Drawing.Size(80, 22);
+            this.numOverTrack2MaterialboxOutofoven.Size = new System.Drawing.Size(100, 26);
             this.numOverTrack2MaterialboxOutofoven.TabIndex = 22;
             this.numOverTrack2MaterialboxOutofoven.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl79
             // 
             this.labelControl79.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl79.Location = new System.Drawing.Point(6, 109);
+            this.labelControl79.Location = new System.Drawing.Point(8, 136);
+            this.labelControl79.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl79.Name = "labelControl79";
-            this.labelControl79.Size = new System.Drawing.Size(76, 14);
+            this.labelControl79.Size = new System.Drawing.Size(95, 18);
             this.labelControl79.TabIndex = 23;
             this.labelControl79.Text = "轨道出料位置:";
             // 
@@ -2829,10 +2920,10 @@
             this.OvenBox1MaterialBoxToTragettabPage.Controls.Add(this.groupBox7);
             this.OvenBox1MaterialBoxToTragettabPage.Controls.Add(this.groupBox6);
             this.OvenBox1MaterialBoxToTragettabPage.Controls.Add(this.groupBox5);
-            this.OvenBox1MaterialBoxToTragettabPage.Location = new System.Drawing.Point(4, 23);
+            this.OvenBox1MaterialBoxToTragettabPage.Location = new System.Drawing.Point(4, 27);
             this.OvenBox1MaterialBoxToTragettabPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1MaterialBoxToTragettabPage.Name = "OvenBox1MaterialBoxToTragettabPage";
-            this.OvenBox1MaterialBoxToTragettabPage.Size = new System.Drawing.Size(697, 593);
+            this.OvenBox1MaterialBoxToTragettabPage.Size = new System.Drawing.Size(873, 744);
             this.OvenBox1MaterialBoxToTragettabPage.TabIndex = 2;
             this.OvenBox1MaterialBoxToTragettabPage.Text = "料盒搬送";
             this.OvenBox1MaterialBoxToTragettabPage.UseVisualStyleBackColor = true;
@@ -2840,10 +2931,10 @@
             // OvenBox1MaterialBoxToTragetSave
             // 
             this.OvenBox1MaterialBoxToTragetSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.OvenBox1MaterialBoxToTragetSave.Location = new System.Drawing.Point(614, 552);
+            this.OvenBox1MaterialBoxToTragetSave.Location = new System.Drawing.Point(768, 690);
             this.OvenBox1MaterialBoxToTragetSave.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1MaterialBoxToTragetSave.Name = "OvenBox1MaterialBoxToTragetSave";
-            this.OvenBox1MaterialBoxToTragetSave.Size = new System.Drawing.Size(82, 41);
+            this.OvenBox1MaterialBoxToTragetSave.Size = new System.Drawing.Size(102, 51);
             this.OvenBox1MaterialBoxToTragetSave.TabIndex = 37;
             this.OvenBox1MaterialBoxToTragetSave.Text = "保存";
             this.OvenBox1MaterialBoxToTragetSave.UseVisualStyleBackColor = true;
@@ -2864,21 +2955,21 @@
             this.groupBox7.Controls.Add(this.labelControl55);
             this.groupBox7.Controls.Add(this.numMaterialboxHooktoTarget4PositionX);
             this.groupBox7.Controls.Add(this.labelControl56);
-            this.groupBox7.Location = new System.Drawing.Point(2, 238);
+            this.groupBox7.Location = new System.Drawing.Point(2, 298);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox7.Size = new System.Drawing.Size(686, 93);
+            this.groupBox7.Size = new System.Drawing.Size(858, 116);
             this.groupBox7.TabIndex = 27;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "料盒到空闲位置2";
             // 
             // btnMaterialboxHooktoTarget4PositionPutdown
             // 
-            this.btnMaterialboxHooktoTarget4PositionPutdown.Location = new System.Drawing.Point(574, 44);
+            this.btnMaterialboxHooktoTarget4PositionPutdown.Location = new System.Drawing.Point(718, 55);
             this.btnMaterialboxHooktoTarget4PositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget4PositionPutdown.Name = "btnMaterialboxHooktoTarget4PositionPutdown";
-            this.btnMaterialboxHooktoTarget4PositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget4PositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget4PositionPutdown.TabIndex = 45;
             this.btnMaterialboxHooktoTarget4PositionPutdown.Text = "放下";
             this.btnMaterialboxHooktoTarget4PositionPutdown.UseVisualStyleBackColor = true;
@@ -2886,10 +2977,10 @@
             // 
             // btnMaterialboxHooktoTarget4PositionMove
             // 
-            this.btnMaterialboxHooktoTarget4PositionMove.Location = new System.Drawing.Point(509, 45);
+            this.btnMaterialboxHooktoTarget4PositionMove.Location = new System.Drawing.Point(636, 56);
             this.btnMaterialboxHooktoTarget4PositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget4PositionMove.Name = "btnMaterialboxHooktoTarget4PositionMove";
-            this.btnMaterialboxHooktoTarget4PositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget4PositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget4PositionMove.TabIndex = 35;
             this.btnMaterialboxHooktoTarget4PositionMove.Text = "移动";
             this.btnMaterialboxHooktoTarget4PositionMove.UseVisualStyleBackColor = true;
@@ -2897,10 +2988,10 @@
             // 
             // btnMaterialboxHooktoTarget4PositionPickup
             // 
-            this.btnMaterialboxHooktoTarget4PositionPickup.Location = new System.Drawing.Point(574, 14);
+            this.btnMaterialboxHooktoTarget4PositionPickup.Location = new System.Drawing.Point(718, 18);
             this.btnMaterialboxHooktoTarget4PositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget4PositionPickup.Name = "btnMaterialboxHooktoTarget4PositionPickup";
-            this.btnMaterialboxHooktoTarget4PositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget4PositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget4PositionPickup.TabIndex = 44;
             this.btnMaterialboxHooktoTarget4PositionPickup.Text = "夹取";
             this.btnMaterialboxHooktoTarget4PositionPickup.UseVisualStyleBackColor = true;
@@ -2908,10 +2999,10 @@
             // 
             // btnMaterialboxHooktoTarget4PositionRead
             // 
-            this.btnMaterialboxHooktoTarget4PositionRead.Location = new System.Drawing.Point(509, 15);
+            this.btnMaterialboxHooktoTarget4PositionRead.Location = new System.Drawing.Point(636, 19);
             this.btnMaterialboxHooktoTarget4PositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget4PositionRead.Name = "btnMaterialboxHooktoTarget4PositionRead";
-            this.btnMaterialboxHooktoTarget4PositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget4PositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget4PositionRead.TabIndex = 34;
             this.btnMaterialboxHooktoTarget4PositionRead.Text = "读取";
             this.btnMaterialboxHooktoTarget4PositionRead.UseVisualStyleBackColor = true;
@@ -2920,16 +3011,17 @@
             // labelControl52
             // 
             this.labelControl52.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl52.Location = new System.Drawing.Point(394, 23);
+            this.labelControl52.Location = new System.Drawing.Point(492, 29);
+            this.labelControl52.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl52.Name = "labelControl52";
-            this.labelControl52.Size = new System.Drawing.Size(12, 14);
+            this.labelControl52.Size = new System.Drawing.Size(15, 18);
             this.labelControl52.TabIndex = 30;
             this.labelControl52.Text = "T:";
             // 
             // numMaterialboxHooktoTarget4PositionT
             // 
             this.numMaterialboxHooktoTarget4PositionT.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget4PositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoTarget4PositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoTarget4PositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget4PositionT.Maximum = new decimal(new int[] {
             1000,
@@ -2942,23 +3034,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget4PositionT.Name = "numMaterialboxHooktoTarget4PositionT";
-            this.numMaterialboxHooktoTarget4PositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget4PositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget4PositionT.TabIndex = 29;
             this.numMaterialboxHooktoTarget4PositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl53
             // 
             this.labelControl53.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl53.Location = new System.Drawing.Point(292, 23);
+            this.labelControl53.Location = new System.Drawing.Point(365, 29);
+            this.labelControl53.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl53.Name = "labelControl53";
-            this.labelControl53.Size = new System.Drawing.Size(11, 14);
+            this.labelControl53.Size = new System.Drawing.Size(13, 18);
             this.labelControl53.TabIndex = 28;
             this.labelControl53.Text = "Z:";
             // 
             // numMaterialboxHooktoTarget4PositionZ
             // 
             this.numMaterialboxHooktoTarget4PositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget4PositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoTarget4PositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoTarget4PositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget4PositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -2971,23 +3064,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget4PositionZ.Name = "numMaterialboxHooktoTarget4PositionZ";
-            this.numMaterialboxHooktoTarget4PositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget4PositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget4PositionZ.TabIndex = 27;
             this.numMaterialboxHooktoTarget4PositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl54
             // 
             this.labelControl54.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl54.Location = new System.Drawing.Point(190, 23);
+            this.labelControl54.Location = new System.Drawing.Point(238, 29);
+            this.labelControl54.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl54.Name = "labelControl54";
-            this.labelControl54.Size = new System.Drawing.Size(12, 14);
+            this.labelControl54.Size = new System.Drawing.Size(15, 18);
             this.labelControl54.TabIndex = 26;
             this.labelControl54.Text = "Y:";
             // 
             // numMaterialboxHooktoTarget4PositionY
             // 
             this.numMaterialboxHooktoTarget4PositionY.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget4PositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoTarget4PositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoTarget4PositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget4PositionY.Maximum = new decimal(new int[] {
             1000,
@@ -3000,23 +3094,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget4PositionY.Name = "numMaterialboxHooktoTarget4PositionY";
-            this.numMaterialboxHooktoTarget4PositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget4PositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget4PositionY.TabIndex = 25;
             this.numMaterialboxHooktoTarget4PositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl55
             // 
             this.labelControl55.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl55.Location = new System.Drawing.Point(87, 22);
+            this.labelControl55.Location = new System.Drawing.Point(109, 28);
+            this.labelControl55.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl55.Name = "labelControl55";
-            this.labelControl55.Size = new System.Drawing.Size(11, 14);
+            this.labelControl55.Size = new System.Drawing.Size(14, 18);
             this.labelControl55.TabIndex = 24;
             this.labelControl55.Text = "X:";
             // 
             // numMaterialboxHooktoTarget4PositionX
             // 
             this.numMaterialboxHooktoTarget4PositionX.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget4PositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoTarget4PositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoTarget4PositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget4PositionX.Maximum = new decimal(new int[] {
             1000,
@@ -3029,16 +3124,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget4PositionX.Name = "numMaterialboxHooktoTarget4PositionX";
-            this.numMaterialboxHooktoTarget4PositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget4PositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget4PositionX.TabIndex = 22;
             this.numMaterialboxHooktoTarget4PositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl56
             // 
             this.labelControl56.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl56.Location = new System.Drawing.Point(18, 23);
+            this.labelControl56.Location = new System.Drawing.Point(22, 29);
+            this.labelControl56.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl56.Name = "labelControl56";
-            this.labelControl56.Size = new System.Drawing.Size(52, 14);
+            this.labelControl56.Size = new System.Drawing.Size(65, 18);
             this.labelControl56.TabIndex = 23;
             this.labelControl56.Text = "料盒钩爪:";
             // 
@@ -3062,11 +3158,11 @@
             this.groupBox6.Controls.Add(this.labelControl50);
             this.groupBox6.Controls.Add(this.numMaterialboxHooktoTarget3PositionX);
             this.groupBox6.Controls.Add(this.labelControl51);
-            this.groupBox6.Location = new System.Drawing.Point(6, 100);
+            this.groupBox6.Location = new System.Drawing.Point(8, 125);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(686, 120);
+            this.groupBox6.Size = new System.Drawing.Size(858, 150);
             this.groupBox6.TabIndex = 26;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "料盒到焊接位置";
@@ -3074,9 +3170,10 @@
             // labelControl83
             // 
             this.labelControl83.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl83.Location = new System.Drawing.Point(222, 81);
+            this.labelControl83.Location = new System.Drawing.Point(278, 101);
+            this.labelControl83.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl83.Name = "labelControl83";
-            this.labelControl83.Size = new System.Drawing.Size(52, 14);
+            this.labelControl83.Size = new System.Drawing.Size(65, 18);
             this.labelControl83.TabIndex = 48;
             this.labelControl83.Text = "当前料盘:";
             // 
@@ -3087,18 +3184,19 @@
             this.comboBox3.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBox3.Location = new System.Drawing.Point(307, 78);
+            this.comboBox3.Location = new System.Drawing.Point(384, 98);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(81, 22);
+            this.comboBox3.Size = new System.Drawing.Size(100, 26);
             this.comboBox3.TabIndex = 47;
             // 
             // labelControl82
             // 
             this.labelControl82.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl82.Location = new System.Drawing.Point(15, 81);
+            this.labelControl82.Location = new System.Drawing.Point(19, 101);
+            this.labelControl82.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl82.Name = "labelControl82";
-            this.labelControl82.Size = new System.Drawing.Size(52, 14);
+            this.labelControl82.Size = new System.Drawing.Size(65, 18);
             this.labelControl82.TabIndex = 46;
             this.labelControl82.Text = "当前烘箱:";
             // 
@@ -3109,18 +3207,18 @@
             this.comboBox2.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBox2.Location = new System.Drawing.Point(100, 78);
+            this.comboBox2.Location = new System.Drawing.Point(125, 98);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(81, 22);
+            this.comboBox2.Size = new System.Drawing.Size(100, 26);
             this.comboBox2.TabIndex = 45;
             // 
             // btnGreateMaterialBoxRecognition
             // 
-            this.btnGreateMaterialBoxRecognition.Location = new System.Drawing.Point(506, 76);
+            this.btnGreateMaterialBoxRecognition.Location = new System.Drawing.Point(632, 95);
             this.btnGreateMaterialBoxRecognition.Margin = new System.Windows.Forms.Padding(2);
             this.btnGreateMaterialBoxRecognition.Name = "btnGreateMaterialBoxRecognition";
-            this.btnGreateMaterialBoxRecognition.Size = new System.Drawing.Size(125, 25);
+            this.btnGreateMaterialBoxRecognition.Size = new System.Drawing.Size(156, 31);
             this.btnGreateMaterialBoxRecognition.TabIndex = 44;
             this.btnGreateMaterialBoxRecognition.Text = "创建料盒识别";
             this.btnGreateMaterialBoxRecognition.UseVisualStyleBackColor = true;
@@ -3128,10 +3226,10 @@
             // 
             // btnMaterialboxHooktoTarget3PositionPutdown
             // 
-            this.btnMaterialboxHooktoTarget3PositionPutdown.Location = new System.Drawing.Point(570, 46);
+            this.btnMaterialboxHooktoTarget3PositionPutdown.Location = new System.Drawing.Point(712, 58);
             this.btnMaterialboxHooktoTarget3PositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget3PositionPutdown.Name = "btnMaterialboxHooktoTarget3PositionPutdown";
-            this.btnMaterialboxHooktoTarget3PositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget3PositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget3PositionPutdown.TabIndex = 43;
             this.btnMaterialboxHooktoTarget3PositionPutdown.Text = "放下";
             this.btnMaterialboxHooktoTarget3PositionPutdown.UseVisualStyleBackColor = true;
@@ -3139,10 +3237,10 @@
             // 
             // btnMaterialboxHooktoTarget3PositionPickup
             // 
-            this.btnMaterialboxHooktoTarget3PositionPickup.Location = new System.Drawing.Point(570, 16);
+            this.btnMaterialboxHooktoTarget3PositionPickup.Location = new System.Drawing.Point(712, 20);
             this.btnMaterialboxHooktoTarget3PositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget3PositionPickup.Name = "btnMaterialboxHooktoTarget3PositionPickup";
-            this.btnMaterialboxHooktoTarget3PositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget3PositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget3PositionPickup.TabIndex = 42;
             this.btnMaterialboxHooktoTarget3PositionPickup.Text = "夹取";
             this.btnMaterialboxHooktoTarget3PositionPickup.UseVisualStyleBackColor = true;
@@ -3150,10 +3248,10 @@
             // 
             // btnMaterialboxHooktoTarget3PositionMove
             // 
-            this.btnMaterialboxHooktoTarget3PositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoTarget3PositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoTarget3PositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget3PositionMove.Name = "btnMaterialboxHooktoTarget3PositionMove";
-            this.btnMaterialboxHooktoTarget3PositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget3PositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget3PositionMove.TabIndex = 35;
             this.btnMaterialboxHooktoTarget3PositionMove.Text = "移动";
             this.btnMaterialboxHooktoTarget3PositionMove.UseVisualStyleBackColor = true;
@@ -3161,10 +3259,10 @@
             // 
             // btnMaterialboxHooktoTarget3PositionRead
             // 
-            this.btnMaterialboxHooktoTarget3PositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoTarget3PositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoTarget3PositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget3PositionRead.Name = "btnMaterialboxHooktoTarget3PositionRead";
-            this.btnMaterialboxHooktoTarget3PositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget3PositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget3PositionRead.TabIndex = 34;
             this.btnMaterialboxHooktoTarget3PositionRead.Text = "读取";
             this.btnMaterialboxHooktoTarget3PositionRead.UseVisualStyleBackColor = true;
@@ -3173,16 +3271,17 @@
             // labelControl37
             // 
             this.labelControl37.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl37.Location = new System.Drawing.Point(391, 22);
+            this.labelControl37.Location = new System.Drawing.Point(489, 28);
+            this.labelControl37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl37.Name = "labelControl37";
-            this.labelControl37.Size = new System.Drawing.Size(12, 14);
+            this.labelControl37.Size = new System.Drawing.Size(15, 18);
             this.labelControl37.TabIndex = 30;
             this.labelControl37.Text = "T:";
             // 
             // numMaterialboxHooktoTarget3PositionT
             // 
             this.numMaterialboxHooktoTarget3PositionT.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget3PositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoTarget3PositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoTarget3PositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget3PositionT.Maximum = new decimal(new int[] {
             1000,
@@ -3195,23 +3294,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget3PositionT.Name = "numMaterialboxHooktoTarget3PositionT";
-            this.numMaterialboxHooktoTarget3PositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget3PositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget3PositionT.TabIndex = 29;
             this.numMaterialboxHooktoTarget3PositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl38
             // 
             this.labelControl38.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl38.Location = new System.Drawing.Point(289, 22);
+            this.labelControl38.Location = new System.Drawing.Point(361, 28);
+            this.labelControl38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl38.Name = "labelControl38";
-            this.labelControl38.Size = new System.Drawing.Size(11, 14);
+            this.labelControl38.Size = new System.Drawing.Size(13, 18);
             this.labelControl38.TabIndex = 28;
             this.labelControl38.Text = "Z:";
             // 
             // numMaterialboxHooktoTarget3PositionZ
             // 
             this.numMaterialboxHooktoTarget3PositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget3PositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoTarget3PositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoTarget3PositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget3PositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -3224,23 +3324,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget3PositionZ.Name = "numMaterialboxHooktoTarget3PositionZ";
-            this.numMaterialboxHooktoTarget3PositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget3PositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget3PositionZ.TabIndex = 27;
             this.numMaterialboxHooktoTarget3PositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl49
             // 
             this.labelControl49.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl49.Location = new System.Drawing.Point(186, 22);
+            this.labelControl49.Location = new System.Drawing.Point(232, 28);
+            this.labelControl49.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl49.Name = "labelControl49";
-            this.labelControl49.Size = new System.Drawing.Size(12, 14);
+            this.labelControl49.Size = new System.Drawing.Size(15, 18);
             this.labelControl49.TabIndex = 26;
             this.labelControl49.Text = "Y:";
             // 
             // numMaterialboxHooktoTarget3PositionY
             // 
             this.numMaterialboxHooktoTarget3PositionY.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget3PositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoTarget3PositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoTarget3PositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget3PositionY.Maximum = new decimal(new int[] {
             1000,
@@ -3253,23 +3354,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget3PositionY.Name = "numMaterialboxHooktoTarget3PositionY";
-            this.numMaterialboxHooktoTarget3PositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget3PositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget3PositionY.TabIndex = 25;
             this.numMaterialboxHooktoTarget3PositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl50
             // 
             this.labelControl50.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl50.Location = new System.Drawing.Point(84, 21);
+            this.labelControl50.Location = new System.Drawing.Point(105, 26);
+            this.labelControl50.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl50.Name = "labelControl50";
-            this.labelControl50.Size = new System.Drawing.Size(11, 14);
+            this.labelControl50.Size = new System.Drawing.Size(14, 18);
             this.labelControl50.TabIndex = 24;
             this.labelControl50.Text = "X:";
             // 
             // numMaterialboxHooktoTarget3PositionX
             // 
             this.numMaterialboxHooktoTarget3PositionX.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget3PositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoTarget3PositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoTarget3PositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget3PositionX.Maximum = new decimal(new int[] {
             1000,
@@ -3282,16 +3384,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget3PositionX.Name = "numMaterialboxHooktoTarget3PositionX";
-            this.numMaterialboxHooktoTarget3PositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget3PositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget3PositionX.TabIndex = 22;
             this.numMaterialboxHooktoTarget3PositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl51
             // 
             this.labelControl51.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl51.Location = new System.Drawing.Point(15, 22);
+            this.labelControl51.Location = new System.Drawing.Point(19, 28);
+            this.labelControl51.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl51.Name = "labelControl51";
-            this.labelControl51.Size = new System.Drawing.Size(52, 14);
+            this.labelControl51.Size = new System.Drawing.Size(65, 18);
             this.labelControl51.TabIndex = 23;
             this.labelControl51.Text = "料盒钩爪:";
             // 
@@ -3310,21 +3413,21 @@
             this.groupBox5.Controls.Add(this.labelControl47);
             this.groupBox5.Controls.Add(this.numMaterialboxHooktoTarget2PositionX);
             this.groupBox5.Controls.Add(this.labelControl48);
-            this.groupBox5.Location = new System.Drawing.Point(6, 2);
+            this.groupBox5.Location = new System.Drawing.Point(8, 2);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(686, 93);
+            this.groupBox5.Size = new System.Drawing.Size(858, 116);
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "料盒到空闲位置1";
             // 
             // btnMaterialboxHooktoTarget2PositionPutdown
             // 
-            this.btnMaterialboxHooktoTarget2PositionPutdown.Location = new System.Drawing.Point(570, 46);
+            this.btnMaterialboxHooktoTarget2PositionPutdown.Location = new System.Drawing.Point(712, 58);
             this.btnMaterialboxHooktoTarget2PositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget2PositionPutdown.Name = "btnMaterialboxHooktoTarget2PositionPutdown";
-            this.btnMaterialboxHooktoTarget2PositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget2PositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget2PositionPutdown.TabIndex = 41;
             this.btnMaterialboxHooktoTarget2PositionPutdown.Text = "放下";
             this.btnMaterialboxHooktoTarget2PositionPutdown.UseVisualStyleBackColor = true;
@@ -3332,10 +3435,10 @@
             // 
             // btnMaterialboxHooktoTarget2PositionPickup
             // 
-            this.btnMaterialboxHooktoTarget2PositionPickup.Location = new System.Drawing.Point(570, 17);
+            this.btnMaterialboxHooktoTarget2PositionPickup.Location = new System.Drawing.Point(712, 21);
             this.btnMaterialboxHooktoTarget2PositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget2PositionPickup.Name = "btnMaterialboxHooktoTarget2PositionPickup";
-            this.btnMaterialboxHooktoTarget2PositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget2PositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget2PositionPickup.TabIndex = 40;
             this.btnMaterialboxHooktoTarget2PositionPickup.Text = "夹取";
             this.btnMaterialboxHooktoTarget2PositionPickup.UseVisualStyleBackColor = true;
@@ -3343,10 +3446,10 @@
             // 
             // btnMaterialboxHooktoTarget2PositionMove
             // 
-            this.btnMaterialboxHooktoTarget2PositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHooktoTarget2PositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHooktoTarget2PositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget2PositionMove.Name = "btnMaterialboxHooktoTarget2PositionMove";
-            this.btnMaterialboxHooktoTarget2PositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget2PositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget2PositionMove.TabIndex = 35;
             this.btnMaterialboxHooktoTarget2PositionMove.Text = "移动";
             this.btnMaterialboxHooktoTarget2PositionMove.UseVisualStyleBackColor = true;
@@ -3354,10 +3457,10 @@
             // 
             // btnMaterialboxHooktoTarget2PositionRead
             // 
-            this.btnMaterialboxHooktoTarget2PositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHooktoTarget2PositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHooktoTarget2PositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHooktoTarget2PositionRead.Name = "btnMaterialboxHooktoTarget2PositionRead";
-            this.btnMaterialboxHooktoTarget2PositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHooktoTarget2PositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHooktoTarget2PositionRead.TabIndex = 34;
             this.btnMaterialboxHooktoTarget2PositionRead.Text = "读取";
             this.btnMaterialboxHooktoTarget2PositionRead.UseVisualStyleBackColor = true;
@@ -3366,16 +3469,17 @@
             // labelControl44
             // 
             this.labelControl44.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl44.Location = new System.Drawing.Point(394, 23);
+            this.labelControl44.Location = new System.Drawing.Point(492, 29);
+            this.labelControl44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl44.Name = "labelControl44";
-            this.labelControl44.Size = new System.Drawing.Size(12, 14);
+            this.labelControl44.Size = new System.Drawing.Size(15, 18);
             this.labelControl44.TabIndex = 30;
             this.labelControl44.Text = "T:";
             // 
             // numMaterialboxHooktoTarget2PositionT
             // 
             this.numMaterialboxHooktoTarget2PositionT.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget2PositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHooktoTarget2PositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHooktoTarget2PositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget2PositionT.Maximum = new decimal(new int[] {
             1000,
@@ -3388,23 +3492,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget2PositionT.Name = "numMaterialboxHooktoTarget2PositionT";
-            this.numMaterialboxHooktoTarget2PositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget2PositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget2PositionT.TabIndex = 29;
             this.numMaterialboxHooktoTarget2PositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl45
             // 
             this.labelControl45.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl45.Location = new System.Drawing.Point(292, 23);
+            this.labelControl45.Location = new System.Drawing.Point(365, 29);
+            this.labelControl45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl45.Name = "labelControl45";
-            this.labelControl45.Size = new System.Drawing.Size(11, 14);
+            this.labelControl45.Size = new System.Drawing.Size(13, 18);
             this.labelControl45.TabIndex = 28;
             this.labelControl45.Text = "Z:";
             // 
             // numMaterialboxHooktoTarget2PositionZ
             // 
             this.numMaterialboxHooktoTarget2PositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget2PositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHooktoTarget2PositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHooktoTarget2PositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget2PositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -3417,23 +3522,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget2PositionZ.Name = "numMaterialboxHooktoTarget2PositionZ";
-            this.numMaterialboxHooktoTarget2PositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget2PositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget2PositionZ.TabIndex = 27;
             this.numMaterialboxHooktoTarget2PositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl46
             // 
             this.labelControl46.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl46.Location = new System.Drawing.Point(190, 23);
+            this.labelControl46.Location = new System.Drawing.Point(238, 29);
+            this.labelControl46.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl46.Name = "labelControl46";
-            this.labelControl46.Size = new System.Drawing.Size(12, 14);
+            this.labelControl46.Size = new System.Drawing.Size(15, 18);
             this.labelControl46.TabIndex = 26;
             this.labelControl46.Text = "Y:";
             // 
             // numMaterialboxHooktoTarget2PositionY
             // 
             this.numMaterialboxHooktoTarget2PositionY.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget2PositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHooktoTarget2PositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHooktoTarget2PositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget2PositionY.Maximum = new decimal(new int[] {
             1000,
@@ -3446,23 +3552,24 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget2PositionY.Name = "numMaterialboxHooktoTarget2PositionY";
-            this.numMaterialboxHooktoTarget2PositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget2PositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget2PositionY.TabIndex = 25;
             this.numMaterialboxHooktoTarget2PositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl47
             // 
             this.labelControl47.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl47.Location = new System.Drawing.Point(87, 22);
+            this.labelControl47.Location = new System.Drawing.Point(109, 28);
+            this.labelControl47.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl47.Name = "labelControl47";
-            this.labelControl47.Size = new System.Drawing.Size(11, 14);
+            this.labelControl47.Size = new System.Drawing.Size(14, 18);
             this.labelControl47.TabIndex = 24;
             this.labelControl47.Text = "X:";
             // 
             // numMaterialboxHooktoTarget2PositionX
             // 
             this.numMaterialboxHooktoTarget2PositionX.DecimalPlaces = 3;
-            this.numMaterialboxHooktoTarget2PositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHooktoTarget2PositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHooktoTarget2PositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHooktoTarget2PositionX.Maximum = new decimal(new int[] {
             1000,
@@ -3475,16 +3582,17 @@
             0,
             -2147483648});
             this.numMaterialboxHooktoTarget2PositionX.Name = "numMaterialboxHooktoTarget2PositionX";
-            this.numMaterialboxHooktoTarget2PositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHooktoTarget2PositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHooktoTarget2PositionX.TabIndex = 22;
             this.numMaterialboxHooktoTarget2PositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl48
             // 
             this.labelControl48.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl48.Location = new System.Drawing.Point(18, 23);
+            this.labelControl48.Location = new System.Drawing.Point(22, 29);
+            this.labelControl48.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl48.Name = "labelControl48";
-            this.labelControl48.Size = new System.Drawing.Size(52, 14);
+            this.labelControl48.Size = new System.Drawing.Size(65, 18);
             this.labelControl48.TabIndex = 23;
             this.labelControl48.Text = "料盒钩爪:";
             // 
@@ -3493,11 +3601,11 @@
             this.OvenBox1InputtabPage.Controls.Add(this.OvenBox1InputSave);
             this.OvenBox1InputtabPage.Controls.Add(this.groupBox8);
             this.OvenBox1InputtabPage.Controls.Add(this.groupBox9);
-            this.OvenBox1InputtabPage.Location = new System.Drawing.Point(4, 23);
+            this.OvenBox1InputtabPage.Location = new System.Drawing.Point(4, 27);
             this.OvenBox1InputtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1InputtabPage.Name = "OvenBox1InputtabPage";
             this.OvenBox1InputtabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.OvenBox1InputtabPage.Size = new System.Drawing.Size(697, 593);
+            this.OvenBox1InputtabPage.Size = new System.Drawing.Size(873, 744);
             this.OvenBox1InputtabPage.TabIndex = 1;
             this.OvenBox1InputtabPage.Text = "烘箱1进料";
             this.OvenBox1InputtabPage.UseVisualStyleBackColor = true;
@@ -3505,10 +3613,10 @@
             // OvenBox1InputSave
             // 
             this.OvenBox1InputSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.OvenBox1InputSave.Location = new System.Drawing.Point(611, 550);
+            this.OvenBox1InputSave.Location = new System.Drawing.Point(764, 688);
             this.OvenBox1InputSave.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox1InputSave.Name = "OvenBox1InputSave";
-            this.OvenBox1InputSave.Size = new System.Drawing.Size(82, 41);
+            this.OvenBox1InputSave.Size = new System.Drawing.Size(102, 51);
             this.OvenBox1InputSave.TabIndex = 38;
             this.OvenBox1InputSave.Text = "保存";
             this.OvenBox1InputSave.UseVisualStyleBackColor = true;
@@ -3526,72 +3634,83 @@
             this.groupBox8.Controls.Add(this.labelControl36);
             this.groupBox8.Controls.Add(this.numOverTrack1MaterialboxInofoven);
             this.groupBox8.Controls.Add(this.labelControl57);
-            this.groupBox8.Location = new System.Drawing.Point(5, 102);
+            this.groupBox8.Location = new System.Drawing.Point(6, 128);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox8.Size = new System.Drawing.Size(686, 144);
+            this.groupBox8.Size = new System.Drawing.Size(858, 180);
             this.groupBox8.TabIndex = 27;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "烘箱进料";
             // 
             // checkButton2
             // 
-            this.checkButton2.Location = new System.Drawing.Point(187, 17);
+            this.checkButton2.Enabled = false;
+            this.checkButton2.Location = new System.Drawing.Point(234, 21);
             this.checkButton2.Margin = new System.Windows.Forms.Padding(2);
             this.checkButton2.Name = "checkButton2";
-            this.checkButton2.Size = new System.Drawing.Size(127, 23);
+            this.checkButton2.Size = new System.Drawing.Size(159, 29);
             this.checkButton2.TabIndex = 40;
             this.checkButton2.Text = "烘箱充气阀";
+            this.checkButton2.Visible = false;
             this.checkButton2.CheckedChanged += new System.EventHandler(this.checkButton2_CheckedChanged);
             // 
             // labelControl35
             // 
             this.labelControl35.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl35.Location = new System.Drawing.Point(35, 22);
+            this.labelControl35.Enabled = false;
+            this.labelControl35.Location = new System.Drawing.Point(44, 28);
+            this.labelControl35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl35.Name = "labelControl35";
-            this.labelControl35.Size = new System.Drawing.Size(64, 14);
+            this.labelControl35.Size = new System.Drawing.Size(80, 18);
             this.labelControl35.TabIndex = 39;
             this.labelControl35.Text = "烘箱真空度:";
+            this.labelControl35.Visible = false;
             // 
             // numericUpDown14
             // 
             this.numericUpDown14.DecimalPlaces = 3;
-            this.numericUpDown14.Location = new System.Drawing.Point(102, 20);
+            this.numericUpDown14.Enabled = false;
+            this.numericUpDown14.Location = new System.Drawing.Point(128, 25);
             this.numericUpDown14.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(80, 22);
+            this.numericUpDown14.Size = new System.Drawing.Size(100, 26);
             this.numericUpDown14.TabIndex = 38;
             this.numericUpDown14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown14.Visible = false;
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(187, 74);
+            this.button19.Enabled = false;
+            this.button19.Location = new System.Drawing.Point(234, 92);
             this.button19.Margin = new System.Windows.Forms.Padding(2);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(127, 25);
+            this.button19.Size = new System.Drawing.Size(159, 31);
             this.button19.TabIndex = 37;
             this.button19.Text = "烘箱关内门";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Visible = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(187, 45);
+            this.button20.Enabled = false;
+            this.button20.Location = new System.Drawing.Point(234, 56);
             this.button20.Margin = new System.Windows.Forms.Padding(2);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(127, 25);
+            this.button20.Size = new System.Drawing.Size(159, 31);
             this.button20.TabIndex = 36;
             this.button20.Text = "烘箱开内门";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Visible = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // btnOverTrack1MaterialboxInofovenMove
             // 
-            this.btnOverTrack1MaterialboxInofovenMove.Location = new System.Drawing.Point(254, 104);
+            this.btnOverTrack1MaterialboxInofovenMove.Location = new System.Drawing.Point(318, 130);
             this.btnOverTrack1MaterialboxInofovenMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack1MaterialboxInofovenMove.Name = "btnOverTrack1MaterialboxInofovenMove";
-            this.btnOverTrack1MaterialboxInofovenMove.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack1MaterialboxInofovenMove.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack1MaterialboxInofovenMove.TabIndex = 35;
             this.btnOverTrack1MaterialboxInofovenMove.Text = "移动";
             this.btnOverTrack1MaterialboxInofovenMove.UseVisualStyleBackColor = true;
@@ -3599,10 +3718,10 @@
             // 
             // btnOverTrack1MaterialboxInofovenRead
             // 
-            this.btnOverTrack1MaterialboxInofovenRead.Location = new System.Drawing.Point(190, 104);
+            this.btnOverTrack1MaterialboxInofovenRead.Location = new System.Drawing.Point(238, 130);
             this.btnOverTrack1MaterialboxInofovenRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack1MaterialboxInofovenRead.Name = "btnOverTrack1MaterialboxInofovenRead";
-            this.btnOverTrack1MaterialboxInofovenRead.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack1MaterialboxInofovenRead.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack1MaterialboxInofovenRead.TabIndex = 34;
             this.btnOverTrack1MaterialboxInofovenRead.Text = "读取";
             this.btnOverTrack1MaterialboxInofovenRead.UseVisualStyleBackColor = true;
@@ -3611,16 +3730,17 @@
             // labelControl36
             // 
             this.labelControl36.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl36.Location = new System.Drawing.Point(88, 108);
+            this.labelControl36.Location = new System.Drawing.Point(110, 135);
+            this.labelControl36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl36.Name = "labelControl36";
-            this.labelControl36.Size = new System.Drawing.Size(11, 14);
+            this.labelControl36.Size = new System.Drawing.Size(14, 18);
             this.labelControl36.TabIndex = 24;
             this.labelControl36.Text = "X:";
             // 
             // numOverTrack1MaterialboxInofoven
             // 
             this.numOverTrack1MaterialboxInofoven.DecimalPlaces = 3;
-            this.numOverTrack1MaterialboxInofoven.Location = new System.Drawing.Point(102, 106);
+            this.numOverTrack1MaterialboxInofoven.Location = new System.Drawing.Point(128, 132);
             this.numOverTrack1MaterialboxInofoven.Margin = new System.Windows.Forms.Padding(2);
             this.numOverTrack1MaterialboxInofoven.Maximum = new decimal(new int[] {
             10000,
@@ -3633,16 +3753,17 @@
             0,
             -2147483648});
             this.numOverTrack1MaterialboxInofoven.Name = "numOverTrack1MaterialboxInofoven";
-            this.numOverTrack1MaterialboxInofoven.Size = new System.Drawing.Size(80, 22);
+            this.numOverTrack1MaterialboxInofoven.Size = new System.Drawing.Size(100, 26);
             this.numOverTrack1MaterialboxInofoven.TabIndex = 22;
             this.numOverTrack1MaterialboxInofoven.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl57
             // 
             this.labelControl57.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl57.Location = new System.Drawing.Point(6, 109);
+            this.labelControl57.Location = new System.Drawing.Point(8, 136);
+            this.labelControl57.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl57.Name = "labelControl57";
-            this.labelControl57.Size = new System.Drawing.Size(76, 14);
+            this.labelControl57.Size = new System.Drawing.Size(95, 18);
             this.labelControl57.TabIndex = 23;
             this.labelControl57.Text = "轨道进料位置:";
             // 
@@ -3661,21 +3782,21 @@
             this.groupBox9.Controls.Add(this.labelControl63);
             this.groupBox9.Controls.Add(this.numMaterialboxHookPickupMaterialboxPositionX);
             this.groupBox9.Controls.Add(this.labelControl64);
-            this.groupBox9.Location = new System.Drawing.Point(5, 5);
+            this.groupBox9.Location = new System.Drawing.Point(6, 6);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox9.Size = new System.Drawing.Size(686, 93);
+            this.groupBox9.Size = new System.Drawing.Size(858, 116);
             this.groupBox9.TabIndex = 26;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "料盒钩爪放下料盒";
             // 
             // btnMaterialboxHookPickupMaterialboxPositionPutdown
             // 
-            this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Location = new System.Drawing.Point(570, 46);
+            this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Location = new System.Drawing.Point(712, 58);
             this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Name = "btnMaterialboxHookPickupMaterialboxPositionPutdown";
-            this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPositionPutdown.TabIndex = 43;
             this.btnMaterialboxHookPickupMaterialboxPositionPutdown.Text = "放下";
             this.btnMaterialboxHookPickupMaterialboxPositionPutdown.UseVisualStyleBackColor = true;
@@ -3683,10 +3804,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPositionPickup
             // 
-            this.btnMaterialboxHookPickupMaterialboxPositionPickup.Location = new System.Drawing.Point(570, 16);
+            this.btnMaterialboxHookPickupMaterialboxPositionPickup.Location = new System.Drawing.Point(712, 20);
             this.btnMaterialboxHookPickupMaterialboxPositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPositionPickup.Name = "btnMaterialboxHookPickupMaterialboxPositionPickup";
-            this.btnMaterialboxHookPickupMaterialboxPositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPositionPickup.TabIndex = 42;
             this.btnMaterialboxHookPickupMaterialboxPositionPickup.Text = "夹取";
             this.btnMaterialboxHookPickupMaterialboxPositionPickup.UseVisualStyleBackColor = true;
@@ -3694,10 +3815,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPositionMove
             // 
-            this.btnMaterialboxHookPickupMaterialboxPositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHookPickupMaterialboxPositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHookPickupMaterialboxPositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPositionMove.Name = "btnMaterialboxHookPickupMaterialboxPositionMove";
-            this.btnMaterialboxHookPickupMaterialboxPositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPositionMove.TabIndex = 35;
             this.btnMaterialboxHookPickupMaterialboxPositionMove.Text = "移动";
             this.btnMaterialboxHookPickupMaterialboxPositionMove.UseVisualStyleBackColor = true;
@@ -3705,10 +3826,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPositionRead
             // 
-            this.btnMaterialboxHookPickupMaterialboxPositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHookPickupMaterialboxPositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHookPickupMaterialboxPositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPositionRead.Name = "btnMaterialboxHookPickupMaterialboxPositionRead";
-            this.btnMaterialboxHookPickupMaterialboxPositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPositionRead.TabIndex = 34;
             this.btnMaterialboxHookPickupMaterialboxPositionRead.Text = "读取";
             this.btnMaterialboxHookPickupMaterialboxPositionRead.UseVisualStyleBackColor = true;
@@ -3717,16 +3838,17 @@
             // labelControl60
             // 
             this.labelControl60.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl60.Location = new System.Drawing.Point(394, 23);
+            this.labelControl60.Location = new System.Drawing.Point(492, 29);
+            this.labelControl60.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl60.Name = "labelControl60";
-            this.labelControl60.Size = new System.Drawing.Size(12, 14);
+            this.labelControl60.Size = new System.Drawing.Size(15, 18);
             this.labelControl60.TabIndex = 30;
             this.labelControl60.Text = "T:";
             // 
             // numMaterialboxHookPickupMaterialboxPositionT
             // 
             this.numMaterialboxHookPickupMaterialboxPositionT.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPositionT.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHookPickupMaterialboxPositionT.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHookPickupMaterialboxPositionT.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPositionT.Maximum = new decimal(new int[] {
             1000,
@@ -3739,23 +3861,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPositionT.Name = "numMaterialboxHookPickupMaterialboxPositionT";
-            this.numMaterialboxHookPickupMaterialboxPositionT.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPositionT.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPositionT.TabIndex = 29;
             this.numMaterialboxHookPickupMaterialboxPositionT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl61
             // 
             this.labelControl61.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl61.Location = new System.Drawing.Point(292, 23);
+            this.labelControl61.Location = new System.Drawing.Point(365, 29);
+            this.labelControl61.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl61.Name = "labelControl61";
-            this.labelControl61.Size = new System.Drawing.Size(11, 14);
+            this.labelControl61.Size = new System.Drawing.Size(13, 18);
             this.labelControl61.TabIndex = 28;
             this.labelControl61.Text = "Z:";
             // 
             // numMaterialboxHookPickupMaterialboxPositionZ
             // 
             this.numMaterialboxHookPickupMaterialboxPositionZ.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHookPickupMaterialboxPositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHookPickupMaterialboxPositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -3768,23 +3891,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPositionZ.Name = "numMaterialboxHookPickupMaterialboxPositionZ";
-            this.numMaterialboxHookPickupMaterialboxPositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPositionZ.TabIndex = 27;
             this.numMaterialboxHookPickupMaterialboxPositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl62
             // 
             this.labelControl62.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl62.Location = new System.Drawing.Point(190, 23);
+            this.labelControl62.Location = new System.Drawing.Point(238, 29);
+            this.labelControl62.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl62.Name = "labelControl62";
-            this.labelControl62.Size = new System.Drawing.Size(12, 14);
+            this.labelControl62.Size = new System.Drawing.Size(15, 18);
             this.labelControl62.TabIndex = 26;
             this.labelControl62.Text = "Y:";
             // 
             // numMaterialboxHookPickupMaterialboxPositionY
             // 
             this.numMaterialboxHookPickupMaterialboxPositionY.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHookPickupMaterialboxPositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHookPickupMaterialboxPositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPositionY.Maximum = new decimal(new int[] {
             1000,
@@ -3797,23 +3921,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPositionY.Name = "numMaterialboxHookPickupMaterialboxPositionY";
-            this.numMaterialboxHookPickupMaterialboxPositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPositionY.TabIndex = 25;
             this.numMaterialboxHookPickupMaterialboxPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl63
             // 
             this.labelControl63.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl63.Location = new System.Drawing.Point(87, 22);
+            this.labelControl63.Location = new System.Drawing.Point(109, 28);
+            this.labelControl63.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl63.Name = "labelControl63";
-            this.labelControl63.Size = new System.Drawing.Size(11, 14);
+            this.labelControl63.Size = new System.Drawing.Size(14, 18);
             this.labelControl63.TabIndex = 24;
             this.labelControl63.Text = "X:";
             // 
             // numMaterialboxHookPickupMaterialboxPositionX
             // 
             this.numMaterialboxHookPickupMaterialboxPositionX.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHookPickupMaterialboxPositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHookPickupMaterialboxPositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPositionX.Maximum = new decimal(new int[] {
             1000,
@@ -3826,16 +3951,17 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPositionX.Name = "numMaterialboxHookPickupMaterialboxPositionX";
-            this.numMaterialboxHookPickupMaterialboxPositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPositionX.TabIndex = 22;
             this.numMaterialboxHookPickupMaterialboxPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl64
             // 
             this.labelControl64.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl64.Location = new System.Drawing.Point(18, 23);
+            this.labelControl64.Location = new System.Drawing.Point(22, 29);
+            this.labelControl64.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl64.Name = "labelControl64";
-            this.labelControl64.Size = new System.Drawing.Size(52, 14);
+            this.labelControl64.Size = new System.Drawing.Size(65, 18);
             this.labelControl64.TabIndex = 23;
             this.labelControl64.Text = "料盒钩爪:";
             // 
@@ -3844,10 +3970,10 @@
             this.OvenBox2InputtabPage.Controls.Add(this.OvenBox2InputSave);
             this.OvenBox2InputtabPage.Controls.Add(this.groupBox17);
             this.OvenBox2InputtabPage.Controls.Add(this.groupBox18);
-            this.OvenBox2InputtabPage.Location = new System.Drawing.Point(4, 23);
+            this.OvenBox2InputtabPage.Location = new System.Drawing.Point(4, 27);
             this.OvenBox2InputtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox2InputtabPage.Name = "OvenBox2InputtabPage";
-            this.OvenBox2InputtabPage.Size = new System.Drawing.Size(697, 593);
+            this.OvenBox2InputtabPage.Size = new System.Drawing.Size(873, 744);
             this.OvenBox2InputtabPage.TabIndex = 5;
             this.OvenBox2InputtabPage.Text = "烘箱2进料";
             this.OvenBox2InputtabPage.UseVisualStyleBackColor = true;
@@ -3855,10 +3981,10 @@
             // OvenBox2InputSave
             // 
             this.OvenBox2InputSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.OvenBox2InputSave.Location = new System.Drawing.Point(611, 549);
+            this.OvenBox2InputSave.Location = new System.Drawing.Point(764, 686);
             this.OvenBox2InputSave.Margin = new System.Windows.Forms.Padding(2);
             this.OvenBox2InputSave.Name = "OvenBox2InputSave";
-            this.OvenBox2InputSave.Size = new System.Drawing.Size(82, 41);
+            this.OvenBox2InputSave.Size = new System.Drawing.Size(102, 51);
             this.OvenBox2InputSave.TabIndex = 41;
             this.OvenBox2InputSave.Text = "保存";
             this.OvenBox2InputSave.UseVisualStyleBackColor = true;
@@ -3876,72 +4002,83 @@
             this.groupBox17.Controls.Add(this.labelControl103);
             this.groupBox17.Controls.Add(this.numOverTrack2MaterialboxInofoven);
             this.groupBox17.Controls.Add(this.labelControl104);
-            this.groupBox17.Location = new System.Drawing.Point(5, 102);
+            this.groupBox17.Location = new System.Drawing.Point(6, 128);
             this.groupBox17.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox17.Size = new System.Drawing.Size(686, 144);
+            this.groupBox17.Size = new System.Drawing.Size(858, 180);
             this.groupBox17.TabIndex = 40;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "烘箱进料";
             // 
             // checkButton4
             // 
-            this.checkButton4.Location = new System.Drawing.Point(187, 17);
+            this.checkButton4.Enabled = false;
+            this.checkButton4.Location = new System.Drawing.Point(234, 21);
             this.checkButton4.Margin = new System.Windows.Forms.Padding(2);
             this.checkButton4.Name = "checkButton4";
-            this.checkButton4.Size = new System.Drawing.Size(127, 23);
+            this.checkButton4.Size = new System.Drawing.Size(159, 29);
             this.checkButton4.TabIndex = 40;
             this.checkButton4.Text = "烘箱充气阀";
+            this.checkButton4.Visible = false;
             this.checkButton4.CheckedChanged += new System.EventHandler(this.checkButton4_CheckedChanged);
             // 
             // labelControl102
             // 
             this.labelControl102.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl102.Location = new System.Drawing.Point(35, 22);
+            this.labelControl102.Enabled = false;
+            this.labelControl102.Location = new System.Drawing.Point(44, 28);
+            this.labelControl102.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl102.Name = "labelControl102";
-            this.labelControl102.Size = new System.Drawing.Size(64, 14);
+            this.labelControl102.Size = new System.Drawing.Size(80, 18);
             this.labelControl102.TabIndex = 39;
             this.labelControl102.Text = "烘箱真空度:";
+            this.labelControl102.Visible = false;
             // 
             // numericUpDown65
             // 
             this.numericUpDown65.DecimalPlaces = 3;
-            this.numericUpDown65.Location = new System.Drawing.Point(102, 20);
+            this.numericUpDown65.Enabled = false;
+            this.numericUpDown65.Location = new System.Drawing.Point(128, 25);
             this.numericUpDown65.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown65.Name = "numericUpDown65";
-            this.numericUpDown65.Size = new System.Drawing.Size(80, 22);
+            this.numericUpDown65.Size = new System.Drawing.Size(100, 26);
             this.numericUpDown65.TabIndex = 38;
             this.numericUpDown65.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown65.Visible = false;
             // 
             // button65
             // 
-            this.button65.Location = new System.Drawing.Point(187, 74);
+            this.button65.Enabled = false;
+            this.button65.Location = new System.Drawing.Point(234, 92);
             this.button65.Margin = new System.Windows.Forms.Padding(2);
             this.button65.Name = "button65";
-            this.button65.Size = new System.Drawing.Size(127, 25);
+            this.button65.Size = new System.Drawing.Size(159, 31);
             this.button65.TabIndex = 37;
             this.button65.Text = "烘箱关内门";
             this.button65.UseVisualStyleBackColor = true;
+            this.button65.Visible = false;
             this.button65.DpiChangedAfterParent += new System.EventHandler(this.button65_Click);
             // 
             // button66
             // 
-            this.button66.Location = new System.Drawing.Point(187, 45);
+            this.button66.Enabled = false;
+            this.button66.Location = new System.Drawing.Point(234, 56);
             this.button66.Margin = new System.Windows.Forms.Padding(2);
             this.button66.Name = "button66";
-            this.button66.Size = new System.Drawing.Size(127, 25);
+            this.button66.Size = new System.Drawing.Size(159, 31);
             this.button66.TabIndex = 36;
             this.button66.Text = "烘箱开内门";
             this.button66.UseVisualStyleBackColor = true;
+            this.button66.Visible = false;
             this.button66.DpiChangedAfterParent += new System.EventHandler(this.button66_Click);
             // 
             // btnOverTrack2MaterialboxInofovenMove
             // 
-            this.btnOverTrack2MaterialboxInofovenMove.Location = new System.Drawing.Point(254, 104);
+            this.btnOverTrack2MaterialboxInofovenMove.Location = new System.Drawing.Point(318, 130);
             this.btnOverTrack2MaterialboxInofovenMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack2MaterialboxInofovenMove.Name = "btnOverTrack2MaterialboxInofovenMove";
-            this.btnOverTrack2MaterialboxInofovenMove.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack2MaterialboxInofovenMove.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack2MaterialboxInofovenMove.TabIndex = 35;
             this.btnOverTrack2MaterialboxInofovenMove.Text = "移动";
             this.btnOverTrack2MaterialboxInofovenMove.UseVisualStyleBackColor = true;
@@ -3949,10 +4086,10 @@
             // 
             // btnOverTrack2MaterialboxInofovenRead
             // 
-            this.btnOverTrack2MaterialboxInofovenRead.Location = new System.Drawing.Point(190, 104);
+            this.btnOverTrack2MaterialboxInofovenRead.Location = new System.Drawing.Point(238, 130);
             this.btnOverTrack2MaterialboxInofovenRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverTrack2MaterialboxInofovenRead.Name = "btnOverTrack2MaterialboxInofovenRead";
-            this.btnOverTrack2MaterialboxInofovenRead.Size = new System.Drawing.Size(60, 25);
+            this.btnOverTrack2MaterialboxInofovenRead.Size = new System.Drawing.Size(75, 31);
             this.btnOverTrack2MaterialboxInofovenRead.TabIndex = 34;
             this.btnOverTrack2MaterialboxInofovenRead.Text = "读取";
             this.btnOverTrack2MaterialboxInofovenRead.UseVisualStyleBackColor = true;
@@ -3961,16 +4098,17 @@
             // labelControl103
             // 
             this.labelControl103.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl103.Location = new System.Drawing.Point(88, 108);
+            this.labelControl103.Location = new System.Drawing.Point(110, 135);
+            this.labelControl103.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl103.Name = "labelControl103";
-            this.labelControl103.Size = new System.Drawing.Size(11, 14);
+            this.labelControl103.Size = new System.Drawing.Size(14, 18);
             this.labelControl103.TabIndex = 24;
             this.labelControl103.Text = "X:";
             // 
             // numOverTrack2MaterialboxInofoven
             // 
             this.numOverTrack2MaterialboxInofoven.DecimalPlaces = 3;
-            this.numOverTrack2MaterialboxInofoven.Location = new System.Drawing.Point(102, 106);
+            this.numOverTrack2MaterialboxInofoven.Location = new System.Drawing.Point(128, 132);
             this.numOverTrack2MaterialboxInofoven.Margin = new System.Windows.Forms.Padding(2);
             this.numOverTrack2MaterialboxInofoven.Maximum = new decimal(new int[] {
             10000,
@@ -3983,16 +4121,17 @@
             0,
             -2147483648});
             this.numOverTrack2MaterialboxInofoven.Name = "numOverTrack2MaterialboxInofoven";
-            this.numOverTrack2MaterialboxInofoven.Size = new System.Drawing.Size(80, 22);
+            this.numOverTrack2MaterialboxInofoven.Size = new System.Drawing.Size(100, 26);
             this.numOverTrack2MaterialboxInofoven.TabIndex = 22;
             this.numOverTrack2MaterialboxInofoven.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl104
             // 
             this.labelControl104.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl104.Location = new System.Drawing.Point(6, 109);
+            this.labelControl104.Location = new System.Drawing.Point(8, 136);
+            this.labelControl104.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl104.Name = "labelControl104";
-            this.labelControl104.Size = new System.Drawing.Size(76, 14);
+            this.labelControl104.Size = new System.Drawing.Size(95, 18);
             this.labelControl104.TabIndex = 23;
             this.labelControl104.Text = "轨道进料位置:";
             // 
@@ -4011,21 +4150,21 @@
             this.groupBox18.Controls.Add(this.labelControl108);
             this.groupBox18.Controls.Add(this.numMaterialboxHookPickupMaterialboxPosition2X);
             this.groupBox18.Controls.Add(this.labelControl109);
-            this.groupBox18.Location = new System.Drawing.Point(5, 4);
+            this.groupBox18.Location = new System.Drawing.Point(6, 5);
             this.groupBox18.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox18.Size = new System.Drawing.Size(686, 93);
+            this.groupBox18.Size = new System.Drawing.Size(858, 116);
             this.groupBox18.TabIndex = 39;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "料盒钩爪放下料盒";
             // 
             // btnMaterialboxHookPickupMaterialboxPosition2Putdown
             // 
-            this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Location = new System.Drawing.Point(570, 46);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Location = new System.Drawing.Point(712, 58);
             this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Name = "btnMaterialboxHookPickupMaterialboxPosition2Putdown";
-            this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.TabIndex = 43;
             this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.Text = "放下";
             this.btnMaterialboxHookPickupMaterialboxPosition2Putdown.UseVisualStyleBackColor = true;
@@ -4033,10 +4172,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPosition2Pickup
             // 
-            this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Location = new System.Drawing.Point(570, 16);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Location = new System.Drawing.Point(712, 20);
             this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Name = "btnMaterialboxHookPickupMaterialboxPosition2Pickup";
-            this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.TabIndex = 42;
             this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.Text = "夹取";
             this.btnMaterialboxHookPickupMaterialboxPosition2Pickup.UseVisualStyleBackColor = true;
@@ -4044,10 +4183,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPosition2Move
             // 
-            this.btnMaterialboxHookPickupMaterialboxPosition2Move.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Move.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialboxHookPickupMaterialboxPosition2Move.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPosition2Move.Name = "btnMaterialboxHookPickupMaterialboxPosition2Move";
-            this.btnMaterialboxHookPickupMaterialboxPosition2Move.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Move.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPosition2Move.TabIndex = 35;
             this.btnMaterialboxHookPickupMaterialboxPosition2Move.Text = "移动";
             this.btnMaterialboxHookPickupMaterialboxPosition2Move.UseVisualStyleBackColor = true;
@@ -4055,10 +4194,10 @@
             // 
             // btnMaterialboxHookPickupMaterialboxPosition2Read
             // 
-            this.btnMaterialboxHookPickupMaterialboxPosition2Read.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Read.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialboxHookPickupMaterialboxPosition2Read.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialboxHookPickupMaterialboxPosition2Read.Name = "btnMaterialboxHookPickupMaterialboxPosition2Read";
-            this.btnMaterialboxHookPickupMaterialboxPosition2Read.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialboxHookPickupMaterialboxPosition2Read.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialboxHookPickupMaterialboxPosition2Read.TabIndex = 34;
             this.btnMaterialboxHookPickupMaterialboxPosition2Read.Text = "读取";
             this.btnMaterialboxHookPickupMaterialboxPosition2Read.UseVisualStyleBackColor = true;
@@ -4067,16 +4206,17 @@
             // labelControl105
             // 
             this.labelControl105.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl105.Location = new System.Drawing.Point(394, 23);
+            this.labelControl105.Location = new System.Drawing.Point(492, 29);
+            this.labelControl105.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl105.Name = "labelControl105";
-            this.labelControl105.Size = new System.Drawing.Size(12, 14);
+            this.labelControl105.Size = new System.Drawing.Size(15, 18);
             this.labelControl105.TabIndex = 30;
             this.labelControl105.Text = "T:";
             // 
             // numMaterialboxHookPickupMaterialboxPosition2T
             // 
             this.numMaterialboxHookPickupMaterialboxPosition2T.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPosition2T.Location = new System.Drawing.Point(410, 20);
+            this.numMaterialboxHookPickupMaterialboxPosition2T.Location = new System.Drawing.Point(512, 25);
             this.numMaterialboxHookPickupMaterialboxPosition2T.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPosition2T.Maximum = new decimal(new int[] {
             1000,
@@ -4089,23 +4229,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPosition2T.Name = "numMaterialboxHookPickupMaterialboxPosition2T";
-            this.numMaterialboxHookPickupMaterialboxPosition2T.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPosition2T.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPosition2T.TabIndex = 29;
             this.numMaterialboxHookPickupMaterialboxPosition2T.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl106
             // 
             this.labelControl106.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl106.Location = new System.Drawing.Point(292, 23);
+            this.labelControl106.Location = new System.Drawing.Point(365, 29);
+            this.labelControl106.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl106.Name = "labelControl106";
-            this.labelControl106.Size = new System.Drawing.Size(11, 14);
+            this.labelControl106.Size = new System.Drawing.Size(13, 18);
             this.labelControl106.TabIndex = 28;
             this.labelControl106.Text = "Z:";
             // 
             // numMaterialboxHookPickupMaterialboxPosition2Z
             // 
             this.numMaterialboxHookPickupMaterialboxPosition2Z.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPosition2Z.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialboxHookPickupMaterialboxPosition2Z.Location = new System.Drawing.Point(384, 25);
             this.numMaterialboxHookPickupMaterialboxPosition2Z.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPosition2Z.Maximum = new decimal(new int[] {
             1000,
@@ -4118,23 +4259,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPosition2Z.Name = "numMaterialboxHookPickupMaterialboxPosition2Z";
-            this.numMaterialboxHookPickupMaterialboxPosition2Z.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPosition2Z.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPosition2Z.TabIndex = 27;
             this.numMaterialboxHookPickupMaterialboxPosition2Z.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl107
             // 
             this.labelControl107.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl107.Location = new System.Drawing.Point(190, 23);
+            this.labelControl107.Location = new System.Drawing.Point(238, 29);
+            this.labelControl107.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl107.Name = "labelControl107";
-            this.labelControl107.Size = new System.Drawing.Size(12, 14);
+            this.labelControl107.Size = new System.Drawing.Size(15, 18);
             this.labelControl107.TabIndex = 26;
             this.labelControl107.Text = "Y:";
             // 
             // numMaterialboxHookPickupMaterialboxPosition2Y
             // 
             this.numMaterialboxHookPickupMaterialboxPosition2Y.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPosition2Y.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialboxHookPickupMaterialboxPosition2Y.Location = new System.Drawing.Point(256, 25);
             this.numMaterialboxHookPickupMaterialboxPosition2Y.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPosition2Y.Maximum = new decimal(new int[] {
             1000,
@@ -4147,23 +4289,24 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPosition2Y.Name = "numMaterialboxHookPickupMaterialboxPosition2Y";
-            this.numMaterialboxHookPickupMaterialboxPosition2Y.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPosition2Y.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPosition2Y.TabIndex = 25;
             this.numMaterialboxHookPickupMaterialboxPosition2Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl108
             // 
             this.labelControl108.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl108.Location = new System.Drawing.Point(87, 22);
+            this.labelControl108.Location = new System.Drawing.Point(109, 28);
+            this.labelControl108.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl108.Name = "labelControl108";
-            this.labelControl108.Size = new System.Drawing.Size(11, 14);
+            this.labelControl108.Size = new System.Drawing.Size(14, 18);
             this.labelControl108.TabIndex = 24;
             this.labelControl108.Text = "X:";
             // 
             // numMaterialboxHookPickupMaterialboxPosition2X
             // 
             this.numMaterialboxHookPickupMaterialboxPosition2X.DecimalPlaces = 3;
-            this.numMaterialboxHookPickupMaterialboxPosition2X.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialboxHookPickupMaterialboxPosition2X.Location = new System.Drawing.Point(128, 24);
             this.numMaterialboxHookPickupMaterialboxPosition2X.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialboxHookPickupMaterialboxPosition2X.Maximum = new decimal(new int[] {
             1000,
@@ -4176,27 +4319,28 @@
             0,
             -2147483648});
             this.numMaterialboxHookPickupMaterialboxPosition2X.Name = "numMaterialboxHookPickupMaterialboxPosition2X";
-            this.numMaterialboxHookPickupMaterialboxPosition2X.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialboxHookPickupMaterialboxPosition2X.Size = new System.Drawing.Size(100, 26);
             this.numMaterialboxHookPickupMaterialboxPosition2X.TabIndex = 22;
             this.numMaterialboxHookPickupMaterialboxPosition2X.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl109
             // 
             this.labelControl109.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl109.Location = new System.Drawing.Point(18, 23);
+            this.labelControl109.Location = new System.Drawing.Point(22, 29);
+            this.labelControl109.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl109.Name = "labelControl109";
-            this.labelControl109.Size = new System.Drawing.Size(52, 14);
+            this.labelControl109.Size = new System.Drawing.Size(65, 18);
             this.labelControl109.TabIndex = 23;
             this.labelControl109.Text = "料盒钩爪:";
             // 
             // MaterialTabPage
             // 
             this.MaterialTabPage.Controls.Add(this.tabControl1);
-            this.MaterialTabPage.Location = new System.Drawing.Point(4, 23);
+            this.MaterialTabPage.Location = new System.Drawing.Point(4, 27);
             this.MaterialTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialTabPage.Name = "MaterialTabPage";
             this.MaterialTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.MaterialTabPage.Size = new System.Drawing.Size(713, 627);
+            this.MaterialTabPage.Size = new System.Drawing.Size(893, 787);
             this.MaterialTabPage.TabIndex = 1;
             this.MaterialTabPage.Text = "物料搬送";
             this.MaterialTabPage.UseVisualStyleBackColor = true;
@@ -4205,11 +4349,11 @@
             // 
             this.tabControl1.Controls.Add(this.PickupMaterialtabPage);
             this.tabControl1.Controls.Add(this.MaterialMovetoWeldTabletabPage);
-            this.tabControl1.Location = new System.Drawing.Point(2, 5);
+            this.tabControl1.Location = new System.Drawing.Point(2, 6);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(705, 620);
+            this.tabControl1.Size = new System.Drawing.Size(881, 775);
             this.tabControl1.TabIndex = 25;
             // 
             // PickupMaterialtabPage
@@ -4217,11 +4361,11 @@
             this.PickupMaterialtabPage.Controls.Add(this.PickupMaterialSave);
             this.PickupMaterialtabPage.Controls.Add(this.groupBox20);
             this.PickupMaterialtabPage.Controls.Add(this.groupBox22);
-            this.PickupMaterialtabPage.Location = new System.Drawing.Point(4, 23);
+            this.PickupMaterialtabPage.Location = new System.Drawing.Point(4, 27);
             this.PickupMaterialtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.PickupMaterialtabPage.Name = "PickupMaterialtabPage";
             this.PickupMaterialtabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.PickupMaterialtabPage.Size = new System.Drawing.Size(697, 593);
+            this.PickupMaterialtabPage.Size = new System.Drawing.Size(873, 744);
             this.PickupMaterialtabPage.TabIndex = 0;
             this.PickupMaterialtabPage.Text = "夹取物料";
             this.PickupMaterialtabPage.UseVisualStyleBackColor = true;
@@ -4229,10 +4373,10 @@
             // PickupMaterialSave
             // 
             this.PickupMaterialSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.PickupMaterialSave.Location = new System.Drawing.Point(609, 550);
+            this.PickupMaterialSave.Location = new System.Drawing.Point(761, 688);
             this.PickupMaterialSave.Margin = new System.Windows.Forms.Padding(2);
             this.PickupMaterialSave.Name = "PickupMaterialSave";
-            this.PickupMaterialSave.Size = new System.Drawing.Size(82, 41);
+            this.PickupMaterialSave.Size = new System.Drawing.Size(102, 51);
             this.PickupMaterialSave.TabIndex = 36;
             this.PickupMaterialSave.Text = "保存";
             this.PickupMaterialSave.UseVisualStyleBackColor = true;
@@ -4278,28 +4422,179 @@
             this.groupBox20.Controls.Add(this.labelControl122);
             this.groupBox20.Controls.Add(this.numMaterialHookPickupMaterialPositionX);
             this.groupBox20.Controls.Add(this.labelControl123);
-            this.groupBox20.Location = new System.Drawing.Point(5, 103);
+            this.groupBox20.Location = new System.Drawing.Point(6, 129);
             this.groupBox20.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox20.Size = new System.Drawing.Size(686, 255);
+            this.groupBox20.Size = new System.Drawing.Size(858, 319);
             this.groupBox20.TabIndex = 26;
             this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "物料钩爪夹取首颗物料";
+            this.groupBox20.Text = "物料钩爪夹取料盒中心的物料";
+            // 
+            // labelControl95
+            // 
+            this.labelControl95.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl95.Location = new System.Drawing.Point(25, 218);
+            this.labelControl95.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl95.Name = "labelControl95";
+            this.labelControl95.Size = new System.Drawing.Size(65, 18);
+            this.labelControl95.TabIndex = 70;
+            this.labelControl95.Text = "目标位置:";
+            // 
+            // labelControl92
+            // 
+            this.labelControl92.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl92.Location = new System.Drawing.Point(366, 218);
+            this.labelControl92.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl92.Name = "labelControl92";
+            this.labelControl92.Size = new System.Drawing.Size(13, 18);
+            this.labelControl92.TabIndex = 69;
+            this.labelControl92.Text = "Z:";
+            // 
+            // numMaterialHookPickupMaterialPositionZ1
+            // 
+            this.numMaterialHookPickupMaterialPositionZ1.DecimalPlaces = 3;
+            this.numMaterialHookPickupMaterialPositionZ1.Location = new System.Drawing.Point(384, 212);
+            this.numMaterialHookPickupMaterialPositionZ1.Margin = new System.Windows.Forms.Padding(2);
+            this.numMaterialHookPickupMaterialPositionZ1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numMaterialHookPickupMaterialPositionZ1.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numMaterialHookPickupMaterialPositionZ1.Name = "numMaterialHookPickupMaterialPositionZ1";
+            this.numMaterialHookPickupMaterialPositionZ1.Size = new System.Drawing.Size(100, 26);
+            this.numMaterialHookPickupMaterialPositionZ1.TabIndex = 68;
+            this.numMaterialHookPickupMaterialPositionZ1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // labelControl93
+            // 
+            this.labelControl93.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl93.Location = new System.Drawing.Point(240, 216);
+            this.labelControl93.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl93.Name = "labelControl93";
+            this.labelControl93.Size = new System.Drawing.Size(15, 18);
+            this.labelControl93.TabIndex = 67;
+            this.labelControl93.Text = "Y:";
+            // 
+            // numMaterialHookPickupMaterialPositionY1
+            // 
+            this.numMaterialHookPickupMaterialPositionY1.DecimalPlaces = 3;
+            this.numMaterialHookPickupMaterialPositionY1.Location = new System.Drawing.Point(256, 211);
+            this.numMaterialHookPickupMaterialPositionY1.Margin = new System.Windows.Forms.Padding(2);
+            this.numMaterialHookPickupMaterialPositionY1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numMaterialHookPickupMaterialPositionY1.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numMaterialHookPickupMaterialPositionY1.Name = "numMaterialHookPickupMaterialPositionY1";
+            this.numMaterialHookPickupMaterialPositionY1.Size = new System.Drawing.Size(100, 26);
+            this.numMaterialHookPickupMaterialPositionY1.TabIndex = 66;
+            this.numMaterialHookPickupMaterialPositionY1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // labelControl94
+            // 
+            this.labelControl94.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl94.Location = new System.Drawing.Point(110, 218);
+            this.labelControl94.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl94.Name = "labelControl94";
+            this.labelControl94.Size = new System.Drawing.Size(14, 18);
+            this.labelControl94.TabIndex = 65;
+            this.labelControl94.Text = "X:";
+            // 
+            // numMaterialHookPickupMaterialPositionX1
+            // 
+            this.numMaterialHookPickupMaterialPositionX1.DecimalPlaces = 3;
+            this.numMaterialHookPickupMaterialPositionX1.Location = new System.Drawing.Point(128, 211);
+            this.numMaterialHookPickupMaterialPositionX1.Margin = new System.Windows.Forms.Padding(2);
+            this.numMaterialHookPickupMaterialPositionX1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numMaterialHookPickupMaterialPositionX1.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numMaterialHookPickupMaterialPositionX1.Name = "numMaterialHookPickupMaterialPositionX1";
+            this.numMaterialHookPickupMaterialPositionX1.Size = new System.Drawing.Size(100, 26);
+            this.numMaterialHookPickupMaterialPositionX1.TabIndex = 64;
+            this.numMaterialHookPickupMaterialPositionX1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numMaterialColNum
+            // 
+            this.numMaterialColNum.Location = new System.Drawing.Point(648, 211);
+            this.numMaterialColNum.Margin = new System.Windows.Forms.Padding(2);
+            this.numMaterialColNum.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.numMaterialColNum.Name = "numMaterialColNum";
+            this.numMaterialColNum.Size = new System.Drawing.Size(62, 26);
+            this.numMaterialColNum.TabIndex = 63;
+            this.numMaterialColNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numMaterialColNum.ValueChanged += new System.EventHandler(this.numMaterialColNum_ValueChanged);
+            // 
+            // labelControl91
+            // 
+            this.labelControl91.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl91.Location = new System.Drawing.Point(609, 218);
+            this.labelControl91.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl91.Name = "labelControl91";
+            this.labelControl91.Size = new System.Drawing.Size(35, 18);
+            this.labelControl91.TabIndex = 62;
+            this.labelControl91.Text = "列数:";
+            // 
+            // numMaterialRawNum
+            // 
+            this.numMaterialRawNum.Location = new System.Drawing.Point(540, 211);
+            this.numMaterialRawNum.Margin = new System.Windows.Forms.Padding(2);
+            this.numMaterialRawNum.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.numMaterialRawNum.Name = "numMaterialRawNum";
+            this.numMaterialRawNum.Size = new System.Drawing.Size(62, 26);
+            this.numMaterialRawNum.TabIndex = 61;
+            this.numMaterialRawNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numMaterialRawNum.ValueChanged += new System.EventHandler(this.numMaterialRawNum_ValueChanged);
+            // 
+            // labelControl90
+            // 
+            this.labelControl90.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl90.Location = new System.Drawing.Point(501, 218);
+            this.labelControl90.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl90.Name = "labelControl90";
+            this.labelControl90.Size = new System.Drawing.Size(35, 18);
+            this.labelControl90.TabIndex = 60;
+            this.labelControl90.Text = "行数:";
             // 
             // labelControl88
             // 
             this.labelControl88.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl88.Location = new System.Drawing.Point(293, 92);
+            this.labelControl88.Location = new System.Drawing.Point(366, 115);
+            this.labelControl88.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl88.Name = "labelControl88";
-            this.labelControl88.Size = new System.Drawing.Size(11, 14);
+            this.labelControl88.Size = new System.Drawing.Size(13, 18);
             this.labelControl88.TabIndex = 59;
             this.labelControl88.Text = "Z:";
             // 
             // numMaterialCompensationZ
             // 
             this.numMaterialCompensationZ.DecimalPlaces = 4;
-            this.numMaterialCompensationZ.Location = new System.Drawing.Point(307, 88);
+            this.numMaterialCompensationZ.Location = new System.Drawing.Point(384, 110);
             this.numMaterialCompensationZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialCompensationZ.Maximum = new decimal(new int[] {
             90,
@@ -4312,32 +4607,34 @@
             0,
             -2147483648});
             this.numMaterialCompensationZ.Name = "numMaterialCompensationZ";
-            this.numMaterialCompensationZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialCompensationZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialCompensationZ.TabIndex = 58;
             this.numMaterialCompensationZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl89
             // 
             this.labelControl89.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl89.Location = new System.Drawing.Point(224, 92);
+            this.labelControl89.Location = new System.Drawing.Point(280, 115);
+            this.labelControl89.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl89.Name = "labelControl89";
-            this.labelControl89.Size = new System.Drawing.Size(52, 14);
+            this.labelControl89.Size = new System.Drawing.Size(65, 18);
             this.labelControl89.TabIndex = 57;
             this.labelControl89.Text = "补偿高度:";
             // 
             // labelControl86
             // 
             this.labelControl86.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl86.Location = new System.Drawing.Point(293, 57);
+            this.labelControl86.Location = new System.Drawing.Point(366, 71);
+            this.labelControl86.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl86.Name = "labelControl86";
-            this.labelControl86.Size = new System.Drawing.Size(12, 14);
+            this.labelControl86.Size = new System.Drawing.Size(15, 18);
             this.labelControl86.TabIndex = 56;
             this.labelControl86.Text = "T:";
             // 
             // numericMaterialCompensationAngle
             // 
             this.numericMaterialCompensationAngle.DecimalPlaces = 4;
-            this.numericMaterialCompensationAngle.Location = new System.Drawing.Point(307, 54);
+            this.numericMaterialCompensationAngle.Location = new System.Drawing.Point(384, 68);
             this.numericMaterialCompensationAngle.Margin = new System.Windows.Forms.Padding(2);
             this.numericMaterialCompensationAngle.Maximum = new decimal(new int[] {
             90,
@@ -4350,25 +4647,26 @@
             0,
             -2147483648});
             this.numericMaterialCompensationAngle.Name = "numericMaterialCompensationAngle";
-            this.numericMaterialCompensationAngle.Size = new System.Drawing.Size(80, 22);
+            this.numericMaterialCompensationAngle.Size = new System.Drawing.Size(100, 26);
             this.numericMaterialCompensationAngle.TabIndex = 55;
             this.numericMaterialCompensationAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl87
             // 
             this.labelControl87.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl87.Location = new System.Drawing.Point(224, 57);
+            this.labelControl87.Location = new System.Drawing.Point(280, 71);
+            this.labelControl87.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl87.Name = "labelControl87";
-            this.labelControl87.Size = new System.Drawing.Size(52, 14);
+            this.labelControl87.Size = new System.Drawing.Size(65, 18);
             this.labelControl87.TabIndex = 54;
             this.labelControl87.Text = "补偿角度:";
             // 
             // btnSelectMaterialBox_2
             // 
-            this.btnSelectMaterialBox_2.Location = new System.Drawing.Point(257, 122);
+            this.btnSelectMaterialBox_2.Location = new System.Drawing.Point(321, 152);
             this.btnSelectMaterialBox_2.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectMaterialBox_2.Name = "btnSelectMaterialBox_2";
-            this.btnSelectMaterialBox_2.Size = new System.Drawing.Size(60, 25);
+            this.btnSelectMaterialBox_2.Size = new System.Drawing.Size(75, 31);
             this.btnSelectMaterialBox_2.TabIndex = 53;
             this.btnSelectMaterialBox_2.Text = "选择";
             this.btnSelectMaterialBox_2.UseVisualStyleBackColor = true;
@@ -4377,9 +4675,10 @@
             // labelControl81
             // 
             this.labelControl81.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl81.Location = new System.Drawing.Point(21, 128);
+            this.labelControl81.Location = new System.Drawing.Point(26, 160);
+            this.labelControl81.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl81.Name = "labelControl81";
-            this.labelControl81.Size = new System.Drawing.Size(52, 14);
+            this.labelControl81.Size = new System.Drawing.Size(65, 18);
             this.labelControl81.TabIndex = 51;
             this.labelControl81.Text = "料盒名称:";
             // 
@@ -4387,21 +4686,22 @@
             // 
             this.teMaterialBoxName_2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.teMaterialBoxName_2.Enabled = false;
-            this.teMaterialBoxName_2.Location = new System.Drawing.Point(80, 124);
+            this.teMaterialBoxName_2.Location = new System.Drawing.Point(100, 155);
+            this.teMaterialBoxName_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teMaterialBoxName_2.Name = "teMaterialBoxName_2";
             this.teMaterialBoxName_2.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teMaterialBoxName_2.Properties.Appearance.Options.UseBackColor = true;
             this.teMaterialBoxName_2.Properties.AutoHeight = false;
             this.teMaterialBoxName_2.Properties.ReadOnly = true;
-            this.teMaterialBoxName_2.Size = new System.Drawing.Size(174, 25);
+            this.teMaterialBoxName_2.Size = new System.Drawing.Size(218, 31);
             this.teMaterialBoxName_2.TabIndex = 52;
             // 
             // btnGreateMaterialRecognition
             // 
-            this.btnGreateMaterialRecognition.Location = new System.Drawing.Point(320, 122);
+            this.btnGreateMaterialRecognition.Location = new System.Drawing.Point(400, 152);
             this.btnGreateMaterialRecognition.Margin = new System.Windows.Forms.Padding(2);
             this.btnGreateMaterialRecognition.Name = "btnGreateMaterialRecognition";
-            this.btnGreateMaterialRecognition.Size = new System.Drawing.Size(125, 25);
+            this.btnGreateMaterialRecognition.Size = new System.Drawing.Size(156, 31);
             this.btnGreateMaterialRecognition.TabIndex = 50;
             this.btnGreateMaterialRecognition.Text = "创建物料识别";
             this.btnGreateMaterialRecognition.UseVisualStyleBackColor = true;
@@ -4409,10 +4709,10 @@
             // 
             // btnMaterialHookPickupMaterialPositionPickup
             // 
-            this.btnMaterialHookPickupMaterialPositionPickup.Location = new System.Drawing.Point(604, 78);
+            this.btnMaterialHookPickupMaterialPositionPickup.Location = new System.Drawing.Point(755, 98);
             this.btnMaterialHookPickupMaterialPositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookPickupMaterialPositionPickup.Name = "btnMaterialHookPickupMaterialPositionPickup";
-            this.btnMaterialHookPickupMaterialPositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookPickupMaterialPositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookPickupMaterialPositionPickup.TabIndex = 39;
             this.btnMaterialHookPickupMaterialPositionPickup.Text = "夹取";
             this.btnMaterialHookPickupMaterialPositionPickup.UseVisualStyleBackColor = true;
@@ -4420,10 +4720,10 @@
             // 
             // btnMaterialHookPickupMaterialPositionPutdown
             // 
-            this.btnMaterialHookPickupMaterialPositionPutdown.Location = new System.Drawing.Point(604, 108);
+            this.btnMaterialHookPickupMaterialPositionPutdown.Location = new System.Drawing.Point(755, 135);
             this.btnMaterialHookPickupMaterialPositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookPickupMaterialPositionPutdown.Name = "btnMaterialHookPickupMaterialPositionPutdown";
-            this.btnMaterialHookPickupMaterialPositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookPickupMaterialPositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookPickupMaterialPositionPutdown.TabIndex = 40;
             this.btnMaterialHookPickupMaterialPositionPutdown.Text = "放下";
             this.btnMaterialHookPickupMaterialPositionPutdown.UseVisualStyleBackColor = true;
@@ -4432,16 +4732,17 @@
             // labelControl115
             // 
             this.labelControl115.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl115.Location = new System.Drawing.Point(88, 92);
+            this.labelControl115.Location = new System.Drawing.Point(110, 115);
+            this.labelControl115.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl115.Name = "labelControl115";
-            this.labelControl115.Size = new System.Drawing.Size(11, 14);
+            this.labelControl115.Size = new System.Drawing.Size(13, 18);
             this.labelControl115.TabIndex = 38;
             this.labelControl115.Text = "Z:";
             // 
             // numMaterialHookUp
             // 
             this.numMaterialHookUp.DecimalPlaces = 3;
-            this.numMaterialHookUp.Location = new System.Drawing.Point(102, 88);
+            this.numMaterialHookUp.Location = new System.Drawing.Point(128, 110);
             this.numMaterialHookUp.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookUp.Maximum = new decimal(new int[] {
             1000,
@@ -4454,25 +4755,26 @@
             0,
             -2147483648});
             this.numMaterialHookUp.Name = "numMaterialHookUp";
-            this.numMaterialHookUp.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookUp.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookUp.TabIndex = 37;
             this.numMaterialHookUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl116
             // 
             this.labelControl116.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl116.Location = new System.Drawing.Point(19, 92);
+            this.labelControl116.Location = new System.Drawing.Point(24, 115);
+            this.labelControl116.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl116.Name = "labelControl116";
-            this.labelControl116.Size = new System.Drawing.Size(52, 14);
+            this.labelControl116.Size = new System.Drawing.Size(65, 18);
             this.labelControl116.TabIndex = 36;
             this.labelControl116.Text = "抬升距离:";
             // 
             // btnMaterialHookPickupMaterialPositionMove
             // 
-            this.btnMaterialHookPickupMaterialPositionMove.Location = new System.Drawing.Point(604, 48);
+            this.btnMaterialHookPickupMaterialPositionMove.Location = new System.Drawing.Point(755, 60);
             this.btnMaterialHookPickupMaterialPositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookPickupMaterialPositionMove.Name = "btnMaterialHookPickupMaterialPositionMove";
-            this.btnMaterialHookPickupMaterialPositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookPickupMaterialPositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookPickupMaterialPositionMove.TabIndex = 35;
             this.btnMaterialHookPickupMaterialPositionMove.Text = "移动";
             this.btnMaterialHookPickupMaterialPositionMove.UseVisualStyleBackColor = true;
@@ -4480,10 +4782,10 @@
             // 
             // btnMaterialHookPickupMaterialPositionRead
             // 
-            this.btnMaterialHookPickupMaterialPositionRead.Location = new System.Drawing.Point(604, 19);
+            this.btnMaterialHookPickupMaterialPositionRead.Location = new System.Drawing.Point(755, 24);
             this.btnMaterialHookPickupMaterialPositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookPickupMaterialPositionRead.Name = "btnMaterialHookPickupMaterialPositionRead";
-            this.btnMaterialHookPickupMaterialPositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookPickupMaterialPositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookPickupMaterialPositionRead.TabIndex = 34;
             this.btnMaterialHookPickupMaterialPositionRead.Text = "读取";
             this.btnMaterialHookPickupMaterialPositionRead.UseVisualStyleBackColor = true;
@@ -4492,25 +4794,27 @@
             // labelControl117
             // 
             this.labelControl117.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl117.Location = new System.Drawing.Point(19, 57);
+            this.labelControl117.Location = new System.Drawing.Point(24, 71);
+            this.labelControl117.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl117.Name = "labelControl117";
-            this.labelControl117.Size = new System.Drawing.Size(52, 14);
+            this.labelControl117.Size = new System.Drawing.Size(65, 18);
             this.labelControl117.TabIndex = 33;
             this.labelControl117.Text = "钩爪夹取:";
             // 
             // labelControl118
             // 
             this.labelControl118.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl118.Location = new System.Drawing.Point(88, 57);
+            this.labelControl118.Location = new System.Drawing.Point(110, 71);
+            this.labelControl118.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl118.Name = "labelControl118";
-            this.labelControl118.Size = new System.Drawing.Size(12, 14);
+            this.labelControl118.Size = new System.Drawing.Size(15, 18);
             this.labelControl118.TabIndex = 32;
             this.labelControl118.Text = "H:";
             // 
             // numMaterialHookClose
             // 
             this.numMaterialHookClose.DecimalPlaces = 3;
-            this.numMaterialHookClose.Location = new System.Drawing.Point(102, 53);
+            this.numMaterialHookClose.Location = new System.Drawing.Point(128, 66);
             this.numMaterialHookClose.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookClose.Maximum = new decimal(new int[] {
             1000,
@@ -4523,23 +4827,24 @@
             0,
             -2147483648});
             this.numMaterialHookClose.Name = "numMaterialHookClose";
-            this.numMaterialHookClose.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookClose.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookClose.TabIndex = 31;
             this.numMaterialHookClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl120
             // 
             this.labelControl120.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl120.Location = new System.Drawing.Point(293, 24);
+            this.labelControl120.Location = new System.Drawing.Point(366, 30);
+            this.labelControl120.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl120.Name = "labelControl120";
-            this.labelControl120.Size = new System.Drawing.Size(11, 14);
+            this.labelControl120.Size = new System.Drawing.Size(13, 18);
             this.labelControl120.TabIndex = 28;
             this.labelControl120.Text = "Z:";
             // 
             // numMaterialHookPickupMaterialPositionZ
             // 
             this.numMaterialHookPickupMaterialPositionZ.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialHookPickupMaterialPositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialHookPickupMaterialPositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookPickupMaterialPositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -4552,23 +4857,24 @@
             0,
             -2147483648});
             this.numMaterialHookPickupMaterialPositionZ.Name = "numMaterialHookPickupMaterialPositionZ";
-            this.numMaterialHookPickupMaterialPositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookPickupMaterialPositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookPickupMaterialPositionZ.TabIndex = 27;
             this.numMaterialHookPickupMaterialPositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl121
             // 
             this.labelControl121.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl121.Location = new System.Drawing.Point(192, 24);
+            this.labelControl121.Location = new System.Drawing.Point(240, 30);
+            this.labelControl121.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl121.Name = "labelControl121";
-            this.labelControl121.Size = new System.Drawing.Size(12, 14);
+            this.labelControl121.Size = new System.Drawing.Size(15, 18);
             this.labelControl121.TabIndex = 26;
             this.labelControl121.Text = "Y:";
             // 
             // numMaterialHookPickupMaterialPositionY
             // 
             this.numMaterialHookPickupMaterialPositionY.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialHookPickupMaterialPositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialHookPickupMaterialPositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookPickupMaterialPositionY.Maximum = new decimal(new int[] {
             1000,
@@ -4581,23 +4887,24 @@
             0,
             -2147483648});
             this.numMaterialHookPickupMaterialPositionY.Name = "numMaterialHookPickupMaterialPositionY";
-            this.numMaterialHookPickupMaterialPositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookPickupMaterialPositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookPickupMaterialPositionY.TabIndex = 25;
             this.numMaterialHookPickupMaterialPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl122
             // 
             this.labelControl122.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl122.Location = new System.Drawing.Point(88, 24);
+            this.labelControl122.Location = new System.Drawing.Point(110, 30);
+            this.labelControl122.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl122.Name = "labelControl122";
-            this.labelControl122.Size = new System.Drawing.Size(11, 14);
+            this.labelControl122.Size = new System.Drawing.Size(14, 18);
             this.labelControl122.TabIndex = 24;
             this.labelControl122.Text = "X:";
             // 
             // numMaterialHookPickupMaterialPositionX
             // 
             this.numMaterialHookPickupMaterialPositionX.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialHookPickupMaterialPositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialHookPickupMaterialPositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookPickupMaterialPositionX.Maximum = new decimal(new int[] {
             1000,
@@ -4610,16 +4917,17 @@
             0,
             -2147483648});
             this.numMaterialHookPickupMaterialPositionX.Name = "numMaterialHookPickupMaterialPositionX";
-            this.numMaterialHookPickupMaterialPositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookPickupMaterialPositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookPickupMaterialPositionX.TabIndex = 22;
             this.numMaterialHookPickupMaterialPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl123
             // 
             this.labelControl123.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl123.Location = new System.Drawing.Point(19, 24);
+            this.labelControl123.Location = new System.Drawing.Point(24, 30);
+            this.labelControl123.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl123.Name = "labelControl123";
-            this.labelControl123.Size = new System.Drawing.Size(52, 14);
+            this.labelControl123.Size = new System.Drawing.Size(65, 18);
             this.labelControl123.TabIndex = 23;
             this.labelControl123.Text = "料盒钩爪:";
             // 
@@ -4638,21 +4946,21 @@
             this.groupBox22.Controls.Add(this.labelControl132);
             this.groupBox22.Controls.Add(this.numMaterialHookSafePositionX);
             this.groupBox22.Controls.Add(this.labelControl133);
-            this.groupBox22.Location = new System.Drawing.Point(6, 6);
+            this.groupBox22.Location = new System.Drawing.Point(8, 8);
             this.groupBox22.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox22.Size = new System.Drawing.Size(686, 93);
+            this.groupBox22.Size = new System.Drawing.Size(858, 116);
             this.groupBox22.TabIndex = 24;
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "物料钩爪到空闲位置";
             // 
             // btnAvoidancePosition1
             // 
-            this.btnAvoidancePosition1.Location = new System.Drawing.Point(603, 16);
+            this.btnAvoidancePosition1.Location = new System.Drawing.Point(754, 20);
             this.btnAvoidancePosition1.Margin = new System.Windows.Forms.Padding(2);
             this.btnAvoidancePosition1.Name = "btnAvoidancePosition1";
-            this.btnAvoidancePosition1.Size = new System.Drawing.Size(60, 54);
+            this.btnAvoidancePosition1.Size = new System.Drawing.Size(75, 68);
             this.btnAvoidancePosition1.TabIndex = 37;
             this.btnAvoidancePosition1.Text = "到避让位置";
             this.btnAvoidancePosition1.UseVisualStyleBackColor = true;
@@ -4660,10 +4968,10 @@
             // 
             // btnMaterialHookSafePositionMove
             // 
-            this.btnMaterialHookSafePositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialHookSafePositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialHookSafePositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookSafePositionMove.Name = "btnMaterialHookSafePositionMove";
-            this.btnMaterialHookSafePositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookSafePositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookSafePositionMove.TabIndex = 35;
             this.btnMaterialHookSafePositionMove.Text = "移动";
             this.btnMaterialHookSafePositionMove.UseVisualStyleBackColor = true;
@@ -4671,10 +4979,10 @@
             // 
             // btnMaterialHookSafePositionRead
             // 
-            this.btnMaterialHookSafePositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialHookSafePositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialHookSafePositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHookSafePositionRead.Name = "btnMaterialHookSafePositionRead";
-            this.btnMaterialHookSafePositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHookSafePositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHookSafePositionRead.TabIndex = 34;
             this.btnMaterialHookSafePositionRead.Text = "读取";
             this.btnMaterialHookSafePositionRead.UseVisualStyleBackColor = true;
@@ -4683,25 +4991,27 @@
             // labelControl127
             // 
             this.labelControl127.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl127.Location = new System.Drawing.Point(18, 56);
+            this.labelControl127.Location = new System.Drawing.Point(22, 70);
+            this.labelControl127.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl127.Name = "labelControl127";
-            this.labelControl127.Size = new System.Drawing.Size(52, 14);
+            this.labelControl127.Size = new System.Drawing.Size(65, 18);
             this.labelControl127.TabIndex = 33;
             this.labelControl127.Text = "钩爪打开:";
             // 
             // labelControl128
             // 
             this.labelControl128.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl128.Location = new System.Drawing.Point(87, 56);
+            this.labelControl128.Location = new System.Drawing.Point(109, 70);
+            this.labelControl128.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl128.Name = "labelControl128";
-            this.labelControl128.Size = new System.Drawing.Size(12, 14);
+            this.labelControl128.Size = new System.Drawing.Size(15, 18);
             this.labelControl128.TabIndex = 32;
             this.labelControl128.Text = "H:";
             // 
             // numMaterialHookOpen
             // 
             this.numMaterialHookOpen.DecimalPlaces = 3;
-            this.numMaterialHookOpen.Location = new System.Drawing.Point(102, 53);
+            this.numMaterialHookOpen.Location = new System.Drawing.Point(128, 66);
             this.numMaterialHookOpen.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookOpen.Maximum = new decimal(new int[] {
             1000,
@@ -4714,23 +5024,24 @@
             0,
             -2147483648});
             this.numMaterialHookOpen.Name = "numMaterialHookOpen";
-            this.numMaterialHookOpen.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookOpen.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookOpen.TabIndex = 31;
             this.numMaterialHookOpen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl130
             // 
             this.labelControl130.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl130.Location = new System.Drawing.Point(292, 23);
+            this.labelControl130.Location = new System.Drawing.Point(365, 29);
+            this.labelControl130.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl130.Name = "labelControl130";
-            this.labelControl130.Size = new System.Drawing.Size(11, 14);
+            this.labelControl130.Size = new System.Drawing.Size(13, 18);
             this.labelControl130.TabIndex = 28;
             this.labelControl130.Text = "Z:";
             // 
             // numMaterialHookSafePositionZ
             // 
             this.numMaterialHookSafePositionZ.DecimalPlaces = 3;
-            this.numMaterialHookSafePositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialHookSafePositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialHookSafePositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookSafePositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -4743,23 +5054,24 @@
             0,
             -2147483648});
             this.numMaterialHookSafePositionZ.Name = "numMaterialHookSafePositionZ";
-            this.numMaterialHookSafePositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookSafePositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookSafePositionZ.TabIndex = 27;
             this.numMaterialHookSafePositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl131
             // 
             this.labelControl131.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl131.Location = new System.Drawing.Point(190, 23);
+            this.labelControl131.Location = new System.Drawing.Point(238, 29);
+            this.labelControl131.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl131.Name = "labelControl131";
-            this.labelControl131.Size = new System.Drawing.Size(12, 14);
+            this.labelControl131.Size = new System.Drawing.Size(15, 18);
             this.labelControl131.TabIndex = 26;
             this.labelControl131.Text = "Y:";
             // 
             // numMaterialHookSafePositionY
             // 
             this.numMaterialHookSafePositionY.DecimalPlaces = 3;
-            this.numMaterialHookSafePositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialHookSafePositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialHookSafePositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookSafePositionY.Maximum = new decimal(new int[] {
             1000,
@@ -4772,23 +5084,24 @@
             0,
             -2147483648});
             this.numMaterialHookSafePositionY.Name = "numMaterialHookSafePositionY";
-            this.numMaterialHookSafePositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookSafePositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookSafePositionY.TabIndex = 25;
             this.numMaterialHookSafePositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl132
             // 
             this.labelControl132.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl132.Location = new System.Drawing.Point(87, 22);
+            this.labelControl132.Location = new System.Drawing.Point(109, 28);
+            this.labelControl132.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl132.Name = "labelControl132";
-            this.labelControl132.Size = new System.Drawing.Size(11, 14);
+            this.labelControl132.Size = new System.Drawing.Size(14, 18);
             this.labelControl132.TabIndex = 24;
             this.labelControl132.Text = "X:";
             // 
             // numMaterialHookSafePositionX
             // 
             this.numMaterialHookSafePositionX.DecimalPlaces = 3;
-            this.numMaterialHookSafePositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialHookSafePositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialHookSafePositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHookSafePositionX.Maximum = new decimal(new int[] {
             1000,
@@ -4801,16 +5114,17 @@
             0,
             -2147483648});
             this.numMaterialHookSafePositionX.Name = "numMaterialHookSafePositionX";
-            this.numMaterialHookSafePositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHookSafePositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHookSafePositionX.TabIndex = 22;
             this.numMaterialHookSafePositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl133
             // 
             this.labelControl133.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl133.Location = new System.Drawing.Point(18, 23);
+            this.labelControl133.Location = new System.Drawing.Point(22, 29);
+            this.labelControl133.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl133.Name = "labelControl133";
-            this.labelControl133.Size = new System.Drawing.Size(52, 14);
+            this.labelControl133.Size = new System.Drawing.Size(65, 18);
             this.labelControl133.TabIndex = 23;
             this.labelControl133.Text = "物料钩爪:";
             // 
@@ -4819,10 +5133,10 @@
             this.MaterialMovetoWeldTabletabPage.Controls.Add(this.groupBox37);
             this.MaterialMovetoWeldTabletabPage.Controls.Add(this.MaterialMovetoWeldTableSave);
             this.MaterialMovetoWeldTabletabPage.Controls.Add(this.groupBox25);
-            this.MaterialMovetoWeldTabletabPage.Location = new System.Drawing.Point(4, 23);
+            this.MaterialMovetoWeldTabletabPage.Location = new System.Drawing.Point(4, 27);
             this.MaterialMovetoWeldTabletabPage.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialMovetoWeldTabletabPage.Name = "MaterialMovetoWeldTabletabPage";
-            this.MaterialMovetoWeldTabletabPage.Size = new System.Drawing.Size(697, 593);
+            this.MaterialMovetoWeldTabletabPage.Size = new System.Drawing.Size(873, 744);
             this.MaterialMovetoWeldTabletabPage.TabIndex = 2;
             this.MaterialMovetoWeldTabletabPage.Text = "物料到焊台";
             this.MaterialMovetoWeldTabletabPage.UseVisualStyleBackColor = true;
@@ -4839,11 +5153,11 @@
             this.groupBox37.Controls.Add(this.labelControl204);
             this.groupBox37.Controls.Add(this.numPressliftingSafePosition);
             this.groupBox37.Controls.Add(this.labelControl207);
-            this.groupBox37.Location = new System.Drawing.Point(6, 100);
+            this.groupBox37.Location = new System.Drawing.Point(8, 125);
             this.groupBox37.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox37.Name = "groupBox37";
             this.groupBox37.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox37.Size = new System.Drawing.Size(686, 93);
+            this.groupBox37.Size = new System.Drawing.Size(858, 116);
             this.groupBox37.TabIndex = 39;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "顶升机构顺正物料";
@@ -4851,16 +5165,17 @@
             // labelControl129
             // 
             this.labelControl129.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl129.Location = new System.Drawing.Point(87, 54);
+            this.labelControl129.Location = new System.Drawing.Point(109, 68);
+            this.labelControl129.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl129.Name = "labelControl129";
-            this.labelControl129.Size = new System.Drawing.Size(11, 14);
+            this.labelControl129.Size = new System.Drawing.Size(13, 18);
             this.labelControl129.TabIndex = 48;
             this.labelControl129.Text = "Z:";
             // 
             // numPressliftingWorkPosition
             // 
             this.numPressliftingWorkPosition.DecimalPlaces = 3;
-            this.numPressliftingWorkPosition.Location = new System.Drawing.Point(102, 50);
+            this.numPressliftingWorkPosition.Location = new System.Drawing.Point(128, 62);
             this.numPressliftingWorkPosition.Margin = new System.Windows.Forms.Padding(2);
             this.numPressliftingWorkPosition.Maximum = new decimal(new int[] {
             1000,
@@ -4873,25 +5188,26 @@
             0,
             -2147483648});
             this.numPressliftingWorkPosition.Name = "numPressliftingWorkPosition";
-            this.numPressliftingWorkPosition.Size = new System.Drawing.Size(80, 22);
+            this.numPressliftingWorkPosition.Size = new System.Drawing.Size(100, 26);
             this.numPressliftingWorkPosition.TabIndex = 47;
             this.numPressliftingWorkPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl205
             // 
             this.labelControl205.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl205.Location = new System.Drawing.Point(18, 53);
+            this.labelControl205.Location = new System.Drawing.Point(22, 66);
+            this.labelControl205.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl205.Name = "labelControl205";
-            this.labelControl205.Size = new System.Drawing.Size(52, 14);
+            this.labelControl205.Size = new System.Drawing.Size(65, 18);
             this.labelControl205.TabIndex = 46;
             this.labelControl205.Text = "工作位置:";
             // 
             // btnPressliftingWorkPositionMove
             // 
-            this.btnPressliftingWorkPositionMove.Location = new System.Drawing.Point(254, 47);
+            this.btnPressliftingWorkPositionMove.Location = new System.Drawing.Point(318, 59);
             this.btnPressliftingWorkPositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingWorkPositionMove.Name = "btnPressliftingWorkPositionMove";
-            this.btnPressliftingWorkPositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnPressliftingWorkPositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnPressliftingWorkPositionMove.TabIndex = 45;
             this.btnPressliftingWorkPositionMove.Text = "移动";
             this.btnPressliftingWorkPositionMove.UseVisualStyleBackColor = true;
@@ -4899,10 +5215,10 @@
             // 
             // btnPressliftingSafePositionMove
             // 
-            this.btnPressliftingSafePositionMove.Location = new System.Drawing.Point(254, 19);
+            this.btnPressliftingSafePositionMove.Location = new System.Drawing.Point(318, 24);
             this.btnPressliftingSafePositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingSafePositionMove.Name = "btnPressliftingSafePositionMove";
-            this.btnPressliftingSafePositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnPressliftingSafePositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnPressliftingSafePositionMove.TabIndex = 35;
             this.btnPressliftingSafePositionMove.Text = "移动";
             this.btnPressliftingSafePositionMove.UseVisualStyleBackColor = true;
@@ -4910,10 +5226,10 @@
             // 
             // btnPressliftingWorkPositionRead
             // 
-            this.btnPressliftingWorkPositionRead.Location = new System.Drawing.Point(190, 49);
+            this.btnPressliftingWorkPositionRead.Location = new System.Drawing.Point(238, 61);
             this.btnPressliftingWorkPositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingWorkPositionRead.Name = "btnPressliftingWorkPositionRead";
-            this.btnPressliftingWorkPositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnPressliftingWorkPositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnPressliftingWorkPositionRead.TabIndex = 44;
             this.btnPressliftingWorkPositionRead.Text = "读取";
             this.btnPressliftingWorkPositionRead.UseVisualStyleBackColor = true;
@@ -4921,10 +5237,10 @@
             // 
             // btnPressliftingSafePositionRead
             // 
-            this.btnPressliftingSafePositionRead.Location = new System.Drawing.Point(190, 19);
+            this.btnPressliftingSafePositionRead.Location = new System.Drawing.Point(238, 24);
             this.btnPressliftingSafePositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnPressliftingSafePositionRead.Name = "btnPressliftingSafePositionRead";
-            this.btnPressliftingSafePositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnPressliftingSafePositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnPressliftingSafePositionRead.TabIndex = 34;
             this.btnPressliftingSafePositionRead.Text = "读取";
             this.btnPressliftingSafePositionRead.UseVisualStyleBackColor = true;
@@ -4933,16 +5249,17 @@
             // labelControl204
             // 
             this.labelControl204.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl204.Location = new System.Drawing.Point(87, 24);
+            this.labelControl204.Location = new System.Drawing.Point(109, 30);
+            this.labelControl204.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl204.Name = "labelControl204";
-            this.labelControl204.Size = new System.Drawing.Size(11, 14);
+            this.labelControl204.Size = new System.Drawing.Size(13, 18);
             this.labelControl204.TabIndex = 28;
             this.labelControl204.Text = "Z:";
             // 
             // numPressliftingSafePosition
             // 
             this.numPressliftingSafePosition.DecimalPlaces = 3;
-            this.numPressliftingSafePosition.Location = new System.Drawing.Point(102, 21);
+            this.numPressliftingSafePosition.Location = new System.Drawing.Point(128, 26);
             this.numPressliftingSafePosition.Margin = new System.Windows.Forms.Padding(2);
             this.numPressliftingSafePosition.Maximum = new decimal(new int[] {
             1000,
@@ -4955,26 +5272,27 @@
             0,
             -2147483648});
             this.numPressliftingSafePosition.Name = "numPressliftingSafePosition";
-            this.numPressliftingSafePosition.Size = new System.Drawing.Size(80, 22);
+            this.numPressliftingSafePosition.Size = new System.Drawing.Size(100, 26);
             this.numPressliftingSafePosition.TabIndex = 27;
             this.numPressliftingSafePosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl207
             // 
             this.labelControl207.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl207.Location = new System.Drawing.Point(18, 23);
+            this.labelControl207.Location = new System.Drawing.Point(22, 29);
+            this.labelControl207.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl207.Name = "labelControl207";
-            this.labelControl207.Size = new System.Drawing.Size(52, 14);
+            this.labelControl207.Size = new System.Drawing.Size(65, 18);
             this.labelControl207.TabIndex = 23;
             this.labelControl207.Text = "空闲位置:";
             // 
             // MaterialMovetoWeldTableSave
             // 
             this.MaterialMovetoWeldTableSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.MaterialMovetoWeldTableSave.Location = new System.Drawing.Point(614, 552);
+            this.MaterialMovetoWeldTableSave.Location = new System.Drawing.Point(768, 690);
             this.MaterialMovetoWeldTableSave.Margin = new System.Windows.Forms.Padding(2);
             this.MaterialMovetoWeldTableSave.Name = "MaterialMovetoWeldTableSave";
-            this.MaterialMovetoWeldTableSave.Size = new System.Drawing.Size(82, 41);
+            this.MaterialMovetoWeldTableSave.Size = new System.Drawing.Size(102, 51);
             this.MaterialMovetoWeldTableSave.TabIndex = 37;
             this.MaterialMovetoWeldTableSave.Text = "保存";
             this.MaterialMovetoWeldTableSave.UseVisualStyleBackColor = true;
@@ -4996,21 +5314,21 @@
             this.groupBox25.Controls.Add(this.labelControl147);
             this.groupBox25.Controls.Add(this.numMaterialHooktoTargetPositionX);
             this.groupBox25.Controls.Add(this.labelControl148);
-            this.groupBox25.Location = new System.Drawing.Point(6, 2);
+            this.groupBox25.Location = new System.Drawing.Point(8, 2);
             this.groupBox25.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox25.Size = new System.Drawing.Size(686, 93);
+            this.groupBox25.Size = new System.Drawing.Size(858, 116);
             this.groupBox25.TabIndex = 25;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "物料到焊接位置1";
             // 
             // btnGreateMaterialStatsRecognition
             // 
-            this.btnGreateMaterialStatsRecognition.Location = new System.Drawing.Point(378, 46);
+            this.btnGreateMaterialStatsRecognition.Location = new System.Drawing.Point(472, 58);
             this.btnGreateMaterialStatsRecognition.Margin = new System.Windows.Forms.Padding(2);
             this.btnGreateMaterialStatsRecognition.Name = "btnGreateMaterialStatsRecognition";
-            this.btnGreateMaterialStatsRecognition.Size = new System.Drawing.Size(125, 25);
+            this.btnGreateMaterialStatsRecognition.Size = new System.Drawing.Size(156, 31);
             this.btnGreateMaterialStatsRecognition.TabIndex = 49;
             this.btnGreateMaterialStatsRecognition.Text = "创建物料状态识别";
             this.btnGreateMaterialStatsRecognition.UseVisualStyleBackColor = true;
@@ -5019,9 +5337,10 @@
             // labelControl80
             // 
             this.labelControl80.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl80.Location = new System.Drawing.Point(18, 51);
+            this.labelControl80.Location = new System.Drawing.Point(22, 64);
+            this.labelControl80.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl80.Name = "labelControl80";
-            this.labelControl80.Size = new System.Drawing.Size(52, 14);
+            this.labelControl80.Size = new System.Drawing.Size(65, 18);
             this.labelControl80.TabIndex = 43;
             this.labelControl80.Text = "当前位置:";
             // 
@@ -5034,19 +5353,19 @@
             "2",
             "3",
             "4"});
-            this.comboBox1.Location = new System.Drawing.Point(102, 49);
+            this.comboBox1.Location = new System.Drawing.Point(128, 61);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(81, 22);
+            this.comboBox1.Size = new System.Drawing.Size(100, 26);
             this.comboBox1.TabIndex = 42;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnMaterialHooktoTargetPositionPutdown
             // 
-            this.btnMaterialHooktoTargetPositionPutdown.Location = new System.Drawing.Point(570, 46);
+            this.btnMaterialHooktoTargetPositionPutdown.Location = new System.Drawing.Point(712, 58);
             this.btnMaterialHooktoTargetPositionPutdown.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHooktoTargetPositionPutdown.Name = "btnMaterialHooktoTargetPositionPutdown";
-            this.btnMaterialHooktoTargetPositionPutdown.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHooktoTargetPositionPutdown.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHooktoTargetPositionPutdown.TabIndex = 41;
             this.btnMaterialHooktoTargetPositionPutdown.Text = "放下";
             this.btnMaterialHooktoTargetPositionPutdown.UseVisualStyleBackColor = true;
@@ -5054,10 +5373,10 @@
             // 
             // btnMaterialHooktoTargetPositionPickup
             // 
-            this.btnMaterialHooktoTargetPositionPickup.Location = new System.Drawing.Point(570, 17);
+            this.btnMaterialHooktoTargetPositionPickup.Location = new System.Drawing.Point(712, 21);
             this.btnMaterialHooktoTargetPositionPickup.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHooktoTargetPositionPickup.Name = "btnMaterialHooktoTargetPositionPickup";
-            this.btnMaterialHooktoTargetPositionPickup.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHooktoTargetPositionPickup.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHooktoTargetPositionPickup.TabIndex = 40;
             this.btnMaterialHooktoTargetPositionPickup.Text = "夹取";
             this.btnMaterialHooktoTargetPositionPickup.UseVisualStyleBackColor = true;
@@ -5065,10 +5384,10 @@
             // 
             // btnMaterialHooktoTargetPositionMove
             // 
-            this.btnMaterialHooktoTargetPositionMove.Location = new System.Drawing.Point(506, 46);
+            this.btnMaterialHooktoTargetPositionMove.Location = new System.Drawing.Point(632, 58);
             this.btnMaterialHooktoTargetPositionMove.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHooktoTargetPositionMove.Name = "btnMaterialHooktoTargetPositionMove";
-            this.btnMaterialHooktoTargetPositionMove.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHooktoTargetPositionMove.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHooktoTargetPositionMove.TabIndex = 35;
             this.btnMaterialHooktoTargetPositionMove.Text = "移动";
             this.btnMaterialHooktoTargetPositionMove.UseVisualStyleBackColor = true;
@@ -5076,10 +5395,10 @@
             // 
             // btnMaterialHooktoTargetPositionRead
             // 
-            this.btnMaterialHooktoTargetPositionRead.Location = new System.Drawing.Point(506, 17);
+            this.btnMaterialHooktoTargetPositionRead.Location = new System.Drawing.Point(632, 21);
             this.btnMaterialHooktoTargetPositionRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaterialHooktoTargetPositionRead.Name = "btnMaterialHooktoTargetPositionRead";
-            this.btnMaterialHooktoTargetPositionRead.Size = new System.Drawing.Size(60, 25);
+            this.btnMaterialHooktoTargetPositionRead.Size = new System.Drawing.Size(75, 31);
             this.btnMaterialHooktoTargetPositionRead.TabIndex = 34;
             this.btnMaterialHooktoTargetPositionRead.Text = "读取";
             this.btnMaterialHooktoTargetPositionRead.UseVisualStyleBackColor = true;
@@ -5088,16 +5407,17 @@
             // labelControl145
             // 
             this.labelControl145.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl145.Location = new System.Drawing.Point(292, 23);
+            this.labelControl145.Location = new System.Drawing.Point(365, 29);
+            this.labelControl145.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl145.Name = "labelControl145";
-            this.labelControl145.Size = new System.Drawing.Size(11, 14);
+            this.labelControl145.Size = new System.Drawing.Size(13, 18);
             this.labelControl145.TabIndex = 28;
             this.labelControl145.Text = "Z:";
             // 
             // numMaterialHooktoTargetPositionZ
             // 
             this.numMaterialHooktoTargetPositionZ.DecimalPlaces = 3;
-            this.numMaterialHooktoTargetPositionZ.Location = new System.Drawing.Point(307, 20);
+            this.numMaterialHooktoTargetPositionZ.Location = new System.Drawing.Point(384, 25);
             this.numMaterialHooktoTargetPositionZ.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHooktoTargetPositionZ.Maximum = new decimal(new int[] {
             1000,
@@ -5110,23 +5430,24 @@
             0,
             -2147483648});
             this.numMaterialHooktoTargetPositionZ.Name = "numMaterialHooktoTargetPositionZ";
-            this.numMaterialHooktoTargetPositionZ.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHooktoTargetPositionZ.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHooktoTargetPositionZ.TabIndex = 27;
             this.numMaterialHooktoTargetPositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl146
             // 
             this.labelControl146.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl146.Location = new System.Drawing.Point(190, 23);
+            this.labelControl146.Location = new System.Drawing.Point(238, 29);
+            this.labelControl146.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl146.Name = "labelControl146";
-            this.labelControl146.Size = new System.Drawing.Size(12, 14);
+            this.labelControl146.Size = new System.Drawing.Size(15, 18);
             this.labelControl146.TabIndex = 26;
             this.labelControl146.Text = "Y:";
             // 
             // numMaterialHooktoTargetPositionY
             // 
             this.numMaterialHooktoTargetPositionY.DecimalPlaces = 3;
-            this.numMaterialHooktoTargetPositionY.Location = new System.Drawing.Point(205, 20);
+            this.numMaterialHooktoTargetPositionY.Location = new System.Drawing.Point(256, 25);
             this.numMaterialHooktoTargetPositionY.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHooktoTargetPositionY.Maximum = new decimal(new int[] {
             1000,
@@ -5139,23 +5460,24 @@
             0,
             -2147483648});
             this.numMaterialHooktoTargetPositionY.Name = "numMaterialHooktoTargetPositionY";
-            this.numMaterialHooktoTargetPositionY.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHooktoTargetPositionY.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHooktoTargetPositionY.TabIndex = 25;
             this.numMaterialHooktoTargetPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl147
             // 
             this.labelControl147.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl147.Location = new System.Drawing.Point(87, 22);
+            this.labelControl147.Location = new System.Drawing.Point(109, 28);
+            this.labelControl147.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl147.Name = "labelControl147";
-            this.labelControl147.Size = new System.Drawing.Size(11, 14);
+            this.labelControl147.Size = new System.Drawing.Size(14, 18);
             this.labelControl147.TabIndex = 24;
             this.labelControl147.Text = "X:";
             // 
             // numMaterialHooktoTargetPositionX
             // 
             this.numMaterialHooktoTargetPositionX.DecimalPlaces = 3;
-            this.numMaterialHooktoTargetPositionX.Location = new System.Drawing.Point(102, 19);
+            this.numMaterialHooktoTargetPositionX.Location = new System.Drawing.Point(128, 24);
             this.numMaterialHooktoTargetPositionX.Margin = new System.Windows.Forms.Padding(2);
             this.numMaterialHooktoTargetPositionX.Maximum = new decimal(new int[] {
             1000,
@@ -5168,16 +5490,17 @@
             0,
             -2147483648});
             this.numMaterialHooktoTargetPositionX.Name = "numMaterialHooktoTargetPositionX";
-            this.numMaterialHooktoTargetPositionX.Size = new System.Drawing.Size(80, 22);
+            this.numMaterialHooktoTargetPositionX.Size = new System.Drawing.Size(100, 26);
             this.numMaterialHooktoTargetPositionX.TabIndex = 22;
             this.numMaterialHooktoTargetPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl148
             // 
             this.labelControl148.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl148.Location = new System.Drawing.Point(18, 23);
+            this.labelControl148.Location = new System.Drawing.Point(22, 29);
+            this.labelControl148.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl148.Name = "labelControl148";
-            this.labelControl148.Size = new System.Drawing.Size(52, 14);
+            this.labelControl148.Size = new System.Drawing.Size(65, 18);
             this.labelControl148.TabIndex = 23;
             this.labelControl148.Text = "料盒钩爪:";
             // 
@@ -5185,11 +5508,11 @@
             // 
             this.WeldtabPage.Controls.Add(this.WeldSave);
             this.WeldtabPage.Controls.Add(this.groupBox21);
-            this.WeldtabPage.Location = new System.Drawing.Point(4, 23);
+            this.WeldtabPage.Location = new System.Drawing.Point(4, 27);
             this.WeldtabPage.Margin = new System.Windows.Forms.Padding(2);
             this.WeldtabPage.Name = "WeldtabPage";
             this.WeldtabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.WeldtabPage.Size = new System.Drawing.Size(713, 627);
+            this.WeldtabPage.Size = new System.Drawing.Size(893, 787);
             this.WeldtabPage.TabIndex = 3;
             this.WeldtabPage.Text = "焊接";
             this.WeldtabPage.UseVisualStyleBackColor = true;
@@ -5197,10 +5520,10 @@
             // WeldSave
             // 
             this.WeldSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.WeldSave.Location = new System.Drawing.Point(627, 584);
+            this.WeldSave.Location = new System.Drawing.Point(784, 730);
             this.WeldSave.Margin = new System.Windows.Forms.Padding(2);
             this.WeldSave.Name = "WeldSave";
-            this.WeldSave.Size = new System.Drawing.Size(82, 41);
+            this.WeldSave.Size = new System.Drawing.Size(102, 51);
             this.WeldSave.TabIndex = 38;
             this.WeldSave.Text = "保存";
             this.WeldSave.UseVisualStyleBackColor = true;
@@ -5216,21 +5539,21 @@
             this.groupBox21.Controls.Add(this.numWeldPessure);
             this.groupBox21.Controls.Add(this.numWeldTime);
             this.groupBox21.Controls.Add(this.labelControl153);
-            this.groupBox21.Location = new System.Drawing.Point(5, 5);
+            this.groupBox21.Location = new System.Drawing.Point(6, 6);
             this.groupBox21.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox21.Size = new System.Drawing.Size(705, 574);
+            this.groupBox21.Size = new System.Drawing.Size(881, 718);
             this.groupBox21.TabIndex = 37;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "物料钩爪到空闲位置";
             // 
             // btnStopWeldReset
             // 
-            this.btnStopWeldReset.Location = new System.Drawing.Point(494, 45);
+            this.btnStopWeldReset.Location = new System.Drawing.Point(618, 56);
             this.btnStopWeldReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopWeldReset.Name = "btnStopWeldReset";
-            this.btnStopWeldReset.Size = new System.Drawing.Size(80, 25);
+            this.btnStopWeldReset.Size = new System.Drawing.Size(100, 31);
             this.btnStopWeldReset.TabIndex = 37;
             this.btnStopWeldReset.Text = "停止复位";
             this.btnStopWeldReset.UseVisualStyleBackColor = true;
@@ -5238,10 +5561,10 @@
             // 
             // btnStopWeld
             // 
-            this.btnStopWeld.Location = new System.Drawing.Point(494, 15);
+            this.btnStopWeld.Location = new System.Drawing.Point(618, 19);
             this.btnStopWeld.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopWeld.Name = "btnStopWeld";
-            this.btnStopWeld.Size = new System.Drawing.Size(80, 25);
+            this.btnStopWeld.Size = new System.Drawing.Size(100, 31);
             this.btnStopWeld.TabIndex = 36;
             this.btnStopWeld.Text = "停止焊接";
             this.btnStopWeld.UseVisualStyleBackColor = true;
@@ -5249,10 +5572,10 @@
             // 
             // btnWeldReset
             // 
-            this.btnWeldReset.Location = new System.Drawing.Point(410, 46);
+            this.btnWeldReset.Location = new System.Drawing.Point(512, 58);
             this.btnWeldReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeldReset.Name = "btnWeldReset";
-            this.btnWeldReset.Size = new System.Drawing.Size(80, 25);
+            this.btnWeldReset.Size = new System.Drawing.Size(100, 31);
             this.btnWeldReset.TabIndex = 35;
             this.btnWeldReset.Text = "复位";
             this.btnWeldReset.UseVisualStyleBackColor = true;
@@ -5260,10 +5583,10 @@
             // 
             // btnWeld
             // 
-            this.btnWeld.Location = new System.Drawing.Point(410, 16);
+            this.btnWeld.Location = new System.Drawing.Point(512, 20);
             this.btnWeld.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeld.Name = "btnWeld";
-            this.btnWeld.Size = new System.Drawing.Size(80, 25);
+            this.btnWeld.Size = new System.Drawing.Size(100, 31);
             this.btnWeld.TabIndex = 34;
             this.btnWeld.Text = "焊接";
             this.btnWeld.UseVisualStyleBackColor = true;
@@ -5272,16 +5595,17 @@
             // labelControl126
             // 
             this.labelControl126.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl126.Location = new System.Drawing.Point(45, 54);
+            this.labelControl126.Location = new System.Drawing.Point(56, 68);
+            this.labelControl126.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl126.Name = "labelControl126";
-            this.labelControl126.Size = new System.Drawing.Size(52, 14);
+            this.labelControl126.Size = new System.Drawing.Size(65, 18);
             this.labelControl126.TabIndex = 33;
             this.labelControl126.Text = "焊接压力:";
             // 
             // numWeldPessure
             // 
             this.numWeldPessure.DecimalPlaces = 3;
-            this.numWeldPessure.Location = new System.Drawing.Point(102, 53);
+            this.numWeldPessure.Location = new System.Drawing.Point(128, 66);
             this.numWeldPessure.Margin = new System.Windows.Forms.Padding(2);
             this.numWeldPessure.Maximum = new decimal(new int[] {
             1000,
@@ -5294,185 +5618,43 @@
             0,
             -2147483648});
             this.numWeldPessure.Name = "numWeldPessure";
-            this.numWeldPessure.Size = new System.Drawing.Size(80, 22);
+            this.numWeldPessure.Size = new System.Drawing.Size(100, 26);
             this.numWeldPessure.TabIndex = 31;
             this.numWeldPessure.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numWeldTime
             // 
             this.numWeldTime.DecimalPlaces = 3;
-            this.numWeldTime.Location = new System.Drawing.Point(102, 19);
+            this.numWeldTime.Location = new System.Drawing.Point(128, 24);
             this.numWeldTime.Margin = new System.Windows.Forms.Padding(2);
             this.numWeldTime.Name = "numWeldTime";
-            this.numWeldTime.Size = new System.Drawing.Size(80, 22);
+            this.numWeldTime.Size = new System.Drawing.Size(100, 26);
             this.numWeldTime.TabIndex = 22;
             this.numWeldTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelControl153
             // 
             this.labelControl153.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl153.Location = new System.Drawing.Point(45, 22);
+            this.labelControl153.Location = new System.Drawing.Point(56, 28);
+            this.labelControl153.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl153.Name = "labelControl153";
-            this.labelControl153.Size = new System.Drawing.Size(52, 14);
+            this.labelControl153.Size = new System.Drawing.Size(65, 18);
             this.labelControl153.TabIndex = 23;
             this.labelControl153.Text = "焊接时间:";
-            // 
-            // labelControl90
-            // 
-            this.labelControl90.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl90.Location = new System.Drawing.Point(401, 174);
-            this.labelControl90.Name = "labelControl90";
-            this.labelControl90.Size = new System.Drawing.Size(28, 14);
-            this.labelControl90.TabIndex = 60;
-            this.labelControl90.Text = "行数:";
-            // 
-            // numMaterialRawNum
-            // 
-            this.numMaterialRawNum.Location = new System.Drawing.Point(432, 169);
-            this.numMaterialRawNum.Margin = new System.Windows.Forms.Padding(2);
-            this.numMaterialRawNum.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-            this.numMaterialRawNum.Name = "numMaterialRawNum";
-            this.numMaterialRawNum.Size = new System.Drawing.Size(50, 22);
-            this.numMaterialRawNum.TabIndex = 61;
-            this.numMaterialRawNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numMaterialRawNum.ValueChanged += new System.EventHandler(this.numMaterialRawNum_ValueChanged);
-            // 
-            // numMaterialColNum
-            // 
-            this.numMaterialColNum.Location = new System.Drawing.Point(518, 169);
-            this.numMaterialColNum.Margin = new System.Windows.Forms.Padding(2);
-            this.numMaterialColNum.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-            this.numMaterialColNum.Name = "numMaterialColNum";
-            this.numMaterialColNum.Size = new System.Drawing.Size(50, 22);
-            this.numMaterialColNum.TabIndex = 63;
-            this.numMaterialColNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numMaterialColNum.ValueChanged += new System.EventHandler(this.numMaterialColNum_ValueChanged);
-            // 
-            // labelControl91
-            // 
-            this.labelControl91.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl91.Location = new System.Drawing.Point(487, 174);
-            this.labelControl91.Name = "labelControl91";
-            this.labelControl91.Size = new System.Drawing.Size(28, 14);
-            this.labelControl91.TabIndex = 62;
-            this.labelControl91.Text = "列数:";
-            // 
-            // labelControl92
-            // 
-            this.labelControl92.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl92.Location = new System.Drawing.Point(293, 174);
-            this.labelControl92.Name = "labelControl92";
-            this.labelControl92.Size = new System.Drawing.Size(11, 14);
-            this.labelControl92.TabIndex = 69;
-            this.labelControl92.Text = "Z:";
-            // 
-            // numMaterialHookPickupMaterialPositionZ1
-            // 
-            this.numMaterialHookPickupMaterialPositionZ1.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionZ1.Location = new System.Drawing.Point(307, 170);
-            this.numMaterialHookPickupMaterialPositionZ1.Margin = new System.Windows.Forms.Padding(2);
-            this.numMaterialHookPickupMaterialPositionZ1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numMaterialHookPickupMaterialPositionZ1.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numMaterialHookPickupMaterialPositionZ1.Name = "numMaterialHookPickupMaterialPositionZ1";
-            this.numMaterialHookPickupMaterialPositionZ1.Size = new System.Drawing.Size(80, 22);
-            this.numMaterialHookPickupMaterialPositionZ1.TabIndex = 68;
-            this.numMaterialHookPickupMaterialPositionZ1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // labelControl93
-            // 
-            this.labelControl93.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl93.Location = new System.Drawing.Point(192, 173);
-            this.labelControl93.Name = "labelControl93";
-            this.labelControl93.Size = new System.Drawing.Size(12, 14);
-            this.labelControl93.TabIndex = 67;
-            this.labelControl93.Text = "Y:";
-            // 
-            // numMaterialHookPickupMaterialPositionY1
-            // 
-            this.numMaterialHookPickupMaterialPositionY1.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionY1.Location = new System.Drawing.Point(205, 169);
-            this.numMaterialHookPickupMaterialPositionY1.Margin = new System.Windows.Forms.Padding(2);
-            this.numMaterialHookPickupMaterialPositionY1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numMaterialHookPickupMaterialPositionY1.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numMaterialHookPickupMaterialPositionY1.Name = "numMaterialHookPickupMaterialPositionY1";
-            this.numMaterialHookPickupMaterialPositionY1.Size = new System.Drawing.Size(80, 22);
-            this.numMaterialHookPickupMaterialPositionY1.TabIndex = 66;
-            this.numMaterialHookPickupMaterialPositionY1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // labelControl94
-            // 
-            this.labelControl94.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl94.Location = new System.Drawing.Point(88, 174);
-            this.labelControl94.Name = "labelControl94";
-            this.labelControl94.Size = new System.Drawing.Size(11, 14);
-            this.labelControl94.TabIndex = 65;
-            this.labelControl94.Text = "X:";
-            // 
-            // numMaterialHookPickupMaterialPositionX1
-            // 
-            this.numMaterialHookPickupMaterialPositionX1.DecimalPlaces = 3;
-            this.numMaterialHookPickupMaterialPositionX1.Location = new System.Drawing.Point(102, 169);
-            this.numMaterialHookPickupMaterialPositionX1.Margin = new System.Windows.Forms.Padding(2);
-            this.numMaterialHookPickupMaterialPositionX1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numMaterialHookPickupMaterialPositionX1.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numMaterialHookPickupMaterialPositionX1.Name = "numMaterialHookPickupMaterialPositionX1";
-            this.numMaterialHookPickupMaterialPositionX1.Size = new System.Drawing.Size(80, 22);
-            this.numMaterialHookPickupMaterialPositionX1.TabIndex = 64;
-            this.numMaterialHookPickupMaterialPositionX1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // labelControl95
-            // 
-            this.labelControl95.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl95.Location = new System.Drawing.Point(20, 174);
-            this.labelControl95.Name = "labelControl95";
-            this.labelControl95.Size = new System.Drawing.Size(52, 14);
-            this.labelControl95.TabIndex = 70;
-            this.labelControl95.Text = "目标位置:";
             // 
             // FrmEditTransportRecipe
             // 
             this.ActiveGlowColor = System.Drawing.Color.White;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(740, 773);
+            this.ClientSize = new System.Drawing.Size(925, 966);
             this.Controls.Add(this.TransportTab);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.labName);
             this.Controls.Add(this.teName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmEditTransportRecipe";
@@ -5603,6 +5785,11 @@
             this.PickupMaterialtabPage.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionZ1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionY1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialColNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaterialRawNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaterialCompensationZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMaterialCompensationAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teMaterialBoxName_2.Properties)).EndInit();
@@ -5632,11 +5819,6 @@
             this.groupBox21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWeldPessure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWeldTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialRawNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialColNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionZ1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionY1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaterialHookPickupMaterialPositionX1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

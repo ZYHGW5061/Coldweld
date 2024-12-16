@@ -172,7 +172,7 @@ namespace JobClsLib
 
             { 28, param => SetRunSpeed(28,((EnumMoveSpeedParameter)param).code,(EnumMoveSpeedParameter)param) },
 
-
+            { 29, param => InitDataAction(1,0) },
         };
 
 
@@ -256,6 +256,28 @@ namespace JobClsLib
 
 
             return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "完成" };
+        }
+
+        /// <summary>
+        /// 初始化数据
+        /// </summary>
+        /// <returns></returns>
+        private static XktResult<string> InitDataAction(int methodCode, int variableCode)
+        {
+            string variableCodestr = "000";
+            variableCodestr = variableCode.ToString("D3");
+            string methodCodestr = "000";
+            methodCodestr = methodCode.ToString("D3");
+
+            TransportRecipe recipe = TransportControl.Instance.TransportRecipe;
+
+            Thread.Sleep(5000);
+
+            DataModel.Instance.JobLogText = "";
+
+            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "初始化数据完成";
+            return new XktResult<string> { Content = variableCodestr + methodCodestr + "000", IsSuccess = true, Message = "初始化数据完成" };
+
         }
 
 

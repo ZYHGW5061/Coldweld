@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,8 +79,12 @@ namespace GlobalToolClsLib
         private bool ovenBox2InRemind = false;
 
         private string joblogText;
+
+
+        private int processIndex;
         private List<List<EnumMaterialproperties>> materialMat;
         private EnumReturnMaterialBoxproperties materialBoxMapLog;
+        private DataTable processTable = new DataTable();
 
         private int ovennum = 0;
         private int materialboxnum = 0;
@@ -1045,6 +1050,20 @@ namespace GlobalToolClsLib
             }
         }
 
+        public int ProcessIndex
+        {
+            get { return processIndex; }
+            set
+            {
+                if (processIndex != value)
+                {
+                    processIndex = value;
+                    OnPropertyChanged(nameof(ProcessIndex));
+                }
+            }
+        }
+
+
         public List<List<EnumMaterialproperties>> MaterialMat
         {
             get { return materialMat; }
@@ -1080,7 +1099,18 @@ namespace GlobalToolClsLib
             }
         }
 
-
+        public DataTable ProcessTable
+        {
+            get { return processTable; }
+            set
+            {
+                if (processTable != value)
+                {
+                    processTable = value;
+                    OnPropertyChanged(nameof(ProcessTable));
+                }
+            }
+        }
 
         //IO
         /// <summary>

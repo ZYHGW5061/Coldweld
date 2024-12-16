@@ -6,6 +6,7 @@ using PositioningSystemClsLib;
 using RecipeClsLib;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using thinger.cn.DataConvertHelper;
 using VisionControlAppClsLib;
+using VisionGUI;
 using WestDragon.Framework.BaseLoggerClsLib;
 
 namespace JobClsLib
@@ -190,6 +192,7 @@ namespace JobClsLib
 
                     #region 20241101
 
+                    statelist.Add("000029000");
 
                     statelist.Add("000001000");
 
@@ -2332,6 +2335,219 @@ namespace JobClsLib
                     #endregion
 
 
+
+                    DataModel.Instance.ProcessTable = new DataTable();
+                    DataModel.Instance.ProcessTable.Columns.Add("Status", typeof(ProcessTaskStatus));
+                    DataModel.Instance.ProcessTable.Columns.Add("Index", typeof(int));
+                    DataModel.Instance.ProcessTable.Columns.Add("Name", typeof(string));
+
+                    for (int i = 0; i < statelist.Count; i++)
+                    {
+                        string state = statelist[i];
+
+                        int variableCode = int.Parse(state.Substring(0, 3));
+                        int methodCode = int.Parse(state.Substring(3, 3));
+                        int stateCode = int.Parse(state.Substring(6, 3));
+
+                        ProcessTaskStatus status = ProcessTaskStatus.NotExecuted;
+                        int index = i;
+                        string name = "";
+
+                        int Ovennum = 0, Positionnum = 0, Layersnum = 0, rowNum = 0, columnNum = 0, WeldPostionNum = 0, speed = 0;
+                        switch (variableCode)
+                        {
+                            case 0:
+                                break;
+                            case 1:
+                                Ovennum = 1;
+                                break;
+                            case 2:
+                                Ovennum = 2;
+                                break;
+                            case 3:
+                                Positionnum = 1;
+                                Ovennum = 1;
+                                break;
+                            case 4:
+                                Positionnum = 1;
+                                Layersnum = 1;
+                                break;
+                            case 5:
+                                Positionnum = 2;
+                                Layersnum = 1;
+                                break;
+                            case 6:
+                                Positionnum = 3;
+                                Layersnum = 1;
+                                break;
+                            case 7:
+                                Positionnum = 4;
+                                Layersnum = 1;
+                                break;
+                            case 8:
+                                Positionnum = 2;
+                                Layersnum = 2;
+                                break;
+                            case 9:
+                                Positionnum = 4;
+                                Layersnum = 2;
+                                break;
+                            case 10:
+                                Positionnum = 2;
+                                Ovennum = 2;
+                                break;
+                            case 11:
+                                Layersnum = 1;
+                                Ovennum = 1;
+                                break;
+                            case 12:
+                                Layersnum = 2;
+                                Ovennum = 1;
+                                break;
+                            case 13:
+                                Layersnum = 1;
+                                Ovennum = 2;
+                                break;
+                            case 14:
+                                Layersnum = 2;
+                                Ovennum = 2;
+                                break;
+                            case 15:
+                                Positionnum = 3;
+                                Layersnum = 2;
+                                break;
+                            case 16:
+                                Ovennum = 1;
+                                break;
+                            case 17:
+                                Ovennum = 1;
+                                break;
+                            case 18:
+                                Ovennum = 2;
+                                break;
+                            case 19:
+                                Ovennum = 2;
+                                break;
+                            case 20:
+                                speed = 1;
+                                break;
+                            case 21:
+                                speed = 2;
+                                break;
+                            case 22:
+                                speed = 3;
+                                break;
+                            default:
+                                throw new InvalidOperationException($"Unsupported generic parameter code: {variableCode}");
+                        }
+
+                        switch (methodCode)
+                        {
+                            case 0:
+                                name = "模拟方法";
+                                break;
+                            case 1:
+                                name = "初始化";
+                                break;
+                            case 2:
+                                name = "料盒钩爪移动到空闲位置";
+                                break;
+                            case 3:
+                                name = $"料盒搬送：打开烘箱{Ovennum}内门";
+                                break;
+                            case 4:
+                                name = $"料盒搬送：烘箱{Ovennum}出料";
+                                break;
+                            case 5:
+                                name = $"料盒搬送：钩爪到烘箱{Ovennum}出料盒上方";
+                                break;
+                            case 6:
+                                name = "料盒搬送：钩爪拾取料盒";
+                                break;
+                            case 7:
+                                name = $"料盒搬送：钩爪移动到目标位置{Positionnum}.{Layersnum}层";
+                                break;
+                            case 8:
+                                name = "料盒搬送：钩爪放下料盒";
+                                break;
+                            case 9:
+                                name = $"料盒搬送：方舱向烘箱{Ovennum}进料";
+                                break;
+                            case 10:
+                                name = $"料盒搬送：关闭烘箱{Ovennum}内门";
+                                break;
+                            case 11:
+                                name = "物料搬送：初始化压机";
+                                break;
+                            case 12:
+                                name = "物料搬送：物料钩爪移动到安全位置";
+                                break;
+                            case 13:
+                                name = "物料搬送：压机升降台顶升";
+                                break;
+                            case 14:
+                                name = "物料搬送：压机升降台下降";
+                                break;
+                            case 15:
+                                name = "物料焊接：物料钩爪移动到物料上方";
+                                break;
+                            case 16:
+                                name = "物料焊接：物料钩爪拾取物料";
+                                break;
+                            case 17:
+                                name = $"物料焊接：物料钩爪到：{rowNum}行{columnNum}列物料上方";
+                                break;
+                            case 18:
+                                name = "物料焊接：物料钩爪放下物料";
+                                break;
+                            case 19:
+                                name = "物料焊接：焊接";
+                                break;
+                            case 20:
+                                name = "物料焊接：搬送相机识别料盘";
+                                break;
+                            case 21:
+                                name = "物料焊接：搬送相机识别物料";
+                                break;
+                            case 22:
+                                name = "物料焊接：焊台相机识别物料";
+                                break;
+                            case 23:
+                                name = "物料焊接：焊接流程";
+                                break;
+                            case 24:
+                                name = "料盒搬送：料盒钩爪移动到避让位置";
+                                break;
+                            case 25:
+                                name = "物料搬送：物料钩爪移动到避让位置";
+                                break;
+                            case 26:
+                                name = $"料盒搬送：烘箱{Ovennum}出料";
+                                break;
+                            case 27:
+                                name = $"料盒搬送：烘箱{Ovennum}进料";
+                                break;
+                            case 28:
+                                name = $"物料搬送：设置速度{speed}";
+                                break;
+                            case 29:
+                                name = "初始化数据";
+                                break;
+                            default:
+                                throw new InvalidOperationException($"Unsupported generic parameter code: {methodCode}");
+                        }
+
+
+                        DataModel.Instance.ProcessTable.Rows.Add(status, index, name);
+
+                    }
+
+
+                    DataModel.Instance.ProcessIndex = 0;
+
+                    DataModel.Instance.OnPropertyChanged(nameof(DataModel.Instance.ProcessTable));
+
+
                 }
 
 
@@ -2394,8 +2610,11 @@ namespace JobClsLib
                                     return null;
                                 }
 
-                                if (param.MaterialMat[param.MaterialColNumber - j - 1][i].Materialstate == EnumMaterialstate.Unwelded)
+                                if (param.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate == EnumMaterialstate.Unwelded)
                                 {
+                                    CameraWindowGUI.Instance.ClearGraphicDraw();
+                                    CameraWindowGUI.Instance.SelectCamera(0);
+
                                     DataModel.Instance.Materialnum = i * param.MaterialColNumber + j;
                                     DataModel.Instance.Materialcol = j;
                                     DataModel.Instance.Materialrow = i;
@@ -2538,6 +2757,9 @@ namespace JobClsLib
                                         isRunning = false;
                                         return null;
                                     }
+
+                                    CameraWindowGUI.Instance.ClearGraphicDraw();
+                                    CameraWindowGUI.Instance.SelectCamera(1);
 
                                     Console.WriteLine("料盒焊接：物料钩爪到目标位置");
 
@@ -2773,10 +2995,13 @@ namespace JobClsLib
                                                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
                                             }));
 
-                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
                                         }
                                         WaitForNext();
                                     }
+
+                                    CameraWindowGUI.Instance.ClearGraphicDraw();
+                                    CameraWindowGUI.Instance.SelectCamera(1);
 
                                     Console.WriteLine("料盒焊接：焊接物料");
 
@@ -2814,10 +3039,13 @@ namespace JobClsLib
                                                 DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
                                             }));
 
-                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
                                         }
                                         WaitForNext();
                                     }
+
+                                    CameraWindowGUI.Instance.ClearGraphicDraw();
+                                    CameraWindowGUI.Instance.SelectCamera(1);
 
                                     Console.WriteLine("料盒焊接：升降轴升");
 
@@ -2843,6 +3071,8 @@ namespace JobClsLib
 
                                     for (int i0 = 0; i0 < toweldnum; i0++)
                                     {
+                                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                                        CameraWindowGUI.Instance.SelectCamera(1);
 
                                         Console.WriteLine("物料搬送：设置轴运行速度为高速");
                                         state = "022028000";
@@ -2930,6 +3160,8 @@ namespace JobClsLib
                                             return null;
                                         }
 
+                                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                                        CameraWindowGUI.Instance.SelectCamera(0);
 
                                         Console.WriteLine("料盒焊接：物料钩爪移动到物料上方");
 
@@ -3045,6 +3277,9 @@ namespace JobClsLib
                     }
 
                     #endregion
+
+                    CameraWindowGUI.Instance.ClearGraphicDraw();
+                    CameraWindowGUI.Instance.SelectCamera(0);
 
                     Console.WriteLine("物料搬送：设置轴运行速度为中速");
                     state = "021028000";
@@ -3203,6 +3438,12 @@ namespace JobClsLib
 
                     for (int i = 0; i < statelist.Count; i++)
                     {
+                        DataModel.Instance.ProcessIndex = i;
+
+                        WaitForNext();
+
+                        i = DataModel.Instance.ProcessIndex;
+
                         string state = statelist[i];
 
                         int variableCode = int.Parse(state.Substring(0, 3));
@@ -3211,56 +3452,9 @@ namespace JobClsLib
 
                         UpdateNum(stateCode);
 
-                        //if (DataModel.Instance.State == EnumOvenBoxState.Oven1In || DataModel.Instance.State == EnumOvenBoxState.Oven1Out || DataModel.Instance.State == EnumOvenBoxState.Oven1Work)
-                        //{
-                        //    if(DataModel.Instance.OvenBox1InRemind == false)
-                        //    {
-                        //        Task.Factory.StartNew(new Action(() =>
-                        //        {
-                        //            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 烘箱A未进料.";
-                        //        }));
-                        //        int newI =  FindNextState(statelist,i,100) + 1;
-                        //        if(newI != 0)
-                        //        {
-                        //            if(newI >= statelist.Count)
-                        //            {
-                        //                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程结束.";
-                        //                return;
-                        //            }
-                        //            i = newI;
-                        //        }
-                        //        else
-                        //        {
-                        //            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程结束.";
-                        //            return;
-                        //        }
-                        //    }
-                        //}
-                        //if (DataModel.Instance.State == EnumOvenBoxState.Oven2In || DataModel.Instance.State == EnumOvenBoxState.Oven2Out || DataModel.Instance.State == EnumOvenBoxState.Oven2Work)
-                        //{
-                        //    if (DataModel.Instance.OvenBox2InRemind == false)
-                        //    {
-                        //        Task.Factory.StartNew(new Action(() =>
-                        //        {
-                        //            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 烘箱B未进料.";
-                        //        }));
-                        //        int newI = FindNextState(statelist, i, 100) + 1;
-                        //        if (newI != 0)
-                        //        {
-                        //            if (newI >= statelist.Count)
-                        //            {
-                        //                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程结束.";
-                        //                return;
-                        //            }
-                        //            i = newI;
-                        //        }
-                        //        else
-                        //        {
-                        //            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程结束.";
-                        //            return;
-                        //        }
-                        //    }
-                        //}
+                        ProcessTaskStatus status = ProcessTaskStatus.InProgress;
+                        DataModel.Instance.ProcessTable.Rows[i]["Status"] = status;
+                        DataModel.Instance.OnPropertyChanged(nameof(DataModel.Instance.ProcessTable));
 
 
                         if (isStopped)
@@ -3331,7 +3525,7 @@ namespace JobClsLib
 
                             LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 信息:{result.ErrorCode}|{result.Content}|{result.Message} \n");
 
-                            WaitForNext();
+                            
 
                         }
 
@@ -3384,7 +3578,7 @@ namespace JobClsLib
 
                             LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 信息:{result.ErrorCode}|{result.Content}|{result.Message} \n");
 
-                            WaitForNext();
+                            
                         }
 
 
@@ -3403,7 +3597,8 @@ namespace JobClsLib
                             WaitForNext();
                         }
 
-
+                        DataModel.Instance.ProcessTable.Rows[i]["Status"] = ProcessTaskStatus.Completed;
+                        DataModel.Instance.OnPropertyChanged(nameof(DataModel.Instance.ProcessTable));
 
                     }
 
@@ -3465,6 +3660,8 @@ namespace JobClsLib
                 _transportControl.VacuumC = this.VacuumC;
                 _transportControl.singleDelay = this.singleDelay;
                 _transportControl.Delay = this.Delay;
+
+                ProcessStateList();
             }
             catch(Exception ex)
             {

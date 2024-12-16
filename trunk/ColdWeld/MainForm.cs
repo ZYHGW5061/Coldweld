@@ -54,6 +54,7 @@ namespace BondTerminal
 
         List<EnumMaterialBoxproperties> MaterialBoxproperties = new List<EnumMaterialBoxproperties>();
         public string _selectedHeatRecipeName = "";
+        private DataTable previousDataTable;
 
 
         /// <summary>
@@ -717,6 +718,15 @@ namespace BondTerminal
             }
         }
 
+        private void btnJump_Click(object sender, EventArgs e)
+        {
+            int Index = (int)numProcessIndex.Value;
+            if (Index > -1 && Index < ProcesslistView.Items.Count)
+            {
+                DataModel.Instance.ProcessIndex = Index;
+            }
+        }
+
         private void UpdateJobLogText(string str)
         {
             if (teCurrentState.InvokeRequired)
@@ -1307,6 +1317,14 @@ namespace BondTerminal
             {
                 HandleMaterialMapLogChange(DataModel.Instance.MaterialMat);
             }
+            if (e.PropertyName == nameof(DataModel.ProcessTable))
+            {
+                _syncContext.Post(_ => UpdateListView(DataModel.Instance.ProcessTable), null);
+            }
+            if (e.PropertyName == nameof(DataModel.ProcessIndex))
+            {
+                //_syncContext.Post(_ => numProcessIndex.Value = DataModel.Instance.ProcessIndex, null);
+            }
             if (e.PropertyName == nameof(DataModel.Ovennum))
             {
                 UpdateNum(DataModel.Instance.Ovennum);
@@ -1506,7 +1524,7 @@ namespace BondTerminal
             }
             if (e.PropertyName == nameof(DataModel.OvenBox2Function))
             {
-                if (DataModel.Instance.OvenBox1Function)
+                if (DataModel.Instance.OvenBox2Function)
                 {
                     _syncContext.Post(_ => laOven2MolecularPump.Text = "运行", null);
                     _syncContext.Post(_ => laOven2MolecularPump.BackColor = Color.Red, null);
@@ -1522,10 +1540,14 @@ namespace BondTerminal
             {
                 if (DataModel.Instance.CondenserStar)
                 {
+                    _syncContext.Post(_ => laBoxCondensatePump.Text = "运行", null);
+                    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Red, null);
                     LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵启动");
                 }
                 else
                 {
+                    _syncContext.Post(_ => laBoxCondensatePump.Text = "待机", null);
+                    _syncContext.Post(_ => laBoxCondensatePump.BackColor = Color.Yellow, null);
                     LogRecorder.RecordLog(EnumLogContentType.Info, "冷凝泵关闭");
                 }
                 //UpdateCondenserPump();
@@ -1611,7 +1633,7 @@ namespace BondTerminal
             if (e.PropertyName == nameof(DataModel.EquipmentOperatingTime))
             {
                 _syncContext.Post(_ => laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
-                _syncContext.Post(_ => toolStripStatusLabelRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+                //_syncContext.Post(_ => toolStripStatusLabelRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
 
                 //UpdateEquipmentOperatingTime();
             }
@@ -1788,7 +1810,7 @@ namespace BondTerminal
                 laOven1MolecularPump.Text = "待机";
                 laOven1MolecularPump.BackColor = Color.Yellow;
             }
-            if (DataModel.Instance.OvenBox1Function)
+            if (DataModel.Instance.OvenBox2Function)
             {
                 laOven2MolecularPump.Text = "运行";
                 laOven2MolecularPump.BackColor = Color.Red;
@@ -1991,7 +2013,135 @@ namespace BondTerminal
         }
 
 
+        private void UpdateListView(DataTable newDataTable)
+        {
+            // 检查新旧DataTable的行数是否一致  
+            if (previousDataTable == null || (newDataTable.Rows.Count != previousDataTable.Rows.Count) || previousDataTable.Rows.Count < 1 || DataModel.Instance.ProcessIndex == 0)
+            {
+                // 如果行数不一致，清空并重新填充ListView  
+                ProcesslistView.Items.Clear();
+                foreach (DataRow row in newDataTable.Rows)
+                {
+                    ListViewItem item = new ListViewItem("未执行");
+                    //if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.InProgress)
+                    //{
+                    //    item.SubItems.Add("正在进行");
+                    //}
+                    //else if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.Completed)
+                    //{
+                    //    item.SubItems.Add("完成");
+                    //}
+                    //else if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.NotExecuted)
+                    //{
+                    //    item.SubItems.Add("未执行");
+                    //}
+                    //else if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.Paused)
+                    //{
+                    //    item.SubItems.Add("暂停");
+                    //}
+                    item.SubItems.Add(row["Index"].ToString());
+                    item.SubItems.Add(row["Name"].ToString());
 
+                    //// 根据状态设置颜色  
+                    //switch ((ProcessTaskStatus)row["Status"])
+                    //{
+                    //    case ProcessTaskStatus.InProgress:
+                    //        item.SubItems[0].ForeColor = Color.Yellow; // 进行中为黄色  
+                    //        break;
+                    //    case ProcessTaskStatus.Completed:
+                    //        item.SubItems[0].ForeColor = Color.Green; // 已完成为绿色  
+                    //        break;
+                    //    case ProcessTaskStatus.Paused:
+                    //        item.SubItems[0].ForeColor = Color.Red; // 已暂停为红色  
+                    //        break;
+                    //    case ProcessTaskStatus.NotExecuted:
+                    //        item.SubItems[0].ForeColor = Color.Gray; // 未执行为灰色  
+                    //        break;
+                    //}
+
+                    ProcesslistView.Items.Add(item);
+                }
+            }
+            else
+            {
+                UpdateListViewItem(DataModel.Instance.ProcessIndex, newDataTable.Rows[DataModel.Instance.ProcessIndex]);
+                if (DataModel.Instance.ProcessIndex > 0)
+                {
+                    UpdateListViewItem(DataModel.Instance.ProcessIndex - 1, newDataTable.Rows[DataModel.Instance.ProcessIndex - 1]);
+                }
+                if (DataModel.Instance.ProcessIndex < newDataTable.Rows.Count - 1)
+                {
+                    UpdateListViewItem(DataModel.Instance.ProcessIndex + 1, newDataTable.Rows[DataModel.Instance.ProcessIndex + 1]);
+                }
+            }
+            previousDataTable = newDataTable;
+
+
+        }
+        private void AddListViewItem(DataRow row)
+        {
+            ListViewItem item = new ListViewItem(row["Status"].ToString());
+            item.SubItems.Add(row["Index"].ToString());
+            item.SubItems.Add(row["Name"].ToString());
+
+            // 根据状态设置颜色  
+            SetItemColor(item, (ProcessTaskStatus)row["Status"]);
+
+            ProcesslistView.Items.Add(item);
+        }
+        // 更新ListView项的方法  
+        private void UpdateListViewItem(int index, DataRow row)
+        {
+            if (index >= 0 && index < ProcesslistView.Items.Count)
+            {
+                ListViewItem item = ProcesslistView.Items[index];
+                if((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.InProgress)
+                {
+                    item.Text = "正在进行";
+                }
+                else if((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.Completed)
+                {
+                    item.Text = "完成";
+                }
+                else if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.NotExecuted)
+                {
+                    item.Text = "未执行";
+                }
+                else if ((ProcessTaskStatus)row["Status"] == ProcessTaskStatus.Paused)
+                {
+                    item.Text = "暂停";
+                }
+
+                item.SubItems[1].Text = row["Index"].ToString();
+                item.SubItems[2].Text = row["Name"].ToString();
+
+                // 根据状态设置颜色  
+                SetItemColor(item, (ProcessTaskStatus)row["Status"]);
+            }
+        }
+
+        // 设置ListViewItem颜色的方法  
+        private void SetItemColor(ListViewItem item, ProcessTaskStatus status)
+        {
+            //switch (status)
+            //{
+            //    case ProcessTaskStatus.InProgress:
+            //        item.SubItems[0].ForeColor = Color.Yellow; // 进行中为黄色  
+            //        break;
+            //    case ProcessTaskStatus.Completed:
+            //        item.SubItems[0].ForeColor = Color.Green; // 已完成为绿色  
+            //        break;
+            //    case ProcessTaskStatus.Paused:
+            //        item.SubItems[0].ForeColor = Color.Red; // 已暂停为红色  
+            //        break;
+            //    case ProcessTaskStatus.NotExecuted:
+            //        item.SubItems[0].ForeColor = Color.Gray; // 未执行为灰色  
+            //        break;
+            //    default:
+            //        item.SubItems[0].ForeColor = Color.White; // 默认颜色  
+            //        break;
+            //}
+        }
 
         private void HandleMaterialMapLogChange(List<List<EnumMaterialproperties>> MaterialMat)
         {
@@ -2330,9 +2480,16 @@ namespace BondTerminal
             }
         }
 
+        private void numProcessIndex_ValueChanged(object sender, EventArgs e)
+        {
+            //if((int)numProcessIndex.Value > -1 && (int)numProcessIndex.Value < ProcesslistView.Items.Count)
+            //{
+            //    DataModel.Instance.ProcessIndex = (int)numProcessIndex.Value - 1;
+            //}
+            
+        }
 
-
-
+        
     }
 
 
