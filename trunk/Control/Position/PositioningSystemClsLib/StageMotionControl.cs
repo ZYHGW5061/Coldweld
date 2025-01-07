@@ -272,6 +272,28 @@ namespace PositioningSystemClsLib
         }
 
         /// <summary>
+        /// 单轴回零
+        /// </summary>
+        public void ReturnHome(EnumStageAxis axisIndex)
+        {
+            _stageEngine[axisIndex].Home();
+        }
+        /// <summary>
+        /// 单轴使能
+        /// </summary>
+        public void Enable(EnumStageAxis axisIndex)
+        {
+            _stageEngine[axisIndex].Enable();
+        }
+        /// <summary>
+        /// 单轴去使能
+        /// </summary>
+        public void Disable(EnumStageAxis axisIndex)
+        {
+            _stageEngine[axisIndex].Disable();
+        }
+
+        /// <summary>
         /// 报警清除
         /// </summary>
         public void ClrAlarm(EnumStageAxis axisIndex)

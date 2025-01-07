@@ -1,6 +1,7 @@
 ﻿using ConfigurationClsLib;
 using GlobalDataDefineClsLib;
 using GlobalToolClsLib;
+using Modbus.Device;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,8 @@ namespace TurboMolecularPumpControllerClsLib
         private TurboMolecularPumpControllerConfig _config = null;
         bool coms = false;
         public int PLCadd = 1;
+
+        ModbusRtuHelper modbusRtu = new ModbusRtuHelper();
 
         public TurboMolecularPump(TurboMolecularPumpControllerConfig config)
         {
@@ -100,7 +103,7 @@ namespace TurboMolecularPumpControllerClsLib
         /// <param name="Stopbits"></param>
         /// <param name="parity"></param>
         /// <returns></returns>
-        private int SerialConnect(string com, int baudrate = 38400, int Databits = 8, int Stopbits = 1, int parity = 0)
+        private int SerialConnect(string com, int baudrate = 38400, int Databits = 8, int Stopbits = 1, int parity = 0, int readTimeout = 1000, int writeTimeout = 1000)
         {
             PowerControl.PortName = com;//设置端口名
             PowerControl.BaudRate = baudrate;//设置波特率
@@ -132,6 +135,8 @@ namespace TurboMolecularPumpControllerClsLib
                     PowerControl.Parity = Parity.Mark;
                     break;
             }
+            PowerControl.ReadTimeout = readTimeout;
+            PowerControl.WriteTimeout = writeTimeout;
 
             try
             {
@@ -141,12 +146,14 @@ namespace TurboMolecularPumpControllerClsLib
                     coms = true;
                     //loop_back();
                     //PLC_state();
+                    modbusRtu.Connect(PowerControl);
                 }
                 else
                 {
                     //PowerControl.Close();//关闭串口
                     //PowerControl.Open();//打开串口
                     coms = true;
+                    modbusRtu.Connect(PowerControl);
                 }
             }
             catch
@@ -170,6 +177,7 @@ namespace TurboMolecularPumpControllerClsLib
                 {
                     PowerControl.Close();//关闭串口
                     coms = false;
+                    modbusRtu.Disconnect();
                 }
             }
             catch
@@ -261,6 +269,41 @@ namespace TurboMolecularPumpControllerClsLib
                 return false;
             }
         }
+
+        /// <summary>
+        /// 读取节点信息
+        /// </summary>
+        /// <param name="Add"></param>
+        /// <param name="num"></param>
+        private bool PCread(int PLCadd, int Add, int num, ref ushort[] Data0)
+        {
+            try
+            {
+                if (PowerControl.IsOpen)
+                {
+                    #region 新
+
+                    ushort[] Values = modbusRtu.ReadMultipleRegisters((byte)PLCadd, (ushort)Add, (ushort)num);
+
+                    Data0 = Values;
+
+                    return true;
+
+                    #endregion
+                }
+                else
+                {
+                    Data0 = null;
+                    return false;
+                }
+            }
+            catch
+            {
+                Data0 = null;
+                return false;
+            }
+        }
+
         /// <summary>
         /// 写入节点信息
         /// </summary>
@@ -273,17 +316,19 @@ namespace TurboMolecularPumpControllerClsLib
                 if (PowerControl.IsOpen)
                 {
                     int T = 0;
-                    while(DataModel.Instance.TurboMolecularPumpIsReading)
+                    while (DataModel.Instance.TurboMolecularPumpIsReading)
                     {
                         T++;
-                        if(T > 100)
+                        if (T > 100)
                         {
                             break;
                         }
                         System.Threading.Thread.Sleep(10);
                     }
+
                     PowerControl.DiscardInBuffer();
                     PowerControl.DiscardOutBuffer();
+
                     DataModel.Instance.TurboMolecularPumpIsWriting = true;
 
                     int length = 8;
@@ -363,6 +408,54 @@ namespace TurboMolecularPumpControllerClsLib
             }
         }
 
+        /// <summary>
+        /// 写入节点信息
+        /// </summary>
+        /// <param name="Add"></param>
+        /// <param name="num"></param>
+        private bool PCwrite(int PLCadd, int Add, ushort Data)
+        {
+            try
+            {
+                if (PowerControl.IsOpen)
+                {
+                    int T = 0;
+                    while (DataModel.Instance.TurboMolecularPumpIsReading)
+                    {
+                        T++;
+                        if (T > 100)
+                        {
+                            break;
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    }
+
+                    DataModel.Instance.TurboMolecularPumpIsWriting = true;
+
+                    modbusRtu.WriteSingleRegister((byte)PLCadd, (ushort)Add, Data);
+
+                    DataModel.Instance.TurboMolecularPumpIsWriting = false;
+
+                    return true;
+                }
+                else
+                {
+                    DataModel.Instance.TurboMolecularPumpIsWriting = false;
+
+                    return false;
+                }
+            }
+            catch
+            {
+                DataModel.Instance.TurboMolecularPumpIsWriting = false;
+                return false;
+            }
+            finally
+            {
+                DataModel.Instance.TurboMolecularPumpIsWriting = false;
+            }
+        }
+
         private void PCwrites(int PLCadd, int Add, int[] Data)
         {
             try
@@ -403,6 +496,8 @@ namespace TurboMolecularPumpControllerClsLib
 
                     data = new byte[length];
                     PowerControl.Read(data, 0, length);
+
+                    System.Threading.Thread.Sleep(100);
                 }
                 else
                 {
@@ -448,41 +543,78 @@ namespace TurboMolecularPumpControllerClsLib
         {
             param = new TurboMolecularPumpstatus();
             PLCadd = _config.ChannelNumber;
-            byte[] BTData = new byte[8];
+
+            ushort[] BTData = new ushort[4];
             bool ret = PCread(PLCadd, (int)TurboMolecularPumpAdd.OutputFrequency, 4, ref BTData);
 
-            if(BTData == null || !ret)
+            if (BTData == null || !ret)
             {
                 return false;
             }
 
-            if (BTData.Length < 8)
+            if (BTData.Length < 4)
             {
                 return false;
             }
 
             // 读取输出频率  
-            param.OutputFrequency = (BTData[0] << 8) | BTData[1];
+            param.OutputFrequency = BTData[0];
 
             // 读取输出电压  
-            param.OutputVoltage = (BTData[2] << 8) | BTData[3];
+            param.OutputVoltage = BTData[1];
 
             // 读取输出电流  
-            param.OutputCurrent = (BTData[4] << 8) | BTData[5];
+            param.OutputCurrent = BTData[2];
 
             // 获取控制器状态  
-            param.Standbymode = (((BTData[6] << 8) | BTData[7]) == 0);
-            param.Function = (((BTData[6] << 8) | BTData[7]) == 1);
-            param.err = (((BTData[6] << 8) | BTData[7]) == 2);
-            param.OC = (((BTData[6] << 8) | BTData[7]) == 3);
-            param.OE = (((BTData[6] << 8) | BTData[7]) == 4);
-            param.Retain = (((BTData[6] << 8) | BTData[7]) == 5);
-            param.RLU = (((BTData[6] << 8) | BTData[7]) == 6);
-            param.OL2 = (((BTData[6] << 8) | BTData[7]) == 7);
-            param.SL = (((BTData[6] << 8) | BTData[7]) == 8);
-            param.ESP = (((BTData[6] << 8) | BTData[7]) == 9);
-            param.LU = (((BTData[6] << 8) | BTData[7]) == 10);
-            param.OH = (((BTData[6] << 8) | BTData[7]) == 11);
+            param.Standbymode = ((BTData[3]) == 0);
+            param.Function = ((BTData[3]) == 1);
+            param.err = ((BTData[3]) == 2);
+            param.OC = ((BTData[3]) == 3);
+            param.OE = ((BTData[3]) == 4);
+            param.Retain = ((BTData[3]) == 5);
+            param.RLU = ((BTData[3]) == 6);
+            param.OL2 = ((BTData[3]) == 7);
+            param.SL = ((BTData[3]) == 8);
+            param.ESP = ((BTData[3]) == 9);
+            param.LU = ((BTData[3]) == 10);
+            param.OH = ((BTData[3]) == 11);
+
+            //byte[] BTData = new byte[8];
+            //bool ret = PCread(PLCadd, (int)TurboMolecularPumpAdd.OutputFrequency, 4, ref BTData);
+
+            //if(BTData == null || !ret)
+            //{
+            //    return false;
+            //}
+
+            //if (BTData.Length < 8)
+            //{
+            //    return false;
+            //}
+
+            //// 读取输出频率  
+            //param.OutputFrequency = (BTData[0] << 8) | BTData[1];
+
+            //// 读取输出电压  
+            //param.OutputVoltage = (BTData[2] << 8) | BTData[3];
+
+            //// 读取输出电流  
+            //param.OutputCurrent = (BTData[4] << 8) | BTData[5];
+
+            //// 获取控制器状态  
+            //param.Standbymode = (((BTData[6] << 8) | BTData[7]) == 0);
+            //param.Function = (((BTData[6] << 8) | BTData[7]) == 1);
+            //param.err = (((BTData[6] << 8) | BTData[7]) == 2);
+            //param.OC = (((BTData[6] << 8) | BTData[7]) == 3);
+            //param.OE = (((BTData[6] << 8) | BTData[7]) == 4);
+            //param.Retain = (((BTData[6] << 8) | BTData[7]) == 5);
+            //param.RLU = (((BTData[6] << 8) | BTData[7]) == 6);
+            //param.OL2 = (((BTData[6] << 8) | BTData[7]) == 7);
+            //param.SL = (((BTData[6] << 8) | BTData[7]) == 8);
+            //param.ESP = (((BTData[6] << 8) | BTData[7]) == 9);
+            //param.LU = (((BTData[6] << 8) | BTData[7]) == 10);
+            //param.OH = (((BTData[6] << 8) | BTData[7]) == 11);
 
 
             return true;
@@ -491,13 +623,13 @@ namespace TurboMolecularPumpControllerClsLib
         public bool SlowShutdown()
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 3);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, (ushort)3);
         }
 
         public bool FreeShutdown()
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 4);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, (ushort)4);
         }
 
         public bool Function()
@@ -508,25 +640,25 @@ namespace TurboMolecularPumpControllerClsLib
             }
 
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 8);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, (ushort)8);
         }
 
         public bool FaultReset()
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, 9);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.Command, (ushort)9);
         }
 
         public bool Unlock()
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 1);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, (ushort)1);
         }
 
         public bool Lock()
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, 2);
+            return PCwrite(PLCadd, (int)TurboMolecularPumpAdd.LockParameters, (ushort)2);
         }
     }
 
@@ -539,4 +671,92 @@ namespace TurboMolecularPumpControllerClsLib
             return attribute == null ? value.ToString() : attribute.Description;
         }
     }
+
+    public class ModbusRtuHelper
+    {
+        private IModbusMaster _modbusMaster; // Modbus 主站对象  
+
+        /// <summary>  
+        /// 初始化并打开串口连接  
+        /// </summary>  
+        /// <param name="comPort">串口名称（如 "COM1"）</param>  
+        /// <param name="baudRate">波特率（如 9600）</param>  
+        public void Connect(SerialPort _serialPort)
+        {
+
+            _modbusMaster = ModbusSerialMaster.CreateRtu(_serialPort);
+
+            Console.WriteLine("串口连接成功！");
+        }
+
+        /// <summary>  
+        /// 关闭串口连接  
+        /// </summary>  
+        public void Disconnect()
+        {
+
+            _modbusMaster = null;
+            Console.WriteLine("串口已断开！");
+        }
+
+        /// <summary>  
+        /// 读取单个保持寄存器（Holding Register）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="registerAddress">寄存器地址</param>  
+        /// <returns>返回寄存器值</returns>  
+        public ushort ReadSingleRegister(byte slaveId, ushort registerAddress)
+        {
+            ushort[] result = _modbusMaster.ReadHoldingRegisters(slaveId, registerAddress, 1);
+            return result[0];
+        }
+
+        /// <summary>  
+        /// 读取多个保持寄存器（Holding Registers）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="startAddress">起始寄存器地址</param>  
+        /// <param name="numberOfPoints">读取的寄存器数量</param>  
+        /// <returns>返回寄存器值数组</returns>  
+        public ushort[] ReadMultipleRegisters(byte slaveId, ushort startAddress, ushort numberOfPoints)
+        {
+            return _modbusMaster.ReadHoldingRegisters(slaveId, startAddress, numberOfPoints);
+        }
+
+        /// <summary>  
+        /// 写入单个保持寄存器（Holding Register）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="registerAddress">寄存器地址</param>  
+        /// <param name="value">要写入的值</param>  
+        public void WriteSingleRegister(byte slaveId, ushort registerAddress, ushort value)
+        {
+            try
+            {
+                _modbusMaster.WriteSingleRegister(slaveId, registerAddress, value);
+            }
+            catch (TimeoutException)
+            {
+                Console.WriteLine("操作超时：从站未响应！");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"写入失败：{ex.Message}");
+            }
+
+        }
+
+        /// <summary>  
+        /// 写入多个保持寄存器（Holding Registers）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="startAddress">起始寄存器地址</param>  
+        /// <param name="values">要写入的值数组</param>  
+        public void WriteMultipleRegisters(byte slaveId, ushort startAddress, ushort[] values)
+        {
+            _modbusMaster.WriteMultipleRegisters(slaveId, startAddress, values);
+        }
+    }
+
+
 }

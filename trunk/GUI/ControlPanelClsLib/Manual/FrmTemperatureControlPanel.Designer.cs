@@ -83,7 +83,7 @@ namespace ControlPanelClsLib
             // 
             this.labPassWord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labPassWord.Location = new System.Drawing.Point(5, 85);
-            this.labPassWord.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labPassWord.Margin = new System.Windows.Forms.Padding(5);
             this.labPassWord.Name = "labPassWord";
             this.labPassWord.Size = new System.Drawing.Size(193, 30);
             this.labPassWord.TabIndex = 1;
@@ -93,7 +93,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl1.Location = new System.Drawing.Point(5, 125);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(193, 30);
             this.labelControl1.TabIndex = 2;
@@ -103,7 +103,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl2.Location = new System.Drawing.Point(5, 165);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(193, 30);
             this.labelControl2.TabIndex = 3;
@@ -211,7 +211,7 @@ namespace ControlPanelClsLib
             this.laHeat.Appearance.Options.UseBackColor = true;
             this.laHeat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.laHeat.Location = new System.Drawing.Point(208, 245);
-            this.laHeat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.laHeat.Margin = new System.Windows.Forms.Padding(5);
             this.laHeat.Name = "laHeat";
             this.laHeat.Size = new System.Drawing.Size(95, 30);
             this.laHeat.TabIndex = 66;
@@ -242,7 +242,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl4.Location = new System.Drawing.Point(5, 285);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(193, 30);
             this.labelControl4.TabIndex = 67;
@@ -329,7 +329,7 @@ namespace ControlPanelClsLib
             // 
             this.teTransportRecipeName2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teTransportRecipeName2.Location = new System.Drawing.Point(647, 4);
-            this.teTransportRecipeName2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teTransportRecipeName2.Margin = new System.Windows.Forms.Padding(4);
             this.teTransportRecipeName2.Name = "teTransportRecipeName2";
             this.teTransportRecipeName2.Size = new System.Drawing.Size(97, 25);
             this.teTransportRecipeName2.TabIndex = 88;
@@ -338,7 +338,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl3.Location = new System.Drawing.Point(444, 4);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(195, 32);
             this.labelControl3.TabIndex = 87;
@@ -348,7 +348,7 @@ namespace ControlPanelClsLib
             // 
             this.teTransportRecipeName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teTransportRecipeName.Location = new System.Drawing.Point(207, 4);
-            this.teTransportRecipeName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teTransportRecipeName.Margin = new System.Windows.Forms.Padding(4);
             this.teTransportRecipeName.Name = "teTransportRecipeName";
             this.teTransportRecipeName.Size = new System.Drawing.Size(97, 25);
             this.teTransportRecipeName.TabIndex = 85;
@@ -357,7 +357,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl5.Location = new System.Drawing.Point(5, 245);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(193, 30);
             this.labelControl5.TabIndex = 69;
@@ -367,7 +367,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl7.Location = new System.Drawing.Point(445, 85);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(193, 30);
             this.labelControl7.TabIndex = 71;
@@ -377,7 +377,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl8.Location = new System.Drawing.Point(445, 125);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(193, 30);
             this.labelControl8.TabIndex = 72;
@@ -387,7 +387,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl9.Location = new System.Drawing.Point(445, 165);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(193, 30);
             this.labelControl9.TabIndex = 73;
@@ -397,7 +397,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl10.Location = new System.Drawing.Point(445, 245);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(193, 30);
             this.labelControl10.TabIndex = 74;
@@ -407,7 +407,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl11.Location = new System.Drawing.Point(445, 285);
-            this.labelControl11.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(193, 30);
             this.labelControl11.TabIndex = 75;
@@ -500,7 +500,7 @@ namespace ControlPanelClsLib
             this.laHeat2.Appearance.Options.UseBackColor = true;
             this.laHeat2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.laHeat2.Location = new System.Drawing.Point(648, 245);
-            this.laHeat2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.laHeat2.Margin = new System.Windows.Forms.Padding(5);
             this.laHeat2.Name = "laHeat2";
             this.laHeat2.Size = new System.Drawing.Size(95, 30);
             this.laHeat2.TabIndex = 80;
@@ -558,7 +558,7 @@ namespace ControlPanelClsLib
             // 
             this.labelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl6.Location = new System.Drawing.Point(4, 4);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(195, 32);
             this.labelControl6.TabIndex = 84;
@@ -567,7 +567,7 @@ namespace ControlPanelClsLib
             // labelControl12
             // 
             this.labelControl12.Location = new System.Drawing.Point(5, 325);
-            this.labelControl12.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(175, 18);
             this.labelControl12.TabIndex = 90;
@@ -576,7 +576,7 @@ namespace ControlPanelClsLib
             // labelControl13
             // 
             this.labelControl13.Location = new System.Drawing.Point(445, 325);
-            this.labelControl13.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(175, 18);
             this.labelControl13.TabIndex = 91;

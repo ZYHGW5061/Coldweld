@@ -50,11 +50,13 @@ namespace ControlPanelClsLib
 
         private MaterialRecipe _materialRecipe = null;
         private MaterialBoxRecipe _materialboxRecipe = null;
+        private FixtureRecipe _fixtureRecipe = null;
 
         private string _operation = "Edit";
 
         private string _selectedMaterialRecipeName = string.Empty;
         private string _selectedMaterialBoxRecipeName = string.Empty;
+        private string _selectedFixtureRecipeName = string.Empty;
 
         private double Oven1Vacuum = 0;
         private double Oven2Vacuum = 0;
@@ -364,24 +366,37 @@ namespace ControlPanelClsLib
 
             #region 物料到焊台
 
-            //this.MaterialHooktoTargetPosition.Clear();
-            //if (_selRecipe.MaterialHooktoTargetPosition.Count == 0)
-            //{
-            //    for (int i = 0; i < _selRecipe.WeldNum; i++)
-            //    {
-            //        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
-            //    }
-            //}
-            this.MaterialHooktoTargetPosition = _selRecipe.MaterialHooktoTargetPosition;
-            numMaterialHooktoTargetPositionX.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].X;
-            numMaterialHooktoTargetPositionY.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].Y;
-            numMaterialHooktoTargetPositionZ.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].Z;
-            comboBox1.SelectedIndex = 0;
+
+            teFixtureName.Text = _selRecipe.FixtureRecipeName;
+            if(_selRecipe.FixtureRecipeName != null)
+            {
+                _fixtureRecipe = FixtureRecipe.LoadRecipe(_selRecipe.FixtureRecipeName, EnumRecipeType.Fixture);
+
+                numWeldNum1.Value = _fixtureRecipe.FixtureParam.WeldNum;
+            }
+            else
+            {
+                numWeldNum1.Value = 0;
+            }
+
+            ////this.MaterialHooktoTargetPosition.Clear();
+            ////if (_selRecipe.MaterialHooktoTargetPosition.Count == 0)
+            ////{
+            ////    for (int i = 0; i < _selRecipe.WeldNum; i++)
+            ////    {
+            ////        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+            ////    }
+            ////}
+            //this.MaterialHooktoTargetPosition = _selRecipe.MaterialHooktoTargetPosition;
+            //numMaterialHooktoTargetPositionX.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].X;
+            //numMaterialHooktoTargetPositionY.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].Y;
+            //numMaterialHooktoTargetPositionZ.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[0].Z;
+            //comboBox1.SelectedIndex = 0;
 
             numPressliftingSafePosition.Value = (decimal)_selRecipe.PressliftingSafePosition;
             numPressliftingWorkPosition.Value = (decimal)_selRecipe.PressliftingWorkPosition;
-            if (_selRecipe.OverBox1Param.MaterialboxParam.Count > 1)
-                this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.WeldCameraIdentifyMaterialMatch;
+            //if (_selRecipe.OverBox1Param.MaterialboxParam.Count > 1)
+            //    this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.WeldCameraIdentifyMaterialMatch;
                 
 
 
@@ -603,31 +618,36 @@ namespace ControlPanelClsLib
 
                 #region 物料到焊台
 
-                if (_selRecipe.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
-                {
-                    _selRecipe.MaterialHooktoTargetPosition.Clear();
-                    for (int i = 0; i < _selRecipe.WeldNum; i++)
-                    {
-                        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
-                    }
-                }
+                //if (_selRecipe.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
+                //{
+                //    _selRecipe.MaterialHooktoTargetPosition.Clear();
+                //    for (int i = 0; i < _selRecipe.WeldNum; i++)
+                //    {
+                //        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+                //    }
+                //}
 
-                if (this.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
-                {
-                    this.MaterialHooktoTargetPosition.Clear();
-                    for (int i = 0; i < _selRecipe.WeldNum; i++)
-                    {
-                        this.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
-                    }
-                }
-                else
-                {
-                    _selRecipe.MaterialHooktoTargetPosition = this.MaterialHooktoTargetPosition;
-                }
+                //if (this.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
+                //{
+                //    this.MaterialHooktoTargetPosition.Clear();
+                //    for (int i = 0; i < _selRecipe.WeldNum; i++)
+                //    {
+                //        this.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+                //    }
+                //}
+                //else
+                //{
+                //    _selRecipe.MaterialHooktoTargetPosition = this.MaterialHooktoTargetPosition;
+                //}
 
+                if(_fixtureRecipe != null)
+                {
+                    _selRecipe.FixtureRecipeName = _fixtureRecipe.RecipeName;
+                }
+                
                 _selRecipe.PressliftingSafePosition = (float)numPressliftingSafePosition.Value;
                 _selRecipe.PressliftingWorkPosition = (float)numPressliftingWorkPosition.Value;
-                _selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
+                //_selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
 
 
 
@@ -893,9 +913,20 @@ namespace ControlPanelClsLib
 
         }
 
-        private void btnAutoCal_Click(object sender, EventArgs e)
+        private bool IsHome()
         {
+            double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
+            double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
 
+            if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
+            {
+                if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -942,7 +973,7 @@ namespace ControlPanelClsLib
                 {
                     _selectedMaterialRecipeName = selectRecipeDialog.SelectedRecipeName;
                     //验证Recipe是否完整
-                    if (!MaterialBoxRecipe.Validate(_selectedMaterialRecipeName, selectRecipeDialog.RecipeType))
+                    if (!MaterialRecipe.Validate(_selectedMaterialRecipeName, selectRecipeDialog.RecipeType))
                     {
                         WarningBox.FormShow("错误！", "配方无效！", "提示");
                         return;
@@ -1042,7 +1073,7 @@ namespace ControlPanelClsLib
                 {
                     recipe = null;
                     _materialRecipe = null;
-                    XtraMessageBox.Show(string.Format("Already exist recipe: {0} ,Please try it again!", newRecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("配方名称已经存在: {0} ,请重试!", newRecipeName), "提醒");
                 }
             }
             addProductDialog.Dispose();
@@ -1051,13 +1082,13 @@ namespace ControlPanelClsLib
 
         private void btnDeleteMaterial_Click(object sender, EventArgs e)
         {
-            if ((XtraMessageBox.Show("Are you sure delete this recipe！", "warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            if ((XtraMessageBox.Show("是否确定删除配方！", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
             {
                 var recipe = this._materialRecipe;
 
                 if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.Material))
                 {
-                    XtraMessageBox.Show(string.Format("Make sure the recipe {0} is closed!", recipe.RecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("请确认 {0} 配方已经关闭!", recipe.RecipeName), "提醒");
                     return;
                 }
 
@@ -1075,13 +1106,13 @@ namespace ControlPanelClsLib
 
         private void btnSaveMaterial_Click(object sender, EventArgs e)
         {
-            if ((XtraMessageBox.Show("Are you sure save this recipe！", "warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            if ((XtraMessageBox.Show("是否确定保存配方！", "提醒", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
             {
                 var recipe = this._materialRecipe;
 
                 if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.Material))
                 {
-                    XtraMessageBox.Show(string.Format("Make sure the recipe {0} is exist!", recipe.RecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("确认配方 {0} 已经存在!", recipe.RecipeName), "提醒");
                     return;
                 }
 
@@ -1237,7 +1268,7 @@ namespace ControlPanelClsLib
                 {
                     recipe = null;
                     _materialboxRecipe = null;
-                    XtraMessageBox.Show(string.Format("Already exist recipe: {0} ,Please try it again!", newRecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("配方名称已经存在: {0} ,请重试!", newRecipeName), "Warning");
                 }
             }
             addProductDialog.Dispose();
@@ -1246,13 +1277,13 @@ namespace ControlPanelClsLib
 
         private void btnDeleteMaterialBox_Click(object sender, EventArgs e)
         {
-            if ((XtraMessageBox.Show("Are you sure delete this recipe！", "warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            if ((XtraMessageBox.Show("是否确定删除配方！", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
             {
                 var recipe = this._materialboxRecipe;
 
                 if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.MaterialBox))
                 {
-                    XtraMessageBox.Show(string.Format("Make sure the recipe {0} is closed!", recipe.RecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("确认配方 {0} 已经存在!", recipe.RecipeName), "提醒");
                     return;
                 }
 
@@ -1260,19 +1291,34 @@ namespace ControlPanelClsLib
                 recipe.Delete();
 
                 teMaterialBoxName.Text = "";
+
+                teMaterialBoxSelectMaterialName.Text = "";
+
+                numMaterialBoxLength.Value = 0;
+                numMaterialBoxWidth.Value = 0;
+                numMaterialBoxHeight.Value = 0;
+
+                numMaterialRows.Value = 0;
+                numMaterialCols.Value = 0;
+
+                numMaterialRowinterval.Value = 0;
+                numMaterialColinterval.Value = 0;
+
+
+
             }
 
         }
 
         private void btnSaveMaterialBox_Click(object sender, EventArgs e)
         {
-            if ((XtraMessageBox.Show("Are you sure save this recipe！", "warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            if ((XtraMessageBox.Show("是否确定保存配方！", "提醒", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
             {
                 var recipe = this._materialboxRecipe;
 
                 if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.MaterialBox))
                 {
-                    XtraMessageBox.Show(string.Format("Make sure the recipe {0} is exist!", recipe.RecipeName), "Warning");
+                    XtraMessageBox.Show(string.Format("确认配方 {0} 已经存在!", recipe.RecipeName), "提醒");
                     return;
                 }
 
@@ -1704,7 +1750,7 @@ namespace ControlPanelClsLib
         #region 烘箱1出料
         private void btnAvoidancePosition_Click(object sender, EventArgs e)
         {
-            if (_selRecipe != null)
+            if (_selRecipe != null && IsHome())
             {
                 TransportControl.Instance.TransportRecipe = _selRecipe;
                 Task.Run(() =>
@@ -1754,12 +1800,13 @@ namespace ControlPanelClsLib
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
-                Task.Run(() =>
+                if (IsHome())
                 {
-                    TransportControl.Instance.MaterialboxHooktoSafePositionAction();
-                });
-
-                
+                    Task.Run(() =>
+                    {
+                        TransportControl.Instance.MaterialboxHooktoSafePositionAction();
+                    });
+                }
 
             }
         }
@@ -1872,7 +1919,7 @@ namespace ControlPanelClsLib
         private void btnMaterialboxHooktoMaterialboxPosition1Move_Click(object sender, EventArgs e)
         {
             
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoMaterialboxPosition1 = new XYZTCoordinateConfig()
                 {
@@ -1971,7 +2018,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialboxHooktoTarget1PositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoTarget1Position = new XYZTCoordinateConfig()
                 {
@@ -2047,14 +2094,7 @@ namespace ControlPanelClsLib
 
                 #region 烘箱1出料
 
-                _selRecipe.MaterialboxHookSafePosition = new XYZTCoordinateConfig()
-                {
-                    X = (double)numMaterialboxHookSafePositionX.Value,
-                    Y = (double)numMaterialboxHookSafePositionY.Value,
-                    Z = (double)numMaterialboxHookSafePositionZ.Value,
-                    Theta = (double)numMaterialboxHookSafePositionT.Value,
-                };
-                _selRecipe.MaterialboxHookOpen = (float)numMaterialboxHookOpen.Value;
+                
 
                 _selRecipe.OverTrackMaterialboxOutofoven = (float)numOverTrackMaterialboxOutofoven.Value;
 
@@ -2068,13 +2108,7 @@ namespace ControlPanelClsLib
                 _selRecipe.MaterialboxHookClose = (float)numMaterialboxHookClose.Value;
                 _selRecipe.MaterialboxHookUp = (float)numMaterialboxHookUp.Value;
 
-                _selRecipe.MaterialboxHooktoTarget1Position = new XYZTCoordinateConfig()
-                {
-                    X = (double)numMaterialboxHooktoTarget1PositionX.Value,
-                    Y = (double)numMaterialboxHooktoTarget1PositionY.Value,
-                    Z = (double)numMaterialboxHooktoTarget1PositionZ.Value,
-                    Theta = (double)numMaterialboxHooktoTarget1PositionT.Value,
-                };
+                
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
@@ -2189,7 +2223,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialboxHooktoMaterialboxPosition2Move_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoMaterialboxPosition2 = new XYZTCoordinateConfig()
                 {
@@ -2341,7 +2375,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialboxHooktoTarget2PositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoTarget2Position = new XYZTCoordinateConfig()
                 {
@@ -2433,7 +2467,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialboxHooktoTarget3PositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoTarget3Position = new XYZTCoordinateConfig()
                 {
@@ -2608,7 +2642,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialboxHooktoTarget4PositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen) && IsHome())
             {
                 _selRecipe.MaterialboxHooktoTarget4Position = new XYZTCoordinateConfig()
                 {
@@ -2682,6 +2716,15 @@ namespace ControlPanelClsLib
             {
                 #region 料盒搬送
 
+
+                _selRecipe.MaterialboxHooktoTarget1Position = new XYZTCoordinateConfig()
+                {
+                    X = (double)numMaterialboxHooktoTarget1PositionX.Value,
+                    Y = (double)numMaterialboxHooktoTarget1PositionY.Value,
+                    Z = (double)numMaterialboxHooktoTarget1PositionZ.Value,
+                    Theta = (double)numMaterialboxHooktoTarget1PositionT.Value,
+                };
+
                 _selRecipe.MaterialboxHooktoTarget2Position = new XYZTCoordinateConfig()
                 {
                     X = (double)numMaterialboxHooktoTarget2PositionX.Value,
@@ -2706,6 +2749,16 @@ namespace ControlPanelClsLib
                     Z = (double)numMaterialboxHooktoTarget4PositionZ.Value,
                     Theta = (double)numMaterialboxHooktoTarget4PositionT.Value,
                 };
+
+                _selRecipe.MaterialboxHookSafePosition = new XYZTCoordinateConfig()
+                {
+                    X = (double)numMaterialboxHookSafePositionX.Value,
+                    Y = (double)numMaterialboxHookSafePositionY.Value,
+                    Z = (double)numMaterialboxHookSafePositionZ.Value,
+                    Theta = (double)numMaterialboxHookSafePositionT.Value,
+                };
+                _selRecipe.MaterialboxHookOpen = (float)numMaterialboxHookOpen.Value;
+
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
 
@@ -3143,7 +3196,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialHookSafePositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null)
+            if (TransportControl.Instance.TransportRecipe != null && IsHome())
             {
                 _selRecipe.MaterialHookSafePosition = new XYZTCoordinateConfig()
                 {
@@ -3230,7 +3283,7 @@ namespace ControlPanelClsLib
 
         private void btnMaterialHookPickupMaterialPositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null)
+            if (TransportControl.Instance.TransportRecipe != null && IsHome())
             {
                 _selRecipe.MaterialHookPickupMaterialPosition = new XYZTCoordinateConfig()
                 {
@@ -3697,6 +3750,195 @@ namespace ControlPanelClsLib
 
         #region 物料到焊台
 
+        private void numWeldNum1_ValueChanged(object sender, EventArgs e)
+        {
+            if(_fixtureRecipe != null)
+            {
+                _fixtureRecipe.FixtureParam.WeldNum = (int)numWeldNum1.Value;
+
+                int currentDimension = _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count;
+                int targetDimension = _fixtureRecipe.FixtureParam.WeldNum;
+
+
+                if (targetDimension > currentDimension)
+                {
+                    for (int i = currentDimension; i < targetDimension; i++)
+                    {
+                        string newRecipeName = _fixtureRecipe.FixtureParam.Name;
+
+                        var templateFolderName = $@"{_systemConfig.SystemDefaultDirectory}Recipes\{EnumRecipeType.Fixture.ToString()}\{newRecipeName}\TemplateConfig\";
+
+                        var templateTrainFileName1 = Path.Combine(templateFolderName, $"VisionTemplateFile_{newRecipeName}_WeldCameraIdentifyMaterialMatch_{i}.contourmxml");
+                        var templateTrainParamName1 = Path.Combine(templateFolderName, $"VisionTemplateFile_{newRecipeName}_WeldCameraIdentifyMaterialMatchTrainParam_{i}.xml");
+                        var templateRunFileName1 = Path.Combine(templateFolderName, $"VisionTemplateFile_{newRecipeName}_WeldCameraIdentifyMaterialMatchRun_{i}.xml");
+
+                        MatchIdentificationParam param = new MatchIdentificationParam()
+                        {
+                            RingLightintensity = 0,
+                            DirectLightintensity = 0,
+                            Templatexml = templateTrainFileName1,
+                            TemplateParamxml = templateTrainParamName1,
+                            Runxml = templateRunFileName1,
+                            Score = 0.4f,
+                            MinAngle = -10,
+                            MaxAngle = 10,
+                            TemplateRoi = new RectangleFV(),
+                            SearchRoi = new RectangleFV()
+                        };
+                        _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs.Add(param);
+                        _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+                    }
+                }
+                else if (targetDimension < currentDimension)
+                {
+                    if (targetDimension > 0)
+                    {
+                        _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs = _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs.GetRange(0, targetDimension);
+                        _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition = _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.GetRange(0, targetDimension);
+                    }
+                    else
+                    {
+                        _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs.Clear();
+                        _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Clear();
+                    }
+                }
+
+                comboBox1.Items.Clear();
+
+                for (int i = 0; i < _fixtureRecipe.FixtureParam.WeldNum; i++)
+                {
+                    comboBox1.Items.Add($"位置{i}");
+                }
+
+                if (_fixtureRecipe.FixtureParam.WeldNum > 0)
+                {
+                    comboBox1.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void btnSelectFixture_Click(object sender, EventArgs e)
+        {
+            FrmFixtureRecipeEditor selectRecipeDialog = new FrmFixtureRecipeEditor(null, this.teFixtureName.Text.ToUpper().Trim());
+            if (selectRecipeDialog.ShowDialog(this.FindForm()) == DialogResult.OK)
+            {
+                try
+                {
+                    _selectedFixtureRecipeName = selectRecipeDialog.SelectedRecipeName;
+                    //验证Recipe是否完整
+                    if (!FixtureRecipe.Validate(_selectedFixtureRecipeName, selectRecipeDialog.RecipeType))
+                    {
+                        WarningBox.FormShow("错误！", "配方无效！", "提示");
+                        return;
+                    }
+                    else
+                    {
+                        //var heatRecipe = TransportRecipe.LoadRecipe(_selectedHeatRecipeName, selectRecipeDialog.RecipeType);
+                        teFixtureName.Text = selectRecipeDialog.SelectedRecipeName;
+                        _fixtureRecipe = FixtureRecipe.LoadRecipe(selectRecipeDialog.SelectedRecipeName, EnumRecipeType.Fixture);
+
+                        numWeldNum1.Value = _fixtureRecipe.FixtureParam.WeldNum;
+
+                        
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //LogRecorder.RecordLog(EnumLogContentType.Error, "JobControlPanel: Exception occured while Loading Recipe.", ex);
+                }
+            }
+        }
+
+        private void btnNewFixture_Click(object sender, EventArgs e)
+        {
+            FixtureRecipe recipe = null;
+            var addProductDialog = new AddNewRecipeForm();
+            if (addProductDialog.ShowDialog(this.FindForm()) == DialogResult.OK)
+            {
+                string newRecipeName = addProductDialog.RecipeName;
+
+                var templateFolderName = $@"{_systemConfig.SystemDefaultDirectory}Recipes\{EnumRecipeType.Fixture.ToString()}\{newRecipeName}\TemplateConfig\";
+
+
+                if (!IsExistRecipeName(newRecipeName, EnumRecipeType.Fixture))
+                {
+                    CommonProcess.EnsureFolderExist(templateFolderName);
+                    FixtureRecipe recipe0 = new FixtureRecipe()
+                    {
+                        RecipeName = newRecipeName,
+
+                        FixtureParam = new EnumTrainsportFixtureParam()
+                        {
+                            WeldNum = 0,
+                            Name = newRecipeName,
+                            MaterialHooktoTargetPosition = new List<XYZTCoordinateConfig>(),
+                            WeldCameraIdentifyMaterialMatchs = new List<MatchIdentificationParam>(),
+
+                        },
+                    };
+
+                    teFixtureName.Text = newRecipeName;
+
+
+                    string fullRecipeName = string.Format(@"{0}Recipes\{1}\{2}\{3}.xml", _systemConfig.SystemDefaultDirectory, EnumRecipeType.Fixture.ToString(), newRecipeName, newRecipeName);
+                    string fullRecipeFolder = string.Format(@"{0}Recipes\{1}\{2}\", _systemConfig.SystemDefaultDirectory, EnumRecipeType.Fixture.ToString(), newRecipeName);
+
+                    recipe0.SaveRecipe(fullRecipeName, fullRecipeFolder, EnumRecipeStep.Create);
+                    recipe = recipe0;
+                    _fixtureRecipe = recipe;
+                    numWeldNum1.Value = _fixtureRecipe.FixtureParam.WeldNum;
+                }
+                else
+                {
+                    recipe = null;
+                    _fixtureRecipe = null;
+                    XtraMessageBox.Show(string.Format("配方名称已存在: {0} ,请重试!", newRecipeName), "提示");
+                }
+            }
+            addProductDialog.Dispose();
+        }
+
+        private void btnDeleteFixture_Click(object sender, EventArgs e)
+        {
+            if ((XtraMessageBox.Show("是否确定删除配方！", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            {
+                var recipe = this._fixtureRecipe;
+
+                if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.Fixture))
+                {
+                    XtraMessageBox.Show(string.Format("请确认 {0} 配方已经关闭", recipe.RecipeName), "警告");
+                    return;
+                }
+
+                //删除Recipe内容
+                recipe.Delete();
+
+                _fixtureRecipe = null;
+                numWeldNum1.Value = 0;
+
+
+                teFixtureName.Text = "";
+            }
+        }
+
+        private void btnSaveFixture_Click(object sender, EventArgs e)
+        {
+            if ((XtraMessageBox.Show("是否保存膜具配方！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)) == DialogResult.OK)
+            {
+                var recipe = this._fixtureRecipe;
+
+                if (!IsExistRecipeName(recipe.RecipeName, EnumRecipeType.Fixture))
+                {
+                    XtraMessageBox.Show(string.Format("膜具配方 {0} 已经存在!", recipe.RecipeName), "提示");
+                    return;
+                }
+
+                //保存Recipe内容
+                recipe.SaveRecipe();
+            }
+        }
+
 
         private void btnMaterialHooktoTargetPositionRead_Click(object sender, EventArgs e)
         {
@@ -3706,9 +3948,9 @@ namespace ControlPanelClsLib
                 numMaterialHooktoTargetPositionY.Value = (decimal)TransportControl.Instance.ReadCurrentAxisposition(EnumStageAxis.MaterialY);
                 numMaterialHooktoTargetPositionZ.Value = (decimal)TransportControl.Instance.ReadCurrentAxisposition(EnumStageAxis.MaterialZ);
 
-                if (_selRecipe.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+                if (_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
                 {
-                    _selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
+                    _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
                     {
                         X = (double)numMaterialHooktoTargetPositionX.Value,
                         Y = (double)numMaterialHooktoTargetPositionY.Value,
@@ -3716,16 +3958,7 @@ namespace ControlPanelClsLib
                     };
                     
                 }
-                if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
-                {
-                    this.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
-                    {
-                        X = (double)numMaterialHooktoTargetPositionX.Value,
-                        Y = (double)numMaterialHooktoTargetPositionY.Value,
-                        Z = (double)numMaterialHooktoTargetPositionZ.Value,
-                    };
 
-                }
                 _selRecipe.MaterialHookUp2 = 6.75f;
 
                 TransportControl.Instance.TransportRecipe = _selRecipe;
@@ -3736,11 +3969,11 @@ namespace ControlPanelClsLib
 
         private void btnMaterialHooktoTargetPositionMove_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null && TransportControl.Instance.Readsensor(EnumSensor.Oven1InteriorDoorOpen))
+            if (TransportControl.Instance.TransportRecipe != null && _fixtureRecipe != null && IsHome())
             {
-                if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+                if (_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
                 {
-                    _selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
+                    _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
                     {
                         X = (double)numMaterialHooktoTargetPositionX.Value,
                         Y = (double)numMaterialHooktoTargetPositionY.Value,
@@ -3758,7 +3991,7 @@ namespace ControlPanelClsLib
 
                 Task.Run(() =>
                 {
-                    TransportControl.Instance.MaterialHooktoTargetPositionAction(_selRecipe.MaterialHooktoTargetPosition[Index], _selRecipe.MaterialHookUp2);
+                    TransportControl.Instance.MaterialHooktoTargetPositionAction(_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[Index], _selRecipe.MaterialHookUp2);
                 });
 
             }
@@ -3767,11 +4000,11 @@ namespace ControlPanelClsLib
 
         private void btnMaterialHooktoTargetPositionPickup_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null)
+            if (TransportControl.Instance.TransportRecipe != null && _fixtureRecipe != null)
             {
-                if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+                if (_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
                 {
-                    _selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
+                    _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
                     {
                         X = (double)numMaterialHooktoTargetPositionX.Value,
                         Y = (double)numMaterialHooktoTargetPositionY.Value,
@@ -3784,7 +4017,7 @@ namespace ControlPanelClsLib
                 int Index = this.comboBox1.SelectedIndex;
                 Task.Run(() =>
                 {
-                    TransportControl.Instance.MaterialHookPickupMaterialAction(_selRecipe.MaterialHooktoTargetPosition[Index].Z, _selRecipe.MaterialHookUp2);
+                    TransportControl.Instance.MaterialHookPickupMaterialAction(_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[Index].Z, _selRecipe.MaterialHookUp2);
                 });
 
             }
@@ -3793,11 +4026,11 @@ namespace ControlPanelClsLib
 
         private void btnMaterialHooktoTargetPositionPutdown_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null)
+            if (TransportControl.Instance.TransportRecipe != null && _fixtureRecipe != null)
             {
-                if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+                if (_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
                 {
-                    _selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
+                    _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex] = new XYZTCoordinateConfig()
                     {
                         X = (double)numMaterialHooktoTargetPositionX.Value,
                         Y = (double)numMaterialHooktoTargetPositionY.Value,
@@ -3810,7 +4043,7 @@ namespace ControlPanelClsLib
                 int Index = this.comboBox1.SelectedIndex;
                 Task.Run(() =>
                 {
-                    TransportControl.Instance.MaterialHookPutdownMaterialAction(_selRecipe.MaterialHooktoTargetPosition[Index].Z, _selRecipe.MaterialHookUp2);
+                    TransportControl.Instance.MaterialHookPutdownMaterialAction(_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[Index].Z, _selRecipe.MaterialHookUp2);
                 });
 
             }
@@ -3818,13 +4051,23 @@ namespace ControlPanelClsLib
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+            if(_fixtureRecipe != null)
             {
-                numMaterialHooktoTargetPositionX.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].X;
-                numMaterialHooktoTargetPositionY.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Y;
-                numMaterialHooktoTargetPositionZ.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Z;
+                if(_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > 0 && _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+                {
+                    numMaterialHooktoTargetPositionX.Value = (decimal)_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].X;
+                    numMaterialHooktoTargetPositionY.Value = (decimal)_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Y;
+                    numMaterialHooktoTargetPositionZ.Value = (decimal)_fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Z;
+                }
 
             }
+            //if (this.MaterialHooktoTargetPosition.Count > this.comboBox1.SelectedIndex)
+            //{
+            //    numMaterialHooktoTargetPositionX.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].X;
+            //    numMaterialHooktoTargetPositionY.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Y;
+            //    numMaterialHooktoTargetPositionZ.Value = (decimal)_selRecipe.MaterialHooktoTargetPosition[this.comboBox1.SelectedIndex].Z;
+
+            //}
         }
 
         private void btnPressliftingSafePositionRead_Click(object sender, EventArgs e)
@@ -3891,76 +4134,82 @@ namespace ControlPanelClsLib
 
         private void btnGreateMaterialStatsRecognition_Click(object sender, EventArgs e)
         {
-            if (_selRecipe != null)
+            if (_selRecipe != null && _fixtureRecipe != null)
             {
-                if(comboBox2.SelectedIndex == 0)
+                //if(comboBox2.SelectedIndex == 0)
+                //{
+                //    if (_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs.Count == _selRecipe.WeldNum)
+                //    {
+                //        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex];
+                //    }
+                //    else
+                //    {
+                //        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch;
+                //    }
+                //}
+                //else if (comboBox2.SelectedIndex == 1)
+                //{
+                //    if (_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs.Count == _selRecipe.WeldNum)
+                //    {
+                //        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex];
+                //    }
+                //    else
+                //    {
+                //        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch;
+                //    }
+                //}
+
+                if(_fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs.Count > 0 &&_fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs.Count == _fixtureRecipe.FixtureParam.WeldNum)
                 {
-                    if (_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs.Count == _selRecipe.WeldNum)
+                    this.WeldCameraIdentifyMaterialMatch = _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex];
+
+                    string name = "焊台相机创建物料识别";
+                    string title = "";
+                    VisualMatchControlGUI visualMatch = new VisualMatchControlGUI();
+                    visualMatch.InitVisualControl(CameraWindowGUI.Instance, SystemCalibration.Instance.WeldCameraVisual);
+
+                    visualMatch.SetVisualParam(this.WeldCameraIdentifyMaterialMatch);
+
+                    int Done = SystemCalibration.Instance.ShowVisualForm(visualMatch, name, title);
+
+                    if (Done == 0)
                     {
-                        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex];
+                        return;
                     }
                     else
                     {
-                        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch;
+                        this.WeldCameraIdentifyMaterialMatch = visualMatch.GetVisualParam();
+
+                        //if (comboBox2.SelectedIndex == 0)
+                        //{
+                        //    _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
+                        //    _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex] = this.WeldCameraIdentifyMaterialMatch;
+
+                        //    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
+                        //    materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs.Clear();
+                        //    materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                        //    materialRecipe.SaveRecipe();
+                        //}
+                        //else if (comboBox2.SelectedIndex == 1)
+                        //{
+                        //    _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
+                        //    _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex] = this.WeldCameraIdentifyMaterialMatch;
+
+                        //    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
+                        //    materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs.Clear();
+                        //    materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                        //    materialRecipe.SaveRecipe();
+                        //}
+
+                        _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex] = this.WeldCameraIdentifyMaterialMatch;
+                        _fixtureRecipe.SaveRecipe();
+
+                        TransportControl.Instance.TransportRecipe = _selRecipe;
                     }
-                }
-                else if (comboBox2.SelectedIndex == 1)
-                {
-                    if (_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs.Count == _selRecipe.WeldNum)
-                    {
-                        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex];
-                    }
-                    else
-                    {
-                        this.WeldCameraIdentifyMaterialMatch = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch;
-                    }
-                }
-
-
-
-
-
-                string name = "焊台相机创建物料识别";
-                string title = "";
-                VisualMatchControlGUI visualMatch = new VisualMatchControlGUI();
-                visualMatch.InitVisualControl(CameraWindowGUI.Instance, SystemCalibration.Instance.WeldCameraVisual);
-
-                visualMatch.SetVisualParam(this.WeldCameraIdentifyMaterialMatch);
-
-                int Done = SystemCalibration.Instance.ShowVisualForm(visualMatch, name, title);
-
-                if (Done == 0)
-                {
-                    return;
                 }
                 else
                 {
-                    this.WeldCameraIdentifyMaterialMatch = visualMatch.GetVisualParam();
 
-                    if (comboBox2.SelectedIndex == 0)
-                    {
-                        _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
-                        _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex] = this.WeldCameraIdentifyMaterialMatch;
-
-                        MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
-                        materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs.Clear();
-                        materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs = _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                        materialRecipe.SaveRecipe();
-                    }
-                    else if (comboBox2.SelectedIndex == 1)
-                    {
-                        _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
-                        _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs[comboBox1.SelectedIndex] = this.WeldCameraIdentifyMaterialMatch;
-
-                        MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
-                        materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs.Clear();
-                        materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs = _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                        materialRecipe.SaveRecipe();
-                    }
-
-                    
-
-                    TransportControl.Instance.TransportRecipe = _selRecipe;
                 }
 
             }
@@ -3968,52 +4217,54 @@ namespace ControlPanelClsLib
 
         private void MaterialMovetoWeldTableSave_Click(object sender, EventArgs e)
         {
-            if (TransportControl.Instance.TransportRecipe != null)
+            if (TransportControl.Instance.TransportRecipe != null && _fixtureRecipe != null)
             {
                 #region 物料到焊台
 
-                if (_selRecipe.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
-                {
-                    _selRecipe.MaterialHooktoTargetPosition.Clear();
-                    for (int i = 0; i < _selRecipe.WeldNum; i++)
-                    {
-                        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
-                    }
-                }
+                //if (_selRecipe.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
+                //{
+                //    _selRecipe.MaterialHooktoTargetPosition.Clear();
+                //    for (int i = 0; i < _selRecipe.WeldNum; i++)
+                //    {
+                //        _selRecipe.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+                //    }
+                //}
 
-                if (this.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
-                {
-                    this.MaterialHooktoTargetPosition.Clear();
-                    for (int i = 0; i < _selRecipe.WeldNum; i++)
-                    {
-                        this.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
-                    }
-                }
-                else
-                {
-                    _selRecipe.MaterialHooktoTargetPosition = this.MaterialHooktoTargetPosition;
-                }
+                //if (this.MaterialHooktoTargetPosition?.Count < _selRecipe.WeldNum)
+                //{
+                //    this.MaterialHooktoTargetPosition.Clear();
+                //    for (int i = 0; i < _selRecipe.WeldNum; i++)
+                //    {
+                //        this.MaterialHooktoTargetPosition.Add(new XYZTCoordinateConfig());
+                //    }
+                //}
+                //else
+                //{
+                //    _selRecipe.MaterialHooktoTargetPosition = this.MaterialHooktoTargetPosition;
+                //}
 
                 _selRecipe.PressliftingSafePosition = (float)numPressliftingSafePosition.Value;
                 _selRecipe.PressliftingWorkPosition = (float)numPressliftingWorkPosition.Value;
 
-                if (comboBox2.SelectedIndex == 0)
-                {
-                    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
-                    MaterialBoxRecipe materialBoxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
-                    _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                    materialBoxRecipe.MaterialBoxParam.MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                    materialBoxRecipe.SaveRecipe();
+                _selRecipe.FixtureRecipeName = _fixtureRecipe.RecipeName;
 
-                }
-                else if (comboBox2.SelectedIndex == 1)
-                {
-                    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
-                    MaterialBoxRecipe materialBoxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
-                    _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                    materialBoxRecipe.MaterialBoxParam.MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
-                    materialBoxRecipe.SaveRecipe();
-                }
+                //if (comboBox2.SelectedIndex == 0)
+                //{
+                //    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
+                //    MaterialBoxRecipe materialBoxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
+                //    _selRecipe.OverBox1Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                //    materialBoxRecipe.MaterialBoxParam.MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                //    materialBoxRecipe.SaveRecipe();
+
+                //}
+                //else if (comboBox2.SelectedIndex == 1)
+                //{
+                //    MaterialRecipe materialRecipe = MaterialRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.Name, EnumRecipeType.Material);
+                //    MaterialBoxRecipe materialBoxRecipe = MaterialBoxRecipe.LoadRecipe(_selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].Name, EnumRecipeType.MaterialBox);
+                //    _selRecipe.OverBox2Param.MaterialboxParam[comboBox3.SelectedIndex].MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                //    materialBoxRecipe.MaterialBoxParam.MaterialParam.WeldCameraIdentifyMaterialMatchs = materialRecipe.MaterialParam.WeldCameraIdentifyMaterialMatchs;
+                //    materialBoxRecipe.SaveRecipe();
+                //}
 
                 //_selRecipe.OverBox1Param.MaterialboxParam[0].MaterialParam.WeldCameraIdentifyMaterialMatch = this.WeldCameraIdentifyMaterialMatch;
 
@@ -4122,9 +4373,11 @@ namespace ControlPanelClsLib
 
 
 
+
+
         #endregion
 
-       
+        
     }
 
 }

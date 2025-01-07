@@ -292,6 +292,12 @@ namespace RecipeClsLib
         //物料钩爪到目标位置
 
         /// <summary>
+        /// 膜具配方
+        /// </summary>
+        [XmlElement("FixtureRecipeName")]
+        public string FixtureRecipeName { get; set; }
+
+        /// <summary>
         /// 焊台物料个数
         /// </summary>
         [XmlElement("WeldNum")]

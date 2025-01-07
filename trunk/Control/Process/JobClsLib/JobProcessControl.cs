@@ -190,1001 +190,9 @@ namespace JobClsLib
                     #region 20241101
 
 
-                    #region 20241101
+                    //#region 20241101
 
-                    statelist.Add("000029000");
-
-                    statelist.Add("000001000");
-
-                    bool Bin = false;
-                    bool Ain = false;
-                    int iOverBox1num = 0;
-                    int iOverBox2num = 0;
-
-                    if (recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber > 0)
-                    {
-                        statelist.Add("001027000");
-                    }
-                    if (recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber > 0)
-                    {
-                        statelist.Add("002027000");
-                    }
-
-                    for (int num = 0; num <= Math.Max(recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber, recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber); num++)
-                    {
-                        iOverBox1num = num;
-                        iOverBox2num = num;
-
-                        if (iOverBox1num >= recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
-                        {
-                            if (Bin)
-                            {
-                                //B的料盘出料
-
-                                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                                {
-
-                                }
-                                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                                {
-                                    #region 料盘1从烘箱A出去
-
-                                    //料盒进烘箱A
-
-                                    statelist.Add("001003010");
-
-                                    statelist.Add("007007004");
-                                    statelist.Add("007006000");
-                                    statelist.Add("003007000");
-
-
-                                    statelist.Add("001004000");
-
-                                    statelist.Add("003008000");
-                                    //关烘箱门
-                                    statelist.Add("001009000");
-
-                                    statelist.Add("000002000");
-
-                                    statelist.Add("000012000");
-
-                                    statelist.Add("001010000");
-
-                                    statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                    #endregion
-
-                                }
-                                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                                {
-                                    #region 料盘2到位置4与料盘1叠加，从烘箱A出去
-
-                                    //料盒进烘箱A
-
-                                    //料盒2到空闲区4
-                                    statelist.Add("005007010");
-                                    statelist.Add("005006000");
-                                    statelist.Add("009007000");
-                                    statelist.Add("009008004");
-
-                                    statelist.Add("001003004");
-
-                                    statelist.Add("007007000");
-                                    statelist.Add("007006000");
-                                    statelist.Add("003007000");
-
-
-                                    statelist.Add("001004000");
-
-                                    statelist.Add("003008000");
-                                    //关烘箱门
-                                    statelist.Add("001009000");
-
-                                    statelist.Add("000002000");
-
-                                    statelist.Add("000012000");
-
-                                    statelist.Add("001010000");
-
-                                    statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                    #endregion
-                                }
-
-                                Bin = false;
-                            }
-                            Ain = false;
-                        }
-                        else
-                        {
-                            if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
-                            {
-                                if (Bin)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        statelist.Add("001003010");
-
-                                        statelist.Add("007007004");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007010");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008004");
-
-                                        statelist.Add("001003004");
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Bin = false;
-                                }
-
-                                Ain = false;
-
-                            }
-                            else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
-                            {
-
-
-                                #region 料盘1焊接，到达位置4
-
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-
-                                //料盒出烘箱
-                                statelist.Add("000002001");
-
-                                statelist.Add("001003007");//先烘箱开门
-
-                                statelist.Add("001005000");//料盒钩爪先到等待抓起料盘的位置，料盘再移动出来
-
-                                statelist.Add("001004000");
-                                statelist.Add("003006000");
-                                //关烘箱门
-                                statelist.Add("001009000");
-
-                                //料盒到出烘箱位置
-                                statelist.Add("004007000");
-                                statelist.Add("004008000");
-
-                                statelist.Add("001010000");//后关烘箱门
-
-                                //料盒到焊接位置
-                                statelist.Add("004007000");
-                                statelist.Add("004006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002002");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024100");
-
-                                if (Bin)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        statelist.Add("001003010");
-
-                                        statelist.Add("007007004");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007010");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008004");
-
-                                        statelist.Add("001003004");
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Bin = false;
-                                }
-                                else
-                                {
-                                    if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
-                                    {
-                                        statelist.Add("001027000");
-                                    }
-                                }
-
-
-                                //料盒焊接
-                                statelist.Add("000011011");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("011023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("007007001");
-                                statelist.Add("007008100");
-
-
-                                #endregion
-
-
-                                Ain = true;
-                            }
-                            else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                            {
-
-
-                                #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
-
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-
-                                //料盒出烘箱
-                                statelist.Add("000002001");
-
-                                statelist.Add("001003007");//先开烘箱门
-
-                                statelist.Add("001005000");
-
-                                statelist.Add("001004000");
-                                statelist.Add("003006000");
-                                //关烘箱门
-                                statelist.Add("001009000");
-
-
-                                statelist.Add("004007000");
-                                statelist.Add("004008000");
-
-                                statelist.Add("001010000");//后关烘箱门
-
-                                //料盒1到焊接区
-                                statelist.Add("015007000");
-                                statelist.Add("015006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002002");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024100");
-
-                                if (Bin)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        statelist.Add("001003010");
-
-                                        statelist.Add("007007004");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
-
-                                        //料盒进烘箱A
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007010");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008004");
-
-                                        statelist.Add("001003004");
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("003007000");
-
-
-                                        statelist.Add("001004000");
-
-                                        statelist.Add("003008000");
-                                        //关烘箱门
-                                        statelist.Add("001009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("001010000");
-
-                                        statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Bin = false;
-                                }
-                                else
-                                {
-                                    if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
-                                    {
-                                        statelist.Add("001027000");
-                                    }
-                                }
-
-                                //料盒1焊接
-                                statelist.Add("000011011");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("011023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒1到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("007007000");
-                                statelist.Add("007008001");
-
-                                //料盒到焊接位置
-                                statelist.Add("004007000");
-                                statelist.Add("004006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002003");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //料盒2焊接
-                                statelist.Add("000011000");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("012023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒2到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("005007001");
-                                statelist.Add("005008100");
-
-                                #endregion
-
-
-                                Ain = true;
-                            }
-
-                        }
-
-
-
-                        if (iOverBox2num >= recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
-                        {
-                            if (Ain)
-                            {
-                                //B的料盘出料
-
-                                if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
-                                {
-
-                                }
-                                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
-                                {
-                                    #region 料盘1从烘箱B出去
-
-                                    //料盒进烘箱B
-                                    statelist.Add("002003008");//先开烘箱门
-
-                                    statelist.Add("007007001");
-                                    statelist.Add("007006000");
-                                    statelist.Add("010007000");
-
-
-                                    statelist.Add("002004000");
-
-                                    statelist.Add("010008000");
-                                    //关烘箱门
-                                    statelist.Add("002009000");
-
-                                    statelist.Add("000002000");
-
-                                    statelist.Add("000012000");
-
-                                    statelist.Add("002010000");//后关烘箱门
-
-                                    statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                    #endregion
-
-                                }
-                                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                                {
-                                    #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                                    //料盒进烘箱B
-
-                                    //料盒2到空闲区4
-                                    statelist.Add("005007008");
-                                    statelist.Add("005006000");
-                                    statelist.Add("009007000");
-                                    statelist.Add("009008001");
-
-                                    //料盒进烘箱B
-                                    statelist.Add("002003001");//先开烘箱门
-
-                                    statelist.Add("007007000");
-                                    statelist.Add("007006000");
-                                    statelist.Add("010007000");
-
-
-                                    statelist.Add("002004000");
-
-                                    statelist.Add("010008000");
-                                    //关烘箱门
-                                    statelist.Add("002009000");
-
-                                    statelist.Add("000002000");
-
-                                    statelist.Add("000012000");
-
-                                    statelist.Add("002010000");//后关烘箱门
-
-                                    statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                    #endregion
-                                }
-
-                                Ain = false;
-                            }
-                            Bin = false;
-                        }
-                        else
-                        {
-                            if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                            {
-                                if (Ain)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱B出去
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003008");//先开烘箱门
-
-                                        statelist.Add("007007001");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                                        //料盒进烘箱B
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007008");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008001");
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003001");//先开烘箱门
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Ain = false;
-                                }
-
-                                Bin = false;
-                            }
-                            else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                            {
-
-
-                                #region 料盘1焊接，到达位置4
-
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-
-                                //料盒出烘箱
-                                statelist.Add("000002004");
-
-                                statelist.Add("002003009");
-
-                                statelist.Add("002005000");
-
-                                statelist.Add("002004000");
-                                statelist.Add("010006000");
-                                //关烘箱门
-                                statelist.Add("002009000");
-
-
-                                statelist.Add("004007000");
-                                statelist.Add("004008000");
-
-                                statelist.Add("002010000");
-
-                                //料盒到焊接位置
-                                statelist.Add("004007000");
-                                statelist.Add("004006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002005");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024100");
-
-                                if (Ain)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱B出去
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003008");//先开烘箱门
-
-                                        statelist.Add("007007001");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                                        //料盒进烘箱B
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007008");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008001");
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003001");//先开烘箱门
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Ain = false;
-                                }
-                                else
-                                {
-                                    if (iOverBox2num + 1 < recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
-                                    {
-                                        statelist.Add("002027000");
-                                    }
-                                }
-
-                                //料盒焊接
-                                statelist.Add("000011012");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("013023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("007007000");
-                                statelist.Add("007008100");
-
-                                #endregion
-
-                                Bin = true;
-                            }
-                            else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                            {
-
-
-                                #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
-
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-
-                                //料盒出烘箱
-                                statelist.Add("000002004");
-
-                                statelist.Add("002003009");
-
-                                statelist.Add("002005000");
-
-                                statelist.Add("002004000");
-                                statelist.Add("010006000");
-                                //关烘箱门
-                                statelist.Add("002009000");
-
-
-                                statelist.Add("004007000");
-                                statelist.Add("004008000");
-
-                                statelist.Add("002010000");
-                                //料盒1到焊接区
-                                statelist.Add("015007000");
-                                statelist.Add("015006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002002");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024100");
-
-                                if (Ain)
-                                {
-                                    //B的料盘出料
-
-                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
-                                    {
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
-                                    {
-                                        #region 料盘1从烘箱B出去
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003008");//先开烘箱门
-
-                                        statelist.Add("007007001");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-
-                                    }
-                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                                    {
-                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                                        //料盒进烘箱B
-
-                                        //料盒2到空闲区4
-                                        statelist.Add("005007008");
-                                        statelist.Add("005006000");
-                                        statelist.Add("009007000");
-                                        statelist.Add("009008001");
-
-                                        //料盒进烘箱B
-                                        statelist.Add("002003001");//先开烘箱门
-
-                                        statelist.Add("007007000");
-                                        statelist.Add("007006000");
-                                        statelist.Add("010007000");
-
-
-                                        statelist.Add("002004000");
-
-                                        statelist.Add("010008000");
-                                        //关烘箱门
-                                        statelist.Add("002009000");
-
-                                        statelist.Add("000002000");
-
-                                        statelist.Add("000012000");
-
-                                        statelist.Add("002010000");//后关烘箱门
-
-                                        statelist.Add("019026100");//出烘箱B提示,且不进料
-
-                                        #endregion
-                                    }
-
-                                    Ain = false;
-                                }
-                                else
-                                {
-                                    if (iOverBox2num + 1 < recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
-                                    {
-                                        statelist.Add("002027000");
-                                    }
-                                }
-
-                                //料盒1焊接
-                                statelist.Add("000011012");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("013023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒1到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("007007000");
-                                statelist.Add("007008004");
-                                //料盒到焊接位置
-                                statelist.Add("004007000");
-                                statelist.Add("004006000");
-                                statelist.Add("006007000");
-                                statelist.Add("006008000");
-                                statelist.Add("000002003");
-                                //料盒钩爪到避让位置
-                                statelist.Add("000024000");
-                                //料盒2焊接
-                                statelist.Add("000011000");
-                                statelist.Add("000012000");
-                                statelist.Add("000014000");
-                                statelist.Add("000013000");
-                                //statelist.Add("000002000");
-                                statelist.Add("014023000");
-                                //物料钩爪到避让位置
-                                statelist.Add("000025000");
-                                //料盒2到空闲区2
-                                statelist.Add("006007000");
-                                statelist.Add("006006000");
-                                statelist.Add("005007004");
-                                statelist.Add("005008100");
-
-                                #endregion
-                                Bin = true;
-                            }
-
-                        }
-
-                        //if(Bin == false && Ain == false)
-                        //{
-                        //    break;
-                        //}
-
-                    }
-                    //物料钩爪到避让位置
-                    statelist.Add("000025000");
-                    //料盒钩爪到空闲位置
-                    statelist.Add("000002000");
-                    //物料钩爪到空闲位置
-                    statelist.Add("000012000");
-
-
-                    #endregion
-
-
-                    #endregion
-
-
-                    #region 20241103
-
-                    //#region 20241103
-
+                    //statelist.Add("000029000");
 
                     //statelist.Add("000001000");
 
@@ -1225,8 +233,8 @@ namespace JobClsLib
 
                     //                statelist.Add("001003010");
 
-                    //                statelist.Add("005007010");
-                    //                statelist.Add("005006000");
+                    //                statelist.Add("007007004");
+                    //                statelist.Add("007006000");
                     //                statelist.Add("003007000");
 
 
@@ -1251,24 +259,18 @@ namespace JobClsLib
                     //            {
                     //                #region 料盘2到位置4与料盘1叠加，从烘箱A出去
 
-                    //                //4到1
-                    //                statelist.Add("007007000");
-                    //                statelist.Add("007006000");
-                    //                statelist.Add("004007000");
-                    //                statelist.Add("004008000");
-
                     //                //料盒进烘箱A
 
                     //                //料盒2到空闲区4
                     //                statelist.Add("005007010");
                     //                statelist.Add("005006000");
-                    //                statelist.Add("015007000");
-                    //                statelist.Add("015008004");
+                    //                statelist.Add("009007000");
+                    //                statelist.Add("009008004");
 
                     //                statelist.Add("001003004");
 
-                    //                statelist.Add("004007000");
-                    //                statelist.Add("004006000");
+                    //                statelist.Add("007007000");
+                    //                statelist.Add("007006000");
                     //                statelist.Add("003007000");
 
 
@@ -1313,8 +315,8 @@ namespace JobClsLib
 
                     //                    statelist.Add("001003010");
 
-                    //                    statelist.Add("005007010");
-                    //                    statelist.Add("005006000");
+                    //                    statelist.Add("007007004");
+                    //                    statelist.Add("007006000");
                     //                    statelist.Add("003007000");
 
 
@@ -1339,24 +341,18 @@ namespace JobClsLib
                     //                {
                     //                    #region 料盘2到位置4与料盘1叠加，从烘箱A出去
 
-                    //                    //4到1
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007006000");
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004008000");
-
                     //                    //料盒进烘箱A
 
                     //                    //料盒2到空闲区4
                     //                    statelist.Add("005007010");
                     //                    statelist.Add("005006000");
-                    //                    statelist.Add("015007000");
-                    //                    statelist.Add("015008004");
+                    //                    statelist.Add("009007000");
+                    //                    statelist.Add("009008004");
 
                     //                    statelist.Add("001003004");
 
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
+                    //                    statelist.Add("007007000");
+                    //                    statelist.Add("007006000");
                     //                    statelist.Add("003007000");
 
 
@@ -1387,7 +383,7 @@ namespace JobClsLib
                     //        {
 
 
-                    //            #region 料盘1焊接，到达位置2
+                    //            #region 料盘1焊接，到达位置4
 
                     //            //料盒钩爪到避让位置
                     //            statelist.Add("000024000");
@@ -1420,213 +416,6 @@ namespace JobClsLib
                     //            statelist.Add("000002002");
                     //            //料盒钩爪到避让位置
                     //            statelist.Add("000024100");
-
-
-
-                    //            if (Bin)
-                    //            {
-                    //                //B的料盘出料
-
-                    //                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                    //                {
-
-                    //                }
-                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                    //                {
-                    //                    #region 料盘1从烘箱A出去
-
-                    //                    //料盒进烘箱A
-
-                    //                    statelist.Add("001003010");
-
-                    //                    statelist.Add("005007010");
-                    //                    statelist.Add("005006000");
-                    //                    statelist.Add("003007000");
-
-
-                    //                    statelist.Add("001004000");
-
-                    //                    statelist.Add("003008000");
-                    //                    //关烘箱门
-                    //                    statelist.Add("001009000");
-
-                    //                    statelist.Add("000002000");
-
-                    //                    statelist.Add("000012000");
-
-                    //                    statelist.Add("001010000");
-
-                    //                    statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                    //                    #endregion
-
-                    //                }
-                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                    //                {
-                    //                    #region 料盘2到位置4与料盘1叠加，从烘箱A出去
-
-                    //                    //4到1
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007006000");
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004008000");
-
-                    //                    //料盒进烘箱A
-
-                    //                    //料盒2到空闲区4
-                    //                    statelist.Add("005007010");
-                    //                    statelist.Add("005006000");
-                    //                    statelist.Add("015007000");
-                    //                    statelist.Add("015008004");
-
-                    //                    statelist.Add("001003004");
-
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("003007000");
-
-
-                    //                    statelist.Add("001004000");
-
-                    //                    statelist.Add("003008000");
-                    //                    //关烘箱门
-                    //                    statelist.Add("001009000");
-
-                    //                    statelist.Add("000002000");
-
-                    //                    statelist.Add("000012000");
-
-                    //                    statelist.Add("001010000");
-
-                    //                    statelist.Add("017026100");//出烘箱A提示,且不进料
-
-                    //                    #endregion
-                    //                }
-
-                    //                Bin = false;
-                    //            }
-                    //            else
-                    //            {
-                    //                if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
-                    //                {
-                    //                    statelist.Add("001027000");
-                    //                }
-                    //            }
-
-
-                    //            //料盒焊接
-                    //            statelist.Add("000011011");
-                    //            statelist.Add("000012000");
-                    //            statelist.Add("000014000");
-                    //            statelist.Add("000013000");
-                    //            //statelist.Add("000002000");
-                    //            statelist.Add("011023000");
-                    //            //物料钩爪到避让位置
-                    //            statelist.Add("000025000");
-                    //            //料盒到空闲区2
-                    //            statelist.Add("006007000");
-                    //            statelist.Add("006006000");
-                    //            statelist.Add("005007001");
-                    //            statelist.Add("005008100");
-
-
-                    //            #endregion
-
-
-                    //            Ain = true;
-                    //        }
-                    //        else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
-                    //        {
-
-
-                    //            #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
-
-                    //            //料盒钩爪到避让位置
-                    //            statelist.Add("000024000");
-                    //            //物料钩爪到避让位置
-                    //            statelist.Add("000025000");
-
-                    //            //料盒出烘箱
-                    //            statelist.Add("000002001");
-
-                    //            statelist.Add("001003007");//先开烘箱门
-
-                    //            statelist.Add("001005000");
-
-                    //            statelist.Add("001004000");
-                    //            statelist.Add("003006000");
-                    //            //关烘箱门
-                    //            statelist.Add("001009000");
-
-
-                    //            statelist.Add("004007000");
-                    //            statelist.Add("004008000");
-
-                    //            statelist.Add("001010000");//后关烘箱门
-
-                    //            //料盒1到焊接区
-                    //            statelist.Add("015007000");
-                    //            statelist.Add("015006000");
-                    //            statelist.Add("006007000");
-                    //            statelist.Add("006008000");
-                    //            statelist.Add("000002002");
-                    //            //料盒钩爪到避让位置
-                    //            statelist.Add("000024100");
-
-
-                    //            //倒料
-                    //            if (Bin)
-                    //            {
-                    //                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                    //                {
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-                    //                else if(recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                    //                {
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-                    //                else if(recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                    //                {
-                    //                    //1到4的上方
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("009007000");
-                    //                    statelist.Add("009008000");
-
-                    //                    //1和4都到1
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007006000");
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004008000");
-
-                    //                    //1的上方到4
-                    //                    statelist.Add("015007000");
-                    //                    statelist.Add("015006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-
-                    //            }
-                    //            else
-                    //            {
-                    //                //1到4
-                    //                statelist.Add("004007000");
-                    //                statelist.Add("004006000");
-                    //                statelist.Add("007007000");
-                    //                statelist.Add("007008000");
-                    //            }
-
-                    //            //statelist.Add("000002002");
-                    //            ////料盒钩爪到避让位置
-                    //            //statelist.Add("000024100");
 
                     //            if (Bin)
                     //            {
@@ -1712,9 +501,149 @@ namespace JobClsLib
                     //                }
                     //            }
 
+
+                    //            //料盒焊接
+                    //            statelist.Add("000011011");
+                    //            statelist.Add("000012000");
+                    //            statelist.Add("000014000");
+                    //            statelist.Add("000013000");
+                    //            //statelist.Add("000002000");
+                    //            statelist.Add("011023000");
+                    //            //物料钩爪到避让位置
+                    //            statelist.Add("000025000");
+                    //            //料盒到空闲区2
+                    //            statelist.Add("006007000");
+                    //            statelist.Add("006006000");
+                    //            statelist.Add("007007001");
+                    //            statelist.Add("007008100");
+
+
+                    //            #endregion
+
+
+                    //            Ain = true;
+                    //        }
+                    //        else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                    //        {
+
+
+                    //            #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
+
+                    //            //料盒钩爪到避让位置
+                    //            statelist.Add("000024000");
+                    //            //物料钩爪到避让位置
+                    //            statelist.Add("000025000");
+
+                    //            //料盒出烘箱
+                    //            statelist.Add("000002001");
+
+                    //            statelist.Add("001003007");//先开烘箱门
+
+                    //            statelist.Add("001005000");
+
+                    //            statelist.Add("001004000");
+                    //            statelist.Add("003006000");
+                    //            //关烘箱门
+                    //            statelist.Add("001009000");
+
+
+                    //            statelist.Add("004007000");
+                    //            statelist.Add("004008000");
+
+                    //            statelist.Add("001010000");//后关烘箱门
+
+                    //            //料盒1到焊接区
+                    //            statelist.Add("015007000");
+                    //            statelist.Add("015006000");
+                    //            statelist.Add("006007000");
+                    //            statelist.Add("006008000");
                     //            statelist.Add("000002002");
                     //            //料盒钩爪到避让位置
                     //            statelist.Add("000024100");
+
+                    //            if (Bin)
+                    //            {
+                    //                //B的料盘出料
+
+                    //                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                    //                {
+
+                    //                }
+                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                    //                {
+                    //                    #region 料盘1从烘箱A出去
+
+                    //                    //料盒进烘箱A
+
+                    //                    statelist.Add("001003010");
+
+                    //                    statelist.Add("007007004");
+                    //                    statelist.Add("007006000");
+                    //                    statelist.Add("003007000");
+
+
+                    //                    statelist.Add("001004000");
+
+                    //                    statelist.Add("003008000");
+                    //                    //关烘箱门
+                    //                    statelist.Add("001009000");
+
+                    //                    statelist.Add("000002000");
+
+                    //                    statelist.Add("000012000");
+
+                    //                    statelist.Add("001010000");
+
+                    //                    statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                    //                    #endregion
+
+                    //                }
+                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                    //                {
+                    //                    #region 料盘2到位置4与料盘1叠加，从烘箱A出去
+
+                    //                    //料盒进烘箱A
+
+                    //                    //料盒2到空闲区4
+                    //                    statelist.Add("005007010");
+                    //                    statelist.Add("005006000");
+                    //                    statelist.Add("009007000");
+                    //                    statelist.Add("009008004");
+
+                    //                    statelist.Add("001003004");
+
+                    //                    statelist.Add("007007000");
+                    //                    statelist.Add("007006000");
+                    //                    statelist.Add("003007000");
+
+
+                    //                    statelist.Add("001004000");
+
+                    //                    statelist.Add("003008000");
+                    //                    //关烘箱门
+                    //                    statelist.Add("001009000");
+
+                    //                    statelist.Add("000002000");
+
+                    //                    statelist.Add("000012000");
+
+                    //                    statelist.Add("001010000");
+
+                    //                    statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                    //                    #endregion
+                    //                }
+
+                    //                Bin = false;
+                    //            }
+                    //            else
+                    //            {
+                    //                if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
+                    //                {
+                    //                    statelist.Add("001027000");
+                    //                }
+                    //            }
 
                     //            //料盒1焊接
                     //            statelist.Add("000011011");
@@ -1725,15 +654,15 @@ namespace JobClsLib
                     //            statelist.Add("011023000");
                     //            //物料钩爪到避让位置
                     //            statelist.Add("000025000");
-                    //            //料盒1到位置2
+                    //            //料盒1到空闲区2
                     //            statelist.Add("006007000");
                     //            statelist.Add("006006000");
-                    //            statelist.Add("005007000");
-                    //            statelist.Add("005008001");
-
-                    //            //料盒2到焊接位置
                     //            statelist.Add("007007000");
-                    //            statelist.Add("007006000");
+                    //            statelist.Add("007008001");
+
+                    //            //料盒到焊接位置
+                    //            statelist.Add("004007000");
+                    //            statelist.Add("004006000");
                     //            statelist.Add("006007000");
                     //            statelist.Add("006008000");
                     //            statelist.Add("000002003");
@@ -1748,13 +677,11 @@ namespace JobClsLib
                     //            statelist.Add("012023000");
                     //            //物料钩爪到避让位置
                     //            statelist.Add("000025000");
-                    //            //料盒2到位置1
+                    //            //料盒2到空闲区2
                     //            statelist.Add("006007000");
                     //            statelist.Add("006006000");
-                    //            statelist.Add("004007001");
-                    //            statelist.Add("004008100");
-
-                    //            statelist.Add("000002002");
+                    //            statelist.Add("005007001");
+                    //            statelist.Add("005008100");
 
                     //            #endregion
 
@@ -1783,8 +710,8 @@ namespace JobClsLib
                     //                //料盒进烘箱B
                     //                statelist.Add("002003008");//先开烘箱门
 
-                    //                statelist.Add("005007001");
-                    //                statelist.Add("005006000");
+                    //                statelist.Add("007007001");
+                    //                statelist.Add("007006000");
                     //                statelist.Add("010007000");
 
 
@@ -1808,12 +735,6 @@ namespace JobClsLib
                     //            else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
                     //            {
                     //                #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                    //                //1到4
-                    //                statelist.Add("004007000");
-                    //                statelist.Add("004006000");
-                    //                statelist.Add("007007000");
-                    //                statelist.Add("007008000");
 
                     //                //料盒进烘箱B
 
@@ -1871,8 +792,8 @@ namespace JobClsLib
                     //                    //料盒进烘箱B
                     //                    statelist.Add("002003008");//先开烘箱门
 
-                    //                    statelist.Add("005007001");
-                    //                    statelist.Add("005006000");
+                    //                    statelist.Add("007007001");
+                    //                    statelist.Add("007006000");
                     //                    statelist.Add("010007000");
 
 
@@ -1896,12 +817,6 @@ namespace JobClsLib
                     //                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
                     //                {
                     //                    #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
 
                     //                    //料盒进烘箱B
 
@@ -1994,8 +909,8 @@ namespace JobClsLib
                     //                    //料盒进烘箱B
                     //                    statelist.Add("002003008");//先开烘箱门
 
-                    //                    statelist.Add("005007001");
-                    //                    statelist.Add("005006000");
+                    //                    statelist.Add("007007001");
+                    //                    statelist.Add("007006000");
                     //                    statelist.Add("010007000");
 
 
@@ -2019,12 +934,6 @@ namespace JobClsLib
                     //                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
                     //                {
                     //                    #region 料盘2到位置4与料盘1叠加，从烘箱B出去
-
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
 
                     //                    //料盒进烘箱B
 
@@ -2081,8 +990,8 @@ namespace JobClsLib
                     //            //料盒到空闲区2
                     //            statelist.Add("006007000");
                     //            statelist.Add("006006000");
-                    //            statelist.Add("005007000");
-                    //            statelist.Add("005008100");
+                    //            statelist.Add("007007000");
+                    //            statelist.Add("007008100");
 
                     //            #endregion
 
@@ -2112,74 +1021,18 @@ namespace JobClsLib
                     //            statelist.Add("002009000");
 
 
-                    //            statelist.Add("007007000");
-                    //            statelist.Add("007008000");
+                    //            statelist.Add("004007000");
+                    //            statelist.Add("004008000");
 
                     //            statelist.Add("002010000");
                     //            //料盒1到焊接区
-                    //            statelist.Add("009007000");
-                    //            statelist.Add("009006000");
+                    //            statelist.Add("015007000");
+                    //            statelist.Add("015006000");
                     //            statelist.Add("006007000");
                     //            statelist.Add("006008000");
                     //            statelist.Add("000002002");
                     //            //料盒钩爪到避让位置
                     //            statelist.Add("000024100");
-
-
-                    //            //倒料
-                    //            if (Ain)
-                    //            {
-                    //                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
-                    //                {
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
-                    //                {
-                    //                    //1到4
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-                    //                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
-                    //                {
-                    //                    //1到4的上方
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004006000");
-                    //                    statelist.Add("009007000");
-                    //                    statelist.Add("009008000");
-
-                    //                    //1和4都到1
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007006000");
-                    //                    statelist.Add("004007000");
-                    //                    statelist.Add("004008000");
-
-                    //                    //1的上方到4
-                    //                    statelist.Add("015007000");
-                    //                    statelist.Add("015006000");
-                    //                    statelist.Add("007007000");
-                    //                    statelist.Add("007008000");
-                    //                }
-
-                    //            }
-                    //            else
-                    //            {
-                    //                //1到4
-                    //                statelist.Add("004007000");
-                    //                statelist.Add("004006000");
-                    //                statelist.Add("007007000");
-                    //                statelist.Add("007008000");
-                    //            }
-
-                    //            //statelist.Add("000002002");
-                    //            ////料盒钩爪到避让位置
-                    //            //statelist.Add("000024100");
-
 
                     //            if (Ain)
                     //            {
@@ -2265,10 +1118,6 @@ namespace JobClsLib
                     //                }
                     //            }
 
-                    //            statelist.Add("000002002");
-                    //            //料盒钩爪到避让位置
-                    //            statelist.Add("000024100");
-
                     //            //料盒1焊接
                     //            statelist.Add("000011012");
                     //            statelist.Add("000012000");
@@ -2281,8 +1130,8 @@ namespace JobClsLib
                     //            //料盒1到空闲区2
                     //            statelist.Add("006007000");
                     //            statelist.Add("006006000");
-                    //            statelist.Add("005007000");
-                    //            statelist.Add("005008004");
+                    //            statelist.Add("007007000");
+                    //            statelist.Add("007008004");
                     //            //料盒到焊接位置
                     //            statelist.Add("004007000");
                     //            statelist.Add("004006000");
@@ -2303,10 +1152,8 @@ namespace JobClsLib
                     //            //料盒2到空闲区2
                     //            statelist.Add("006007000");
                     //            statelist.Add("006006000");
-                    //            statelist.Add("007007004");
-                    //            statelist.Add("007008100");
-
-                    //            statelist.Add("000002002");
+                    //            statelist.Add("005007004");
+                    //            statelist.Add("005008100");
 
                     //            #endregion
                     //            Bin = true;
@@ -2329,6 +1176,1159 @@ namespace JobClsLib
 
 
                     //#endregion
+
+
+                    #endregion
+
+
+                    #region 20241103
+
+                    #region 20241103
+
+
+                    statelist.Add("000001000");
+
+                    bool Bin = false;
+                    bool Ain = false;
+                    int iOverBox1num = 0;
+                    int iOverBox2num = 0;
+
+                    if (recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber > 0)
+                    {
+                        statelist.Add("001027000");
+                    }
+                    if (recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber > 0)
+                    {
+                        statelist.Add("002027000");
+                    }
+
+                    for (int num = 0; num <= Math.Max(recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber, recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber); num++)
+                    {
+                        iOverBox1num = num;
+                        iOverBox2num = num;
+
+                        if (iOverBox1num >= recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
+                        {
+                            if (Bin)
+                            {
+                                //B的料盘出料
+
+                                if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                {
+
+                                }
+                                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                {
+                                    #region 料盘1从烘箱A出去
+
+                                    //料盒进烘箱A
+
+                                    statelist.Add("001003010");
+
+                                    statelist.Add("005007010");
+                                    statelist.Add("005006000");
+                                    statelist.Add("003007000");
+
+
+                                    statelist.Add("001004000");
+
+                                    statelist.Add("003008000");
+                                    //关烘箱门
+                                    statelist.Add("001009000");
+
+                                    statelist.Add("000002000");
+
+                                    statelist.Add("000012000");
+
+                                    statelist.Add("001010000");
+
+                                    statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                    #endregion
+
+                                }
+                                else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                {
+                                    #region 料盘2到位置4与料盘1叠加，从烘箱A出去
+
+                                    //4到1
+                                    statelist.Add("007007000");
+                                    statelist.Add("007006000");
+                                    statelist.Add("004007000");
+                                    statelist.Add("004008000");
+
+                                    //料盒进烘箱A
+
+                                    //料盒2到空闲区4
+                                    statelist.Add("005007010");
+                                    statelist.Add("005006000");
+                                    statelist.Add("015007000");
+                                    statelist.Add("015008004");
+
+                                    statelist.Add("001003004");
+
+                                    statelist.Add("004007000");
+                                    statelist.Add("004006000");
+                                    statelist.Add("003007000");
+
+
+                                    statelist.Add("001004000");
+
+                                    statelist.Add("003008000");
+                                    //关烘箱门
+                                    statelist.Add("001009000");
+
+                                    statelist.Add("000002000");
+
+                                    statelist.Add("000012000");
+
+                                    statelist.Add("001010000");
+
+                                    statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                    #endregion
+                                }
+
+                                Bin = false;
+                            }
+                            Ain = false;
+                        }
+                        else
+                        {
+                            if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
+                            {
+                                if (Bin)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱A出去
+
+                                        //料盒进烘箱A
+
+                                        statelist.Add("001003010");
+
+                                        statelist.Add("005007010");
+                                        statelist.Add("005006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
+
+                                        //4到1
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("004007000");
+                                        statelist.Add("004008000");
+
+                                        //料盒进烘箱A
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007010");
+                                        statelist.Add("005006000");
+                                        statelist.Add("015007000");
+                                        statelist.Add("015008004");
+
+                                        statelist.Add("001003004");
+
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Bin = false;
+                                }
+
+                                Ain = false;
+
+                            }
+                            else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
+                            {
+
+
+                                #region 料盘1焊接，到达位置2
+
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+
+                                //料盒出烘箱
+                                statelist.Add("000002001");
+
+                                statelist.Add("001003007");//先烘箱开门
+
+                                statelist.Add("001005000");//料盒钩爪先到等待抓起料盘的位置，料盘再移动出来
+
+                                statelist.Add("001004000");
+                                statelist.Add("003006000");
+                                //关烘箱门
+                                statelist.Add("001009000");
+
+                                //料盒到出烘箱位置
+                                statelist.Add("004007000");
+                                statelist.Add("004008000");
+
+                                statelist.Add("001010000");//后关烘箱门
+
+                                //料盒到焊接位置
+                                statelist.Add("004007000");
+                                statelist.Add("004006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002002");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+
+
+                                if (Bin)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱A出去
+
+                                        //料盒进烘箱A
+
+                                        statelist.Add("001003010");
+
+                                        statelist.Add("005007010");
+                                        statelist.Add("005006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
+
+                                        //4到1
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("004007000");
+                                        statelist.Add("004008000");
+
+                                        //料盒进烘箱A
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007010");
+                                        statelist.Add("005006000");
+                                        statelist.Add("015007000");
+                                        statelist.Add("015008004");
+
+                                        statelist.Add("001003004");
+
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Bin = false;
+                                }
+                                else
+                                {
+                                    if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
+                                    {
+                                        statelist.Add("001027000");
+                                    }
+                                }
+
+
+                                //料盒焊接
+                                statelist.Add("000011011");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("011023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒到空闲区2
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("005007001");
+                                statelist.Add("005008100");
+
+
+                                #endregion
+
+
+                                Ain = true;
+                            }
+                            else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                            {
+
+
+                                #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
+
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+
+                                //料盒出烘箱
+                                statelist.Add("000002001");
+
+                                statelist.Add("001003007");//先开烘箱门
+
+                                statelist.Add("001005000");
+
+                                statelist.Add("001004000");
+                                statelist.Add("003006000");
+                                //关烘箱门
+                                statelist.Add("001009000");
+
+
+                                statelist.Add("004007000");
+                                statelist.Add("004008000");
+
+                                statelist.Add("001010000");//后关烘箱门
+
+                                //料盒1到焊接区
+                                statelist.Add("015007000");
+                                statelist.Add("015006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002002");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+
+                                //倒料
+                                if (Bin)
+                                {
+                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        //1到4的上方
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008000");
+
+                                        //1和4都到1
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("004007000");
+                                        statelist.Add("004008000");
+
+                                        //1的上方到4
+                                        statelist.Add("015007000");
+                                        statelist.Add("015006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+
+                                }
+                                else
+                                {
+                                    //1到4
+                                    statelist.Add("004007000");
+                                    statelist.Add("004006000");
+                                    statelist.Add("007007000");
+                                    statelist.Add("007008000");
+                                }
+
+                                //statelist.Add("000002002");
+                                ////料盒钩爪到避让位置
+                                //statelist.Add("000024100");
+
+                                if (Bin)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱A出去
+
+                                        //料盒进烘箱A
+
+                                        statelist.Add("001003010");
+
+                                        statelist.Add("007007004");
+                                        statelist.Add("007006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱A出去
+
+                                        //料盒进烘箱A
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007010");
+                                        statelist.Add("005006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008004");
+
+                                        statelist.Add("001003004");
+
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("003007000");
+
+
+                                        statelist.Add("001004000");
+
+                                        statelist.Add("003008000");
+                                        //关烘箱门
+                                        statelist.Add("001009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("001010000");
+
+                                        statelist.Add("017026100");//出烘箱A提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Bin = false;
+                                }
+                                else
+                                {
+                                    if (iOverBox1num + 1 < recipe.OverBox1Param.OverBoxMaterialBoxGetInNumber)
+                                    {
+                                        statelist.Add("001027000");
+                                    }
+                                }
+
+                                statelist.Add("000002002");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+                                //料盒1焊接
+                                statelist.Add("000011011");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("011023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒1到位置2
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("005007000");
+                                statelist.Add("005008001");
+
+                                //料盒2到焊接位置
+                                statelist.Add("007007000");
+                                statelist.Add("007006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002003");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //料盒2焊接
+                                statelist.Add("000011000");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("012023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒2到位置1
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("004007001");
+                                statelist.Add("004008100");
+
+                                statelist.Add("000002002");
+
+                                #endregion
+
+
+                                Ain = true;
+                            }
+
+                        }
+
+
+
+                        if (iOverBox2num >= recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
+                        {
+                            if (Ain)
+                            {
+                                //B的料盘出料
+
+                                if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
+                                {
+
+                                }
+                                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
+                                {
+                                    #region 料盘1从烘箱B出去
+
+                                    //料盒进烘箱B
+                                    statelist.Add("002003008");//先开烘箱门
+
+                                    statelist.Add("005007001");
+                                    statelist.Add("005006000");
+                                    statelist.Add("010007000");
+
+
+                                    statelist.Add("002004000");
+
+                                    statelist.Add("010008000");
+                                    //关烘箱门
+                                    statelist.Add("002009000");
+
+                                    statelist.Add("000002000");
+
+                                    statelist.Add("000012000");
+
+                                    statelist.Add("002010000");//后关烘箱门
+
+                                    statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                    #endregion
+
+                                }
+                                else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                                {
+                                    #region 料盘2到位置4与料盘1叠加，从烘箱B出去
+
+                                    //1到4
+                                    statelist.Add("004007000");
+                                    statelist.Add("004006000");
+                                    statelist.Add("007007000");
+                                    statelist.Add("007008000");
+
+                                    //料盒进烘箱B
+
+                                    //料盒2到空闲区4
+                                    statelist.Add("005007008");
+                                    statelist.Add("005006000");
+                                    statelist.Add("009007000");
+                                    statelist.Add("009008001");
+
+                                    //料盒进烘箱B
+                                    statelist.Add("002003001");//先开烘箱门
+
+                                    statelist.Add("007007000");
+                                    statelist.Add("007006000");
+                                    statelist.Add("010007000");
+
+
+                                    statelist.Add("002004000");
+
+                                    statelist.Add("010008000");
+                                    //关烘箱门
+                                    statelist.Add("002009000");
+
+                                    statelist.Add("000002000");
+
+                                    statelist.Add("000012000");
+
+                                    statelist.Add("002010000");//后关烘箱门
+
+                                    statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                    #endregion
+                                }
+
+                                Ain = false;
+                            }
+                            Bin = false;
+                        }
+                        else
+                        {
+                            if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                            {
+                                if (Ain)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱B出去
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003008");//先开烘箱门
+
+                                        statelist.Add("005007001");
+                                        statelist.Add("005006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
+
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+
+                                        //料盒进烘箱B
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007008");
+                                        statelist.Add("005006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008001");
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003001");//先开烘箱门
+
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Ain = false;
+                                }
+
+                                Bin = false;
+                            }
+                            else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                            {
+
+
+                                #region 料盘1焊接，到达位置4
+
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+
+                                //料盒出烘箱
+                                statelist.Add("000002004");
+
+                                statelist.Add("002003009");
+
+                                statelist.Add("002005000");
+
+                                statelist.Add("002004000");
+                                statelist.Add("010006000");
+                                //关烘箱门
+                                statelist.Add("002009000");
+
+
+                                statelist.Add("004007000");
+                                statelist.Add("004008000");
+
+                                statelist.Add("002010000");
+
+                                //料盒到焊接位置
+                                statelist.Add("004007000");
+                                statelist.Add("004006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002005");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+                                if (Ain)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱B出去
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003008");//先开烘箱门
+
+                                        statelist.Add("005007001");
+                                        statelist.Add("005006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
+
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+
+                                        //料盒进烘箱B
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007008");
+                                        statelist.Add("005006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008001");
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003001");//先开烘箱门
+
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Ain = false;
+                                }
+                                else
+                                {
+                                    if (iOverBox2num + 1 < recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
+                                    {
+                                        statelist.Add("002027000");
+                                    }
+                                }
+
+                                //料盒焊接
+                                statelist.Add("000011012");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("013023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒到空闲区2
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("005007000");
+                                statelist.Add("005008100");
+
+                                #endregion
+
+                                Bin = true;
+                            }
+                            else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                            {
+
+
+                                #region 料盘1焊接，到达位置4 料盘2焊接，到达位置2
+
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+
+                                //料盒出烘箱
+                                statelist.Add("000002004");
+
+                                statelist.Add("002003009");
+
+                                statelist.Add("002005000");
+
+                                statelist.Add("002004000");
+                                statelist.Add("010006000");
+                                //关烘箱门
+                                statelist.Add("002009000");
+
+
+                                statelist.Add("007007000");
+                                statelist.Add("007008000");
+
+                                statelist.Add("002010000");
+                                //料盒1到焊接区
+                                statelist.Add("009007000");
+                                statelist.Add("009006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002002");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+
+                                //倒料
+                                if (Ain)
+                                {
+                                    if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        //1到4
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+                                    else if (recipe.OverBox2Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        //1到4的上方
+                                        statelist.Add("004007000");
+                                        statelist.Add("004006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008000");
+
+                                        //1和4都到1
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("004007000");
+                                        statelist.Add("004008000");
+
+                                        //1的上方到4
+                                        statelist.Add("015007000");
+                                        statelist.Add("015006000");
+                                        statelist.Add("007007000");
+                                        statelist.Add("007008000");
+                                    }
+
+                                }
+                                else
+                                {
+                                    //1到4
+                                    statelist.Add("004007000");
+                                    statelist.Add("004006000");
+                                    statelist.Add("007007000");
+                                    statelist.Add("007008000");
+                                }
+
+                                //statelist.Add("000002002");
+                                ////料盒钩爪到避让位置
+                                //statelist.Add("000024100");
+
+
+                                if (Ain)
+                                {
+                                    //B的料盘出料
+
+                                    if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber < 1)
+                                    {
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 1)
+                                    {
+                                        #region 料盘1从烘箱B出去
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003008");//先开烘箱门
+
+                                        statelist.Add("007007001");
+                                        statelist.Add("007006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+
+                                    }
+                                    else if (recipe.OverBox1Param.OverBoxMaterialBoxLayerNumber == 2)
+                                    {
+                                        #region 料盘2到位置4与料盘1叠加，从烘箱B出去
+
+                                        //料盒进烘箱B
+
+                                        //料盒2到空闲区4
+                                        statelist.Add("005007008");
+                                        statelist.Add("005006000");
+                                        statelist.Add("009007000");
+                                        statelist.Add("009008001");
+
+                                        //料盒进烘箱B
+                                        statelist.Add("002003001");//先开烘箱门
+
+                                        statelist.Add("007007000");
+                                        statelist.Add("007006000");
+                                        statelist.Add("010007000");
+
+
+                                        statelist.Add("002004000");
+
+                                        statelist.Add("010008000");
+                                        //关烘箱门
+                                        statelist.Add("002009000");
+
+                                        statelist.Add("000002000");
+
+                                        statelist.Add("000012000");
+
+                                        statelist.Add("002010000");//后关烘箱门
+
+                                        statelist.Add("019026100");//出烘箱B提示,且不进料
+
+                                        #endregion
+                                    }
+
+                                    Ain = false;
+                                }
+                                else
+                                {
+                                    if (iOverBox2num + 1 < recipe.OverBox2Param.OverBoxMaterialBoxGetInNumber)
+                                    {
+                                        statelist.Add("002027000");
+                                    }
+                                }
+
+                                statelist.Add("000002002");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024100");
+
+                                //料盒1焊接
+                                statelist.Add("000011012");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("013023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒1到空闲区2
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("005007000");
+                                statelist.Add("005008004");
+                                //料盒到焊接位置
+                                statelist.Add("004007000");
+                                statelist.Add("004006000");
+                                statelist.Add("006007000");
+                                statelist.Add("006008000");
+                                statelist.Add("000002003");
+                                //料盒钩爪到避让位置
+                                statelist.Add("000024000");
+                                //料盒2焊接
+                                statelist.Add("000011000");
+                                statelist.Add("000012000");
+                                statelist.Add("000014000");
+                                statelist.Add("000013000");
+                                //statelist.Add("000002000");
+                                statelist.Add("014023000");
+                                //物料钩爪到避让位置
+                                statelist.Add("000025000");
+                                //料盒2到空闲区2
+                                statelist.Add("006007000");
+                                statelist.Add("006006000");
+                                statelist.Add("007007004");
+                                statelist.Add("007008100");
+
+                                statelist.Add("000002002");
+
+                                #endregion
+                                Bin = true;
+                            }
+
+                        }
+
+                        //if(Bin == false && Ain == false)
+                        //{
+                        //    break;
+                        //}
+
+                    }
+                    //物料钩爪到避让位置
+                    statelist.Add("000025000");
+                    //料盒钩爪到空闲位置
+                    statelist.Add("000002000");
+                    //物料钩爪到空闲位置
+                    statelist.Add("000012000");
+
+
+                    #endregion
 
 
 
@@ -2574,57 +2574,42 @@ namespace JobClsLib
                 {
                     Console.WriteLine("料盒搬送：料盒焊接.");
 
-                    #region 料盒焊接
+                    #region 加载膜具配方
 
-                    Task.Factory.StartNew(new Action(() =>
+
+                    if (_transportControl.TransportRecipe.FixtureRecipeName != null)
                     {
-                        DataModel.Instance.MaterialMat = param.MaterialMat;
+                        FixtureRecipe _fixtureRecipe = FixtureRecipe.LoadRecipe(_transportControl.TransportRecipe.FixtureRecipeName, EnumRecipeType.Fixture);
 
-                        DataModel.Instance.Materialnum = 0;
-                        DataModel.Instance.Materialrow = 0;
-                        DataModel.Instance.Materialcol = 0;
-                    }));
+                        _transportControl.TransportRecipe.MaterialHooktoTargetPosition.Clear();
+                        _transportControl.TransportRecipe.MaterialHooktoTargetPosition = _fixtureRecipe.FixtureParam.MaterialHooktoTargetPosition;
+                        param.MaterialParam.WeldCameraIdentifyMaterialMatchs.Clear();
+                        param.MaterialParam.WeldCameraIdentifyMaterialMatchs = _fixtureRecipe.FixtureParam.WeldCameraIdentifyMaterialMatchs;
+                        _transportControl.TransportRecipe.WeldNum = _fixtureRecipe.FixtureParam.WeldNum;
 
+                        #region 料盒焊接
 
-                    int toweldnum = 0;
-                    List<XYZTCoordinateConfig> weldpositions = new List<XYZTCoordinateConfig>();
-                    List<List<int>> weldnum = new List<List<int>>();
-                    List<int> weldnum2 = new List<int>();
-
-                    if (param.Iswelded == false)
-                    {
-                        for (int i = 0; i < param.MaterialRowNumber; i++)
+                        Task.Factory.StartNew(new Action(() =>
                         {
-                            for (int j = 0; j < param.MaterialColNumber; j++)
+                            DataModel.Instance.MaterialMat = param.MaterialMat;
+
+                            DataModel.Instance.Materialnum = 0;
+                            DataModel.Instance.Materialrow = 0;
+                            DataModel.Instance.Materialcol = 0;
+                        }));
+
+
+                        int toweldnum = 0;
+                        List<XYZTCoordinateConfig> weldpositions = new List<XYZTCoordinateConfig>();
+                        List<List<int>> weldnum = new List<List<int>>();
+                        List<int> weldnum2 = new List<int>();
+
+                         if (param.Iswelded == false)
+                        {
+                            for (int i = 0; i < param.MaterialRowNumber; i++)
                             {
-                                if (isStopped)
+                                for (int j = 0; j < param.MaterialColNumber; j++)
                                 {
-                                    LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                    Task.Factory.StartNew(new Action(() =>
-                                    {
-                                        DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                    }));
-
-
-                                    isRunning = false;
-                                    return null;
-                                }
-
-                                if (param.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate == EnumMaterialstate.Unwelded)
-                                {
-                                    CameraWindowGUI.Instance.ClearGraphicDraw();
-                                    CameraWindowGUI.Instance.SelectCamera(0);
-
-                                    DataModel.Instance.Materialnum = i * param.MaterialColNumber + j;
-                                    DataModel.Instance.Materialcol = j;
-                                    DataModel.Instance.Materialrow = i;
-
-                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
-                                    state = "022028000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
                                     if (isStopped)
                                     {
                                         LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
@@ -2638,441 +2623,14 @@ namespace JobClsLib
                                         return null;
                                     }
 
-
-                                    state = "000021000";
-
-                                    PointF pixelSize = new PointF()
-                                    {
-                                        X = _TrackCameraConfig.WidthPixelSize,
-                                        Y = _TrackCameraConfig.HeightPixelSize,
-                                    };
-
-                                    param.MaterialParam.TrackCameraIdentifyMaterialMatch.SearchRoi = new RectangleFV()
-                                    {
-                                        X = ((float)param.MaterialMat[i][j].MaterialPosition.X - (float)param.MaterialParam.MaterialSize.X / 2) / pixelSize.X - 10,
-                                        Y = ((float)param.MaterialMat[i][j].MaterialPosition.Y - (float)param.MaterialParam.MaterialSize.Y / 2) / pixelSize.Y - 10,
-                                        Width = ((float)param.MaterialParam.MaterialSize.X) / pixelSize.X + 20,
-                                        Height = ((float)param.MaterialParam.MaterialSize.Y) / pixelSize.Y + 20,
-                                    };
-                                    param.MaterialParam.TrackCameraIdentifyMaterialMatch.MaterialRow = i;
-                                    param.MaterialParam.TrackCameraIdentifyMaterialMatch.MaterialCol = j;
-
-                                    result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.TrackCameraIdentifyMaterialMatch);
-
-                                    if (result.IsSuccess == false)
-                                    {
-                                        PauseOrStepMothed();
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 搬送相机识别物料失败.";
-                                        }));
-
-                                        param.MaterialMat[i][j].MaterialPosition = TransportControl.Instance.TransportRecipe.OverBox1Param.MaterialboxParam[0].MaterialMat[i][j].MaterialPosition;
-
-                                        int Done = VisionControlclass.Instance.ShowMessage("识别错误", "搬送相机未识别到物料，是否跳料", "警告");
-                                        if (Done == 1)
-                                        {
-                                            Task.Factory.StartNew(new Action(() =>
-                                            {
-                                                DataModel.Instance.MaterialMat[i][j].Materialstate = EnumMaterialstate.Jumping;
-                                                DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
-                                                //DataModel.Instance.MaterialMat[i][j] = new EnumMaterialproperties() { MaterialPosition = DataModel.Instance.MaterialMat[i][j].MaterialPosition, Materialstate = EnumMaterialstate.Totheweldingstation };
-                                            }));
-
-                                            continue;
-                                        }
-                                        else
-                                        {
-
-                                            return null;
-                                        }
-                                        
-
-
-                                        //LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
-
-                                        
-
-                                    }
-                                    WaitForNext();
-
-                                    Console.WriteLine("料盒焊接：物料钩爪移动到物料上方");
-
-                                    state = "000015000";
-                                    result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(param.MaterialMat[i][j].MaterialPosition, _transportControl.TransportRecipe.MaterialHookUp, 0, i, j));
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("物料搬送：设置轴运行速度为中速");
-                                    state = "021028000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-
-                                    Console.WriteLine("料盒焊接：物料钩爪拾取物料");
-
-                                    state = "000016000";
-                                    result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(param.MaterialMat[i][j].MaterialPosition, _transportControl.TransportRecipe.MaterialHookUp, 0, i, j));
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    CameraWindowGUI.Instance.ClearGraphicDraw();
-                                    CameraWindowGUI.Instance.SelectCamera(1);
-
-                                    Console.WriteLine("料盒焊接：物料钩爪到目标位置");
-
-                                    state = "000017000";
-                                    result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：物料钩爪放下物料");
-
-                                    state = "000018000";
-                                    result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
-
-                                    DataModel.Instance.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate = EnumMaterialstate.Totheweldingstation;
-                                    DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
-
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-
-                                    
-
-                                    weldpositions.Add(param.MaterialMat[i][j].MaterialPosition);
-
-                                    List<int> weldnumi = new List<int>();
-                                    weldnumi.Add(i);
-                                    weldnumi.Add(j);
-                                    weldnum.Add(weldnumi);
-                                    
-                                    weldnum2.Add(i * param.MaterialColNumber + j);
-
-                                    toweldnum++;
-
-                                    
-                                }
-
-                                if (toweldnum == _transportControl.TransportRecipe.WeldNum || (toweldnum > 0 && i == param.MaterialRowNumber - 1 && j == param.MaterialColNumber - 1))
-                                {
-                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
-                                    state = "022028000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
-
-                                    state = "000012000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：焊接相机识别物料状态");
-
-                                    //state = "000022000";
-                                    //result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatch);
-
-                                    //if (result.IsSuccess == false)
-                                    //{
-                                    //    PauseOrStepMothed();
-                                    //    Task.Factory.StartNew(new Action(() =>
-                                    //    {
-                                    //        DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
-                                    //    }));
-
-                                    //    LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
-                                    //}
-                                    //WaitForNext();
-
-
-
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-
-                                    Console.WriteLine("物料搬送：设置轴运行速度为中速");
-                                    state = "021028000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：升降轴降");
-
-                                    state = "000014000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：升降轴升");
-
-                                    state = "000013000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    Console.WriteLine("料盒焊接：升降轴降");
-
-                                    state = "000014000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    for (int i_w = 0; i_w < toweldnum; i_w++)
-                                    {
-                                        state = "000022000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatchs[i_w]);
-
-                                        if (result.IsSuccess == false)
-                                        {
-                                            PauseOrStepMothed();
-                                            Task.Factory.StartNew(new Action(() =>
-                                            {
-                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
-                                            }));
-
-                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
-                                        }
-                                        WaitForNext();
-                                    }
-
-                                    CameraWindowGUI.Instance.ClearGraphicDraw();
-                                    CameraWindowGUI.Instance.SelectCamera(1);
-
-                                    Console.WriteLine("料盒焊接：焊接物料");
-
-                                    state = "000019000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-                                    for (int i_w = 0; i_w < toweldnum; i_w++)
-                                    {
-                                        state = "000022000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatchs[i_w]);
-
-                                        if (result.IsSuccess == false)
-                                        {
-                                            PauseOrStepMothed();
-                                            Task.Factory.StartNew(new Action(() =>
-                                            {
-                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
-                                            }));
-
-                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
-                                        }
-                                        WaitForNext();
-                                    }
-
-                                    CameraWindowGUI.Instance.ClearGraphicDraw();
-                                    CameraWindowGUI.Instance.SelectCamera(1);
-
-                                    Console.WriteLine("料盒焊接：升降轴升");
-
-                                    state = "000013000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
-                                    {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
-                                    }
-
-
-                                    for (int i0 = 0; i0 < toweldnum; i0++)
+                                    if (param.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate == EnumMaterialstate.Unwelded)
                                     {
                                         CameraWindowGUI.Instance.ClearGraphicDraw();
-                                        CameraWindowGUI.Instance.SelectCamera(1);
+                                        CameraWindowGUI.Instance.SelectCamera(0);
+
+                                        DataModel.Instance.Materialnum = i * param.MaterialColNumber + j;
+                                        DataModel.Instance.Materialcol = j;
+                                        DataModel.Instance.Materialrow = i;
 
                                         Console.WriteLine("物料搬送：设置轴运行速度为高速");
                                         state = "022028000";
@@ -3093,18 +2651,70 @@ namespace JobClsLib
                                             return null;
                                         }
 
-                                        //DataModel.Instance.Materialnum = weldnum2[toweldnum - i0 - 1];
-                                        DataModel.Instance.Materialcol = weldnum[i0][1];
-                                        DataModel.Instance.Materialrow = weldnum[i0][0];
 
-                                        
+                                        state = "000021000";
 
-                                        Console.WriteLine("料盒焊接：物料钩爪到目标位置");
+                                        PointF pixelSize = new PointF()
+                                        {
+                                            X = _TrackCameraConfig.WidthPixelSize,
+                                            Y = _TrackCameraConfig.HeightPixelSize,
+                                        };
 
-                                        state = "000017000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum - i0 - 1));
+                                        param.MaterialParam.TrackCameraIdentifyMaterialMatch.SearchRoi = new RectangleFV()
+                                        {
+                                            X = ((float)param.MaterialMat[i][j].MaterialPosition.X - (float)param.MaterialParam.MaterialSize.X / 2) / pixelSize.X - 10,
+                                            Y = ((float)param.MaterialMat[i][j].MaterialPosition.Y - (float)param.MaterialParam.MaterialSize.Y / 2) / pixelSize.Y - 10,
+                                            Width = ((float)param.MaterialParam.MaterialSize.X) / pixelSize.X + 20,
+                                            Height = ((float)param.MaterialParam.MaterialSize.Y) / pixelSize.Y + 20,
+                                        };
+                                        param.MaterialParam.TrackCameraIdentifyMaterialMatch.MaterialRow = i;
+                                        param.MaterialParam.TrackCameraIdentifyMaterialMatch.MaterialCol = j;
 
-                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.TrackCameraIdentifyMaterialMatch);
+
+                                        if (result.IsSuccess == false)
+                                        {
+                                            PauseOrStepMothed();
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 搬送相机识别物料失败.";
+                                            }));
+
+                                            param.MaterialMat[i][j].MaterialPosition = TransportControl.Instance.TransportRecipe.OverBox1Param.MaterialboxParam[0].MaterialMat[i][j].MaterialPosition;
+
+                                            int Done = VisionControlclass.Instance.ShowMessage("识别错误", "搬送相机未识别到物料，是否跳料", "警告");
+                                            if (Done == 1)
+                                            {
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.MaterialMat[i][j].Materialstate = EnumMaterialstate.Jumping;
+                                                    DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
+                                                    //DataModel.Instance.MaterialMat[i][j] = new EnumMaterialproperties() { MaterialPosition = DataModel.Instance.MaterialMat[i][j].MaterialPosition, Materialstate = EnumMaterialstate.Totheweldingstation };
+                                                }));
+
+                                                continue;
+                                            }
+                                            else
+                                            {
+
+                                                return null;
+                                            }
+
+
+
+                                            //LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+
+
+
+                                        }
+                                        WaitForNext();
+
+                                        Console.WriteLine("料盒焊接：物料钩爪移动到物料上方");
+
+                                        state = "000015000";
+                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(param.MaterialMat[i][j].MaterialPosition, _transportControl.TransportRecipe.MaterialHookUp, 0, i, j));
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
                                         WaitForNext();
 
                                         if (isStopped)
@@ -3139,10 +2749,11 @@ namespace JobClsLib
                                             return null;
                                         }
 
+
                                         Console.WriteLine("料盒焊接：物料钩爪拾取物料");
 
                                         state = "000016000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum - i0 - 1));
+                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(param.MaterialMat[i][j].MaterialPosition, _transportControl.TransportRecipe.MaterialHookUp, 0, i, j));
 
                                         if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
                                         WaitForNext();
@@ -3161,14 +2772,15 @@ namespace JobClsLib
                                         }
 
                                         CameraWindowGUI.Instance.ClearGraphicDraw();
-                                        CameraWindowGUI.Instance.SelectCamera(0);
+                                        CameraWindowGUI.Instance.SelectCamera(1);
 
-                                        Console.WriteLine("料盒焊接：物料钩爪移动到物料上方");
+                                        Console.WriteLine("料盒焊接：物料钩爪到目标位置");
 
-                                        state = "000015000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
+                                        state = "000017000";
+                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
 
                                         if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+
                                         WaitForNext();
 
                                         if (isStopped)
@@ -3183,19 +2795,14 @@ namespace JobClsLib
                                             isRunning = false;
                                             return null;
                                         }
-
 
                                         Console.WriteLine("料盒焊接：物料钩爪放下物料");
 
                                         state = "000018000";
-                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
+                                        result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum));
 
-
-                                        DataModel.Instance.MaterialMat[param.MaterialRowNumber - weldnum[toweldnum - i0 - 1][0] - 1][weldnum[toweldnum - i0 - 1][1]].Materialstate = EnumMaterialstate.Welded;
+                                        DataModel.Instance.MaterialMat[param.MaterialRowNumber - i - 1][j].Materialstate = EnumMaterialstate.Totheweldingstation;
                                         DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
-                                        DataModel.Instance.WeldMaterialNumber++;
-                                        SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;
-
 
 
                                         if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
@@ -3215,68 +2822,489 @@ namespace JobClsLib
                                         }
 
 
-                                        
-                                        
+
+
+                                        weldpositions.Add(param.MaterialMat[i][j].MaterialPosition);
+
+                                        List<int> weldnumi = new List<int>();
+                                        weldnumi.Add(i);
+                                        weldnumi.Add(j);
+                                        weldnum.Add(weldnumi);
+
+                                        weldnum2.Add(i * param.MaterialColNumber + j);
+
+                                        toweldnum++;
+
+
                                     }
-                                    weldnum2.Clear();
-                                    weldpositions.Clear();
-                                    weldnum.Clear();
-                                    toweldnum = 0;
 
-                                    Console.WriteLine("物料搬送：设置轴运行速度为高速");
-                                    state = "022028000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
+                                    if (toweldnum == _transportControl.TransportRecipe.WeldNum || (toweldnum > 0 && i == param.MaterialRowNumber - 1 && j == param.MaterialColNumber - 1))
                                     {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
+                                        Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                        state = "022028000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
                                         {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
 
 
-                                        isRunning = false;
-                                        return null;
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
+
+                                        state = "000012000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：焊接相机识别物料状态");
+
+                                        //state = "000022000";
+                                        //result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatch);
+
+                                        //if (result.IsSuccess == false)
+                                        //{
+                                        //    PauseOrStepMothed();
+                                        //    Task.Factory.StartNew(new Action(() =>
+                                        //    {
+                                        //        DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
+                                        //    }));
+
+                                        //    LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null;
+                                        //}
+                                        //WaitForNext();
+
+
+
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+
+                                        Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                                        state = "021028000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：升降轴降");
+
+                                        state = "000014000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：升降轴升");
+
+                                        state = "000013000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：升降轴降");
+
+                                        state = "000014000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        for (int i_w = 0; i_w < toweldnum; i_w++)
+                                        {
+                                            state = "000022000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatchs[i_w]);
+
+                                            if (result.IsSuccess == false)
+                                            {
+                                                PauseOrStepMothed();
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
+                                                }));
+
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
+                                            }
+                                            WaitForNext();
+                                        }
+
+                                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                                        CameraWindowGUI.Instance.SelectCamera(1);
+
+                                        Console.WriteLine("料盒焊接：焊接物料");
+
+                                        state = "000019000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        for (int i_w = 0; i_w < toweldnum; i_w++)
+                                        {
+                                            state = "000022000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, param.MaterialParam.WeldCameraIdentifyMaterialMatchs[i_w]);
+
+                                            if (result.IsSuccess == false)
+                                            {
+                                                PauseOrStepMothed();
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 物料识别失败.";
+                                                }));
+
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n");
+                                            }
+                                            WaitForNext();
+                                        }
+
+                                        CameraWindowGUI.Instance.ClearGraphicDraw();
+                                        CameraWindowGUI.Instance.SelectCamera(1);
+
+                                        Console.WriteLine("料盒焊接：升降轴升");
+
+                                        state = "000013000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+
+                                        for (int i0 = 0; i0 < toweldnum; i0++)
+                                        {
+                                            CameraWindowGUI.Instance.ClearGraphicDraw();
+                                            CameraWindowGUI.Instance.SelectCamera(1);
+
+                                            Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                            state = "022028000";
+                                            result = ProcessStateMachineControl.ExecuteState(state);
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+                                            //DataModel.Instance.Materialnum = weldnum2[toweldnum - i0 - 1];
+                                            DataModel.Instance.Materialcol = weldnum[i0][1];
+                                            DataModel.Instance.Materialrow = weldnum[i0][0];
+
+
+
+                                            Console.WriteLine("料盒焊接：物料钩爪到目标位置");
+
+                                            state = "000017000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum - i0 - 1));
+
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+                                            Console.WriteLine("物料搬送：设置轴运行速度为中速");
+                                            state = "021028000";
+                                            result = ProcessStateMachineControl.ExecuteState(state);
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+                                            Console.WriteLine("料盒焊接：物料钩爪拾取物料");
+
+                                            state = "000016000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(_transportControl.TransportRecipe.MaterialHooktoTargetPosition[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, toweldnum - i0 - 1));
+
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+                                            CameraWindowGUI.Instance.ClearGraphicDraw();
+                                            CameraWindowGUI.Instance.SelectCamera(0);
+
+                                            Console.WriteLine("料盒焊接：物料钩爪移动到物料上方");
+
+                                            state = "000015000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
+
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+
+                                            Console.WriteLine("料盒焊接：物料钩爪放下物料");
+
+                                            state = "000018000";
+                                            result = ProcessStateMachineControl.ExecuteState(state, new ProcessTargetPositionParam(weldpositions[toweldnum - i0 - 1], _transportControl.TransportRecipe.MaterialHookUp2, 0, weldnum[toweldnum - i0 - 1][0], weldnum[toweldnum - i0 - 1][1]));
+
+
+                                            DataModel.Instance.MaterialMat[param.MaterialRowNumber - weldnum[toweldnum - i0 - 1][0] - 1][weldnum[toweldnum - i0 - 1][1]].Materialstate = EnumMaterialstate.Welded;
+                                            DataModel.Instance.OnPropertyChanged(nameof(DataModel.MaterialMat));
+                                            DataModel.Instance.WeldMaterialNumber++;
+                                            SystemConfiguration.Instance.StatisticalDataConfig.WeldMaterialNumber = DataModel.Instance.WeldMaterialNumber;
+
+
+
+                                            if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                            WaitForNext();
+
+                                            if (isStopped)
+                                            {
+                                                LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                                Task.Factory.StartNew(new Action(() =>
+                                                {
+                                                    DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                                }));
+
+
+                                                isRunning = false;
+                                                return null;
+                                            }
+
+
+
+
+                                        }
+                                        weldnum2.Clear();
+                                        weldpositions.Clear();
+                                        weldnum.Clear();
+                                        toweldnum = 0;
+
+                                        Console.WriteLine("物料搬送：设置轴运行速度为高速");
+                                        state = "022028000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Warn, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
+
+                                        Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
+
+                                        state = "000012000";
+                                        result = ProcessStateMachineControl.ExecuteState(state);
+
+                                        if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
+                                        WaitForNext();
+
+                                        if (isStopped)
+                                        {
+                                            LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
+                                            Task.Factory.StartNew(new Action(() =>
+                                            {
+                                                DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
+                                            }));
+
+
+                                            isRunning = false;
+                                            return null;
+                                        }
                                     }
 
-                                    Console.WriteLine("料盒焊接：物料钩爪到空闲位置");
-
-                                    state = "000012000";
-                                    result = ProcessStateMachineControl.ExecuteState(state);
-
-                                    if (result.IsSuccess == false) { LogRecorder.RecordLog(EnumLogContentType.Info, $"当前状态机:|{state}| 错误:{result.ErrorCode}|{result.Content}|{result.Message} \n"); return null; }
-                                    WaitForNext();
-
-                                    if (isStopped)
+                                    if (i == param.MaterialRowNumber - 1 && j == param.MaterialColNumber - 1)
                                     {
-                                        LogRecorder.RecordLog(EnumLogContentType.Info, $"流程终止: \n");
-                                        Task.Factory.StartNew(new Action(() =>
-                                        {
-                                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 流程终止.";
-                                        }));
-
-
-                                        isRunning = false;
-                                        return null;
+                                        param.Iswelded = true;
                                     }
-                                }
-
-                                if (i == param.MaterialRowNumber - 1 && j == param.MaterialColNumber - 1)
-                                {
-                                    param.Iswelded = true;
                                 }
                             }
+
+
+
                         }
 
-
+                        #endregion
 
                     }
+                    else
+                    {
+                        LogRecorder.RecordLog(EnumLogContentType.Info, $"模具配方为空: \n");
+                        Task.Factory.StartNew(new Action(() =>
+                        {
+                            DataModel.Instance.JobLogText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " 膜具配方为空.";
+                        }));
+                    }
+
 
                     #endregion
+
+
 
                     CameraWindowGUI.Instance.ClearGraphicDraw();
                     CameraWindowGUI.Instance.SelectCamera(0);

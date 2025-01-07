@@ -506,6 +506,37 @@ namespace PositioningSystemClsLib
         //    //_positioningSystem.MoveAixsToStageCoord(multiAxis, target1, EnumCoordSetType.Absolute);
         //}
 
+        private bool AxisSts(EnumStageAxis axis, short bit)
+        {
+            var runningType = _hardwareConfig.StageConfig.RunningType;
+            if (runningType == EnumRunningType.Simulated)
+            {
+                return false;
+            }
+
+            /// 读取轴状态
+            /// 1 报警
+            /// 5 正限位
+            /// 6 负限位 
+            /// 7 平滑停止 
+            /// 8 急停 
+            /// 9 使能 
+            /// 10 规划运动 
+            /// 11 电机到位
+            if (axis == EnumStageAxis.None)
+            {
+                return false;
+            }
+
+            int pSts;
+            pSts = stage.GetAxisState(axis);
+            if ((pSts & (1 << bit)) != 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
 
         private bool AxisAbsoluteMove(EnumStageAxis axis, double target)
         {
@@ -518,6 +549,11 @@ namespace PositioningSystemClsLib
             {
                 while (Math.Abs(position - target) > 0.5)
                 {
+                    if(AxisSts(axis, 8))
+                    {
+                        return false;
+                    }
+
                     position = stage.GetCurrentPosition(axis);
                     if (Math.Abs(position - target) < 0.5)
                     {

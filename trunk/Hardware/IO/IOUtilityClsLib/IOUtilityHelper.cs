@@ -123,6 +123,12 @@ namespace IOUtilityClsLib
             DataModel.Instance.PressWorkNumber = SystemConfiguration.Instance.StatisticalDataConfig.PressWorkNumber;
             DataModel.Instance.EquipmentOperatingTime = SystemConfiguration.Instance.StatisticalDataConfig.EquipmentOperatingTime;
 
+            DataModel.Instance.MaterialBoxhookAvoidLocation = SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookAvoidLocation;
+            DataModel.Instance.MaterialBoxhookOven1Location = SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookOven1Location;
+            DataModel.Instance.MaterialBoxhookOven2Location = SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookOven2Location;
+            DataModel.Instance.OverTrack1InOven = SystemConfiguration.Instance.PositioningConfig.OverTrack1InOven;
+            DataModel.Instance.OverTrack2InOven = SystemConfiguration.Instance.PositioningConfig.OverTrack2InOven;
+
             SQLiteProgram.Instance.Init();
 
             Thread.Sleep(1000);
@@ -158,109 +164,6 @@ namespace IOUtilityClsLib
             _enablePollingIO5 = false;
             _enablePollingIO6 = false;
         }
-
-        public bool IsTowerRedLightOn()
-        {
-            if (_boardCardController == null)
-            {
-                return false;
-            }
-            var ret = false;
-            var status = 0;
-            _boardCardController.IO_ReadOutput_2(11, (int)EnumBoardcardDefineOutputIO.TowerRedLight, out status);
-            ret = status == 1;
-            return ret;
-        }
-        /// <summary>
-        /// 亮红灯
-        /// </summary>
-        public void TurnonTowerRedLight()
-        {
-            if (_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerRedLight, 1);
-
-
-        }
-        /// <summary>
-        /// 灭红灯
-        /// </summary>
-        public void TurnoffTowerRedLight()
-        {
-            if (_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerRedLight, 0);
-        }
-
-        public bool IsTowerYellowLightOn()
-        {
-            var ret = false;
-            var status = 0;
-            _boardCardController.IO_ReadOutput_2(11, (int)EnumBoardcardDefineOutputIO.TowerYellowLight, out status);
-            ret = status == 1;
-            return ret;
-        }
-        /// <summary>
-        /// 亮黄灯
-        /// </summary>
-        public void TurnonTowerYellowLight()
-        {
-            if(_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerYellowLight, 1);
-        }
-        /// <summary>
-        /// 灭黄灯
-        /// </summary>
-        public void TurnoffTowerYellowLight()
-        {
-            if (_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerYellowLight, 0);
-        }
-        public bool IsTowerGreenLightOn()
-        {
-            if (_boardCardController == null)
-            {
-                return false;
-            }
-            var ret = false;
-            var status = 0;
-            _boardCardController.IO_ReadOutput_2(11, (int)EnumBoardcardDefineOutputIO.TowerGreenLight, out status);
-            ret = status == 1;
-            return ret;
-        }
-        /// <summary>
-        /// 亮绿灯
-        /// </summary>
-        public void TurnonTowerGreenLight()
-        {
-            if (_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerGreenLight, 1);
-        }
-        /// <summary>
-        /// 灭绿灯
-        /// </summary>
-        public void TurnoffTowerGreenLight()
-        {
-            if (_boardCardController == null)
-            {
-                return;
-            }
-            _boardCardController.IO_WriteOutPut_2(11, (int)EnumBoardcardDefineOutputIO.TowerGreenLight, 0);
-        }
-
 
 
 
@@ -399,6 +302,7 @@ namespace IOUtilityClsLib
                 if ((time - startTime).TotalMinutes >= 1)
                 {
                     DataModel.Instance.EquipmentOperatingTime++;
+                    DataModel.Instance.ThisEquipmentOperatingTime++;
                     startTime = DateTime.Now;
                 }
 
@@ -567,7 +471,7 @@ namespace IOUtilityClsLib
                         //IOManager.Instance.ChangeIOValue("BakeOvenDowntemp", BakeOvenDowntemp);
 
                         data = -1000;
-                        ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.EV_FLG, ref data));
+                        ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Read(TemperatureRtuAdd.E_PRG, ref data));
                         if (ret && data > -1)
                         {
                             bool BakeOvenAutoHeatstatus = data > 0;
@@ -600,7 +504,7 @@ namespace IOUtilityClsLib
                         //IOManager.Instance.ChangeIOValue("BakeOvenDowntemp", BakeOvenDowntemp);
 
                         data = -1000;
-                        ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.EV_FLG, ref data));
+                        ret = (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Read(TemperatureRtuAdd.E_PRG, ref data));
                         if (ret && data > -1)
                         {
                             bool BakeOvenAutoHeatstatus = data > 0;

@@ -1,6 +1,6 @@
 ﻿namespace TransportPanelClsLib
 {
-    partial class FrmTransportRecipeEditor
+    partial class FrmFixtureRecipeEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -42,10 +42,6 @@
             this.textPage = new DevExpress.XtraEditors.TextEdit();
             this.labelPageCount = new DevExpress.XtraEditors.LabelControl();
             this.textFind = new System.Windows.Forms.TextBox();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCopy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -83,10 +79,6 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.textFind, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnOK, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.btnAdd, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.btnCopy, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.btnDelete, 1, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -254,47 +246,7 @@
             this.textFind.TabIndex = 7;
             this.textFind.TextChanged += new System.EventHandler(this.textFind_TextChanged);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(689, 108);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(112, 38);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "新增";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(689, 158);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(112, 38);
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.Text = "编辑";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.Location = new System.Drawing.Point(689, 208);
-            this.btnCopy.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(112, 38);
-            this.btnCopy.TabIndex = 0;
-            this.btnCopy.Text = "复制";
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(689, 258);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 38);
-            this.btnDelete.TabIndex = 0;
-            this.btnDelete.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // FrmTransportRecipeEditor
+            // FrmFixtureRecipeEditor
             // 
             this.AcceptButton = this.btnOK;
             this.Appearance.Options.UseFont = true;
@@ -304,9 +256,9 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmTransportRecipeEditor";
+            this.Name = "FrmFixtureRecipeEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "编辑生产配方";
+            this.Text = "编辑膜具配方";
             this.Shown += new System.EventHandler(this.FrmRecipeSelect_Shown);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -334,9 +286,5 @@
         private DevExpress.XtraEditors.TextEdit textPage;
         private System.Windows.Forms.TextBox textFind;
         private DevExpress.XtraEditors.LabelControl labelPageCount;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraEditors.SimpleButton btnCopy;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
     }
 }

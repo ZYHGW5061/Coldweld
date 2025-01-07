@@ -1132,6 +1132,37 @@ namespace GlobalDataDefineClsLib
 
     }
 
+    [Serializable]
+    public class EnumTrainsportFixtureParam
+    {
+        public EnumTrainsportFixtureParam()
+        {
+            WeldCameraIdentifyMaterialMatchs = new List<MatchIdentificationParam>();
+        }
+
+        [XmlElement("Name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 焊接物料个数
+        /// </summary>
+        [XmlElement("WeldNum")]
+        public int WeldNum { get; set; }
+
+        /// <summary>
+        /// 物料钩爪到目标位置
+        /// </summary>
+        [XmlArray("MaterialHooktoTargetPosition"), XmlArrayItem(typeof(XYZTCoordinateConfig))]
+        public List<XYZTCoordinateConfig> MaterialHooktoTargetPosition { get; set; }
+
+        /// <summary>
+        /// 焊接相机识别物料
+        /// </summary>
+        [XmlArray("WeldCameraIdentifyMaterialMatchs"), XmlArrayItem(typeof(MatchIdentificationParam))]
+        public List<MatchIdentificationParam> WeldCameraIdentifyMaterialMatchs { get; set; }
+
+    }
+
 
     [Serializable]
     public class EnumTrainsportMaterialboxParam
@@ -1711,7 +1742,7 @@ namespace GlobalDataDefineClsLib
     public abstract class ACustomActionBaseClass { }
 
     [Serializable]
-    public enum EnumRecipeType { INVALID = 0, Bonder = 1, Heat = 2, Transport = 3, Material = 4, MaterialBox = 5 }
+    public enum EnumRecipeType { INVALID = 0, Bonder = 1, Heat = 2, Transport = 3, Material = 4, MaterialBox = 5 , Fixture = 6}
     /// <summary>
     /// 用于保存Job分析结果的类
     /// </summary>
@@ -1791,10 +1822,10 @@ namespace GlobalDataDefineClsLib
         /// </summary>
         MaterialHookPutdownMaterial,
 
-
-
-
     }
+
+
+
     [Serializable]
     public enum EnumTransferStatus
     {
@@ -2993,6 +3024,8 @@ namespace GlobalDataDefineClsLib
 
 
     }
+
+
     [Serializable]
     public enum EnumBoardcardDefineInputIO
     {
@@ -3026,6 +3059,8 @@ namespace GlobalDataDefineClsLib
         BakeOvenPressureSensor = 22,
 
         #endregion
+
+
 
         #region 烘箱2
 

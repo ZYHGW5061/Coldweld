@@ -32,6 +32,7 @@ using CameraControllerClsLib;
 using StageManagerClsLib;
 using WestDragon.Framework.BaseLoggerClsLib;
 using IOUtilityClsLib;
+using UserManagerClsLib;
 
 namespace BondTerminal
 {
@@ -48,6 +49,8 @@ namespace BondTerminal
         private System.Timers.Timer _refreshRunTimeSpanTimer = new System.Timers.Timer();
 
         private SynchronizationContext _syncContext;
+
+        private BackgroundWorker backgroundWorker;
 
 
         List<List<EnumMaterialproperties>> Materialproperties = new List<List<EnumMaterialproperties>>();
@@ -147,6 +150,13 @@ namespace BondTerminal
             _boardCardController = BoardCardManager.Instance.GetCurrentController();
 
             UpdateState();
+
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
+            backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
+
         }
 
         private void InitializeVisualForm()
@@ -176,7 +186,9 @@ namespace BondTerminal
             login.Dispose();
             login = null;
 
+            UpdataUser();
 
+            toolStrip1.Focus();
 
             //this._clockTimer = new System.Timers.Timer();
             //this._clockTimer.Enabled = true;
@@ -192,111 +204,22 @@ namespace BondTerminal
 
         }
 
-        /// <summary>
-        /// 系统时间更新
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClockTimerElapsedEventHandler(object sender, System.Timers.ElapsedEventArgs e)
+        private void UpdataUser()
         {
-            DateTime time = DateTime.Now;
-            this.toolStripStatusLabelNowTime.Text = time.ToShortDateString() + "  " + time.ToLongTimeString();
-
-        }
-        private int _systemRunTimeMin = 0;
-        private void OnTimerElapsedEvt(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            try
+            if (UserManager.Instance.CurrentUserType == 3 || UserManager.Instance.CurrentUserType == 2)
             {
-                _systemRunTimeMin++;
-                this.toolStripStatusLabelRunTime.Text = $"设备已运行：{_systemRunTimeMin} 分钟";
-                DataModel.Instance.EquipmentOperatingTime++;
-                SystemConfiguration.Instance.StatisticalDataConfig.EquipmentOperatingTime = DataModel.Instance.EquipmentOperatingTime;
+                btnJump.Enabled = false;
+                btnJump.Visible = false;
             }
-            finally
+            else if (UserManager.Instance.CurrentUserType == 1 || UserManager.Instance.CurrentUserType == 4)
             {
-            }
-        }
-
-        private void toolStripBtnStageControl_Click(object sender, EventArgs e)
-        {
-            FrmStageControl form = (Application.OpenForms["FrmStageControl"]) as FrmStageControl;
-            if (form == null)
-            {
-                form = new FrmStageControl();
-                form.Location = this.PointToScreen(new Point(500, 150));
-                form.Owner = this.FindForm();
-                //form.ShowLocation(new Point(500, 150));
-                //lightform.StartPosition = FormStartPosition.CenterScreen;
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-            FrmStageAxisMoveControl form1 = (Application.OpenForms["FrmStageAxisMoveControl"]) as FrmStageAxisMoveControl;
-            if (form1 == null)
-            {
-                form1 = new FrmStageAxisMoveControl();
-                form1.Location = this.PointToScreen(new Point(500, 600));
-                form1.ShowLocation(new Point(500, 600));
-                form1.Owner = this.FindForm();
-                form1.Show();
-            }
-            else
-            {
-                form1.Activate();
+                btnJump.Enabled = true;
+                btnJump.Visible = true;
             }
         }
 
 
-        private void toolStripBtnCameraControl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CameraForm != null)
-            {
-                int CurrentCameraNum = CameraWindowGUI.Instance.CurrentCameraNum;
-                CameraWindowGUI.Instance.Size = new Size(1100, 900);
-                CameraWindowGUI.Instance.SelectCamera(CurrentCameraNum);
-                CameraWindowForm.Instance.Size = new System.Drawing.Size(1150, 950);
-                CameraWindowForm.Instance.ShowLocation(new Point(300, 10));
-                CameraWindowForm.Instance.ControlBox = true;
-                CameraForm.Owner = this.FindForm();
-                CameraForm.Show();
-            }
-        }
-
-
-
-        private void 手动校准ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SystemCalibration.Instance.ManualRun();
-        }
-
-        private void 自动校准ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SystemCalibration.Instance.MaterialHookReturnSafeLocation(2);
-        }
-
-        private void 系统初始化ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //string name = "搬送相机识别测试";
-            //string title = "";
-            //VisualMatchControlGUI visualMatch = new VisualMatchControlGUI();
-            //visualMatch.InitVisualControl(CameraWindowGUI.Instance, SystemCalibration.Instance.TrackCameraVisual);
-
-            //visualMatch.SetVisualParam(_systemConfig.SystemCalibrationConfig.BondIdentifyBondOrigionMatch);
-
-            //int Done = SystemCalibration.Instance.ShowVisualForm(visualMatch, name, title);
-
-            ////_systemConfig.SaveConfig();
-            ////HardwareConfiguration.Instance.SaveConfig();
-            ////SystemCalibration.Instance.Initialization();
-        }
-
-        private void toolStripBtnLightControl_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
+        #region 下拉菜单
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -311,21 +234,6 @@ namespace BondTerminal
             }
         }
 
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-            FrmIOtest form = (Application.OpenForms["FrmIOtest"]) as FrmIOtest;
-            if (form == null)
-            {
-                form = new FrmIOtest();
-                form.Location = this.PointToScreen(new Point(750, 750));
-                form.Owner = this.FindForm();
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
 
         private void iO测试ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -336,30 +244,13 @@ namespace BondTerminal
 
         }
 
-        private void toolStripBtnLightControl_Click(object sender, EventArgs e)
-        {
-            FrmLightControl form = (Application.OpenForms["FrmLightControl"]) as FrmLightControl;
-            if (form == null)
-            {
-                form = new FrmLightControl();
-                form.Location = this.PointToScreen(new Point(1350, 10));
-                form.Owner = this.FindForm();
-                //lightform.StartPosition = FormStartPosition.CenterScreen;
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
-                    if(!DataModel.Instance.OvenBox1Function && !DataModel.Instance.OvenBox2Function && !DataModel.Instance.CondenserPump)
+                    if (!DataModel.Instance.OvenBox1Function && !DataModel.Instance.OvenBox2Function && !DataModel.Instance.CondenserPump)
                     {
                         if (WarningBox.FormShow("确认关闭？", "确认退出软件？", "提示") == 0)
                         {
@@ -376,7 +267,7 @@ namespace BondTerminal
                     }
                     else
                     {
-                        if(DataModel.Instance.OvenBox1Function)
+                        if (DataModel.Instance.OvenBox1Function)
                         {
                             if (WarningBox.FormShow("确认关闭？", "请先停止烘箱1抽真空！停止分子泵！", "警告") == 0)
                             {
@@ -448,7 +339,7 @@ namespace BondTerminal
 
 
                     }
-                    
+
 
                 }
             }
@@ -492,22 +383,6 @@ namespace BondTerminal
             }
         }
 
-        private void OvenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmOvenBoxControl form = (Application.OpenForms["FrmOvenBoxControl"]) as FrmOvenBoxControl;
-            if (form == null)
-            {
-                form = new FrmOvenBoxControl();
-                form.Location = this.PointToScreen(new Point(500, 500));
-                form.Owner = this.FindForm();
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
-
         private void OvenHeatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTemperatureControlPanel form = (Application.OpenForms["FrmTemperatureControlPanel"]) as FrmTemperatureControlPanel;
@@ -524,6 +399,85 @@ namespace BondTerminal
             }
         }
 
+
+        private void btnAllAxisStop_Click(object sender, EventArgs e)
+        {
+            //_positionSystem.StopAll();
+            if (!Isstop)
+            {
+                _positionSystem.TriggerStop();
+                Isstop = true;
+                btnAllAxisStop.BackColor = Color.GreenYellow;
+                btnAllAxisStop.Text = "解除急停";
+            }
+            else
+            {
+                _positionSystem.ReleaseStop();
+                Isstop = false;
+                btnAllAxisStop.BackColor = Color.Red;
+                btnAllAxisStop.Text = "急停";
+            }
+
+        }
+
+        private void 分子泵控制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTurboMolecularPumpControl form = (Application.OpenForms["FrmTurboMolecularPumpontrolPanel"]) as FrmTurboMolecularPumpControl;
+            if (form == null)
+            {
+                form = new FrmTurboMolecularPumpControl();
+                form.Location = this.PointToScreen(new Point(500, 500));
+                form.Owner = this.FindForm();
+                form.Show(this);
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void 真空计ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVacuumControl form = (Application.OpenForms["FrmVacuumControlPanel"]) as FrmVacuumControl;
+            if (form == null)
+            {
+                form = new FrmVacuumControl();
+                form.Location = this.PointToScreen(new Point(500, 500));
+                form.Owner = this.FindForm();
+                form.Show(this);
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        private void 焊接统计ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CountForm form = (Application.OpenForms["CountForm"]) as CountForm;
+            if (form == null)
+            {
+                form = new CountForm();
+                form.Location = this.PointToScreen(new Point(500, 500));
+                form.Owner = this.FindForm();
+                form.Show(this);
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
+
+        #endregion
+
+        #region 配方编程
+
+
+        /// <summary>
+        /// 配方编程
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TransportRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTransportRecipeEditor form = (Application.OpenForms["FrmTransportRecipeEditor"]) as FrmTransportRecipeEditor;
@@ -540,6 +494,12 @@ namespace BondTerminal
             }
         }
 
+
+        /// <summary>
+        /// 加热配方编程
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HeatRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmHeatRecipeSelect form = (Application.OpenForms["FrmHeatRecipeSelect"]) as FrmHeatRecipeSelect;
@@ -556,13 +516,23 @@ namespace BondTerminal
             }
         }
 
-        private void ProductToolStripMenuItem1_Click(object sender, EventArgs e)
+
+        #endregion
+
+        #region 快捷菜单
+
+        /// <summary>
+        /// IO控制弹窗
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            FrmProductMain form = (Application.OpenForms["FrmProductMainPanel"]) as FrmProductMain;
+            FrmIOtest form = (Application.OpenForms["FrmIOtest"]) as FrmIOtest;
             if (form == null)
             {
-                form = new FrmProductMain();
-                form.Location = this.PointToScreen(new Point(1000, 500));
+                form = new FrmIOtest();
+                form.Location = this.PointToScreen(new Point(750, 750));
                 form.Owner = this.FindForm();
                 form.Show(this);
             }
@@ -570,14 +540,69 @@ namespace BondTerminal
             {
                 form.Activate();
             }
-
         }
 
-        private void HeatRunToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 轴控制弹窗
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripBtnStageControl_Click(object sender, EventArgs e)
         {
-
+            FrmStageControl form = (Application.OpenForms["FrmStageControl"]) as FrmStageControl;
+            if (form == null)
+            {
+                form = new FrmStageControl();
+                form.Location = this.PointToScreen(new Point(500, 150));
+                form.Owner = this.FindForm();
+                //form.ShowLocation(new Point(500, 150));
+                //lightform.StartPosition = FormStartPosition.CenterScreen;
+                form.Show(this);
+            }
+            else
+            {
+                form.Activate();
+            }
+            //FrmStageAxisMoveControl form1 = (Application.OpenForms["FrmStageAxisMoveControl"]) as FrmStageAxisMoveControl;
+            //if (form1 == null)
+            //{
+            //    form1 = new FrmStageAxisMoveControl();
+            //    form1.Location = this.PointToScreen(new Point(500, 600));
+            //    form1.ShowLocation(new Point(500, 600));
+            //    form1.Owner = this.FindForm();
+            //    form1.Show();
+            //}
+            //else
+            //{
+            //    form1.Activate();
+            //}
         }
 
+        /// <summary>
+        /// 相机弹窗
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripBtnCameraControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CameraForm != null)
+            {
+                int CurrentCameraNum = CameraWindowGUI.Instance.CurrentCameraNum;
+                CameraWindowGUI.Instance.Size = new Size(1100, 900);
+                CameraWindowGUI.Instance.SelectCamera(CurrentCameraNum);
+                CameraWindowForm.Instance.Size = new System.Drawing.Size(1150, 950);
+                CameraWindowForm.Instance.ShowLocation(new Point(300, 10));
+                CameraWindowForm.Instance.ControlBox = true;
+                CameraForm.Owner = this.FindForm();
+                CameraForm.Show();
+            }
+        }
+
+        /// <summary>
+        /// 回空闲位置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolSafeButton1_Click(object sender, EventArgs e)
         {
             double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
@@ -587,103 +612,313 @@ namespace BondTerminal
             {
                 if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
                 {
-
+                    return;
                 }
                 else
                 {
-                    return;
+                    
                 }
             }
 
             SystemCalibration.Instance.MaterialBoxHookReturnSafeLocation();
             SystemCalibration.Instance.MaterialHookReturnSafeLocation();
         }
+
+        /// <summary>
+        /// 回零
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolHomeButton7_Click(object sender, EventArgs e)
         {
             SystemCalibration.Instance.ReturnHome();
         }
 
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            if (login.ShowDialog() != DialogResult.OK)
+            {
+                Application.Exit();
+                return;
+            }
+            login.Dispose();
+            login = null;
+
+            UpdataUser();
+        }
+
+        /// <summary>
+        /// 系统配置保存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            int data = SystemCalibration.Instance.ShowMessage("保存", "是否保存系统配置?", "提示");
+            if (data == 1)
+            {
+                SystemConfiguration.Instance.SaveConfig();
+            }
+            else
+            {
+
+            }
+        }
+
+
+        #endregion
+
         #region 生产
 
-
-        private void btnSelectTransportRecipe_Click(object sender, EventArgs e)
+        private void StartTask(string taskName)
         {
-            //LogRecorder.RecordLog(EnumLogContentType.Info, string.Format("JobControlPanel: User clicked <{0}> Button", (sender as Control).Text));
-            //选择一个recipe
-            FrmTransportRecipeEditor selectRecipeDialog = new FrmTransportRecipeEditor(null, this.teTransportRecipeName.Text.ToUpper().Trim());
-            if (selectRecipeDialog.ShowDialog(this.FindForm()) == DialogResult.OK)
+            if (!backgroundWorker.IsBusy)
+            {
+                backgroundWorker.RunWorkerAsync(taskName);
+            }
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string taskName = e.Argument as string;
+
+            // 根据参数执行不同的任务  
+            if (taskName == "SelectTransportRecipe")
+            {
+                //LogRecorder.RecordLog(EnumLogContentType.Info, string.Format("JobControlPanel: User clicked <{0}> Button", (sender as Control).Text));
+                //选择一个recipe
+                FrmTransportRecipeEditor selectRecipeDialog = new FrmTransportRecipeEditor(null, this.teTransportRecipeName.Text.ToUpper().Trim());
+                if (selectRecipeDialog.ShowDialog(this.FindForm()) == DialogResult.OK)
+                {
+                    try
+                    {
+                        _selectedHeatRecipeName = selectRecipeDialog.SelectedRecipeName;
+                        //验证Recipe是否完整
+                        if (!TransportRecipe.Validate(_selectedHeatRecipeName, selectRecipeDialog.RecipeType))
+                        {
+                            WarningBox.FormShow("错误！", "配方无效！", "提示");
+                            return;
+                        }
+                        else
+                        {
+                            //var heatRecipe = TransportRecipe.LoadRecipe(_selectedHeatRecipeName, selectRecipeDialog.RecipeType);
+                            teTransportRecipeName.Text = selectRecipeDialog.SelectedRecipeName;
+                            var transportRecipe = TransportRecipe.LoadRecipe(selectRecipeDialog.SelectedRecipeName, selectRecipeDialog.RecipeType);
+                            JobProcessControl.Instance.SetRecipe(transportRecipe);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //LogRecorder.RecordLog(EnumLogContentType.Error, "JobControlPanel: Exception occured while Loading Recipe.", ex);
+                    }
+                }
+            }
+            else if (taskName == "Run")
             {
                 try
                 {
-                    _selectedHeatRecipeName = selectRecipeDialog.SelectedRecipeName;
+                    var runningType = SystemConfiguration.Instance.JobConfig.RunningType;
+                    if (runningType == EnumRunningType.Actual)
+                    {
+                        double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
+                        double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
+
+                        if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
+                        {
+                            if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                    }
+
+
+
+                    _selectedHeatRecipeName = teTransportRecipeName.Text;
                     //验证Recipe是否完整
-                    if (!TransportRecipe.Validate(_selectedHeatRecipeName, selectRecipeDialog.RecipeType))
+                    if (!TransportRecipe.Validate(_selectedHeatRecipeName, EnumRecipeType.Transport))
                     {
                         WarningBox.FormShow("错误！", "配方无效！", "提示");
                         return;
                     }
                     else
                     {
-                        //var heatRecipe = TransportRecipe.LoadRecipe(_selectedHeatRecipeName, selectRecipeDialog.RecipeType);
-                        teTransportRecipeName.Text = selectRecipeDialog.SelectedRecipeName;
-                        var transportRecipe = TransportRecipe.LoadRecipe(selectRecipeDialog.SelectedRecipeName, selectRecipeDialog.RecipeType);
+                        var transportRecipe = TransportRecipe.LoadRecipe(teTransportRecipeName.Text, EnumRecipeType.Transport);
                         JobProcessControl.Instance.SetRecipe(transportRecipe);
+                        JobProcessControl.Instance.Run();
                     }
                 }
                 catch (Exception ex)
                 {
-                    //LogRecorder.RecordLog(EnumLogContentType.Error, "JobControlPanel: Exception occured while Loading Recipe.", ex);
+
+                }
+            }
+            else if (taskName == "PausedOrSingle")
+            {
+                try
+                {
+                    JobProcessControl.Instance.PausedOrSingle();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else if (taskName == "Continue")
+            {
+                try
+                {
+                    JobProcessControl.Instance.Continue();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else if (taskName == "Stop")
+            {
+                try
+                {
+                    JobProcessControl.Instance.Stop();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else if (taskName == "Jump")
+            {
+                int Index = (int)numProcessIndex.Value;
+                if (Index > -1 && Index < ProcesslistView.Items.Count)
+                {
+                    DataModel.Instance.ProcessIndex = Index;
+                }
+            }
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("任务完成!");
+        }
+
+        private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // 更新UI进度  
+            Console.WriteLine($"进度: {e.ProgressPercentage}%");
+        }
+
+
+        private void btnSelectTransportRecipe_Click(object sender, EventArgs e)
+        {
+            //StartTask("SelectTransportRecipe");
+
+            //LogRecorder.RecordLog(EnumLogContentType.Info, string.Format("JobControlPanel: User clicked <{0}> Button", (sender as Control).Text));
+            //选择一个recipe
+            FrmTransportRecipeEditor selectRecipeDialog = (Application.OpenForms["FrmTransportRecipeEditor"]) as FrmTransportRecipeEditor;
+            if (selectRecipeDialog == null)
+            {
+                selectRecipeDialog = new FrmTransportRecipeEditor(null, this.teTransportRecipeName.Text.ToUpper().Trim());
+                selectRecipeDialog.Location = this.PointToScreen(new Point(500, 500));
+                selectRecipeDialog.Owner = this.FindForm();
+                //selectRecipeDialog.Show(this);
+
+                
+                if (selectRecipeDialog.ShowDialog(this.FindForm()) == DialogResult.OK)
+                {
+                    try
+                    {
+                        _selectedHeatRecipeName = selectRecipeDialog.SelectedRecipeName;
+                        //验证Recipe是否完整
+                        if (!TransportRecipe.Validate(_selectedHeatRecipeName, selectRecipeDialog.RecipeType))
+                        {
+                            WarningBox.FormShow("错误！", "配方无效！", "提示");
+                            return;
+                        }
+                        else
+                        {
+                            //var heatRecipe = TransportRecipe.LoadRecipe(_selectedHeatRecipeName, selectRecipeDialog.RecipeType);
+                            teTransportRecipeName.Text = selectRecipeDialog.SelectedRecipeName;
+                            var transportRecipe = TransportRecipe.LoadRecipe(selectRecipeDialog.SelectedRecipeName, selectRecipeDialog.RecipeType);
+                            JobProcessControl.Instance.SetRecipe(transportRecipe);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //LogRecorder.RecordLog(EnumLogContentType.Error, "JobControlPanel: Exception occured while Loading Recipe.", ex);
+                    }
                 }
             }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
+            //StartTask("Run");
+
             try
             {
-                var runningType = SystemConfiguration.Instance.JobConfig.RunningType;
-                if (runningType == EnumRunningType.Actual)
+                int data = SystemCalibration.Instance.ShowMessage("自动生产", $"是否开始自动生产?", "提示");
+                if (data == 1)
                 {
-                    double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
-                    double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
-
-                    if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
+                    var runningType = SystemConfiguration.Instance.JobConfig.RunningType;
+                    if (runningType == EnumRunningType.Actual)
                     {
-                        if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
-                        {
+                        double X = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxX);
+                        double Y = _positionSystem.ReadCurrentStagePosition(EnumStageAxis.MaterialboxY);
 
-                        }
-                        else
+                        if (Math.Abs(X) < 5 && Math.Abs(Y) < 5)
                         {
-                            return;
+                            if (WarningBox.FormShow("错误！", "是否确认运动轴已经全部回零！", "警告") == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                return;
+                            }
                         }
                     }
+
+
+
+                    _selectedHeatRecipeName = teTransportRecipeName.Text;
+                    //验证Recipe是否完整
+                    if (!TransportRecipe.Validate(_selectedHeatRecipeName, EnumRecipeType.Transport))
+                    {
+                        WarningBox.FormShow("错误！", "配方无效！", "提示");
+                        return;
+                    }
+                    else
+                    {
+                        var transportRecipe = TransportRecipe.LoadRecipe(teTransportRecipeName.Text, EnumRecipeType.Transport);
+                        JobProcessControl.Instance.SetRecipe(transportRecipe);
+                        JobProcessControl.Instance.Run();
+                    }
+
                 }
 
                 
-
-                _selectedHeatRecipeName = teTransportRecipeName.Text;
-                //验证Recipe是否完整
-                if (!TransportRecipe.Validate(_selectedHeatRecipeName, EnumRecipeType.Transport))
-                {
-                    WarningBox.FormShow("错误！", "配方无效！", "提示");
-                    return;
-                }
-                else
-                {
-                    var transportRecipe = TransportRecipe.LoadRecipe(teTransportRecipeName.Text, EnumRecipeType.Transport);
-                    JobProcessControl.Instance.SetRecipe(transportRecipe);
-                    JobProcessControl.Instance.Run();
-                }
             }
             catch (Exception ex)
             {
 
             }
+
         }
 
         private void btnPausedOrSingle_Click(object sender, EventArgs e)
         {
+            //StartTask("PausedOrSingle");
+
             try
             {
                 JobProcessControl.Instance.PausedOrSingle();
@@ -696,6 +931,8 @@ namespace BondTerminal
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            //StartTask("Continue");
+
             try
             {
                 JobProcessControl.Instance.Continue();
@@ -704,28 +941,55 @@ namespace BondTerminal
             {
 
             }
+
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            //StartTask("Stop");
+
             try
             {
-                JobProcessControl.Instance.Stop();
+                int data = SystemCalibration.Instance.ShowMessage("停止流程", $"是否停止流程?", "提示");
+                if (data == 1)
+                {
+                    JobProcessControl.Instance.Stop();
+                }
+
+                
             }
             catch (Exception ex)
             {
 
             }
+
         }
 
         private void btnJump_Click(object sender, EventArgs e)
         {
+            //StartTask("Jump");
+
             int Index = (int)numProcessIndex.Value;
             if (Index > -1 && Index < ProcesslistView.Items.Count)
             {
-                DataModel.Instance.ProcessIndex = Index;
+                int data = SystemCalibration.Instance.ShowMessage("跳步", $"是否跳转到第{Index}步?", "提示");
+                if (data == 1)
+                {
+                    DataModel.Instance.ProcessIndex = Index;
+                }
+                
             }
         }
+
+        private void numProcessIndex_ValueChanged(object sender, EventArgs e)
+        {
+            //if((int)numProcessIndex.Value > -1 && (int)numProcessIndex.Value < ProcesslistView.Items.Count)
+            //{
+            //    DataModel.Instance.ProcessIndex = (int)numProcessIndex.Value - 1;
+            //}
+
+        }
+
 
         private void UpdateJobLogText(string str)
         {
@@ -1618,25 +1882,33 @@ namespace BondTerminal
                 //UpdateWeldMaterialNumber();
             }
 
-            if (e.PropertyName == nameof(DataModel.WeldMaterialNumber))
+            if (e.PropertyName == nameof(DataModel.ThisEquipmentOperatingTime))
             {
-                _syncContext.Post(_ => laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString(), null);
-                //UpdateWeldMaterialNumber();
-            }
-
-            if (e.PropertyName == nameof(DataModel.PressWorkNumber))
-            {
-                _syncContext.Post(_ => laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString(), null);
-                //UpdatePressWorkNumber();
-            }
-
-            if (e.PropertyName == nameof(DataModel.EquipmentOperatingTime))
-            {
-                _syncContext.Post(_ => laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+                _syncContext.Post(_ => laRunTime.Text = "本次运行:" + DataModel.Instance.ThisEquipmentOperatingTime.ToString() + "分钟", null);
                 //_syncContext.Post(_ => toolStripStatusLabelRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
 
                 //UpdateEquipmentOperatingTime();
             }
+
+            //if (e.PropertyName == nameof(DataModel.WeldMaterialNumber))
+            //{
+            //    _syncContext.Post(_ => laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString(), null);
+            //    //UpdateWeldMaterialNumber();
+            //}
+
+            //if (e.PropertyName == nameof(DataModel.PressWorkNumber))
+            //{
+            //    _syncContext.Post(_ => laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString(), null);
+            //    //UpdatePressWorkNumber();
+            //}
+
+            //if (e.PropertyName == nameof(DataModel.EquipmentOperatingTime))
+            //{
+            //    _syncContext.Post(_ => laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+            //    //_syncContext.Post(_ => toolStripStatusLabelRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString(), null);
+
+            //    //UpdateEquipmentOperatingTime();
+            //}
 
 
             #endregion
@@ -1837,11 +2109,11 @@ namespace BondTerminal
 
             #region 统计
 
-            laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString();
+            //laWeldMaterial.Text = DataModel.Instance.WeldMaterialNumber.ToString();
 
-            laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString();
+            //laPressNum.Text = DataModel.Instance.PressWorkNumber.ToString();
 
-            laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString();
+            //laRunTime.Text = DataModel.Instance.EquipmentOperatingTime.ToString();
 
 
             #endregion
@@ -2404,90 +2676,12 @@ namespace BondTerminal
 
 
 
+
+
+
+
+
         #endregion
-
-        private void 箱体控制ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmOvenBoxControl form = (Application.OpenForms["FrmOvenBoxControl"]) as FrmOvenBoxControl;
-            if (form == null)
-            {
-                form = new FrmOvenBoxControl();
-                form.Location = this.PointToScreen(new Point(500, 500));
-                form.Owner = this.FindForm();
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
-
-        private void 测试按键ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SystemConfiguration.Instance.SaveConfig();
-        }
-
-        
-        private void btnAllAxisStop_Click(object sender, EventArgs e)
-        {
-            //_positionSystem.StopAll();
-            if(!Isstop)
-            {
-                _positionSystem.TriggerStop();
-                Isstop = true;
-                btnAllAxisStop.BackColor = Color.GreenYellow;
-                btnAllAxisStop.Text = "接触急停";
-            }
-            else
-            {
-                _positionSystem.ReleaseStop();
-                Isstop = false;
-                btnAllAxisStop.BackColor = Color.Red;
-                btnAllAxisStop.Text = "急停";
-            }
-
-        }
-
-        private void 分子泵控制ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmTurboMolecularPumpControl form = (Application.OpenForms["FrmTurboMolecularPumpontrolPanel"]) as FrmTurboMolecularPumpControl;
-            if (form == null)
-            {
-                form = new FrmTurboMolecularPumpControl();
-                form.Location = this.PointToScreen(new Point(500, 500));
-                form.Owner = this.FindForm();
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
-
-        private void 真空计ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmVacuumControl form = (Application.OpenForms["FrmVacuumControlPanel"]) as FrmVacuumControl;
-            if (form == null)
-            {
-                form = new FrmVacuumControl();
-                form.Location = this.PointToScreen(new Point(500, 500));
-                form.Owner = this.FindForm();
-                form.Show(this);
-            }
-            else
-            {
-                form.Activate();
-            }
-        }
-
-        private void numProcessIndex_ValueChanged(object sender, EventArgs e)
-        {
-            //if((int)numProcessIndex.Value > -1 && (int)numProcessIndex.Value < ProcesslistView.Items.Count)
-            //{
-            //    DataModel.Instance.ProcessIndex = (int)numProcessIndex.Value - 1;
-            //}
-            
-        }
 
         
     }

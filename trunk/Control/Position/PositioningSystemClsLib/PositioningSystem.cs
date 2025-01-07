@@ -240,6 +240,32 @@ namespace PositioningSystemClsLib
         {
             _stageMotionControl.DisableAlarmLimit(axis);
         }
+
+
+        /// <summary>
+        /// 回零
+        /// </summary>
+        public void Home(EnumStageAxis axis)
+        {
+            _stageMotionControl.ReturnHome(axis);
+        }
+
+        /// <summary>
+        /// 使能
+        /// </summary>
+        public void Enable(EnumStageAxis axis)
+        {
+            _stageMotionControl.Enable(axis);
+        }
+
+        /// <summary>
+        /// 去使能
+        /// </summary>
+        public void Disable(EnumStageAxis axis)
+        {
+            _stageMotionControl.Disable(axis);
+        }
+
     }
 
 }

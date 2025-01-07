@@ -30,16 +30,31 @@ namespace ControlPanelClsLib.Manual
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions20 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject79 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject80 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions21 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject81 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject82 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject83 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject84 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions22 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject85 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject86 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject87 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject88 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -95,11 +110,11 @@ namespace ControlPanelClsLib.Manual
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions22 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject85 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject86 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject87 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject88 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions13 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject50 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -120,21 +135,6 @@ namespace ControlPanelClsLib.Manual
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject62 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject63 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject64 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions17 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject65 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject66 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject67 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject68 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions18 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject71 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject72 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions19 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MovePage = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -399,12 +399,9 @@ namespace ControlPanelClsLib.Manual
             this.laBakeOven2FrontStageValve = new System.Windows.Forms.Label();
             this.laBakeOven2Aerate = new System.Windows.Forms.Label();
             this.laBakeOven2InnerdoorUpDown = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
             this.laBoxCoarseExtractionValve = new System.Windows.Forms.Label();
             this.laBoxFrontStageValve = new System.Windows.Forms.Label();
             this.laBoxAerate = new System.Windows.Forms.Label();
-            this.laBoxPlugInValve = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
@@ -416,7 +413,6 @@ namespace ControlPanelClsLib.Manual
             this.label93 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
-            this.laPressPressingDivide = new System.Windows.Forms.Label();
             this.laTowerRedLight = new System.Windows.Forms.Label();
             this.laTowerYellowLight = new System.Windows.Forms.Label();
             this.laTowerGreenLight = new System.Windows.Forms.Label();
@@ -431,8 +427,6 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOvenInnerdoorUpDown = new System.Windows.Forms.CheckBox();
             this.chBakeOvenPlugInValve = new System.Windows.Forms.CheckBox();
             this.chBakeOven2InnerdoorUpDown = new System.Windows.Forms.CheckBox();
-            this.chBoxPlugInValve = new System.Windows.Forms.CheckBox();
-            this.chPressPressingDivide = new System.Windows.Forms.CheckBox();
             this.chBakeOven2PlugInValve = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -471,7 +465,16 @@ namespace ControlPanelClsLib.Manual
             this.laIOlocken = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.chIOlocken = new System.Windows.Forms.CheckBox();
+            this.chPressPressingDivide = new System.Windows.Forms.CheckBox();
+            this.chBoxPlugInValve = new System.Windows.Forms.CheckBox();
+            this.laPressPressingDivide = new System.Windows.Forms.Label();
+            this.laBoxPlugInValve = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
             this.Updatetimer = new System.Windows.Forms.Timer(this.components);
+            this.btnEnable = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDisable = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReturnhome = new DevExpress.XtraEditors.SimpleButton();
             this.tabControl1.SuspendLayout();
             this.MovePage.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -849,7 +852,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialBoxX.Name = "seMaterialBoxX";
             this.seMaterialBoxX.Properties.AutoHeight = false;
             this.seMaterialBoxX.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialBoxX.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxX.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxX.Properties.MaskSettings.Set("mask", "f3");
@@ -926,7 +929,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialBoxY.Name = "seMaterialBoxY";
             this.seMaterialBoxY.Properties.AutoHeight = false;
             this.seMaterialBoxY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions21, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject81, serializableAppearanceObject82, serializableAppearanceObject83, serializableAppearanceObject84, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialBoxY.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxY.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxY.Properties.MaskSettings.Set("mask", "f3");
@@ -948,7 +951,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialBoxZ.Name = "seMaterialBoxZ";
             this.seMaterialBoxZ.Properties.AutoHeight = false;
             this.seMaterialBoxZ.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions20, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, serializableAppearanceObject78, serializableAppearanceObject79, serializableAppearanceObject80, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialBoxZ.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxZ.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxZ.Properties.MaskSettings.Set("mask", "f3");
@@ -970,7 +973,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialBoxT.Name = "seMaterialBoxT";
             this.seMaterialBoxT.Properties.AutoHeight = false;
             this.seMaterialBoxT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions21, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject81, serializableAppearanceObject82, serializableAppearanceObject83, serializableAppearanceObject84, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialBoxT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxT.Properties.MaskSettings.Set("mask", "f3");
@@ -992,7 +995,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialBoxH.Name = "seMaterialBoxH";
             this.seMaterialBoxH.Properties.AutoHeight = false;
             this.seMaterialBoxH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions22, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject85, serializableAppearanceObject86, serializableAppearanceObject87, serializableAppearanceObject88, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialBoxH.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxH.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialBoxH.Properties.MaskSettings.Set("mask", "f3");
@@ -1681,7 +1684,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialX.Name = "seMaterialX";
             this.seMaterialX.Properties.AutoHeight = false;
             this.seMaterialX.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialX.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialX.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialX.Properties.MaskSettings.Set("mask", "f3");
@@ -1736,7 +1739,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialY.Name = "seMaterialY";
             this.seMaterialY.Properties.AutoHeight = false;
             this.seMaterialY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialY.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialY.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialY.Properties.MaskSettings.Set("mask", "f3");
@@ -1758,7 +1761,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialZ.Name = "seMaterialZ";
             this.seMaterialZ.Properties.AutoHeight = false;
             this.seMaterialZ.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialZ.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialZ.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialZ.Properties.MaskSettings.Set("mask", "f3");
@@ -2023,7 +2026,7 @@ namespace ControlPanelClsLib.Manual
             this.seMaterialH.Name = "seMaterialH";
             this.seMaterialH.Properties.AutoHeight = false;
             this.seMaterialH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seMaterialH.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialH.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seMaterialH.Properties.MaskSettings.Set("mask", "f3");
@@ -2371,7 +2374,7 @@ namespace ControlPanelClsLib.Manual
             this.seOvenTrack1.Name = "seOvenTrack1";
             this.seOvenTrack1.Properties.AutoHeight = false;
             this.seOvenTrack1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seOvenTrack1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOvenTrack1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOvenTrack1.Properties.MaskSettings.Set("mask", "f3");
@@ -2426,7 +2429,7 @@ namespace ControlPanelClsLib.Manual
             this.seOvenTrack2.Name = "seOvenTrack2";
             this.seOvenTrack2.Properties.AutoHeight = false;
             this.seOvenTrack2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seOvenTrack2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOvenTrack2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seOvenTrack2.Properties.MaskSettings.Set("mask", "f3");
@@ -2448,7 +2451,7 @@ namespace ControlPanelClsLib.Manual
             this.sePresslifting.Name = "sePresslifting";
             this.sePresslifting.Properties.AutoHeight = false;
             this.sePresslifting.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.sePresslifting.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.sePresslifting.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.sePresslifting.Properties.MaskSettings.Set("mask", "f3");
@@ -2702,6 +2705,9 @@ namespace ControlPanelClsLib.Manual
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.btnReturnhome);
+            this.groupBox10.Controls.Add(this.btnDisable);
+            this.groupBox10.Controls.Add(this.btnEnable);
             this.groupBox10.Controls.Add(this.btnAllAxisStop);
             this.groupBox10.Controls.Add(this.btnAxisStop);
             this.groupBox10.Controls.Add(this.btnLimiteffective);
@@ -2744,7 +2750,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // btnAllAxisStop
             // 
-            this.btnAllAxisStop.Location = new System.Drawing.Point(196, 245);
+            this.btnAllAxisStop.Location = new System.Drawing.Point(936, 177);
             this.btnAllAxisStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAllAxisStop.Name = "btnAllAxisStop";
             this.btnAllAxisStop.Size = new System.Drawing.Size(133, 45);
@@ -2754,7 +2760,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // btnAxisStop
             // 
-            this.btnAxisStop.Location = new System.Drawing.Point(21, 245);
+            this.btnAxisStop.Location = new System.Drawing.Point(735, 178);
             this.btnAxisStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAxisStop.Name = "btnAxisStop";
             this.btnAxisStop.Size = new System.Drawing.Size(133, 45);
@@ -2764,30 +2770,30 @@ namespace ControlPanelClsLib.Manual
             // 
             // btnLimiteffective
             // 
-            this.btnLimiteffective.Location = new System.Drawing.Point(821, 108);
+            this.btnLimiteffective.Location = new System.Drawing.Point(735, 231);
             this.btnLimiteffective.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLimiteffective.Name = "btnLimiteffective";
-            this.btnLimiteffective.Size = new System.Drawing.Size(139, 51);
+            this.btnLimiteffective.Size = new System.Drawing.Size(133, 45);
             this.btnLimiteffective.TabIndex = 134;
             this.btnLimiteffective.Text = "所有限位生效";
             this.btnLimiteffective.Click += new System.EventHandler(this.btnLimiteffective_Click);
             // 
             // btnLimitfailure
             // 
-            this.btnLimitfailure.Location = new System.Drawing.Point(821, 18);
+            this.btnLimitfailure.Location = new System.Drawing.Point(936, 230);
             this.btnLimitfailure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLimitfailure.Name = "btnLimitfailure";
-            this.btnLimitfailure.Size = new System.Drawing.Size(139, 51);
+            this.btnLimitfailure.Size = new System.Drawing.Size(133, 45);
             this.btnLimitfailure.TabIndex = 133;
             this.btnLimitfailure.Text = "所有限位失效";
             this.btnLimitfailure.Click += new System.EventHandler(this.btnLimitfailure_Click);
             // 
             // btnChangeCurAxis
             // 
-            this.btnChangeCurAxis.Location = new System.Drawing.Point(648, 21);
+            this.btnChangeCurAxis.Location = new System.Drawing.Point(735, 19);
             this.btnChangeCurAxis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChangeCurAxis.Name = "btnChangeCurAxis";
-            this.btnChangeCurAxis.Size = new System.Drawing.Size(72, 51);
+            this.btnChangeCurAxis.Size = new System.Drawing.Size(133, 45);
             this.btnChangeCurAxis.TabIndex = 129;
             this.btnChangeCurAxis.Text = "读值";
             this.btnChangeCurAxis.Click += new System.EventHandler(this.btnChangeCurAxis_Click);
@@ -2814,7 +2820,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // btnDisableAlarmLimit
             // 
-            this.btnDisableAlarmLimit.Location = new System.Drawing.Point(197, 192);
+            this.btnDisableAlarmLimit.Location = new System.Drawing.Point(936, 72);
             this.btnDisableAlarmLimit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisableAlarmLimit.Name = "btnDisableAlarmLimit";
             this.btnDisableAlarmLimit.Size = new System.Drawing.Size(133, 45);
@@ -2824,7 +2830,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // btnClrAlarm
             // 
-            this.btnClrAlarm.Location = new System.Drawing.Point(21, 192);
+            this.btnClrAlarm.Location = new System.Drawing.Point(735, 72);
             this.btnClrAlarm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClrAlarm.Name = "btnClrAlarm";
             this.btnClrAlarm.Size = new System.Drawing.Size(133, 45);
@@ -2876,7 +2882,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // tePLimit
             // 
-            this.tePLimit.Location = new System.Drawing.Point(581, 206);
+            this.tePLimit.Location = new System.Drawing.Point(223, 199);
             this.tePLimit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tePLimit.Name = "tePLimit";
             this.tePLimit.Properties.ReadOnly = true;
@@ -2885,7 +2891,7 @@ namespace ControlPanelClsLib.Manual
             // 
             // teNLimit
             // 
-            this.teNLimit.Location = new System.Drawing.Point(435, 206);
+            this.teNLimit.Location = new System.Drawing.Point(77, 199);
             this.teNLimit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teNLimit.Name = "teNLimit";
             this.teNLimit.Properties.ReadOnly = true;
@@ -2946,7 +2952,7 @@ namespace ControlPanelClsLib.Manual
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(525, 210);
+            this.label29.Location = new System.Drawing.Point(167, 203);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(52, 15);
             this.label29.TabIndex = 111;
@@ -2955,7 +2961,7 @@ namespace ControlPanelClsLib.Manual
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(379, 210);
+            this.label26.Location = new System.Drawing.Point(21, 203);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(52, 15);
             this.label26.TabIndex = 111;
@@ -3545,7 +3551,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOven2Downtemp.Name = "seBakeOven2Downtemp";
             this.seBakeOven2Downtemp.Properties.AutoHeight = false;
             this.seBakeOven2Downtemp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOven2Downtemp.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Downtemp.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Downtemp.Properties.MaskSettings.Set("mask", "n0");
@@ -3567,7 +3573,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOvenVacuum.Name = "seBakeOvenVacuum";
             this.seBakeOvenVacuum.Properties.AutoHeight = false;
             this.seBakeOvenVacuum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions22, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject85, serializableAppearanceObject86, serializableAppearanceObject87, serializableAppearanceObject88, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOvenVacuum.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenVacuum.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenVacuum.Properties.MaskSettings.Set("mask", "n0");
@@ -3589,7 +3595,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOvenPressure.Name = "seBakeOvenPressure";
             this.seBakeOvenPressure.Properties.AutoHeight = false;
             this.seBakeOvenPressure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOvenPressure.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenPressure.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenPressure.Properties.MaskSettings.Set("mask", "n0");
@@ -3658,7 +3664,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOven2Vacuum.Name = "seBakeOven2Vacuum";
             this.seBakeOven2Vacuum.Properties.AutoHeight = false;
             this.seBakeOven2Vacuum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOven2Vacuum.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Vacuum.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Vacuum.Properties.MaskSettings.Set("mask", "n0");
@@ -3680,7 +3686,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOven2Pressure.Name = "seBakeOven2Pressure";
             this.seBakeOven2Pressure.Properties.AutoHeight = false;
             this.seBakeOven2Pressure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOven2Pressure.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Pressure.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOven2Pressure.Properties.MaskSettings.Set("mask", "n0");
@@ -3726,7 +3732,7 @@ namespace ControlPanelClsLib.Manual
             this.seBoxVacuum.Name = "seBoxVacuum";
             this.seBoxVacuum.Properties.AutoHeight = false;
             this.seBoxVacuum.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBoxVacuum.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxVacuum.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxVacuum.Properties.MaskSettings.Set("mask", "n0");
@@ -3748,7 +3754,7 @@ namespace ControlPanelClsLib.Manual
             this.seBoxPressure.Name = "seBoxPressure";
             this.seBoxPressure.Properties.AutoHeight = false;
             this.seBoxPressure.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions17, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject65, serializableAppearanceObject66, serializableAppearanceObject67, serializableAppearanceObject68, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions14, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject53, serializableAppearanceObject54, serializableAppearanceObject55, serializableAppearanceObject56, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBoxPressure.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxPressure.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxPressure.Properties.MaskSettings.Set("mask", "n0");
@@ -3877,7 +3883,7 @@ namespace ControlPanelClsLib.Manual
             this.seBakeOvenDowntemp.Name = "seBakeOvenDowntemp";
             this.seBakeOvenDowntemp.Properties.AutoHeight = false;
             this.seBakeOvenDowntemp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions18, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject69, serializableAppearanceObject70, serializableAppearanceObject71, serializableAppearanceObject72, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions15, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject57, serializableAppearanceObject58, serializableAppearanceObject59, serializableAppearanceObject60, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBakeOvenDowntemp.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenDowntemp.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBakeOvenDowntemp.Properties.MaskSettings.Set("mask", "n0");
@@ -3973,7 +3979,7 @@ namespace ControlPanelClsLib.Manual
             this.seBoxDewPoint.Name = "seBoxDewPoint";
             this.seBoxDewPoint.Properties.AutoHeight = false;
             this.seBoxDewPoint.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions19, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject73, serializableAppearanceObject74, serializableAppearanceObject75, serializableAppearanceObject76, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions16, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject61, serializableAppearanceObject62, serializableAppearanceObject63, serializableAppearanceObject64, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seBoxDewPoint.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxDewPoint.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seBoxDewPoint.Properties.MaskSettings.Set("mask", "n0");
@@ -4409,28 +4415,6 @@ namespace ControlPanelClsLib.Manual
             this.laBakeOven2InnerdoorUpDown.Size = new System.Drawing.Size(59, 54);
             this.laBakeOven2InnerdoorUpDown.TabIndex = 124;
             // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label81.Location = new System.Drawing.Point(481, 216);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(103, 54);
-            this.label81.TabIndex = 130;
-            this.label81.Text = "方舱冷凝泵挡板阀";
-            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label82.Location = new System.Drawing.Point(481, 162);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(103, 54);
-            this.label82.TabIndex = 131;
-            this.label82.Text = "压机";
-            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // laBoxCoarseExtractionValve
             // 
             this.laBoxCoarseExtractionValve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -4457,15 +4441,6 @@ namespace ControlPanelClsLib.Manual
             this.laBoxAerate.Name = "laBoxAerate";
             this.laBoxAerate.Size = new System.Drawing.Size(59, 54);
             this.laBoxAerate.TabIndex = 135;
-            // 
-            // laBoxPlugInValve
-            // 
-            this.laBoxPlugInValve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.laBoxPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laBoxPlugInValve.Location = new System.Drawing.Point(590, 216);
-            this.laBoxPlugInValve.Name = "laBoxPlugInValve";
-            this.laBoxPlugInValve.Size = new System.Drawing.Size(59, 54);
-            this.laBoxPlugInValve.TabIndex = 136;
             // 
             // label59
             // 
@@ -4583,15 +4558,6 @@ namespace ControlPanelClsLib.Manual
             this.label95.TabIndex = 146;
             this.label95.Text = "方舱补气阀";
             this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // laPressPressingDivide
-            // 
-            this.laPressPressingDivide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.laPressPressingDivide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.laPressPressingDivide.Location = new System.Drawing.Point(590, 162);
-            this.laPressPressingDivide.Name = "laPressPressingDivide";
-            this.laPressPressingDivide.Size = new System.Drawing.Size(59, 54);
-            this.laPressPressingDivide.TabIndex = 147;
             // 
             // laTowerRedLight
             // 
@@ -4784,36 +4750,6 @@ namespace ControlPanelClsLib.Manual
             this.chBakeOven2InnerdoorUpDown.TabIndex = 165;
             this.chBakeOven2InnerdoorUpDown.Tag = "OutputIO";
             this.chBakeOven2InnerdoorUpDown.UseVisualStyleBackColor = true;
-            // 
-            // chBoxPlugInValve
-            // 
-            this.chBoxPlugInValve.AutoSize = true;
-            this.chBoxPlugInValve.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chBoxPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chBoxPlugInValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chBoxPlugInValve.Location = new System.Drawing.Point(655, 218);
-            this.chBoxPlugInValve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chBoxPlugInValve.Name = "chBoxPlugInValve";
-            this.chBoxPlugInValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.chBoxPlugInValve.Size = new System.Drawing.Size(59, 50);
-            this.chBoxPlugInValve.TabIndex = 166;
-            this.chBoxPlugInValve.Tag = "OutputIO";
-            this.chBoxPlugInValve.UseVisualStyleBackColor = true;
-            // 
-            // chPressPressingDivide
-            // 
-            this.chPressPressingDivide.AutoSize = true;
-            this.chPressPressingDivide.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chPressPressingDivide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chPressPressingDivide.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chPressPressingDivide.Location = new System.Drawing.Point(655, 164);
-            this.chPressPressingDivide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chPressPressingDivide.Name = "chPressPressingDivide";
-            this.chPressPressingDivide.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.chPressPressingDivide.Size = new System.Drawing.Size(59, 50);
-            this.chPressPressingDivide.TabIndex = 167;
-            this.chPressPressingDivide.Tag = "OutputIO";
-            this.chPressPressingDivide.UseVisualStyleBackColor = true;
             // 
             // chBakeOven2PlugInValve
             // 
@@ -5258,10 +5194,110 @@ namespace ControlPanelClsLib.Manual
             this.chIOlocken.Tag = "OutputIO";
             this.chIOlocken.UseVisualStyleBackColor = true;
             // 
+            // chPressPressingDivide
+            // 
+            this.chPressPressingDivide.AutoSize = true;
+            this.chPressPressingDivide.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chPressPressingDivide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chPressPressingDivide.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chPressPressingDivide.Location = new System.Drawing.Point(655, 164);
+            this.chPressPressingDivide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chPressPressingDivide.Name = "chPressPressingDivide";
+            this.chPressPressingDivide.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chPressPressingDivide.Size = new System.Drawing.Size(59, 50);
+            this.chPressPressingDivide.TabIndex = 167;
+            this.chPressPressingDivide.Tag = "OutputIO";
+            this.chPressPressingDivide.UseVisualStyleBackColor = true;
+            // 
+            // chBoxPlugInValve
+            // 
+            this.chBoxPlugInValve.AutoSize = true;
+            this.chBoxPlugInValve.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chBoxPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chBoxPlugInValve.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chBoxPlugInValve.Location = new System.Drawing.Point(655, 218);
+            this.chBoxPlugInValve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chBoxPlugInValve.Name = "chBoxPlugInValve";
+            this.chBoxPlugInValve.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chBoxPlugInValve.Size = new System.Drawing.Size(59, 50);
+            this.chBoxPlugInValve.TabIndex = 166;
+            this.chBoxPlugInValve.Tag = "OutputIO";
+            this.chBoxPlugInValve.UseVisualStyleBackColor = true;
+            // 
+            // laPressPressingDivide
+            // 
+            this.laPressPressingDivide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laPressPressingDivide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laPressPressingDivide.Location = new System.Drawing.Point(590, 162);
+            this.laPressPressingDivide.Name = "laPressPressingDivide";
+            this.laPressPressingDivide.Size = new System.Drawing.Size(59, 54);
+            this.laPressPressingDivide.TabIndex = 147;
+            // 
+            // laBoxPlugInValve
+            // 
+            this.laBoxPlugInValve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laBoxPlugInValve.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.laBoxPlugInValve.Location = new System.Drawing.Point(590, 216);
+            this.laBoxPlugInValve.Name = "laBoxPlugInValve";
+            this.laBoxPlugInValve.Size = new System.Drawing.Size(59, 54);
+            this.laBoxPlugInValve.TabIndex = 136;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label82.Location = new System.Drawing.Point(481, 162);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(103, 54);
+            this.label82.TabIndex = 131;
+            this.label82.Text = "压机";
+            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label81.Location = new System.Drawing.Point(481, 216);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(103, 54);
+            this.label81.TabIndex = 130;
+            this.label81.Text = "方舱冷凝泵挡板阀";
+            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Updatetimer
             // 
             this.Updatetimer.Interval = 500;
             this.Updatetimer.Tick += new System.EventHandler(this.Updatetimer_Tick);
+            // 
+            // btnEnable
+            // 
+            this.btnEnable.Location = new System.Drawing.Point(735, 125);
+            this.btnEnable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEnable.Name = "btnEnable";
+            this.btnEnable.Size = new System.Drawing.Size(133, 45);
+            this.btnEnable.TabIndex = 137;
+            this.btnEnable.Text = "使能";
+            this.btnEnable.Click += new System.EventHandler(this.btnEnable_Click);
+            // 
+            // btnDisable
+            // 
+            this.btnDisable.Location = new System.Drawing.Point(936, 124);
+            this.btnDisable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDisable.Name = "btnDisable";
+            this.btnDisable.Size = new System.Drawing.Size(133, 45);
+            this.btnDisable.TabIndex = 138;
+            this.btnDisable.Text = "去使能";
+            this.btnDisable.Click += new System.EventHandler(this.btnDisable_Click);
+            // 
+            // btnReturnhome
+            // 
+            this.btnReturnhome.Location = new System.Drawing.Point(936, 19);
+            this.btnReturnhome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReturnhome.Name = "btnReturnhome";
+            this.btnReturnhome.Size = new System.Drawing.Size(133, 45);
+            this.btnReturnhome.TabIndex = 139;
+            this.btnReturnhome.Text = "回零点";
+            this.btnReturnhome.Click += new System.EventHandler(this.btnReturnhome_Click);
             // 
             // FrmIOtest
             // 
@@ -5699,5 +5735,8 @@ namespace ControlPanelClsLib.Manual
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label laIOlocken;
         private System.Windows.Forms.CheckBox chIOlocken;
+        private DevExpress.XtraEditors.SimpleButton btnDisable;
+        private DevExpress.XtraEditors.SimpleButton btnEnable;
+        private DevExpress.XtraEditors.SimpleButton btnReturnhome;
     }
 }

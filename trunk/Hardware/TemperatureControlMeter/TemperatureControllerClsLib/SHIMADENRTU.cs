@@ -1,6 +1,7 @@
 ﻿using ConfigurationClsLib;
 using GlobalDataDefineClsLib;
 using GlobalToolClsLib;
+using Modbus.Device;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -26,6 +27,8 @@ namespace TemperatureControllerClsLib
         private TemperatureControllerConfig _config = null;
         bool coms = false;
         public int PLCadd = 1;
+
+        ModbusRtuHelper modbusRtu = new ModbusRtuHelper();
 
         /// <summary>
         /// 串口信息
@@ -114,7 +117,7 @@ namespace TemperatureControllerClsLib
         /// <param name="Stopbits"></param>
         /// <param name="parity"></param>
         /// <returns></returns>
-        private int SerialConnect(string com, int baudrate = 38400, int Databits = 8, int Stopbits = 1, int parity = 0)
+        private int SerialConnect(string com, int baudrate = 38400, int Databits = 8, int Stopbits = 1, int parity = 0, int readTimeout = 1000, int writeTimeout = 1000)
         {
             PowerControl.PortName = com;//设置端口名
             PowerControl.BaudRate = baudrate;//设置波特率
@@ -146,6 +149,8 @@ namespace TemperatureControllerClsLib
                     PowerControl.Parity = Parity.Mark;
                     break;
             }
+            PowerControl.ReadTimeout = readTimeout;
+            PowerControl.WriteTimeout = writeTimeout;
 
             try
             {
@@ -155,12 +160,14 @@ namespace TemperatureControllerClsLib
                     coms = true;
                     //loop_back();
                     //PLC_state();
+                    modbusRtu.Connect(PowerControl);
                 }
                 else
                 {
                     //PowerControl.Close();//关闭串口
                     //PowerControl.Open();//打开串口
                     coms = true;
+                    modbusRtu.Connect(PowerControl);
                 }
             }
             catch
@@ -184,6 +191,7 @@ namespace TemperatureControllerClsLib
                 {
                     PowerControl.Close();//关闭串口
                     coms = false;
+                    modbusRtu.Disconnect();
                 }
             }
             catch
@@ -275,6 +283,41 @@ namespace TemperatureControllerClsLib
                 return false;
             }
         }
+
+        /// <summary>
+        /// 读取节点信息
+        /// </summary>
+        /// <param name="Add"></param>
+        /// <param name="num"></param>
+        private bool PCread(int PLCadd, int Add, int num, ref ushort[] Data0)
+        {
+            try
+            {
+                if (PowerControl.IsOpen)
+                {
+                    #region 新
+
+                    ushort[] Values = modbusRtu.ReadMultipleRegisters((byte)PLCadd, (ushort)Add, (ushort)num);
+
+                    Data0 = Values;
+
+                    return true;
+
+                    #endregion
+                }
+                else
+                {
+                    Data0 = null;
+                    return false;
+                }
+            }
+            catch
+            {
+                Data0 = null;
+                return false;
+            }
+        }
+
         /// <summary>
         /// 写入节点信息
         /// </summary>
@@ -379,6 +422,54 @@ namespace TemperatureControllerClsLib
             }
         }
 
+        /// <summary>
+        /// 写入节点信息
+        /// </summary>
+        /// <param name="Add"></param>
+        /// <param name="num"></param>
+        private bool PCwrite(int PLCadd, int Add, ushort Data)
+        {
+            try
+            {
+                if (PowerControl.IsOpen)
+                {
+                    int T = 0;
+                    while (DataModel.Instance.TemperatureIsReading)
+                    {
+                        T++;
+                        if (T > 100)
+                        {
+                            break;
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    }
+
+                    DataModel.Instance.TemperatureIsWriting = true;
+
+                    modbusRtu.WriteSingleRegister((byte)PLCadd, (ushort)Add, Data);
+
+                    DataModel.Instance.TemperatureIsWriting = false;
+
+                    return true;
+                }
+                else
+                {
+                    DataModel.Instance.TemperatureIsWriting = false;
+
+                    return false;
+                }
+            }
+            catch
+            {
+                DataModel.Instance.TemperatureIsWriting = false;
+                return false;
+            }
+            finally
+            {
+                DataModel.Instance.TemperatureIsWriting = false;
+            }
+        }
+
         private void PCwrites(int PLCadd, int Add, int[] Data)
         {
             try
@@ -450,24 +541,41 @@ namespace TemperatureControllerClsLib
         public bool Write(TemperatureRtuAdd Add,int value)
         {
             PLCadd = _config.ChannelNumber;
-            return PCwrite(PLCadd, (int)Add, value);
+            return PCwrite(PLCadd, (int)Add, (ushort)value);
 
         }
 
         public bool Read(TemperatureRtuAdd Add, ref int Data)
         {
             PLCadd = _config.ChannelNumber;
-            byte[] BTData = new byte[2];
+            //byte[] BTData = new byte[2];
+            //bool ret = PCread(PLCadd, (int)Add, 1, ref BTData);
+            //if (!ret)
+            //{
+            //    return false;
+            //}
+
+            //Data = ByteToInt(BTData);
+
+            ushort[] BTData = new ushort[2];
             bool ret = PCread(PLCadd, (int)Add, 1, ref BTData);
 
-            if(!ret)
+            if (!ret)
             {
                 return false;
             }
 
-            Data = ByteToInt(BTData);
+            if(BTData.Length > 0)
+            {
+                Data = BTData[0];
 
-            return true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
 
@@ -485,4 +593,93 @@ namespace TemperatureControllerClsLib
         }
 
     }
+
+
+    public class ModbusRtuHelper
+    {
+        private IModbusMaster _modbusMaster; // Modbus 主站对象  
+
+        /// <summary>  
+        /// 初始化并打开串口连接  
+        /// </summary>  
+        /// <param name="comPort">串口名称（如 "COM1"）</param>  
+        /// <param name="baudRate">波特率（如 9600）</param>  
+        public void Connect(SerialPort _serialPort)
+        {
+
+            _modbusMaster = ModbusSerialMaster.CreateRtu(_serialPort);
+
+            Console.WriteLine("串口连接成功！");
+        }
+
+        /// <summary>  
+        /// 关闭串口连接  
+        /// </summary>  
+        public void Disconnect()
+        {
+
+            _modbusMaster = null;
+            Console.WriteLine("串口已断开！");
+        }
+
+        /// <summary>  
+        /// 读取单个保持寄存器（Holding Register）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="registerAddress">寄存器地址</param>  
+        /// <returns>返回寄存器值</returns>  
+        public ushort ReadSingleRegister(byte slaveId, ushort registerAddress)
+        {
+            ushort[] result = _modbusMaster.ReadHoldingRegisters(slaveId, registerAddress, 1);
+            return result[0];
+        }
+
+        /// <summary>  
+        /// 读取多个保持寄存器（Holding Registers）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="startAddress">起始寄存器地址</param>  
+        /// <param name="numberOfPoints">读取的寄存器数量</param>  
+        /// <returns>返回寄存器值数组</returns>  
+        public ushort[] ReadMultipleRegisters(byte slaveId, ushort startAddress, ushort numberOfPoints)
+        {
+            return _modbusMaster.ReadHoldingRegisters(slaveId, startAddress, numberOfPoints);
+        }
+
+        /// <summary>  
+        /// 写入单个保持寄存器（Holding Register）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="registerAddress">寄存器地址</param>  
+        /// <param name="value">要写入的值</param>  
+        public void WriteSingleRegister(byte slaveId, ushort registerAddress, ushort value)
+        {
+            try
+            {
+                _modbusMaster.WriteSingleRegister(slaveId, registerAddress, value);
+            }
+            catch (TimeoutException)
+            {
+                Console.WriteLine("操作超时：从站未响应！");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"写入失败：{ex.Message}");
+            }
+
+        }
+
+        /// <summary>  
+        /// 写入多个保持寄存器（Holding Registers）  
+        /// </summary>  
+        /// <param name="slaveId">从站 ID</param>  
+        /// <param name="startAddress">起始寄存器地址</param>  
+        /// <param name="values">要写入的值数组</param>  
+        public void WriteMultipleRegisters(byte slaveId, ushort startAddress, ushort[] values)
+        {
+            _modbusMaster.WriteMultipleRegisters(slaveId, startAddress, values);
+        }
+    }
+
+
 }

@@ -159,6 +159,10 @@
       <Project>{633B7024-D607-496E-9800-84284C801D06}</Project>
       <Name>RecipeClsLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Control\UserManagement\UserManagerClsLib\UserManagerClsLib.csproj">
+      <Project>{4F1D22B7-79A4-49DF-8DB4-4057CABC6329}</Project>
+      <Name>UserManagerClsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Control\Vision\VisionControlAppClsLib\VisionControlAppClsLib.csproj">
       <Project>{711b610c-1195-4191-b240-e28a39f27a42}</Project>
       <Name>VisionControlAppClsLib</Name>

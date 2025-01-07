@@ -48,6 +48,7 @@ namespace GlobalToolClsLib
         private int weldMaterialNumber = 0;
         private int pressWorkNumber = 0;
         private int equipmentOperatingTime = 0;
+        private int thisequipmentOperatingTime = 0;
 
         private bool run = false;
         private bool error = false;
@@ -645,6 +646,21 @@ namespace GlobalToolClsLib
             }
         }
 
+        /// <summary>
+        /// 本次设备运行时间 分钟
+        /// </summary>
+        public int ThisEquipmentOperatingTime
+        {
+            get { return thisequipmentOperatingTime; }
+            set
+            {
+                if (thisequipmentOperatingTime != value)
+                {
+                    thisequipmentOperatingTime = value;
+                    OnPropertyChanged(nameof(ThisEquipmentOperatingTime));
+                }
+            }
+        }
 
         /// <summary>
         /// 运行状态

@@ -923,6 +923,8 @@ namespace SystemCalibrationClsLib
         {
             bool Done = false;
 
+            bool Axis5 = false, Axis4 = false;
+
             int result1 = ShowMessageAsync("动作确认", "升降轴是否回原点", "提示");
             if (result1 == 1)
             {
@@ -1116,182 +1118,198 @@ namespace SystemCalibrationClsLib
                     }
                 }
 
+
+                Axis5 = true;
+
             }
             else
             {
                 
             }
 
-            result1 = ShowMessageAsync("动作确认", "物料4轴是否回原点", "提示");
-            if (result1 == 1)
+            if(Axis5)
             {
-                Done = false;
-
-                while (!Done)
+                result1 = ShowMessageAsync("动作确认", "物料4轴是否回原点", "提示");
+                if (result1 == 1)
                 {
-                    Done = AxisHome(EnumStageAxis.MaterialY);
-                    if (Done)
+                    Done = false;
+
+                    while (!Done)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        result1 = ShowMessageAsync("动作确认", "物料4轴Y轴回原点失败，请重新初始化轴，重新回原点", "提示");
-                        if (result1 == 1)
+                        Done = AxisHome(EnumStageAxis.MaterialY);
+                        if (Done)
                         {
-                            AxisClrAlarm(EnumStageAxis.MaterialY);
-
-                            AxisEnable(EnumStageAxis.MaterialY);
-
+                            break;
                         }
                         else
                         {
-                            return false;
+                            result1 = ShowMessageAsync("动作确认", "物料4轴Y轴回原点失败，请重新初始化轴，重新回原点", "提示");
+                            if (result1 == 1)
+                            {
+                                AxisClrAlarm(EnumStageAxis.MaterialY);
+
+                                AxisEnable(EnumStageAxis.MaterialY);
+
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
-                }
 
-                Done = false;
+                    Done = false;
 
-                while (!Done)
-                {
-                    Done = AxisHome(EnumStageAxis.MaterialX);
-                    if (Done)
+                    while (!Done)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        result1 = ShowMessageAsync("动作确认", "物料4轴X轴回原点失败，请重新初始化轴，重新回原点", "提示");
-                        if (result1 == 1)
+                        Done = AxisHome(EnumStageAxis.MaterialX);
+                        if (Done)
                         {
-                            AxisClrAlarm(EnumStageAxis.MaterialX);
-
-                            AxisEnable(EnumStageAxis.MaterialX);
-
+                            break;
                         }
                         else
                         {
-                            return false;
+                            result1 = ShowMessageAsync("动作确认", "物料4轴X轴回原点失败，请重新初始化轴，重新回原点", "提示");
+                            if (result1 == 1)
+                            {
+                                AxisClrAlarm(EnumStageAxis.MaterialX);
+
+                                AxisEnable(EnumStageAxis.MaterialX);
+
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
-                }
 
-                Done = false;
+                    Done = false;
 
-                while (!Done)
-                {
-                    Done = AxisHome(EnumStageAxis.MaterialZ);
-                    if (Done)
+                    while (!Done)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        result1 = ShowMessageAsync("动作确认", "物料4轴Z轴回原点失败，请重新初始化轴，重新回原点", "提示");
-                        if (result1 == 1)
+                        Done = AxisHome(EnumStageAxis.MaterialZ);
+                        if (Done)
                         {
-                            AxisClrAlarm(EnumStageAxis.MaterialZ);
-
-                            AxisEnable(EnumStageAxis.MaterialZ);
-
+                            break;
                         }
                         else
                         {
-                            return false;
+                            result1 = ShowMessageAsync("动作确认", "物料4轴Z轴回原点失败，请重新初始化轴，重新回原点", "提示");
+                            if (result1 == 1)
+                            {
+                                AxisClrAlarm(EnumStageAxis.MaterialZ);
+
+                                AxisEnable(EnumStageAxis.MaterialZ);
+
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
-                }
 
 
-                Done = false;
+                    Done = false;
 
-                while (!Done)
-                {
-                    Done = AxisHome(EnumStageAxis.MaterialHook);
-                    if (Done)
+                    while (!Done)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        result1 = ShowMessageAsync("动作确认", "物料4轴夹爪轴回原点失败，请重新初始化轴，重新回原点", "提示");
-                        if (result1 == 1)
+                        Done = AxisHome(EnumStageAxis.MaterialHook);
+                        if (Done)
                         {
-                            AxisClrAlarm(EnumStageAxis.MaterialHook);
-
-                            AxisEnable(EnumStageAxis.MaterialHook);
-
+                            break;
                         }
                         else
                         {
-                            return false;
+                            result1 = ShowMessageAsync("动作确认", "物料4轴夹爪轴回原点失败，请重新初始化轴，重新回原点", "提示");
+                            if (result1 == 1)
+                            {
+                                AxisClrAlarm(EnumStageAxis.MaterialHook);
+
+                                AxisEnable(EnumStageAxis.MaterialHook);
+
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
+                    }
+
+                    Axis4 = true;
+                }
+                else
+                {
+
+                }
+            }
+           
+
+            if(Axis4)
+            {
+                result1 = ShowMessageAsync("动作确认", "物料4轴是否回空闲位置", "提示");
+                if (result1 == 1)
+                {
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialZ, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.Z);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "物料4轴Z轴移动到空闲位置失败", "警告");
+                        return false;
+                    }
+
+                    Thread.Sleep(5000);
+
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialX, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.X);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "物料4轴X轴移动到空闲位置失败", "警告");
+                        return false;
+                    }
+
+                    Thread.Sleep(5000);
+
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialY, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.Y);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "物料4轴Y轴移动到空闲位置失败", "警告");
+                        return false;
+                    }
+
+                    Thread.Sleep(5000);
+
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialHook, SystemConfiguration.Instance.PositioningConfig.MaterialhookHookSafeLocation);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "物料4轴夹爪轴移动到空闲位置失败", "警告");
+                        return false;
+                    }
+                }
+
+
+            }
+
+            if(Axis5)
+            {
+                result1 = ShowMessageAsync("动作确认", "料盒5轴是否回空闲位置", "提示");
+                if (result1 == 1)
+                {
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxX, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookSafeLocation.X);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "料盒5轴X轴移动到空闲位置失败", "警告");
+                        return false;
+                    }
+
+                    Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxHook, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookHookSafeLocation);
+                    if (!Done)
+                    {
+                        ShowMessageAsync("移动失败", "料盒5轴夹爪轴移动到空闲位置失败", "警告");
+                        return false;
                     }
                 }
             }
-            else
-            {
-
-            }
-
-            result1 = ShowMessageAsync("动作确认", "物料4轴是否回空闲位置", "提示");
-            if (result1 == 1)
-            {
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialZ, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.Z);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "物料4轴Z轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-
-                Thread.Sleep(5000);
-
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialX, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.X);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "物料4轴X轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-
-                Thread.Sleep(5000);
-
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialY, SystemConfiguration.Instance.PositioningConfig.MaterialhookSafeLocation.Y);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "物料4轴Y轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-
-                Thread.Sleep(5000);
-
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialHook, SystemConfiguration.Instance.PositioningConfig.MaterialhookHookSafeLocation);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "物料4轴夹爪轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-            }
-
-                
-
-            result1 = ShowMessageAsync("动作确认", "料盒5轴是否回空闲位置", "提示");
-            if (result1 == 1)
-            {
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxX, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookSafeLocation.X);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "料盒5轴X轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-
-                Done = AxisAbsoluteMove(EnumStageAxis.MaterialboxHook, SystemConfiguration.Instance.PositioningConfig.MaterialBoxhookHookSafeLocation);
-                if (!Done)
-                {
-                    ShowMessageAsync("移动失败", "料盒5轴夹爪轴移动到空闲位置失败", "警告");
-                    return false;
-                }
-            }
+            
 
             return Done;
         }

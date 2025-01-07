@@ -1578,6 +1578,27 @@ namespace ControlPanelClsLib.Manual
             _positionSystem.DisableAlarmLimit(curActiveAxis);
         }
 
+        private void btnReturnhome_Click(object sender, EventArgs e)
+        {
+            Task.Run(new Action(Home));
+            
+        }
+
+        private void Home()
+        {
+            _positionSystem.Home(curActiveAxis);
+        }
+
+        private void btnEnable_Click(object sender, EventArgs e)
+        {
+            _positionSystem.Enable(curActiveAxis);
+        }
+
+        private void btnDisable_Click(object sender, EventArgs e)
+        {
+            _positionSystem.Disable(curActiveAxis);
+        }
+
         private void chOutputIO_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
@@ -1838,5 +1859,7 @@ namespace ControlPanelClsLib.Manual
             DataModel.Instance.PropertyChanged -= DataModel_PropertyChanged;
             e.Cancel = false;
         }
+
+        
     }
 }

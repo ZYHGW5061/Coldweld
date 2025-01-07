@@ -199,6 +199,12 @@
     <Compile Include="Recipe\FrmMaterialBoxRecipeEditor.designer.cs">
       <DependentUpon>FrmMaterialBoxRecipeEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recipe\FrmFixtureRecipeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\FrmFixtureRecipeEditor.designer.cs">
+      <DependentUpon>FrmFixtureRecipeEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recipe\FrmMaterialRecipeEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recipe\FrmMaterialBoxRecipeEditor.resx">
       <DependentUpon>FrmMaterialBoxRecipeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\FrmFixtureRecipeEditor.resx">
+      <DependentUpon>FrmFixtureRecipeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recipe\FrmMaterialRecipeEditor.resx">
       <DependentUpon>FrmMaterialRecipeEditor.cs</DependentUpon>

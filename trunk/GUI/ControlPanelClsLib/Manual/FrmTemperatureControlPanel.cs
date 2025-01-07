@@ -23,6 +23,8 @@ namespace ControlPanelClsLib
     {
         private SynchronizationContext _syncContext;
 
+        private BackgroundWorker backgroundWorker;
+
         private SystemConfiguration _systemConfig
         {
             get { return SystemConfiguration.Instance; }
@@ -58,6 +60,12 @@ namespace ControlPanelClsLib
             laHeat2.BackColor = (DataModel.Instance.BakeOven2AutoHeat ? true : false) ? Color.Red : Color.GreenYellow;
 
             seInsulatedMinutes2.Value = (decimal)(DataModel.Instance.HeatPreservationResidueMinute2);
+
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += BackgroundWorker_DoWork;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
+            backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
 
         }
 
@@ -118,10 +126,99 @@ namespace ControlPanelClsLib
 
         }
 
+
+        private void StartTask(string taskName)
+        {
+            if (!backgroundWorker.IsBusy)
+            {
+                backgroundWorker.RunWorkerAsync(taskName);
+            }
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string taskName = e.Argument as string;
+
+            // 根据参数执行不同的任务  
+            if (taskName == "Heat1")
+            {
+                float BakeOvenTargettemp = float.Parse(seTargetTemp.Text);
+                _systemConfig.OvenBoxConfig.HeatTargetTemperature = (int)BakeOvenTargettemp;
+
+                float BakeOvenAlarmtemp = float.Parse(seOverTemperatureThreshold.Text);
+                _systemConfig.OvenBoxConfig.OverTemperatureThreshold = (int)BakeOvenAlarmtemp;
+
+                short BakeOvenHoldingTimeM = short.Parse(seHeatPreservationMinute.Text);
+                _systemConfig.OvenBoxConfig.HeatPreservationMinute = (int)BakeOvenHoldingTimeM;
+
+
+                _plc.ManualHeat(EnumOvenBoxNum.Oven1, _systemConfig.OvenBoxConfig.HeatTargetTemperature, _systemConfig.OvenBoxConfig.HeatPreservationMinute, _systemConfig.OvenBoxConfig.OverTemperatureThreshold);
+            }
+            else if (taskName == "StopHeat1")
+            {
+                _plc.StopManualHeat();
+            }
+            else if(taskName == "SelfTuning1")
+            {
+                if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).IsConnect)
+                {
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)seTargetTemp.Value * 10);
+
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.RUN, 1);
+
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.AT, 1);
+
+                }
+            }
+            else if (taskName == "Heat2")
+            {
+                float BakeOvenTargettemp = float.Parse(seTargetTemp2.Text);
+                _systemConfig.OvenBoxConfig.HeatTargetTemperature = (int)BakeOvenTargettemp;
+
+                float BakeOvenAlarmtemp = float.Parse(seOverTemperatureThreshold2.Text);
+                _systemConfig.OvenBoxConfig.OverTemperatureThreshold = (int)BakeOvenAlarmtemp;
+
+                short BakeOvenHoldingTimeM = short.Parse(seHeatPreservationMinute2.Text);
+                _systemConfig.OvenBoxConfig.HeatPreservationMinute = (int)BakeOvenHoldingTimeM;
+
+
+                _plc.ManualHeat2(EnumOvenBoxNum.Oven2, _systemConfig.OvenBoxConfig.HeatTargetTemperature, _systemConfig.OvenBoxConfig.HeatPreservationMinute, _systemConfig.OvenBoxConfig.OverTemperatureThreshold);
+            }
+            else if (taskName == "StopHeat2")
+            {
+                _plc.StopManualHeat2();
+            }
+            else if (taskName == "SelfTuning2")
+            {
+                if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).IsConnect)
+                {
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)seTargetTemp2.Value * 10);
+
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.RUN, 1);
+
+                    _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.AT, 1);
+
+                }
+            }
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("任务完成!");
+        }
+
+        private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // 更新UI进度  
+            Console.WriteLine($"进度: {e.ProgressPercentage}%");
+        }
+
         private void btnHeat_Click(object sender, EventArgs e)
         {
             try
             {
+                //StartTask("Heat1");
+
                 float BakeOvenTargettemp = float.Parse(seTargetTemp.Text);
                 _systemConfig.OvenBoxConfig.HeatTargetTemperature = (int)BakeOvenTargettemp;
 
@@ -144,8 +241,9 @@ namespace ControlPanelClsLib
         {
             try
             {
-                _plc.StopManualHeat();
+                //StartTask("StopHeat1");
 
+                _plc.StopManualHeat();
             }
             catch
             {
@@ -157,6 +255,8 @@ namespace ControlPanelClsLib
         {
             try
             {
+                //StartTask("SelfTuning1");
+
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).IsConnect)
                 {
                     _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox1Low).Write(TemperatureRtuAdd.FIX_SV1, (int)seTargetTemp.Value * 10);
@@ -178,6 +278,8 @@ namespace ControlPanelClsLib
         {
             try
             {
+                //StartTask("Heat2");
+
                 float BakeOvenTargettemp = float.Parse(seTargetTemp2.Text);
                 _systemConfig.OvenBoxConfig.HeatTargetTemperature = (int)BakeOvenTargettemp;
 
@@ -189,6 +291,7 @@ namespace ControlPanelClsLib
 
 
                 _plc.ManualHeat2(EnumOvenBoxNum.Oven2, _systemConfig.OvenBoxConfig.HeatTargetTemperature, _systemConfig.OvenBoxConfig.HeatPreservationMinute, _systemConfig.OvenBoxConfig.OverTemperatureThreshold);
+
             }
             catch
             {
@@ -200,6 +303,8 @@ namespace ControlPanelClsLib
         {
             try
             {
+                //StartTask("StopHeat2");
+
                 _plc.StopManualHeat2();
 
             }
@@ -213,6 +318,8 @@ namespace ControlPanelClsLib
         {
             try
             {
+                //StartTask("SelfTuning2");
+
                 if (_TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).IsConnect)
                 {
                     _TemperatureControllerManager.GetTemperatureController(EnumTemperatureType.OvenBox2Low).Write(TemperatureRtuAdd.FIX_SV1, (int)seTargetTemp2.Value * 10);
