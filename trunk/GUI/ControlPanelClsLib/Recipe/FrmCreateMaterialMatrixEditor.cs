@@ -101,11 +101,11 @@ namespace ControlPanelClsLib
                             for (int j = 0; j < columnIndex; j++)
                             {
                                 if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Welded)
-                                    dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.Green;
+                                    dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Green;
                                 if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Jumping)
-                                    dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.Red;
+                                    dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Red;
                                 if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Unwelded)
-                                    dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.White;
+                                    dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.White;
                             }
                         }
                         foreach (DataGridViewColumn column in dataGridView1.Columns)
@@ -151,11 +151,11 @@ namespace ControlPanelClsLib
                         for (int j = 0; j < columnIndex; j++)
                         {
                             if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Welded)
-                                dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.Green;
+                                dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Green;
                             if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Jumping)
-                                dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.Red;
+                                dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Red;
                             if (Materialproperties[i][j].Materialstate == EnumMaterialstate.Unwelded)
-                                dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.White;
+                                dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.White;
                         }
                     }
                     
@@ -182,18 +182,18 @@ namespace ControlPanelClsLib
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 检查是否点击了有效的单元格（非标题行和列）
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                var cell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                cell.Style.BackColor = cell.Style.BackColor == Color.Red ? Color.White : Color.Red;
+            //// 检查是否点击了有效的单元格（非标题行和列）
+            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            //{
+            //    var cell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            //    cell.Style.BackColor = cell.Style.BackColor == Color.Red ? Color.White : Color.Red;
 
-                Materialproperties[e.RowIndex][e.ColumnIndex].Materialstate = Materialproperties[e.RowIndex][e.ColumnIndex].Materialstate == EnumMaterialstate.Jumping ? EnumMaterialstate.Unwelded : EnumMaterialstate.Jumping;
+            //    Materialproperties[e.RowIndex][e.ColumnIndex].Materialstate = Materialproperties[e.RowIndex][e.ColumnIndex].Materialstate == EnumMaterialstate.Jumping ? EnumMaterialstate.Unwelded : EnumMaterialstate.Jumping;
 
-                dataGridView1.ClearSelection();
-                dataGridView1.CurrentCell = null;
-                dataGridView1.FirstDisplayedCell = null;
-            }
+            //    dataGridView1.ClearSelection();
+            //    dataGridView1.CurrentCell = null;
+            //    dataGridView1.FirstDisplayedCell = null;
+            //}
         }
 
         public void SetDataGridView_Color(int rowIndex, int columnIndex, int COLOR)
@@ -282,6 +282,87 @@ namespace ControlPanelClsLib
             InitMatrix(materialMat);
             this.ShowDialog();
             return theClickButton;
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            //// 遍历所有选中的单元格  
+            //foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+            //{
+            //    // 取反颜色  
+            //    if (cell.Style.BackColor == Color.Red)
+            //    {
+            //        cell.Style.BackColor = Color.White;
+            //        // 更新 Materialstate 状态  
+            //        Materialproperties[cell.RowIndex][cell.ColumnIndex].Materialstate = EnumMaterialstate.Unwelded;
+            //    }
+            //    else
+            //    {
+            //        cell.Style.BackColor = Color.Red;
+            //        // 更新 Materialstate 状态  
+            //        Materialproperties[cell.RowIndex][cell.ColumnIndex].Materialstate = EnumMaterialstate.Jumping;
+            //    }
+            //}
+
+            //// 清除选择状态  
+            //dataGridView1.ClearSelection();
+        }
+
+        private int startRowIndex = -1;
+        private int startColumnIndex = -1;
+
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 获取鼠标按下时的单元格位置  
+            var hitTestInfo = dataGridView1.HitTest(e.X, e.Y);
+            if (hitTestInfo.RowIndex >= 0 && hitTestInfo.ColumnIndex >= 0)
+            {
+                startRowIndex = hitTestInfo.RowIndex;
+                startColumnIndex = hitTestInfo.ColumnIndex;
+            }
+            // 清除选择状态  
+            dataGridView1.ClearSelection();
+        }
+
+        private void dataGridView1_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 获取鼠标抬起时的单元格位置  
+            var hitTestInfo = dataGridView1.HitTest(e.X, e.Y);
+            if (hitTestInfo.RowIndex >= 0 && hitTestInfo.ColumnIndex >= 0)
+            {
+                int endRowIndex = hitTestInfo.RowIndex;
+                int endColumnIndex = hitTestInfo.ColumnIndex;
+
+                // 计算矩形区域的起点和终点  
+                int startRow = Math.Min(startRowIndex, endRowIndex);
+                int endRow = Math.Max(startRowIndex, endRowIndex);
+                int startCol = Math.Min(startColumnIndex, endColumnIndex);
+                int endCol = Math.Max(startColumnIndex, endColumnIndex);
+
+                // 遍历矩形区域内的所有单元格并取反颜色  
+                for (int row = startRow; row <= endRow; row++)
+                {
+                    for (int col = startCol; col <= endCol; col++)
+                    {
+                        var cell = dataGridView1[col, row];
+                        if (cell.Style.BackColor == Color.Red)
+                        {
+                            cell.Style.BackColor = Color.White;
+                            // 更新 Materialstate 状态  
+                            Materialproperties[row][col].Materialstate = EnumMaterialstate.Unwelded;
+                        }
+                        else
+                        {
+                            cell.Style.BackColor = Color.Red;
+                            // 更新 Materialstate 状态  
+                            Materialproperties[row][col].Materialstate = EnumMaterialstate.Jumping;
+                        }
+                    }
+                }
+
+                // 清除选择状态  
+                dataGridView1.ClearSelection();
+            }
         }
     }
 

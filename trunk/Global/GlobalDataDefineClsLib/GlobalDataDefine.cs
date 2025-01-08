@@ -1449,9 +1449,9 @@ namespace GlobalDataDefineClsLib
                     {
                         double X = (MaterialRowNumber - 1) / 2 - i;
                         double Y = (MaterialColNumber - 1) / 2 - j;
-                        double Qx = Firstxyz.X + X * MaterialArrayQxX + Y * MaterialArrayQxY ;
-                        double Qy = Firstxyz.Y + X * MaterialArrayQyX + Y * MaterialArrayQyY;
-                        double Qz = Firstxyz.Z + X * MaterialArrayQzX + Y * MaterialArrayQzY;
+                        double Qx = Firstxyz.X + X * MaterialArrayQxX / 20 * MaterialRowinterval + Y * MaterialArrayQxY / 20 * MaterialColinterval;
+                        double Qy = Firstxyz.Y + X * MaterialArrayQyX / 20 * MaterialRowinterval + Y * MaterialArrayQyY / 20 * MaterialColinterval;
+                        double Qz = Firstxyz.Z + X * MaterialArrayQzX / 20 * MaterialRowinterval + Y * MaterialArrayQzY / 20 * MaterialColinterval;
 
                         double X0 = Qx;
 
